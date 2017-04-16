@@ -30,3 +30,12 @@ LAUNCH_ACTION_FUNCTION "install_component"
 END
 
 
+BEGIN "Enforce Druid Item Restrictions"
+GROUP "Rule Tweaks"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "druid_item_restrictions"
+END
+
+
