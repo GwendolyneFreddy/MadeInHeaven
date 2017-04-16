@@ -1,0 +1,43 @@
+DEFINE_ACTION_FUNCTION install_component
+BEGIN
+  ACTION_IF NOT FILE_EXISTS "override/%component_name%.mih"
+  BEGIN
+    PRINT "Installing component %component_name%...."
+
+
+    // File to detect this component.
+
+    COPY "%MOD_FOLDER%/dummy.mih" "override/%component_name%.mih"
+
+
+    // Load translation file if it exists.
+
+    ACTION_IF FILE_EXISTS "%LANGUAGE%/%component_name%/setup.tra"
+    BEGIN
+      PRINT "Loading translations from %LANGUAGE%/%component_name%/setup.tra"
+
+      LOAD_TRA "%LANGUAGE%/%component_name%/setup.tra"
+    END
+    ELSE
+
+
+    // Run command file, or fail if it's missing.
+
+    ACTION_IF FILE_EXISTS "%MOD_FOLDER%/%component_name%/setup.tpa"
+    BEGIN
+      PRINT "Executing command file %MOD_FOLDER%/%component_name%/setup.tpa"
+
+      INCLUDE "%MOD_FOLDER%/%component_name%/setup.tpa"
+    END
+    ELSE
+    BEGIN
+      FAIL "Command file %MOD_FOLDER%/%component_name%/setup.tpa not found!"
+    END
+  END
+  ELSE
+  BEGIN
+    PRINT "Component %component_name% already installed, skipping..."
+  END
+END
+
+

@@ -1,0 +1,23 @@
+BACKUP "mih/backup"
+AUTHOR "angel@pearlgates.net"
+
+VERSION "1"
+
+ASK_EVERY_COMPONENT
+NO_IF_EVAL_BUG
+AUTO_EVAL_STRINGS
+
+ALWAYS
+  INCLUDE "%MOD_FOLDER%/lib/install.tph" 
+END	// ALWAYS block
+
+
+BEGIN "Wear Protection Items with Magical Armor"
+GROUP "Rule Tweaks"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "less_strict_item_exclude"
+END
+
+
