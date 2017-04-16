@@ -1,0 +1,180 @@
+// Stat Bonuses start at 12
+//
+// This patches various 2da tables to make it so that a character's
+// stats start giving bonuses when a stat is 12 or higher, instead
+// of 16 or higher.
+
+
+// Strength: strmod.2da & strmodex.2da
+
+PRINT "Patching strmod.2da"
+
+COPY_EXISTING "strmod.2da" "override"
+  COUNT_2DA_COLS cols
+  COUNT_2DA_ROWS cols rows
+
+  READ_2DA_ENTRIES_NOW __read_strmod cols
+
+  FOR (i = 0; i < rows; ++i)
+  BEGIN
+    READ_2DA_ENTRY_FORMER __read_strmod i 0 stat
+
+    PATCH_IF (stat >= 12)
+    BEGIN
+      SET_2DA_ENTRY_LATER __set_strmod i 1 ((stat - 11) / 2)
+      SET_2DA_ENTRY_LATER __set_strmod i 2 ((stat - 10) / 2)
+    END
+  END
+
+  SET_2DA_ENTRIES_NOW __set_strmod cols
+  PRETTY_PRINT_2DA
+
+  BUT_ONLY_IF_IT_CHANGES
+
+
+COPY_EXISTING "strmodex.2da" "override"
+  COUNT_2DA_COLS cols
+  COUNT_2DA_ROWS cols rows
+
+  READ_2DA_ENTRIES_NOW __read_strmodex cols
+
+  FOR (i = 0; i < rows; ++i)
+  BEGIN
+    READ_2DA_ENTRY_FORMER __read_strmodex i 0 proc
+
+    SET_2DA_ENTRY_LATER __set_strmodex i 1 ((proc - 25) / 50)
+    SET_2DA_ENTRY_LATER __set_strmodex i 2 (proc / 50)
+  END
+
+  SET_2DA_ENTRIES_NOW __set_strmodex cols
+  PRETTY_PRINT_2DA
+
+  BUT_ONLY_IF_IT_CHANGES
+
+
+// Dexterity: dexmod.2da
+
+PRINT "Patching dexmod.2da"
+
+COPY_EXISTING "dexmod.2da" "override"
+  COUNT_2DA_COLS cols
+  COUNT_2DA_ROWS cols rows
+
+  READ_2DA_ENTRIES_NOW __read_dexmod cols
+
+  FOR (i = 0; i < rows; ++i)
+  BEGIN
+    READ_2DA_ENTRY_FORMER __read_dexmod i 0 stat
+
+    PATCH_IF (stat >= 12)
+    BEGIN
+      SET_2DA_ENTRY_LATER __set_dexmod i 1 ((stat - 9) / 3)
+      SET_2DA_ENTRY_LATER __set_dexmod i 2 ((stat - 10) / 3)
+      SET_2DA_ENTRY_LATER __set_dexmod i 3 (0 - (stat - 11) / 3)
+    END
+  END
+
+  SET_2DA_ENTRIES_NOW __set_dexmod cols
+  PRETTY_PRINT_2DA
+
+  BUT_ONLY_IF_IT_CHANGES
+
+
+// Constitution: hpconbon.2da
+
+PRINT "Patching hpconbon.2da"
+
+COPY_EXISTING "hpconbon.2da" "override"
+  COUNT_2DA_COLS cols
+  COUNT_2DA_ROWS cols rows
+
+  READ_2DA_ENTRIES_NOW __read_hpconbon cols
+
+  FOR (i = 0; i < rows; ++i)
+  BEGIN
+    READ_2DA_ENTRY_FORMER __read_hpconbon i 0 stat
+
+    PATCH_IF (stat >= 12)
+    BEGIN
+      SET_2DA_ENTRY_LATER __set_hpconbon i 1 ((stat - 10) / 2)
+      SET_2DA_ENTRY_LATER __set_hpconbon i 2 ((stat - 11) / 2)
+    END
+  END
+
+  SET_2DA_ENTRIES_NOW __set_hpconbon cols
+  PRETTY_PRINT_2DA
+
+  BUT_ONLY_IF_IT_CHANGES
+
+
+// Wisdom: mxsplwis.2da
+
+PRINT "Patching mxsplwis.2da"
+
+COPY_EXISTING "mxsplwis.2da" "override"
+  // Append missing line for stat 12
+  REPLACE_TEXTUALLY CASE_INSENSITIVE EVALUATE_REGEXP "^13" "12   0    0    0    0    0    0    0
+13"
+
+  COUNT_2DA_COLS cols
+  COUNT_2DA_ROWS cols rows
+
+  READ_2DA_ENTRIES_NOW __read_mxsplwis cols
+
+  FOR (i = 0; i < rows; ++i)
+  BEGIN
+    READ_2DA_ENTRY_FORMER __read_mxsplwis i 0 stat
+
+    PATCH_IF (stat >= 12)
+    BEGIN
+      SET_2DA_ENTRY_LATER __set_mxsplwis i 1 ((stat - 8) / 4)
+      SET_2DA_ENTRY_LATER __set_mxsplwis i 2 ((stat - 9) / 4)
+      SET_2DA_ENTRY_LATER __set_mxsplwis i 3 ((stat - 10) / 4)
+      SET_2DA_ENTRY_LATER __set_mxsplwis i 4 ((stat - 11) / 4)
+      SET_2DA_ENTRY_LATER __set_mxsplwis i 5 ((stat - 12) / 4)
+      SET_2DA_ENTRY_LATER __set_mxsplwis i 6 ((stat - 13) / 4)
+      SET_2DA_ENTRY_LATER __set_mxsplwis i 7 ((stat - 14) / 4)
+    END
+  END
+
+  SET_2DA_ENTRIES_NOW __set_mxsplwis cols
+  PRETTY_PRINT_2DA
+
+  BUT_ONLY_IF_IT_CHANGES
+
+
+// Charisma: chrmodst.2da & rmodchr.2da
+
+
+PRINT "Patching chrmodst.2da"
+
+COPY_EXISTING "chrmodst.2da" "override"
+  COUNT_2DA_COLS cols
+
+  FOR (i = 12; i < cols; ++i)
+  BEGIN
+    SET_2DA_ENTRY_LATER __set_chrmodst 0 i (0 - (i - 11) * 2)
+  END
+
+  SET_2DA_ENTRIES_NOW __set_chrmodst cols
+  PRETTY_PRINT_2DA
+
+  BUT_ONLY_IF_IT_CHANGES
+
+
+PRINT "Patching rmodchr.2da"
+
+COPY_EXISTING "rmodchr.2da" "override"
+  COUNT_2DA_COLS cols
+
+  FOR (i = 12; i < cols; ++i)
+  BEGIN
+    SET_2DA_ENTRY_LATER __set_rmodchr 0 i (i - 11)
+  END
+
+  SET_2DA_ENTRIES_NOW __set_rmodchr cols
+  PRETTY_PRINT_2DA
+
+  BUT_ONLY_IF_IT_CHANGES
+
+

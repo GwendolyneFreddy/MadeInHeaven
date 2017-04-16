@@ -21,3 +21,12 @@ LAUNCH_ACTION_FUNCTION "install_component"
 END
 
 
+BEGIN "Alternative Stat Bonuses"
+GROUP "Rule Tweaks"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "alternative_stat_bonuses"
+END
+
+

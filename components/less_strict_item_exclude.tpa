@@ -36,6 +36,7 @@ COPY_EXISTING "itemexcl.2da" "override"
   END
 
   SET_2DA_ENTRIES_NOW __set_itemexcl cols
+  PRETTY_PRINT_2DA
 
   BUT_ONLY_IF_IT_CHANGES
 

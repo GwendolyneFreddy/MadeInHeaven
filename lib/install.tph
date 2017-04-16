@@ -23,11 +23,11 @@ BEGIN
 
     // Run command file, or fail if it's missing.
 
-    ACTION_IF FILE_EXISTS "%MOD_FOLDER%/%component_name%/setup.tpa"
+    ACTION_IF FILE_EXISTS "%MOD_FOLDER%/components/%component_name%.tpa"
     BEGIN
-      PRINT "Executing command file %MOD_FOLDER%/%component_name%/setup.tpa"
+      PRINT "Executing command file %MOD_FOLDER%/components/%component_name%.tpa"
 
-      INCLUDE "%MOD_FOLDER%/%component_name%/setup.tpa"
+      INCLUDE "%MOD_FOLDER%/components/%component_name%.tpa"
     END
     ELSE
     BEGIN
