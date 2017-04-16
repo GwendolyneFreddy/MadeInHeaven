@@ -1,0 +1,150 @@
+DEFINE_PATCH_FUNCTION add_area_actor
+BEGIN
+  PATCH_IF FILE_EXISTS_IN_GAME "%cre_resref%.cre"
+  BEGIN
+    INNER_PATCH_FILE "%cre_resref%.cre"
+    BEGIN
+      READ_STRREF 0x0008 cre_name
+    END
+  END
+  ELSE
+  BEGIN
+    PATCH_FAIL "Adding non-existent actor %cre_resref% to area!"
+  END
+
+  LAUNCH_PATCH_FUNCTION fj_are_structure
+    INT_VAR
+    fj_loc_x			= x_position
+    fj_loc_y			= y_position
+    fj_dest_x			= x_position
+    fj_dest_y			= y_position
+    fj_orientation		= orientation
+    STR_VAR
+    fj_structure_type		= "actor"
+    fj_name			= "%cre_name%"
+    fj_cre_resref		= "%cre_resref%"
+  END
+END
+
+
+DEFINE_PATCH_MACRO remove_all_area_actors
+BEGIN
+  FOR (i = SHORT_AT 0x0058; i > 0; --i)
+  BEGIN
+    LAUNCH_PATCH_FUNCTION fj_are_structure
+      INT_VAR
+      fj_delete_mode		= i - 1
+      STR_VAR
+      fj_structure_type		= "actor"
+    END
+  END
+END
+
+
+DEFINE_PATCH_FUNCTION add_simple_trap
+  INT_VAR
+  trap_detect		= 10
+  trap_remove		= 10
+  STR_VAR
+  trap_script		= "gtar"
+BEGIN
+  PATCH_IF ll_x < ul_x
+  BEGIN
+    SET min_x = ll_x
+  END
+  ELSE
+  BEGIN
+    SET min_x = ul_x
+  END
+  
+  PATCH_IF lr_x > ur_x
+  BEGIN
+    SET max_x = lr_x
+  END
+  ELSE
+  BEGIN
+    SET max_x = ur_x
+  END
+  
+  PATCH_IF ul_y < ur_y
+  BEGIN
+    SET min_y = ul_y
+  END
+  ELSE
+  BEGIN
+    SET min_y = ur_y
+  END
+  
+  PATCH_IF ll_y > lr_y
+  BEGIN
+    SET max_y = ll_y
+  END
+  ELSE
+  BEGIN
+    SET max_y = lr_y
+  END
+  
+  LAUNCH_PATCH_FUNCTION fj_are_structure
+    INT_VAR
+    fj_type		= 0    // Trap
+    fj_box_left		= min_x
+    fj_box_top		= min_y
+    fj_box_right	= max_x
+    fj_box_bottom	= max_y
+    fj_trap_active 	= 1
+    fj_loc_x		= (min_x + max_x) / 2
+    fj_loc_y		= (min_y + max_y) / 2
+    fj_alt_x		= (min_x + max_x) / 2
+    fj_alt_y		= (min_y + max_y) / 2
+    fj_trap_detect	= trap_detect
+    fj_trap_remove	= trap_remove
+    fj_flags		= BIT3
+    fj_vertex_0		= ul_x + (ul_y << 16)
+    fj_vertex_1		= ur_x + (ur_y << 16)
+    fj_vertex_2		= lr_x + (lr_y << 16)
+    fj_vertex_3		= ll_x + (ll_y << 16)
+    STR_VAR
+    fj_structure_type   = "region"
+    fj_name             = "%trap_name%"
+    fj_reg_script	= "%trap_script%"
+  END
+END
+
+
+DEFINE_PATCH_FUNCTION add_area_actors_from_2da
+  STR_VAR
+  path_to_2da		= "none"
+BEGIN
+  PATCH_IF FILE_EXISTS "%path_to_2da%"
+  BEGIN
+    INNER_PATCH_FILE "%path_to_2da%"
+    BEGIN
+      COUNT_2DA_COLS cols
+      COUNT_2DA_ROWS cols rows
+      READ_2DA_ENTRIES_NOW __actor_data cols
+    END
+
+    FOR (i = 0; i < rows; ++i)
+    BEGIN
+      READ_2DA_ENTRY_FORMER __actor_data i 0 cre_resref
+      READ_2DA_ENTRY_FORMER __actor_data i 1 x_position
+      READ_2DA_ENTRY_FORMER __actor_data i 2 y_position
+      READ_2DA_ENTRY_FORMER __actor_data i 3 orientation
+
+      LAUNCH_PATCH_FUNCTION add_area_actor
+        INT_VAR
+	x_position
+	y_position
+	orientation
+	STR_VAR
+	cre_resref
+      END
+    END
+  END
+  ELSE
+  BEGIN
+    PATCH_FAIL "add_area_actors_from_2da called with invalid path %path_to_2da%!"
+  END
+END
+
+

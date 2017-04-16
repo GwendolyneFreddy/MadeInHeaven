@@ -8,7 +8,9 @@ NO_IF_EVAL_BUG
 AUTO_EVAL_STRINGS
 
 ALWAYS
-  INCLUDE "%MOD_FOLDER%/lib/install.tph" 
+  INCLUDE "%MOD_FOLDER%/lib/base_tools.tph" 
+  INCLUDE "%MOD_FOLDER%/lib/patch_tools.tph" 
+  INCLUDE "%MOD_FOLDER%/lib/area_tools.tph" 
 END	// ALWAYS block
 
 
@@ -36,6 +38,15 @@ GROUP "Rule Tweaks"
 LAUNCH_ACTION_FUNCTION "install_component"
   STR_VAR
   component_name	= "druid_item_restrictions"
+END
+
+
+BEGIN "Improved Healing Spells"
+GROUP "Rule Tweaks"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "improved_healing_spells"
 END
 
 

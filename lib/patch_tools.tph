@@ -1,0 +1,278 @@
+DEFINE_PATCH_FUNCTION make_spell_scaleable
+  INT_VAR
+  level_low			= 2
+  level_high			= 20
+BEGIN
+  SET ab_block_length = 0x0028
+  SET fx_block_length = 0x0030
+
+  READ_LONG 0x0064 ab_offset
+  READ_SHORT 0x0068 ab_count
+  READ_LONG 0x006a fx_offset
+  READ_SHORT 0x006e cst_index
+  READ_SHORT ab_offset + 0x001e fx_count
+  READ_SHORT ab_offset + 0x0020 fx_index
+
+  PATCH_IF ab_count == 1
+  BEGIN
+    // Calculate new offsets, indices and counts
+
+    SET new_header_count = level_high + 1 - level_low
+    SET ab_count += new_header_count
+
+    PATCH_IF cst_index > fx_index
+    BEGIN
+      cst_index += new_header_count * fx_count
+    END
+
+
+    // Clone and adjust headers
+
+    SET insert_point = ab_offset + ab_block_length
+    SET insert_length = new_header_count * ab_block_length
+   
+    INSERT_BYTES insert_point insert_length
+
+    PATCH_IF fx_offset >= insert_point
+    BEGIN
+      fx_offset += insert_length
+    END
+
+    FOR (i = 0; i < new_header_count; ++i)
+    BEGIN
+      LAUNCH_PATCH_FUNCTION bcopy
+        INT_VAR
+	src			= ab_offset
+	dst			= insert_point + i * ab_block_length
+	count			= ab_block_length
+      END
+
+      WRITE_SHORT (insert_point + i * ab_block_length + 0x0010) i + level_low
+      WRITE_SHORT (insert_point + i * ab_block_length + 0x0020) THIS + (i + 1) * fx_count
+    END
+
+
+    // Clone spell effects
+
+    SET insert_point = fx_offset + fx_count * fx_block_length
+    SET insert_length = new_header_count * fx_count * fx_block_length
+
+    PATCH_IF ab_offset > fx_offset
+    BEGIN
+      SET ab_offset += insert_length
+    END
+
+    INSERT_BYTES insert_point insert_length
+
+    FOR (i = 0; i < new_header_count; ++i)
+    BEGIN
+      LAUNCH_PATCH_FUNCTION bcopy
+        INT_VAR
+	src			= fx_offset
+	dst			= insert_point + i * fx_count * fx_block_length
+	count			= fx_count * fx_block_length
+      END
+    END
+
+    // Update offsets, indices and counts
+
+    WRITE_LONG 0x0064 ab_offset
+    WRITE_SHORT 0x0068 ab_count
+    WRITE_LONG 0x006a fx_offset
+    WRITE_SHORT 0x006e cst_index
+  END
+  ELSE
+  BEGIN
+    PATCH_WARN "make_spell_scaleable: Spell %SOURCE_RES% is already level-scaled."
+  END
+END
+
+
+DEFINE_PATCH_FUNCTION add_energy_drain
+INT_VAR
+levels_drained			= 1
+BEGIN
+  READ_ASCII 0x0000 signature (4)
+  PATCH_MATCH "%signature%"
+  WITH
+  "ITM " WHEN ENGINE_IS "bg1 totsc"
+  BEGIN
+    LAUNCH_PATCH_FUNCTION ADD_ITEM_EFFECT
+      INT_VAR
+      type			= 1	// Melee
+      opcode			= 18	// HP: Maximum HP Modifier
+      target			= 2	// Pre-target
+      duration			= 2400
+      parameter1		= ((0 - 5) * levels_drained)
+    END
+
+    LAUNCH_PATCH_FUNCTION ADD_ITEM_EFFECT
+      INT_VAR
+      type			= 1	// Melee
+      opcode			= 54	// Stat: THAC0 Modifier
+      target			= 2	// Pre-target
+      duration			= 2400
+      parameter1		= ((0 - 2) * levels_drained)
+    END
+
+    LAUNCH_PATCH_FUNCTION ADD_ITEM_EFFECT
+      INT_VAR
+      type			= 1	// Melee
+      opcode			= 142	// Graphics: Display Special Effect Icon
+      target			= 2	// Pre-target
+      duration			= 2400
+      parameter2		= 53
+    END
+  END
+
+  "ITM "
+  BEGIN
+    LAUNCH_PATCH_FUNCTION ADD_ITEM_EFFECT
+      INT_VAR
+      type			= 1	// Melee
+      opcode			= 216	// Spell Effect: Level Drain
+      target			= 2	// Pre-target
+      timing			= 1	// Permanent
+      parameter1		= levels_drained
+    END
+
+    LAUNCH_PATCH_FUNCTION ADD_ITEM_EFFECT
+      INT_VAR
+      type			= 1	// Melee
+      opcode			= 142	// Graphics: Display Special Effect Icon
+      target			= 2	// Pre-target
+      timing			= 1	// Permanent
+      parameter2		= 53
+    END
+  END
+
+  "SPL " WHEN ENGINE_IS "bg1 totsc"
+  BEGIN
+    LAUNCH_PATCH_FUNCTION ADD_SPELL_EFFECT
+      INT_VAR
+      opcode			= 18	// HP: Maximum HP Modifier
+      target			= 2	// Pre-target
+      duration			= 2400
+      parameter1		= ((0 - 5) * levels_drained)
+    END
+
+    LAUNCH_PATCH_FUNCTION ADD_SPELL_EFFECT
+      INT_VAR
+      opcode			= 54	// Stat: THAC0 Modifier
+      target			= 2	// Pre-target
+      duration			= 2400
+      parameter1		= ((0 - 2) * levels_drained)
+    END
+
+    LAUNCH_PATCH_FUNCTION ADD_SPELL_EFFECT
+      INT_VAR
+      opcode			= 142	// Graphics: Display Special Effect Icon
+      target			= 2	// Pre-target
+      duration			= 2400
+      parameter2		= 53
+    END
+  END
+
+  "SPL "
+  BEGIN
+    LAUNCH_PATCH_FUNCTION ADD_SPELL_EFFECT
+      INT_VAR
+      type			= 1	// Melee
+      opcode			= 216	// Spell Effect: Level Drain
+      target			= 2	// Pre-target
+      timing			= 1	// Permanent
+      parameter1		= levels_drained
+    END
+
+    LAUNCH_PATCH_FUNCTION ADD_SPELL_EFFECT
+      INT_VAR
+      type			= 1	// Melee
+      opcode			= 142	// Graphics: Display Special Effect Icon
+      target			= 2	// Pre-target
+      timing			= 1	// Permanent
+      parameter2		= 53
+    END
+  END
+  DEFAULT
+    PATCH_FAIL "add_energy_drain() used on incompatible file!"
+  END
+END
+
+
+DEFINE_PATCH_MACRO add_magic_missile_immunity
+BEGIN
+  READ_ASCII 0x0000 signature (4)
+  PATCH_MATCH "%signature%"
+  WITH
+  "ITM "
+  BEGIN
+    PATCH_FOR_EACH projectile IN 67 68 69 70 71 72 73 74 75 76 77
+    BEGIN
+      LAUNCH_PATCH_FUNCTION ADD_ITEM_EQEFFECT
+        INT_VAR
+        opcode		= 83	// Protection: From Projectile
+        target		= 1	// Self
+        timing		= 2	// While equipped
+        parameter2	= projectile
+      END
+    END
+
+    PATCH_IF NOT ENGINE_IS "bg1 totsc"
+    BEGIN
+      LAUNCH_PATCH_FUNCTION ADD_ITEM_EQEFFECT
+        INT_VAR
+        opcode		= 206	// Spell: Protection From Spell
+        target		= 1	// Self
+        timing		= 2	// While equipped
+        STR_VAR
+        resource		= "spwi112"
+      END
+    END
+  END
+  "CRE "
+  BEGIN
+    PATCH_FOR_EACH projectile IN 67 68 69 70 71 72 73 74 75 76 77
+    BEGIN
+      LAUNCH_PATCH_FUNCTION ADD_CRE_EFFECT
+        INT_VAR
+        opcode		= 83	// Protection: From Projectile
+        target		= 1	// Self
+        timing		= 9	// Permanent after death
+        parameter2	= projectile
+      END
+    END
+
+    PATCH_IF NOT ENGINE_IS "bg1 totsc"
+    BEGIN
+      LAUNCH_PATCH_FUNCTION ADD_CRE_EFFECT
+        INT_VAR
+        opcode		= 206	// Spell: Protection From Spell
+        target		= 1	// Self
+        timing		= 9	// Permanent after death
+        STR_VAR
+        resource		= "spwi112"
+      END
+    END
+  END
+  DEFAULT
+    PATCH_FAIL "add_magic_missile_immunity() used on incompatible file!"
+  END
+END
+
+
+DEFINE_PATCH_MACRO prevent_spell_effect_stacking
+BEGIN
+  PATCH_IF NOT ENGINE_IS "bg1 totsc"
+  BEGIN
+    LAUNCH_PATCH_FUNCTION CLONE_EFFECT
+      INT_VAR
+      multi_match	= 1
+      parameter1	= RESOLVE_STR_REF ("Multiple castings of this spell have no effect.")
+      STR_VAR
+      resource		= "%DEST_RES%"
+      insert		= "last"
+    END
+  END
+END
+
+

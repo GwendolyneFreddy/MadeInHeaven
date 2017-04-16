@@ -1,0 +1,105 @@
+DEFINE_ACTION_FUNCTION install_component
+BEGIN
+  ACTION_IF NOT FILE_EXISTS "override/%component_name%.mih"
+  BEGIN
+    PRINT "Installing component %component_name%...."
+
+
+    // File to detect this component.
+
+    COPY "%MOD_FOLDER%/dummy.mih" "override/%component_name%.mih"
+
+
+    // Load translation file if it exists.
+
+    ACTION_IF FILE_EXISTS "%LANGUAGE%/%component_name%/setup.tra"
+    BEGIN
+      PRINT "Loading translations from %LANGUAGE%/%component_name%/setup.tra"
+
+      LOAD_TRA "%LANGUAGE%/%component_name%/setup.tra"
+    END
+    ELSE
+
+
+    // Run command file, or fail if it's missing.
+
+    ACTION_IF FILE_EXISTS "%MOD_FOLDER%/components/%component_name%.tpa"
+    BEGIN
+      PRINT "Executing command file %MOD_FOLDER%/components/%component_name%.tpa"
+
+      INCLUDE "%MOD_FOLDER%/components/%component_name%.tpa"
+    END
+    ELSE
+    BEGIN
+      FAIL "Command file %MOD_FOLDER%/%component_name%/setup.tpa not found!"
+    END
+  END
+  ELSE
+  BEGIN
+    PRINT "Component %component_name% already installed, skipping..."
+  END
+END
+
+
+DEFINE_PATCH_FUNCTION bcopy
+  INT_VAR
+  count				= 0
+BEGIN
+  FOR (i = 0; i < count; ++i)
+  BEGIN
+    WRITE_BYTE dst + i BYTE_AT (src + i)
+  END
+END
+
+
+DEFINE_ACTION_FUNCTION compile_dialog
+  STR_VAR
+  path_to_file		= "dummy"
+BEGIN
+  OUTER_PATCH_SAVE path_to_tra "%path_to_file%"
+  BEGIN
+    REPLACE_TEXTUALLY CASE_INSENSITIVE EVALUATE_REGEXP "^%MOD_FOLDER%" "%LANGUAGE%"
+    REPLACE_TEXTUALLY CASE_INSENSITIVE EVALUATE_REGEXP "\.d$" ".tra"
+  END
+
+  ACTION_IF NOT FILE_EXISTS "%path_to_tra%"
+  BEGIN
+    OUTER_TEXT_SPRINT path_to_tra "%MOD_FOLDER%/dummy.tra"
+  END
+
+  COMPILE EVALUATE_BUFFER "%path_to_file%"
+    PATCH_IF ENGINE_IS "bg1 totsc"
+    BEGIN
+      LAUNCH_PATCH_MACRO bg1_token_replacements
+    END
+
+    USING "%path_to_tra%"
+END
+
+
+DEFINE_ACTION_FUNCTION compile_script
+  STR_VAR
+  path_to_file		= "dummy"
+BEGIN
+  OUTER_PATCH_SAVE path_to_tra "%path_to_file%"
+  BEGIN
+    REPLACE_TEXTUALLY CASE_INSENSITIVE EVALUATE_REGEXP "^%MOD_FOLDER%" "%LANGUAGE%"
+    REPLACE_TEXTUALLY CASE_INSENSITIVE EVALUATE_REGEXP "\.baf$" ".tra"
+  END
+
+  ACTION_IF NOT FILE_EXISTS "%path_to_tra%"
+  BEGIN
+    OUTER_TEXT_SPRINT path_to_tra "%MOD_FOLDER%/dummy.tra"
+  END
+
+  COMPILE EVALUATE_BUFFER "%path_to_file%"
+    PATCH_IF ENGINE_IS "bg1 totsc"
+    BEGIN
+      REPLACE_TEXTUALLY CASE_SENSITIVE EXACT_MATCH "MYAREA" "GLOBAL"
+      REPLACE_TEXTUALLY CASE_SENSITIVE EXACT_MATCH "FaceObject(" "//FaceObject("
+    END
+
+    USING "%path_to_tra%"
+END
+
+
