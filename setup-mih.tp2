@@ -14,6 +14,9 @@ ALWAYS
 END	// ALWAYS block
 
 
+LANGUAGE "American English" "%MOD_FOLDER%/lang/en" "setup-mih.tra"
+
+
 BEGIN "Wear Protection Items with Magical Armor"
 GROUP "Rule Tweaks"
 
@@ -47,6 +50,15 @@ GROUP "Rule Tweaks"
 LAUNCH_ACTION_FUNCTION "install_component"
   STR_VAR
   component_name	= "improved_healing_spells"
+END
+
+
+BEGIN "Extended HP Dice Rolls"
+GROUP "Rule Tweaks"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "extended_hp_dice_rolls"
 END
 
 
