@@ -1,0 +1,69 @@
+DEFINE_PATCH_FUNCTION update_desc_abs_to_rel
+BEGIN
+  PATCH_IF (LONG_AT (desc_offset) > 0)
+  BEGIN
+    READ_STRREF desc_offset old_desc
+
+    INNER_PATCH_SAVE new_desc "%old_desc%"
+    BEGIN
+      PATCH_MATCH %opcode%
+      WITH
+        6	// Charisma
+        BEGIN
+          REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH "%abs% Charisma" "+%rel% to Charisma"
+          REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH "Charisma:  %abs%" "Charisma: +%rel%"
+          REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH "Charisma:  set to %abs%" "Charisma: +%rel%"
+          REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH "Charisma to %abs%" "Charisma by %rel%"
+        END
+        10	// Constitution
+        BEGIN
+          REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH "%abs% Constitution" "+%rel% to Constitution"
+          REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH "Constitution:  %abs%" "Constitution: +%rel%"
+          REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH "Constitution:  set to %abs%" "Constitution: +%rel%"
+          REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH "Constitution to %abs%" "Constitution by %rel%"
+        END
+        15	// Dexterity
+        BEGIN
+          REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH "%abs% Dexterity" "+%rel% to Dexterity"
+          REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH "Dexterity:  %abs%" "Dexterity:  +%rel%"
+          REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH "Dexterity:  set to %abs%" "Dexterity:  +%rel%"
+          REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH "Dexterity to %abs%" "Dexterity by %rel%"
+        END
+        19	// Intelligence
+        BEGIN
+          REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH "%abs% Constitution" "+%rel% to Constitution"
+          REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH "Constitution:  %abs%" "Constitution:  +%rel%"
+          REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH "Constitution:  set to %abs%" "Constitution:  +%rel%"
+          REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH "Constitution to %abs%" "Constitution by %rel%"
+        END
+        44	// Strength
+        BEGIN
+          REPLACE_TEXTUALLY CASE_INSENSITIVE EVALUATE_REGEXP "%abs%/.. Strength" "+%rel% to Strength"
+          REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH "%abs% Strength" "+%rel% Strength"
+          REPLACE_TEXTUALLY CASE_INSENSITIVE EVALUATE_REGEXP "Strength:  %abs%/.." "Strength:  +%rel%"
+          REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH "Strength:  %abs%" "Strength:  +%rel%"
+          REPLACE_TEXTUALLY CASE_INSENSITIVE EVALUATE_REGEXP "Strength:  set to %abs%/.." "Strength: +%rel%"
+          REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH "Strength:  set to %abs%" "Strength: +%rel%"
+          REPLACE_TEXTUALLY CASE_INSENSITIVE EVALUATE_REGEXP "Strength to %abs%/.." "Strength by %rel%"
+          REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH "Strength to %abs%" "Strength by %rel%"
+        END
+        49	// Wisdom
+        BEGIN
+          REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH "%abs% Wisdom" "+%rel% to Wisdom"
+          REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH "Wisdom:  %abs%" "Wisdom:  +%rel%"
+          REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH "Wisdom:  set to %abs%" "Wisdom:  +%rel%"
+          REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH "Wisdom to %abs%" "Wisdom by %rel%"
+        END
+	DEFAULT
+	  PATCH_FAIL "Function update_desc_abs_to_rel() called with invalid opcode!"
+      END
+    END
+
+    PATCH_IF NOT ("%old_desc%" STRING_EQUAL "%new_desc%")
+    BEGIN
+      SAY_EVALUATED desc_offset "%new_desc%"
+    END
+  END
+END
+
+

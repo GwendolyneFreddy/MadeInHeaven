@@ -1,0 +1,67 @@
+// No Fixed Item Stats
+//
+// This mod alters items that set a stat to a fixed value while
+// equipped (like the Gauntlets of Ogre Strength or Gauntlets of
+// Dexterity) to instead give a bonus of +1 to +8 to the stat.
+//
+// This closes certain exploits like using dexterity as a dump
+// stat, counting on the Gauntlets of Dexterity (easily obtained
+// from the gnoll stronghold in BG1 and the undead city in BG2)
+// to set it back to 18.  It also makes these items more useful
+// for characters that already have decent stats.
+//
+// Items that temporarily set a stat to a fixed value (like the
+// various strength potions) and spells are unaffected.
+
+PRINT "Patching all items..."
+
+COPY_EXISTING_REGEXP ".+\.itm" "override"
+  PATCH_MATCH "%SOURCE_RES%"
+  WITH
+    // Beast Claw created by the "Beast Claw" spell in Icewind Dale.
+    "bclaw" WHEN GAME_INCLUDES "iwd1"
+    BEGIN
+      // No change!
+    END
+
+    // Beast Claw created by the "Beast Claw" spell of the IWDification mod for BG2.
+    "cdid217w" WHEN GAME_INCLUDES "bg2"
+    BEGIN
+      // No change!
+    END
+
+    DEFAULT
+      GET_OFFSET_ARRAY eq_array ITM_V10_GEN_EFFECTS
+      PHP_EACH eq_array AS int => eq_offset
+      BEGIN
+        READ_SHORT	(eq_offset + 0x0000) opcode
+        READ_LONG	(eq_offset + 0x0004) param1
+        READ_LONG	(eq_offset + 0x0008) param2
+        PATCH_IF ((opcode == 6 || opcode == 10 || opcode == 15 || opcode == 19 || opcode == 44 || opcode == 49) &&
+                  param1 > 17 && param2 == 1)
+        BEGIN
+          WRITE_LONG (eq_offset + 0x0004) (param1 - 17)
+          WRITE_LONG (eq_offset + 0x0008) 0
+  
+          LAUNCH_PATCH_FUNCTION update_desc_abs_to_rel
+            INT_VAR
+	    desc_offset	= 0x0050
+	    opcode
+	    abs_value	= param1
+	    rel_value	= (param1 - 17)
+          END
+
+          LAUNCH_PATCH_FUNCTION update_desc_abs_to_rel
+            INT_VAR
+	    desc_offset	= 0x0054
+	    opcode
+	    abs		= param1
+	    rel		= (param1 - 17)
+          END
+        END
+      END
+  END
+
+  BUT_ONLY_IF_IT_CHANGES
+
+

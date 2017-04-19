@@ -11,10 +11,12 @@ ALWAYS
   INCLUDE "%MOD_FOLDER%/lib/base_tools.tph" 
   INCLUDE "%MOD_FOLDER%/lib/patch_tools.tph" 
   INCLUDE "%MOD_FOLDER%/lib/area_tools.tph" 
+  
+  INCLUDE "%LANGUAGE%/lib/translation_functions.tph"
 END	// ALWAYS block
 
 
-LANGUAGE "American English" "%MOD_FOLDER%/lang/en" "setup-mih.tra"
+LANGUAGE "American English" "mih/lang/en" "setup-mih.tra"
 
 
 BEGIN "Wear Protection Items with Magical Armor"
@@ -59,6 +61,15 @@ GROUP "Rule Tweaks"
 LAUNCH_ACTION_FUNCTION "install_component"
   STR_VAR
   component_name	= "extended_hp_dice_rolls"
+END
+
+
+BEGIN "Relative Stat Bonuses from Equipped Items"
+GROUP "Item/Spell Tweaks"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "no_fixed_item_stats"
 END
 
 
