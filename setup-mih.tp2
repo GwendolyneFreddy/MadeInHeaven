@@ -19,6 +19,10 @@ END	// ALWAYS block
 LANGUAGE "American English" "mih/lang/en" "setup-mih.tra"
 
 
+// ========================================
+// Wear Protection Items with Magical Armor
+// ========================================
+
 BEGIN "Wear Protection Items with Magical Armor"
 GROUP "Rule Tweaks"
 
@@ -27,6 +31,10 @@ LAUNCH_ACTION_FUNCTION "install_component"
   component_name	= "less_strict_item_exclude"
 END
 
+
+// ========================
+// Alternative Stat Bonuses
+// ========================
 
 BEGIN "Alternative Stat Bonuses"
 GROUP "Rule Tweaks"
@@ -37,6 +45,10 @@ LAUNCH_ACTION_FUNCTION "install_component"
 END
 
 
+// ===============================
+// Enforce Druid Item Restrictions
+// ===============================
+
 BEGIN "Enforce Druid Item Restrictions"
 GROUP "Rule Tweaks"
 
@@ -45,6 +57,10 @@ LAUNCH_ACTION_FUNCTION "install_component"
   component_name	= "druid_item_restrictions"
 END
 
+
+// =======================
+// Improved Healing Spells
+// =======================
 
 BEGIN "Improved Healing Spells"
 GROUP "Rule Tweaks"
@@ -55,6 +71,10 @@ LAUNCH_ACTION_FUNCTION "install_component"
 END
 
 
+// ======================
+// Extended HP Dice Rolls
+// ======================
+
 BEGIN "Extended HP Dice Rolls"
 GROUP "Rule Tweaks"
 
@@ -64,12 +84,46 @@ LAUNCH_ACTION_FUNCTION "install_component"
 END
 
 
+// =========================================
+// Relative Stat Bonuses from Equipped Items
+// =========================================
+
 BEGIN "Relative Stat Bonuses from Equipped Items"
 GROUP "Item/Spell Tweaks"
 
 LAUNCH_ACTION_FUNCTION "install_component"
   STR_VAR
   component_name	= "no_fixed_item_stats"
+END
+
+
+// ============================
+// Non-Bouncing Lightning Bolts
+// ============================
+
+BEGIN "Bolt from the Sky"
+SUBCOMPONENT "Non-Bouncing Lightning Bolts"
+GROUP "Item/Spell Tweaks"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  INT_VAR
+  use_projectile	= 23
+  STR_VAR
+  component_name	= "non-bouncing_lightning_bolts"
+END
+
+
+BEGIN "Line of Lightning"
+SUBCOMPONENT "Non-Bouncing Lightning Bolts"
+GROUP "Item/Spell Tweaks"
+
+REQUIRE_PREDICATE ENGINE_IS "bg2 tob bgee bg2ee" "This component is not available for your game."
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  INT_VAR
+  use_projectile	= 207
+  STR_VAR
+  component_name	= "non-bouncing_lightning_bolts"
 END
 
 

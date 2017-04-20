@@ -31,7 +31,7 @@ BEGIN
     END
     ELSE
     BEGIN
-      FAIL "Command file %MOD_FOLDER%/%component_name%/setup.tpa not found!"
+      FAIL "Command file %MOD_FOLDER%/components/%component_name%.tpa not found!"
     END
   END
   ELSE

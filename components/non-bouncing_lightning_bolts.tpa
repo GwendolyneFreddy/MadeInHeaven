@@ -1,0 +1,33 @@
+// Non-bouncing Lightning Bolts
+//
+// This mod replaces the projectile of the Lightning Bolt spell and similar effects
+// with one that does not bounce off of the scenery, making the spell safe to use.
+
+PRINT "Patching all spells..."
+
+COPY_EXISTING_REGEXP ".+\.spl" "override"
+  GET_OFFSET_ARRAY ab_array SPL_V10_HEADERS
+  PHP_EACH ab_array AS int => ab_offset
+  BEGIN
+    PATCH_IF SHORT_AT (ab_offset + 0x0026) == 40
+    BEGIN
+      WRITE_SHORT (ab_offset + 0x0026) use_projectile
+    END
+  END
+  BUT_ONLY_IF_IT_CHANGES
+
+
+PRINT "Patching all items..."
+
+COPY_EXISTING_REGEXP ".+\.itm" "override"
+  GET_OFFSET_ARRAY ab_array ITM_V10_HEADERS
+  PHP_EACH ab_array AS int => ab_offset
+  BEGIN
+    PATCH_IF SHORT_AT (ab_offset + 0x002a) == 40
+    BEGIN
+      WRITE_SHORT (ab_offset + 0x002a) use_projectile
+    END
+  END
+  BUT_ONLY_IF_IT_CHANGES
+
+
