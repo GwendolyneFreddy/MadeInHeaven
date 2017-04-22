@@ -25,7 +25,7 @@ COPY_EXISTING_REGEXP ".+\.itm" "override"
     END
 
     // Beast Claw created by the "Beast Claw" spell of the IWDification mod for BG2.
-    "cdid217w" WHEN GAME_INCLUDES "bg2"
+    "cdid217w" WHEN ENGINE_IS "bg2 tob bgee bg2ee"
     BEGIN
       // No change!
     END

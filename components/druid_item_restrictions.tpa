@@ -15,12 +15,13 @@ COPY_EXISTING_REGEXP ".+\.itm" "override"
   PATCH_MATCH type
   WITH
     // Don't change Jaheira's Harper Pin in BG2 at all
-    ANY GAME_INCLUDES "bg2" AND SOURCE_RES STRING_EQUAL_CASE "misc5x"
+    ANY GAME_INCLUDES "bg2" AND ("%SOURCE_RES%" STRING_EQUAL_CASE "misc5x")
     BEGIN
+      // No change!
     END
 
     // Throne of Bhaal's Wong Fei's ioun stone is okay for fighter/druids.
-    ANY GAME_INCLUDES "tob" AND SOURCE_RES STRING_EQUAL_CASE "helm34"
+    ANY GAME_INCLUDES "tob" AND ("%SOURCE_RES%" STRING_EQUAL_CASE "helm34")
     BEGIN
       use_mask &= `BIT12
     END

@@ -28,20 +28,7 @@ GROUP "Rule Tweaks"
 
 LAUNCH_ACTION_FUNCTION "install_component"
   STR_VAR
-  component_name	= "less_strict_item_exclude"
-END
-
-
-// ========================
-// Alternative Stat Bonuses
-// ========================
-
-BEGIN "Alternative Stat Bonuses"
-GROUP "Rule Tweaks"
-
-LAUNCH_ACTION_FUNCTION "install_component"
-  STR_VAR
-  component_name	= "alternative_stat_bonuses"
+  component_name	= "no_armor_exclude"
 END
 
 
@@ -58,6 +45,19 @@ LAUNCH_ACTION_FUNCTION "install_component"
 END
 
 
+// =======================================
+// More Versatile Bucklers & Small Shields
+// =======================================
+
+BEGIN "More Versatile Bucklers & Small Shields"
+GROUP "Rule Tweaks"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "versatile_small_shields"
+END
+
+
 // =======================
 // Improved Healing Spells
 // =======================
@@ -68,6 +68,19 @@ GROUP "Rule Tweaks"
 LAUNCH_ACTION_FUNCTION "install_component"
   STR_VAR
   component_name	= "improved_healing_spells"
+END
+
+
+// ========================
+// Alternative Stat Bonuses
+// ========================
+
+BEGIN "Alternative Stat Bonuses"
+GROUP "Rule Tweaks"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "alternative_stat_bonuses"
 END
 
 
