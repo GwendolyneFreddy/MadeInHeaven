@@ -1,0 +1,29 @@
+// Allow Divine Spell Scrolls to Paladins and Rangers
+// (Icewind Dale only)
+
+PRINT "Patching all items..."
+
+COPY_EXISTING_REGEXP ".+\.itm" "override"
+  READ_SHORT	0x001c item_type
+  READ_LONG	0x001e use_mask
+
+  PATCH_IF (item_type == 0x000b)
+  BEGIN
+    // Allow paladins cleric scrolls
+    PATCH_IF NOT (use_mask & BIT7)
+    BEGIN
+      use_mask &= `BIT20
+    END
+
+    // Allow rangers druid scrolls
+    PATCH_IF NOT (use_mask & BIT30)
+    BEGIN
+      use_mask &= `BIT21
+    END
+
+    WRITE_LONG	0x001e use_mask
+  END
+
+  BUT_ONLY_IF_IT_CHANGES
+
+

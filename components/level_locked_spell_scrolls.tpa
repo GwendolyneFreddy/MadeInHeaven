@@ -1,0 +1,51 @@
+// Level-locked Spell Scrolls
+// (BG2 or better engine only)
+
+PRINT "Patching all items..."
+
+COPY_EXISTING_REGEXP ".+\.itm" "override"
+  READ_SHORT	0x001c item_type
+
+  PATCH_IF (item_type == 0x000b)
+  BEGIN
+    SET min_level = 0
+
+    GET_OFFSET_ARRAY ab_array ITM_V10_HEADERS
+    PHP_EACH ab_array AS int => ab_offset
+    BEGIN
+      GET_OFFSET_ARRAY2 fx_array ab_offset ITM_V10_HEAD_EFFECTS
+      PHP_EACH fx_array AS int => fx_offset
+      BEGIN
+        READ_SHORT (fx_offset + 0x0000) opcode
+
+        PATCH_IF (opcode == 146 || opcode == 147 || opcode == 148)
+	BEGIN
+	  READ_ASCII (fx_offset + 0x0014) spell_res
+
+	  PATCH_IF FILE_EXISTS_IN_GAME "%spell_res%.spl"
+	  BEGIN
+	    INNER_PATCH_FILE "%spell_res%.spl"
+	    BEGIN
+	      READ_LONG 0x0034 spell_level
+	    END
+
+            PATCH_IF spell_level > 0
+	    BEGIN
+	      SET min_level = spell_level * 2
+	      
+	      PATCH_IF (min_level < 12)
+	      BEGIN
+	        SET min_level -= 1
+	      END
+	    END
+	  END
+	END
+      END
+    END
+
+    WRITE_SHORT 0x0024 min_level
+  END
+
+  BUT_ONLY_IF_IT_CHANGES
+
+

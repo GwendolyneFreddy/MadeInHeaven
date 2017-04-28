@@ -9,10 +9,10 @@
 PRINT "Patching all items..."
 
 COPY_EXISTING_REGEXP ".+\.itm" "override"
-  READ_SHORT 0x001c type
+  READ_SHORT 0x001c item_type
   READ_LONG 0x001e use_mask
 
-  PATCH_MATCH type
+  PATCH_MATCH item_type
   WITH
     // Don't change Jaheira's Harper Pin in BG2 at all
     ANY GAME_INCLUDES "bg2" AND ("%SOURCE_RES%" STRING_EQUAL_CASE "misc5x")

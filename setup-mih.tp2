@@ -45,6 +45,38 @@ LAUNCH_ACTION_FUNCTION "install_component"
 END
 
 
+// ================================================
+// Allow Divine Spell Scrolls to Paladins & Rangers
+// ================================================
+
+BEGIN "Allow Divine Spell Scrolls to Paladins & Rangers"
+GROUP "Rule Tweaks"
+
+REQUIRE_PREDICATE GAME_IS "iwd1 how totlm"
+  "This component is not available for your game."
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "paladin_ranger_scrolls"
+END
+
+
+// ==========================
+// Level-locked Spell Scrolls
+// ==========================
+
+BEGIN "Level-locked Spell Scrolls"
+GROUP "Rule Tweaks"
+
+REQUIRE_PREDICATE ENGINE_IS "bg2 tob bgee bg2ee"
+  "This component is not available for your game."
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "level_locked_spell_scrolls"
+END
+
+
 // =======================================
 // More Versatile Bucklers & Small Shields
 // =======================================
