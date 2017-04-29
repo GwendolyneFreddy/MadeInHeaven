@@ -172,3 +172,36 @@ LAUNCH_ACTION_FUNCTION "install_component"
 END
 
 
+// ================
+// Cap Item Charges
+// ================
+
+BEGIN "Set a maximum of 20 charges"
+SUBCOMPONENT "Cap Item Charges"
+GROUP "Item/Spell Tweaks"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  INT_VAR
+  charge_cap		= 20
+  STR_VAR
+  component_name	= "cap_item_charges"
+END
+
+BEGIN "Set a custom maximum of charges"
+SUBCOMPONENT "Cap Item Charges"
+GROUP "Item/Spell Tweaks"
+
+OUTER_WHILE NOT IS_AN_INT charge_cap
+BEGIN
+  PRINT "Please enter the maximum number of charges:"
+  ACTION_READLN charge_cap
+END
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  INT_VAR
+  charge_cap
+  STR_VAR
+  component_name	= "cap_item_charges"
+END
+
+
