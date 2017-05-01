@@ -90,19 +90,6 @@ LAUNCH_ACTION_FUNCTION "install_component"
 END
 
 
-// =======================
-// Improved Healing Spells
-// =======================
-
-BEGIN "Improved Healing Spells"
-GROUP "Rule Tweaks"
-
-LAUNCH_ACTION_FUNCTION "install_component"
-  STR_VAR
-  component_name	= "improved_healing_spells"
-END
-
-
 // ========================
 // Alternative Stat Bonuses
 // ========================
@@ -202,6 +189,32 @@ LAUNCH_ACTION_FUNCTION "install_component"
   charge_cap
   STR_VAR
   component_name	= "cap_item_charges"
+END
+
+
+// ===================
+// Divine Spell Tweaks
+// ===================
+
+BEGIN "Divine Spell Tweaks"
+GROUP "Item/Spell Tweaks"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "divine_spell_tweaks"
+END
+
+
+// =======================
+// Improved Healing Spells
+// =======================
+
+BEGIN "Improved Healing Spells"
+GROUP "Item/Spell Tweaks"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "improved_healing_spells"
 END
 
 

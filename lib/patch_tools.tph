@@ -95,7 +95,7 @@ BEGIN
   READ_ASCII 0x0000 signature (4)
   PATCH_MATCH "%signature%"
   WITH
-  "ITM " WHEN ENGINE_IS "bg1 totsc"
+  "ITM " WHEN ENGINE_IS "bg1 totsc iwd1 how totlm"
   BEGIN
     LAUNCH_PATCH_FUNCTION ADD_ITEM_EFFECT
       INT_VAR
@@ -146,7 +146,7 @@ BEGIN
     END
   END
 
-  "SPL " WHEN ENGINE_IS "bg1 totsc"
+  "SPL " WHEN ENGINE_IS "bg1 totsc iwd1 how totlm"
   BEGIN
     LAUNCH_PATCH_FUNCTION ADD_SPELL_EFFECT
       INT_VAR
@@ -219,16 +219,33 @@ BEGIN
 
     PATCH_IF NOT ENGINE_IS "bg1 totsc"
     BEGIN
-      LAUNCH_PATCH_FUNCTION ADD_ITEM_EQEFFECT
-        INT_VAR
-        opcode		= 206	// Spell: Protection From Spell
-        target		= 1	// Self
-        timing		= 2	// While equipped
-        STR_VAR
-        resource		= "spwi112"
+      PATCH_FOR_EACH spell_name IN "WIZARD_MAGIC_MISSILE" "WIZARD_IMPROVED_MAGIC_MISSILE" "WIZARD_MORDENKAINENS_FORCE_MISSILES" "TRAP_MAGIC_MISSILE" "TRAP_MAGIC_MISSILE_5" "GORION_MAGIC_MISSILE" "BEHOLDER_MAGIC_MISSILE" "MAGIC_MISSILE_SURE_HIT"
+      BEGIN
+        PATCH_IF IDS_OF_SYMBOL ("spell" "%spell_name%") >= 0
+        BEGIN
+          LAUNCH_PATCH_FUNCTION RES_NUM_OF_SPELL_NAME
+            STR_VAR
+            spell_name
+            RET
+            spell_num
+            spell_res
+          END
+  
+          PATCH_PRINT "Found %spell_name% as %spell_res%"
+
+          LAUNCH_PATCH_FUNCTION ADD_ITEM_EQEFFECT
+          INT_VAR
+            opcode		= 206	// Spell: Protection From Spell
+            target		= 1	// Self
+            timing		= 2	// While equipped
+            STR_VAR
+            resource		= "%spell_res%"
+          END
+	END
       END
     END
   END
+
   "CRE "
   BEGIN
     PATCH_FOR_EACH projectile IN 67 68 69 70 71 72 73 74 75 76 77
@@ -244,16 +261,33 @@ BEGIN
 
     PATCH_IF NOT ENGINE_IS "bg1 totsc"
     BEGIN
-      LAUNCH_PATCH_FUNCTION ADD_CRE_EFFECT
-        INT_VAR
-        opcode		= 206	// Spell: Protection From Spell
-        target		= 1	// Self
-        timing		= 9	// Permanent after death
-        STR_VAR
-        resource		= "spwi112"
+      PATCH_FOR_EACH spell_name IN "WIZARD_MAGIC_MISSILE" "WIZARD_IMPROVED_MAGIC_MISSILE" "WIZARD_MORDENKAINENS_FORCE_MISSILES" "TRAP_MAGIC_MISSILE" "TRAP_MAGIC_MISSILE_5" "GORION_MAGIC_MISSILE" "BEHOLDER_MAGIC_MISSILE" "MAGIC_MISSILE_SURE_HIT"
+      BEGIN
+        PATCH_IF IDS_OF_SYMBOL ("spell" "%spell_name%") >= 0
+        BEGIN
+          LAUNCH_PATCH_FUNCTION RES_NUM_OF_SPELL_NAME
+            STR_VAR
+            spell_name
+            RET
+            spell_num
+            spell_res
+          END
+  
+          PATCH_PRINT "Found %spell_name% as %spell_res%"
+
+          LAUNCH_PATCH_FUNCTION ADD_CRE_EFFECT
+          INT_VAR
+            opcode		= 206	// Spell: Protection From Spell
+            target		= 1	// Self
+            timing		= 2	// While equipped
+            STR_VAR
+            resource		= "%spell_res%"
+          END
+	END
       END
     END
   END
+
   DEFAULT
     PATCH_FAIL "add_magic_missile_immunity() used on incompatible file!"
   END
@@ -267,9 +301,11 @@ BEGIN
     LAUNCH_PATCH_FUNCTION CLONE_EFFECT
       INT_VAR
       multi_match	= 1
+      opcode		= 206	// Spell Effect: Immunity Spell
       parameter1	= RESOLVE_STR_REF ("Multiple castings of this spell have no effect.")
+      parameter2	= 0	// Default (IWD1)
       STR_VAR
-      resource		= "%DEST_RES%"
+      resource		= "%SOURCE_RES%"
       insert		= "last"
     END
   END

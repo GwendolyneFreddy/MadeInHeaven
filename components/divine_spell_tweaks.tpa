@@ -1,0 +1,168 @@
+// Divine Spell Tweaks
+//
+// A collection of tweaks and other fiddlings with divine spells.
+
+
+// sppr110 - Shillelagh
+//
+// This mod makes the Shillelagh spell a bit more powerful,
+// the Shillelagh is now a magical weapon of +1 enchantment
+// and deals 2d4 damage.
+//
+// NB: In Icewind Dale the Shillelagh already works this
+// way and uses shillel.itm instead of shille.itm so this
+// mod has no real effect there, but there is no harm in
+// installing it since the old shille.itm is still there.
+
+COPY_EXISTING "shille.itm" "override"
+  WRITE_LONG 0x0018 (THIS | BIT6)	// Make magical
+  WRITE_BYTE 0x0031 0x73		// Use club proficiency
+  WRITE_LONG 0x0060 1			// Enchantment level
+
+  // Double base damage, +1 to-hit and damage
+  LAUNCH_PATCH_FUNCTION ALTER_ITEM_HEADER
+    INT_VAR
+    thac0_bonus		= 1
+    dicenumber		= 2
+    dicesize		= 4
+    damage_bonus	= 0
+  END
+
+  // No penalty for non-proficiency (doesn't work in BG1 or IWD1)
+  PATCH_IF NOT ENGINE_IS "bg1 totsc iwd1 how totlm"
+  BEGIN
+    LAUNCH_PATCH_FUNCTION ADD_ITEM_EQEFFECT
+      INT_VAR
+      opcode		= 233	// Stat: Proficiency Modifier
+      target		= 1	// Self
+      timing		= 2	// While equipped
+      parameter1	= 1	// Proficient
+      parameter2	= 115	// Club
+    END
+  END
+
+
+// sppr202 - Barkskin
+//
+// Make Barkskin cumulative with other AC enhancements, as it provides
+// a natural armor class bonus.  (Inspired by 3E version.)
+
+COPY_EXISTING "sppr202.spl" "override"
+  GET_OFFSET_ARRAY ab_array SPL_V10_HEADERS
+  PHP_EACH ab_array AS int => ab_offset
+  BEGIN
+    GET_OFFSET_ARRAY2 fx_array ab_offset SPL_V10_HEAD_EFFECTS
+    PHP_EACH fx_array AS int => fx_offset
+    BEGIN
+      PATCH_IF SHORT_AT (fx_offset + 0x0000) == 0 && LONG_AT (fx_offset + 0x0008) == 16
+      BEGIN
+        WRITE_LONG (fx_offset + 0x0004) 8 - THIS
+	WRITE_LONG (fx_offset + 0x0008) 0
+      END
+    END
+  END
+
+  LAUNCH_PATCH_MACRO prevent_spell_effect_stacking
+
+
+// Handle BG2's Staff of the Woodlands
+
+ACTION_IF GAME_INCLUDES "bg2"
+BEGIN
+  COPY_EXISTING "staf14.itm" "override"
+    LAUNCH_PATCH_FUNCTION ALTER_EFFECT
+      INT_VAR
+      match_opcode		= 0	// Stat: AC vs. Damage Type Modifier
+      match_parameter2		= 16	// Base AC
+      parameter1		= 5
+      parameter2		= 0	// AC bonus vs. all
+    END
+
+    LAUNCH_PATCH_FUNCTION CLONE_EFFECT
+      INT_VAR
+      match_opcode		= 0	// Stat: AC vs. Damage Type Modifier
+      opcode			= 206	// Spell: Protection From Spell
+      parameter1		= RESOLVE_STR_REF ("Multiple castings of this spell have no effect.")
+      parameter2		= 0
+      STR_VAR
+      insert			= "last"
+      resource			= "sppr202"
+    END
+END
+
+
+// sppr206 - Flame Blade
+//
+// This modifcation makes the Flame Blade spell deal pure
+// fire damage, counting as a magical weapon and improves
+// with level.  An adaption of the 3E version.
+
+OUTER_FOR (i = 1; i <= 10; ++i)
+BEGIN
+  COPY_EXISTING "fblade.itm" "override/fblade%i%.itm"
+    WRITE_LONG 0x0018 (THIS | BIT6)	// Make magical
+    WRITE_BYTE 0x0031 0x5f		// Use scimitar proficiency
+    WRITE_LONG 0x0060 2			// Enchantment level
+
+    // +4 to-hit (touch), no physical damage
+    LAUNCH_PATCH_FUNCTION ALTER_ITEM_HEADER
+      INT_VAR
+      header_type		= 1	// Melee
+      thac0_bonus		= 4
+      dicenumber		= 0
+      dicesize			= 0
+      damage_bonus		= 0
+      damage_type		= 0	// None
+      flag_strength		= 0
+    END
+
+    // Alter fire damage, 1d8 base plus bonus
+    LAUNCH_PATCH_FUNCTION ALTER_ITEM_EFFECT
+      INT_VAR
+      check_headers		= 1	// Abilities
+      header_type		= 1	// Melee
+      match_opcode		= 12	// HP: Damage
+      parameter1		= i
+      dicenumber		= 1
+      dicesize			= 8
+    END
+
+    // No penalty for non-proficiency (doesn't work in BG1 or IWD1)
+    PATCH_IF NOT ENGINE_IS "bg1 totsc iwd1 how totlm"
+    BEGIN
+      LAUNCH_PATCH_FUNCTION ADD_ITEM_EQEFFECT
+        INT_VAR
+        opcode			= 233	// Stat: Proficiency Modifier
+        target			= 1	// Self
+        timing			= 2	// While equipped
+        parameter1		= 1	// Proficient
+        parameter2		= 95	// Scimitar
+      END
+    END
+END
+
+COPY_EXISTING "sppr206.spl" "override"
+  GET_OFFSET_ARRAY ab_array SPL_V10_HEADERS
+  PHP_EACH ab_array AS int => ab_offset
+  BEGIN
+    bonus = SHORT_AT (ab_offset + 0x0010) / 2
+    PATCH_IF bonus < 1
+    BEGIN
+      bonus = 1
+    END
+    PATCH_IF bonus > 10
+    BEGIN
+      bonus = 10
+    END
+
+    GET_OFFSET_ARRAY2 fx_array ab_offset SPL_V10_HEAD_EFFECTS
+    PHP_EACH fx_array AS int => fx_offset
+    BEGIN
+      PATCH_IF SHORT_AT (fx_offset + 0x0000) == 111
+      BEGIN
+        WRITE_ASCII (fx_offset + 0x0014) "fblade%bonus%"
+      END
+    END
+  END
+
+
