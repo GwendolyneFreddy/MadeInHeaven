@@ -1,0 +1,41 @@
+// Improved Healing Potions
+//
+// This component changes the number of HP Potions of Extra Healing
+// and Spirit Essence will restore in Icewind Dale 1
+
+COPY_EXISTING "extheal.itm" "override"
+  LAUNCH_PATCH_FUNCTION ALTER_EFFECT
+    INT_VAR
+    match_opcode	= 17	// HP: Current HP Modifier
+    match_parameter1	= 18
+    parameter1		= extra_healing
+  END
+
+  READ_STRREF IDENTIFIED_DESC old_desc
+  INNER_PATCH_SAVE new_desc "%old_desc%"
+  BEGIN
+    REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH "18" "%extra_healing%"
+  END
+  SAY_EVALUATED IDENTIFIED_DESC "%new_desc%"
+
+  BUT_ONLY_IF_IT_CHANGES
+
+
+COPY_EXISTING "spirit.itm" "override"
+  LAUNCH_PATCH_FUNCTION ALTER_EFFECT
+    INT_VAR
+    match_opcode	= 17	// HP: Current HP Modifier
+    match_parameter1	= 25
+    parameter1		= spirit_essence
+  END
+
+  READ_STRREF IDENTIFIED_DESC old_desc
+  INNER_PATCH_SAVE new_desc "%old_desc%"
+  BEGIN
+    REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH "25" "%spirit_essence%"
+  END
+  SAY_EVALUATED IDENTIFIED_DESC "%new_desc%"
+
+  BUT_ONLY_IF_IT_CHANGES
+
+

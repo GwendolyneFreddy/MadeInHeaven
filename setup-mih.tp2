@@ -19,6 +19,62 @@ END	// ALWAYS block
 LANGUAGE "American English" "mih/lang/en" "setup-mih.tra"
 
 
+
+// ================================================
+// Allow Divine Spell Scrolls to Paladins & Rangers
+// ================================================
+
+BEGIN "Allow Divine Spell Scrolls to Paladins & Rangers"
+GROUP "Icewind Dale Tweaks" GAME_INCLUDES "iwd1"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "iwd1_paladin_ranger_scrolls"
+END
+
+
+// ========================
+// Improved Healing Potions
+// ========================
+
+BEGIN "Extra Healing restores 27 HP, Spirit Essence restores 40 HP (same as BG2)"
+SUBCOMPONENT "Improved Healing Potions"
+GROUP "Icewind Dale Tweaks" GAME_INCLUDES "iwd1"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  INT_VAR
+  extra_healing		= 27
+  spirit_essence	= 40
+  STR_VAR
+  component_name	= "iwd1_improved_healing_potions"
+END
+
+
+BEGIN "Set custom values for both potions"
+SUBCOMPONENT "Improved Healing Potions"
+GROUP "Icewind Dale Tweaks" GAME_INCLUDES "iwd1"
+
+OUTER_WHILE NOT IS_AN_INT extra_healing
+BEGIN
+  PRINT "How many hit points should a Potion of Extra Healing restore?"
+  ACTION_READLN extra_healing
+END
+
+OUTER_WHILE NOT IS_AN_INT spirit_essence
+BEGIN
+  PRINT "How many hit points should a Spirit Essence restore?"
+  ACTION_READLN spirit_essence
+END
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  INT_VAR
+  extra_healing
+  spirit_essence
+  STR_VAR
+  component_name	= "iwd1_improved_healing_potions"
+END
+
+
 // ========================================
 // Wear Protection Items with Magical Armor
 // ========================================
@@ -42,22 +98,6 @@ GROUP "Rule Tweaks"
 LAUNCH_ACTION_FUNCTION "install_component"
   STR_VAR
   component_name	= "druid_item_restrictions"
-END
-
-
-// ================================================
-// Allow Divine Spell Scrolls to Paladins & Rangers
-// ================================================
-
-BEGIN "Allow Divine Spell Scrolls to Paladins & Rangers"
-GROUP "Rule Tweaks"
-
-REQUIRE_PREDICATE GAME_IS "iwd1 how totlm"
-  "This component is not available for your game."
-
-LAUNCH_ACTION_FUNCTION "install_component"
-  STR_VAR
-  component_name	= "paladin_ranger_scrolls"
 END
 
 
