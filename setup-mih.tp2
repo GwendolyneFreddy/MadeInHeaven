@@ -8,11 +8,7 @@ NO_IF_EVAL_BUG
 AUTO_EVAL_STRINGS
 
 ALWAYS
-  INCLUDE "%MOD_FOLDER%/lib/base_tools.tph" 
-  INCLUDE "%MOD_FOLDER%/lib/patch_tools.tph" 
-  INCLUDE "%MOD_FOLDER%/lib/area_tools.tph" 
-  
-  INCLUDE "%LANGUAGE%/lib/translation_functions.tph"
+  INCLUDE "%MOD_FOLDER%/lib/do_always.tpa" 
 END	// ALWAYS block
 
 
@@ -229,6 +225,19 @@ LAUNCH_ACTION_FUNCTION "install_component"
   charge_cap
   STR_VAR
   component_name	= "cap_item_charges"
+END
+
+
+// ===================
+// Arcane Spell Tweaks
+// ===================
+
+BEGIN "Arcane Spell Tweaks"
+GROUP "Item/Spell Tweaks"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "arcane_spell_tweaks"
 END
 
 

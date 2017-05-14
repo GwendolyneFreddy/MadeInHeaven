@@ -40,25 +40,9 @@ COPY_EXISTING_REGEXP ".+\.itm" "override"
         PATCH_IF ((opcode == 6 || opcode == 10 || opcode == 15 || opcode == 19 || opcode == 44 || opcode == 49) &&
                   param1 > 17 && param2 == 1)
         BEGIN
-          WRITE_LONG (eq_offset + 0x0004) (param1 - 17)
+          WRITE_LONG (eq_offset + 0x0004) ((param1 - 13) / 2)
           WRITE_LONG (eq_offset + 0x0008) 0
-  
-          LAUNCH_PATCH_FUNCTION update_desc_abs_to_rel
-            INT_VAR
-	    desc_offset	= 0x0050
-	    opcode
-	    abs_value	= param1
-	    rel_value	= (param1 - 17)
-          END
-
-          LAUNCH_PATCH_FUNCTION update_desc_abs_to_rel
-            INT_VAR
-	    desc_offset	= 0x0054
-	    opcode
-	    abs		= param1
-	    rel		= (param1 - 17)
-          END
-        END
+	END
       END
   END
 
