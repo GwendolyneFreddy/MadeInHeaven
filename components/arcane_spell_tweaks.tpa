@@ -47,16 +47,37 @@ COPY_EXISTING "amul15.itm" "override"
     LAUNCH_PATCH_FUNCTION CLONE_EFFECT
       INT_VAR
       match_opcode	= 0	// Stat: AC against Specific
-      multi_match	= 1
+      multi_match	= 1	// Only once, please
       opcode		= 206
       parameter1	= RESOLVE_STR_REF ("Multiple castings of this spell have no effect.")
       parameter2	= 0	// Default (IWD1)
       STR_VAR
+      insert		= "last"
       resource		= "spwi114"
     END
   END
 
   IF_EXISTS	// shldrng.itm is IWD only
+
+
+// Protection from Normal Missiles (spwi311)
+//
+// Add some resistance to missile damage.
+
+COPY_EXISTING "spwi311.spl" "override"
+              "spra303.spl" "override"
+  LAUNCH_PATCH_FUNCTION CLONE_EFFECT
+    INT_VAR
+    match_opcode	= 83	// Protection: From Projectile Weapon
+    multi_match		= 1
+    opcode		= 89	// Missiles Resistance Modifier
+    parameter1		= 25
+    parameter2		= 0
+    STR_VAR
+    insert		= "last"
+  END
+
+  IF_EXISTS 	// spra303 is BG2 only
 
 
 // Disintegrate (various, like spwi607 in Icewind Dale)
