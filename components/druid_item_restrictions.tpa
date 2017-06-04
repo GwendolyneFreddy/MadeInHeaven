@@ -14,14 +14,25 @@ COPY_EXISTING_REGEXP ".+\.itm" "override"
 
   PATCH_MATCH item_type
   WITH
-    // Don't change Jaheira's Harper Pin in BG2 at all
+    // Exception: Don't change Jaheira's Harper Pin in BG2 at all
     ANY GAME_INCLUDES "bg2" AND ("%SOURCE_RES%" STRING_EQUAL_CASE "misc5x")
     BEGIN
       // No change!
     END
 
-    // Throne of Bhaal's Wong Fei's ioun stone is okay for fighter/druids.
+    // Exception: Throne of Bhaal's Wong Fei's ioun stone is okay for fighter/druids.
     ANY GAME_INCLUDES "tob" AND ("%SOURCE_RES%" STRING_EQUAL_CASE "helm34")
+    BEGIN
+      use_mask &= `BIT12
+    END
+
+    // Exception: Icewind Dale's Gauntlet of Elven Might is okay for fighter/druids.
+    ANY GAME_INCLUDES "iwd1" AND ("%SOURCE_RES%" STRING_EQUAL_CASE "gauntem")
+    BEGIN
+      use_mask &= `BIT12
+    END
+
+    ANY ENGINE_IS "bg2 tob bgee bg2ee" AND ("%SOURCE_RES%" STRING_EQUAL_CASE "d1brac02")
     BEGIN
       use_mask &= `BIT12
     END
@@ -46,16 +57,18 @@ COPY_EXISTING_REGEXP ".+\.itm" "override"
       END
     END
 
-    // Potions are forbidden to fighter/druids only if neither fighter nor druid can use.
-    0x0009
+    // Amulets, belts, boots, bracers, potions, rings, cloaks and wands:
+    // These are only forbidden to fighter/druids if both fighters and
+    // druids can't use them.
+    0x0001 0x0003 0x0004 0x0006 0x0009 0x000a 0x0020 0x0023
     BEGIN
-      PATCH_IF (use_mask & BIT6) && (use_mask & BIT19)
+      PATCH_IF (use_mask & BIT11) && (use_mask & BIT30)
       BEGIN
-        use_mask &= `BIT12
+        use_mask |= BIT12
       END
     END
 
-    // Most items will be handled by this
+    // Most items will be handled by this.
     DEFAULT
       // If a druid can't use it, a fighter/druid shouldn't be able to either.
       PATCH_IF (use_mask & BIT30)
