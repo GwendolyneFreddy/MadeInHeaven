@@ -80,25 +80,23 @@ COPY_EXISTING "spwi311.spl" "override"
   IF_EXISTS 	// spra303 is BG2 only
 
 
-// Disintegrate (various, like spwi607 in Icewind Dale)
+// Disintegrate (various, like spwi607 in Icewind Dale and spwi616 in Shadows of Amn)
 //
 // This patch makes Disintegrate deal some (5d6) damage even if the target saves successfully.
 
 ACTION_PHP_EACH dust_to_dust AS spell_name => spell_res
 BEGIN
   COPY_EXISTING "%spell_res%.spl" "override"
-    LAUNCH_PATCH_FUNCTION CLONE_EFFECT
+    LAUNCH_PATCH_FUNCTION ADD_SPELL_EFFECT
       INT_VAR
-      match_opcode	= 13	// Death: Instant Death
-      multi_match	= 1	// Let's do this only once, please
       opcode		= 12	// HP: Damage
-      parameter1	= 0
+      target		= 2	// Pre-target
+      timing		= 1	// Permanent
       parameter2	= 4194304
       dicenumber	= 5
       dicesize		= 6
-      savingthrow	= 0	// None
-      STR_VAR
-      insert		= "below"
+      power		= 6
+      resist_dispel	= 1	// Do not ignore MR
     END
 END
 
