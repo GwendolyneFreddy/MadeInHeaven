@@ -279,3 +279,19 @@ LAUNCH_ACTION_FUNCTION "install_component"
 END
 
 
+// =========================
+// Additional Paladin Powers
+// =========================
+
+BEGIN "Additional Paladin Powers"
+GROUP "Item/Spell Tweaks"
+
+REQUIRE_PREDICATE ENGINE_IS "bg2 tob bgee bg2ee"
+  "This component is not available for your game."
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "paladin_powers"
+END
+
+
