@@ -12,8 +12,20 @@ ALWAYS
 END	// ALWAYS block
 
 
-LANGUAGE "American English" "mih/lang/en" "setup-mih.tra"
+LANGUAGE "American English" "%MOD_FOLDER%/lang/en" "%MOD_FOLDER%/lang/en/setup-mih.tra"
 
+
+// =====================
+// Missing Dialogs (BG1)
+// =====================
+
+BEGIN "Missing Dialogs (BG1)"
+GROUP "Baldur's Gate 1" GAME_INCLUDES "bg1"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "bg1_missing_dialogs"
+END
 
 
 // ================================================
@@ -21,7 +33,7 @@ LANGUAGE "American English" "mih/lang/en" "setup-mih.tra"
 // ================================================
 
 BEGIN "Allow Divine Spell Scrolls to Paladins & Rangers"
-GROUP "Icewind Dale Tweaks" GAME_INCLUDES "iwd1"
+GROUP "Icewind Dale 1" GAME_INCLUDES "iwd1"
 
 LAUNCH_ACTION_FUNCTION "install_component"
   STR_VAR
@@ -35,7 +47,7 @@ END
 
 BEGIN "Extra Healing restores 27 HP, Spirit Essence restores 40 HP (same as BG2)"
 SUBCOMPONENT "Improved Healing Potions"
-GROUP "Icewind Dale Tweaks" GAME_INCLUDES "iwd1"
+GROUP "Icewind Dale 1" GAME_INCLUDES "iwd1"
 
 LAUNCH_ACTION_FUNCTION "install_component"
   INT_VAR
@@ -48,7 +60,7 @@ END
 
 BEGIN "Set custom values for both potions"
 SUBCOMPONENT "Improved Healing Potions"
-GROUP "Icewind Dale Tweaks" GAME_INCLUDES "iwd1"
+GROUP "Icewind Dale 1" GAME_INCLUDES "iwd1"
 
 OUTER_WHILE NOT IS_AN_INT extra_healing
 BEGIN

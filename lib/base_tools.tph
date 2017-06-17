@@ -68,10 +68,10 @@ BEGIN
   END
 
   COMPILE EVALUATE_BUFFER "%path_to_file%"
-    PATCH_IF ENGINE_IS "bg1 totsc"
-    BEGIN
-      LAUNCH_PATCH_MACRO bg1_token_replacements
-    END
+//    PATCH_IF ENGINE_IS "bg1 totsc"
+//    BEGIN
+//      LAUNCH_PATCH_MACRO bg1_token_replacements
+//    END
 
     USING "%path_to_tra%"
 END

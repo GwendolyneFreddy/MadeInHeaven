@@ -8,6 +8,26 @@ BEGIN
   INCLUDE "%MOD_FOLDER%/lib/patch_tools.tph" 
   INCLUDE "%MOD_FOLDER%/lib/area_tools.tph" 
 
+  ACTION_IF GAME_IS "bg1 totsc"
+  BEGIN
+    INCLUDE "%MOD_FOLDER%/lib/g3_bg_cpmvars.tpa"
+  END
+
+  ACTION_IF GAME_IS "bgt"
+  BEGIN
+    INCLUDE "%MOD_FOLDER%/lib/g3_bgt_cpmvars.tpa"
+  END
+
+  ACTION_IF GAME_IS "tutu tutu_totsc"
+  BEGIN
+    INCLUDE "%MOD_FOLDER%/lib/g3_tutu_cpmvars.tpa"
+  END
+
+  ACTION_IF GAME_IS "bgee eet"
+  BEGIN
+    INCLUDE "%MOD_FOLDER%/lib/g3_bgee_cpmvars.tpa"
+  END
+
 
   // List of Cure Assorted Wounds spells
 
