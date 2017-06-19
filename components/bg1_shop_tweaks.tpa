@@ -1,0 +1,30 @@
+// Large Shield +1 overabundance fix
+
+COPY_EXISTING "%tutu_var%friend.sto" "override"
+              "%tutu_var%sto1112.sto" "override"
+              "%tutu_var%sto1320.sto" "override"
+              "%tutu_var%sto4803.sto" "override"
+	      "%tutu_var%ulgoth.sto" "override"
+  ADD_STORE_ITEM "%tutu_var%shld05" AFTER "%tutu_var%shld06" #0 #0 #0 "identified" #5
+  REMOVE_STORE_ITEM "%tutu_var%shld06"
+
+  BUT_ONLY_IF_IT_CHANGES
+
+
+// Thunderhammer Smithy extra items
+
+COPY_EXISTING "%tutu_var%taerum.sto" "override"
+  ADD_STORE_ITEM "%tutu_var%bow02" AFTER "%tutu_var%bow01" #0 #0 #0 "identified" #1
+  ADD_STORE_ITEM "%tutu_var%hamm02" AFTER "%tutu_var%hamm01" #0 #0 #0 "identified" #1
+  ADD_STORE_ITEM "%tutu_var%shld06" AFTER "%tutu_var%shld05" #0 #0 #0 "identified" #1
+
+
+// Thalantyr extra spell scrolls
+
+COPY_EXISTING "%tutu_scripth%ighhedg.sto" "override"
+  ADD_STORE_ITEM "%tutu_var%scrl1u" AFTER "%tutu_var%scrl1q" #1 #0 #0 "identified" #1
+  ADD_STORE_ITEM "%tutu_var%scrl1z" AFTER "%tutu_var%scrl1u" #1 #0 #0 "identified" #1
+  ADD_STORE_ITEM "%tutu_var%scrl5i" AFTER "%tutu_var%scrl1z" #1 #0 #0 "identified" #1
+  ADD_STORE_ITEM "%tutu_var%scrl5l" AFTER "%tutu_var%scrl5i" #1 #0 #0 "identified" #1
+
+

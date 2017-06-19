@@ -209,6 +209,7 @@ BEGIN
       INT_VAR
       match_opcode
       multi_match	= 1	// Just once, please
+      silent		= 1	// Don't care about warnings
       opcode		= 83	// Protection: From Projectile
       parameter1	= 0	// Irrelevant
       parameter2	= projectile
@@ -225,6 +226,7 @@ BEGIN
       INT_VAR
         match_opcode
         multi_match	= 1	// Just once, please
+        silent		= 1	// Don't care about warnings
         opcode		= 206	// Spell: Protection From Spell
 	parameter1	= 0
 	parameter2	= 0
@@ -244,6 +246,7 @@ BEGIN
     LAUNCH_PATCH_FUNCTION CLONE_EFFECT
       INT_VAR
       multi_match	= 1
+      silent		= 1	// Don't care about warnings
       opcode		= 206	// Spell Effect: Immunity Spell
       parameter1	= RESOLVE_STR_REF ("Multiple castings of this spell have no effect.")
       parameter2	= 0	// Default (IWD1)

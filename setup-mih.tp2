@@ -41,6 +41,19 @@ LAUNCH_ACTION_FUNCTION "install_component"
 END
 
 
+// ===================
+// Shop Fixes & Tweaks
+// ===================
+
+BEGIN "Shop Fixes & Tweaks (BG1)"
+GROUP "Baldur's Gate 1" GAME_INCLUDES "bg1"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "bg1_shop_tweaks"
+END
+
+
 // ================================================
 // Allow Divine Spell Scrolls to Paladins & Rangers
 // ================================================

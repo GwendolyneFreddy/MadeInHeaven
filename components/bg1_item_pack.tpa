@@ -47,7 +47,7 @@ COPY_EXISTING "%tutu_var%mutami.cre" "override"
 
 // Thalantyr sells Gem of Insight and Oils of Acid Resistance
 
-COPY_EXISTING "%tutu_var%highhedg.sto" "override"
+COPY_EXISTING "%tutu_scripth%ighhedg.sto" "override"
   ADD_STORE_ITEM "mh#potn1" AFTER "%tutu_var%potn45" #1 #0 #0 "identified" #3
   ADD_STORE_ITEM "mh#amul2" LAST #0 #0 #0 "identified" #1
 
