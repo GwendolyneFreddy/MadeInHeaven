@@ -110,6 +110,19 @@ END
 
 
 // ==========================
+// Alternative Druid XP Table
+// ==========================
+
+BEGIN "Alternative Druid XP Table"
+GROUP "Rule Tweaks"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "druid_xp_table"
+END
+
+
+// ==========================
 // Level-locked Spell Scrolls
 // ==========================
 

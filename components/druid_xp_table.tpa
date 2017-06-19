@@ -1,0 +1,85 @@
+// Alternative experience table for druids
+
+ACTION_DEFINE_ASSOCIATIVE_ARRAY druid_xp_table
+BEGIN
+  1	=> 0
+  2	=> 2000
+  3	=> 4000
+  4	=> 7500
+  5	=> 12500
+  6	=> 20000
+  7	=> 35000
+  8	=> 60000
+  9	=> 90000
+  10	=> 125000
+  11	=> 200000
+  12	=> 300000
+  13	=> 750000
+  14	=> 1500000
+  15	=> 1750000
+  16	=> 2000000
+  17	=> 2250000
+  18	=> 2500000
+  19	=> 2750000
+  20	=> 3000000
+  21	=> 3250000
+  22	=> 3500000
+  23	=> 3750000
+  24	=> 4000000
+  25	=> 4250000
+  26	=> 4500000
+  27	=> 4750000
+  28	=> 5000000
+  29	=> 5250000
+  30	=> 5500000
+  31	=> 5750000
+  32	=> 6000000
+  33	=> 6250000
+  34	=> 6500000
+  35	=> 6750000
+  36	=> 7000000
+  37	=> 7250000
+  38	=> 7500000
+  39	=> 8000000
+  40	=> 8400000
+  41	=> 8800000
+  42	=> 9200000
+  43	=> 9600000
+  44	=> 10000000
+  45	=> 10500000
+  46	=> 11000000
+  47	=> 11500000
+  48	=> 12000000
+  49	=> 12500000
+  50	=> 13000000
+  51	=> "-1"
+END
+
+COPY_EXISTING "xplevel.2da" "override"
+  PATCH_WITH_SCOPE
+  BEGIN
+    COUNT_2DA_COLS cols
+    COUNT_2DA_ROWS cols rows
+    READ_2DA_ENTRIES_NOW __read_xptable cols
+
+    FOR (i = 0; i < rows; ++i)
+    BEGIN
+      READ_2DA_ENTRY_FORMER __read_xptable i 0 class
+
+      PATCH_IF ("%class%" STRING_EQUAL_CASE "druid")
+      BEGIN
+        PHP_EACH druid_xp_table AS level => xp
+	BEGIN
+	  PATCH_IF (level < cols)
+	  BEGIN
+	    SET_2DA_ENTRY_LATER __set_xptable i level xp
+	  END
+	END
+      END
+    END
+
+    SET_2DA_ENTRIES_NOW __set_xptable cols
+    PRETTY_PRINT_2DA
+  END
+
+
