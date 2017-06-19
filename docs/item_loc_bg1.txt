@@ -1,0 +1,26 @@
+mh#amul1	Amulet against Undead		Song of the Morning temple
+mh#amul2	Gem of Insight			Thalantyr (shop)
+
+mh#armr1	Green Dragon Scale		Brokk (event)
+
+mh#belt1	Girdle of Dwarvenkind		Brokk (event)
+
+mh#boot1	Feather Tabi			Brokk (shop)
+
+mh#clck1	Mutamin's Cloak			Mutamin (where else?)
+mh#clck2	Battlecloak of Vycaena		Durlag's Tower D4 (replaces Cloak of the Shield, this is moved to Firewine)
+
+mh#helm1	Helm of Valor			Brokk (shop)
+
+mh#misc1	Green Dragon Scales		Durlag's Tower D4 (in bag)
+
+mh#potn1	Oil of Acid Resistance		various shops and dungeons
+
+mh#ring1	Ring of Warmth			Gibberling Mountains (replaces extra Ring of Fire Resistance)
+mh#ring2	Ring of the Neophyte		Friendly Arm Inn (replaces extra Ring of Wizardry)
+mh#ring3	Ring of Toughness		Coast Way (replaces extra Ring of Protection +1)
+
+mh#swrd1	Terminus Est +2			
+mh#swrd2	Heartsblood +1			Greywolf (replaces Varscona +2, this is moved to Raemon in the bandit camp)
+
+

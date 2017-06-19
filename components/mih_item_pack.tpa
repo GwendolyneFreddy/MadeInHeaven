@@ -1,0 +1,316 @@
+// Made in Heaven item pack for the Baldur's Gate trilogy
+
+
+// Generate needed .eff files
+
+OUTER_FOR (i = 1; i <= 3; ++i)
+BEGIN
+  ACTION_IF NOT FILE_EXISTS_IN_GAME "undhit%i%.eff"
+  BEGIN
+    CREATE EFF "undhit%i%"
+      WRITE_SHORT	0x0010 178	// THAC0 vs. Creature Type
+      WRITE_LONG	0x001c IDS_OF_SYMBOL("general" "undead")
+      WRITE_LONG	0x0020 3
+      WRITE_SHORT	0x0024 1	// Permanent
+      WRITE_SHORT	0x002c 100	// 100% chance
+      WRITE_LONG	0x0060 i
+  END
+
+  ACTION_IF NOT FILE_EXISTS_IN_GAME "unddam%i%.eff"
+  BEGIN
+    CREATE EFF "unddam%i%"
+      WRITE_SHORT	0x0010 179	// Damage vs. Creature Type
+      WRITE_LONG	0x001c IDS_OF_SYMBOL("general" "undead")
+      WRITE_LONG	0x0020 3
+      WRITE_SHORT	0x0024 1	// Permanent
+      WRITE_SHORT	0x002c 100	// 100% chance
+      WRITE_LONG	0x0060 i
+  END
+
+  CREATE EFF "mh#crsh%i%"
+    WRITE_LONG	0x001c i
+    WRITE_LONG	0x0020 0
+    WRITE_SHORT	0x0024 1	// Permanent
+    WRITE_SHORT	0x002c 100	// 100% chance
+
+  CREATE EFF "mh#slsh%i%"
+    WRITE_LONG	0x001c i
+    WRITE_LONG	0x0020 16777216
+    WRITE_SHORT	0x0024 1	// Permanent
+    WRITE_SHORT	0x002c 100	// 100% chance
+END
+
+
+// Copy .bam files over
+
+COPY_LARGE "%MOD_FOLDER%/item_pack/bgt/bams" "override"
+
+
+// mh#amul1 - Amulet against Undead
+
+COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#amul1.itm" "override"
+  SAY NAME2 "Amulet against Undead"
+  SAY IDENTIFIED_DESC "Amulet against Undead
+
+This item looks quite old and judging by the style has been forged somewhere in Mulhorand, but the history of its creation is unknown.  It is possible that it was not created on Faerun at all but instead was brought on this world when the ancient Imaskari artificers magically abducted thousands of humans from another world to serve as their slaves.  When their deities found a way to enter Toril, these slaves revolted and formed the nation of Mulhorand.
+
+The amulet is shaped like an ankh, the symbol of life, and it bears silver runes and symbols related to dawn, the sun, light and life, all things that are anathema to undead.  Wearing this amulet helps the bearer strike true against zombies, ghouls and other soulless horrors from beyond the grave.
+
+STATISTICS:
+
+THAC0: +3 vs. Undead
+Damage: +3 vs. Undead
+Weight: 3"
+
+
+// mh#amul2 - Gem of Insight
+
+COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#amul2.itm" "override"
+  SAY NAME2 "Amulet of Insight"
+  SAY IDENTIFIED_DESC "Gem of Insight
+
+This necklace consists of a large multi-faceted diamond on a delicate silver chain.  If one peers inside the diamond, the holy symbol of Oghma, god of knowledge can be seen at the center.  Most likely this item was created by the clergy of Oghma, but for what exact purpose is unknown.  Most likely, it was just to advance knowledge and ideas in general.
+
+While worn, this magical gem enhances both the intelligence and wisdom of the wearer.  If the wearer so chooses the gem can enhance their intelligence permanently, but by doing so the gem and the wisdom it brings will be permanently lost.
+
+STATISTICS:
+
+Intelligence: +1 bonus
+Wisdom: +1 bonus
+Special: Can enhance intelligence permanently, but by doing so the gem is forever lost.
+Weight: 1"
+
+
+// mh#armr1 - Green Dragon Scale
+
+COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#armr1.itm" "override"
+  SAY NAME2 "Green Dragon Scale"
+  SAY IDENTIFIED_DESC "Green Dragon Scale
+
+This armor was expertly crafted by the dwarven smith Brokk from green dragon scales which <CHARNAME> found in the depths of Durlag's Tower.  Whom exactly slew the green dragon that these scales were harvest from is not known, but most likely it was Durlag himself.
+
+STATISTICS:
+
+Armor Class: 0
+Special: wearer is immune to poison
+Weight: 8
+Requires: 6 Strength
+
+Not usable by:
+ Bard
+ Mage
+ Thief"
+
+
+// mh#belt1 - Girdle of Dwarvenkind: 'Moradin's Blessing'
+
+COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#belt1.itm" "override"
+  SAY NAME2 "Girdle of Dwarvenkind"
+  SAY IDENTIFIED_DESC "Girdle of Dwarvenkind: 'Moradin's Blessing'
+
+Priests of Moradin sometimes grant belts like this one to non-dwarves who have done a great service to dwarvenkind.  Most dwarves will treat anyone wearing one of these as a trusted friend and clansmember.
+
+The sturdy belt contains a powerful blessing that grants the wearer many of the racial bonuses that dwarves enjoy, like infravision and enhanced constitution.  Unfortunately for the wearer, some of the dwarven gruffness also rubs off on them, hurting their charisma slightly.
+
+STATISTICS:
+
+Constitution: +1 bonus
+Charisma: -1 penalty
+Saving Throws: +3 vs. Poison, Wands and Spells
+Special: wearer gains infravision like a dwarf
+Weight: 2
+
+Not usable by:
+ Dwarf
+ Gnome"
+
+
+// mh#boot1 - Feather Tabi
+
+COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#boot1.itm" "override"
+  SAY NAME2 "Feather Tabi"
+  SAY IDENTIFIED_DESC "Feather Tabi: 'Boots of the Master Ninja'
+
+These enchanted split-toe boots hail from faraway Kara-Tur and are a rare sight on the Sword Coast.  The exact process of enchanting them is only known to some clans of ninja and they are quite secretive about it.  How this pair made it all the way to the Sword Coast is unclear.  Most likely, their former owner met with disaster while on a mission and was forced to leave them behind.  Whether he or she is still alive and still looking for them remains to be seen.
+
+While worn these boots greatly reduces the force the wearer's weight excerts on the surface they are walking over.  This makes it a lot easier to walk silently, and also reduces the likelyhood of setting off certain traps.
+
+STATISTICS:
+
+Stealth: +25%
+Find/Remove Traps: +10%
+Weight: 2
+
+Only usable by:
+ Thief"
+
+
+// mh#clck1 - Mutamin's Cloak
+
+COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#clck1.itm" "override"
+  SAY NAME2 "Mutamin's Cloak"
+  SAY IDENTIFIED_DESC "Mutamin's Cloak
+
+This cloak was worn by the mad wizard Mutamin before <CHARNAME> slew him in the field east of Beregost.  There is no known prior history, most likely the mad gnome created it himself so he would be safe around his 'pets'.
+
+STATISTICS:
+
+Special: wearer is immune to all forms of petrification
+Weight: 3"
+
+
+// mh#clck2 - Battlecloak of Vycaena
+
+COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#clck2.itm" "override"
+  SAY NAME2 "Battlecloak of Vycaena"
+  SAY IDENTIFIED_DESC "Battlecloak of Vycaena
+
+This voluminous, emerald-green cloak is trimmed with intricate designs done in gold thread.  Each of its two clasps is a golden disk engraved with the crest of a long-extinct Calishite noble family and set with a small emerald.  This alone would already make the cloak worth a small fortune, but it also bears a powerful enchantment to protect its wearer in battle.
+
+The exact method of making these cloaks is known to only a few reclusive wizards in the Shining South, and the precious gems and rare materials involved in the process make creating a new one a hard and dangerous task.  As a result, only about a dozen of these cloaks are known to exist, and for one to make its way to the Sword Coast is a rare occurrence indeed.
+
+STATISTICS:
+
+Armor Class: +4 bonus
+Saving Throws: +1 bonus
+Weight: 3"
+
+
+// mh#helm1 - Helm of Valor
+
+COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#helm1.itm" "override"
+  SAY NAME2 "Helm of Valor"
+  SAY IDENTIFIED_DESC "Helm of Valor
+
+These ornate golden helms are sometimes worn into battle by elven generals and commanders of Evermeet, Evereska or other elven nations.  This particular one was found in the ruins of Myth Drannor and probably belonged to an elven commander defending the city against the Army of Darkness.
+
+Wearing this helm allows one to mentally will arrows and other projectiles away, making it less likely that one strikes true and reducing the damage even when this happens.  This allows the elven commander to remain upright even when under fire, and serve as an inspiration to his men.  However, because the helm operates on the willpower of the wearer, it can only be used effectively by people with high wisdom.
+
+STATISTICS:
+
+Armor Class: +3 vs. Missiles
+Special: protects against critical hits, reduces missile damage by 50%
+Requires: 13 Wisdom
+Weight: 2
+
+Not usable by:
+ Bard
+ Mage
+ Thief"
+
+
+// mh#misc1 - Green Dragon Scales
+
+COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#misc1.itm" "override"
+  SAY NAME2 "Green Dragon Scales"
+  SAY IDENTIFIED_DESC "Green Dragon Scales
+
+These shiny emerald scales were harvested from the corpse of a green dragon and seem to have been preserved in some way.  A capable smith should be able to craft these into a suit of armor."
+
+
+// mh#potn1 - Oil of Acid Resistance
+
+COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#potn1.itm" "override"
+  SAY NAME2 "Oil of Acid Resistance"
+  SAY IDENTIFIED_DESC "Oil of Acid Resistance
+
+This is a black, viscous and non-flamable oil.  When applied to exposed equipment and skin, it confers virtual immunity to all acids and other corrosive agents.  All acid damage is reduced by 90%, on top of any other resistances the person might have.  The effect lasts for 10 turns, or until dispelled."
+
+
+// mh#ring1 - Ring of Warmth
+
+COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#ring1.itm" "override"
+  SAY NAME2 "Ring of Warmth"
+  SAY IDENTIFIED_DESC "Ring of Warmth
+
+A favorite among mountaineers, explorers and others whose activities get then into cold areas (including, of course, adventurers), the enchantment on this ring allows the wearer to remain comfortable in sub-zero temperatures.  Damage from extreme cold like white dragon breath or a wizard's Cone of Cold spell is also reduced.
+
+STATISTICS:
+
+Cold Resistance: +20%"
+
+
+// mh#ring2 - Ring of the Neophyte
+
+COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#ring2.itm" "override"
+  SAY NAME2 "Ring of the Neophyte"
+  SAY IDENTIFIED_DESC "Ring of the Neophyte
+
+A lesser version of the fabled Ring of Wizardry, rings like these are sometimes granted to a favorite apprentice when they complete their studies and are ready to set out on their own.  Other, more demanding masters might require their apprentices to complete forging one of their own as a sort of final exam.
+
+This particular one bears a mage sigil that you don't recognize and does not respond to divination magic.  Its creator may be long forgotten - or value their privacy.
+
+STATISTICS:
+
+Spells: one extra 1st level spell slot
+
+Only usable by:
+ Mage"
+
+
+// mh#ring3 - Ring of Toughness
+
+COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#ring3.itm" "override"
+  SAY NAME2 "Ring of Toughness"
+  SAY IDENTIFIED_DESC "Ring of Toughness
+
+This ring is a fairly plain steel band with only minimal enamel decoration.  It bears a minor enchantment that gives the wearer a small boost in vitality.
+
+It's not known who created the first of these rings, but they occasionally show up in places where there has been a large conflict, probably created by combat priests or war wizards.
+
+STATISTICS:
+
+Hit Points: +3 maximum"
+
+
+// mh#swrd1 - Terminus Est +2
+
+COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#swrd1.itm" "override"
+  SAY NAME2 "Terminus Est +2"
+  SAY IDENTIFIED_DESC "Bastard Sword +2: 'Terminus Est'
+
+When lady Walraven was sentenced to death for high treason, she had but one last wish: That her delicate neck was spared from the executioner's crude axe.  The blacksmith of Walraven Keep then forged this masterwork blade for the occasion.  After the execution it was placed within the keep as a wall decoration, but not for very long.  Because of the lady's treason, Walraven Keep and the surrounding village were completely razed by a horde of orcs and ogres within a week, and the sword was taken as a trophy.  Orc shamans enchanted it, and it was wielded by their chieftain for several years until he was slain by a paladin of Tyr during a failed raid.  After that the sword has changed hands several times, usually in a violent manner.
+
+STATISTICS:
+
+THAC0: +2 bonus
+Damage: 2d4 + 2, 50% chance of additional 1d3 + 1 poison damage
+Damage type: slashing (and poison)
+Weight: 7
+Speed Factor: 6
+Proficiency Type: Bastard Sword
+Type: 1-handed
+Requires: 11 Strength
+
+Not Usable By:
+ Druid
+ Cleric
+ Mage
+ Thief"
+
+
+// mh#swrd2 - Heartsblood +1
+
+COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#swrd2.itm" "override"
+  SAY NAME2 "Heartsblood +1"
+  SAY IDENTIFIED_DESC "Long Sword +1, +2 vs. Undead: 'Heartsblood'
+
+This long sword was the family blade of the paladin Lyssinde Heartsblood, but she fell in battle, ironically against a horde of undead which she had grossly underestimated.  Lyssinde had no heir and no family, so her sword laid next to her body for more than a hundred years until another adventuring group found her.  This group, which included a kind-hearted priest of Ilmater, finally gave the young adventuress a decent burial and then used the sword to utterly wipe out the horde of undead that had cost Lyssinde her life.  They met with disaster themselves a few years later when drow ambushed them in the Underdark.  A drow trader named Nym later claimed the blade and sold it back to a surfacer.
+
+This sword is always considered +2 for purposes of what it can hit, but against enemies that are not undead it performs only as a +1 sword.
+
+STATISTICS:
+
+THAC0: +1 bonus, +2 vs. Undead
+Damage: 1D8 + 1, +2 vs. Undead
+Damage type: slashing
+Weight: 4
+Speed Factor: 4
+Proficiency Type: Long Sword
+Type:  1-handed
+Requires: 6 Strength
+
+Not usable by:
+ Druid"
+
+

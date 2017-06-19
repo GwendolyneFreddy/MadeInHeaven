@@ -15,6 +15,19 @@ END	// ALWAYS block
 LANGUAGE "American English" "%MOD_FOLDER%/lang/en" "%MOD_FOLDER%/lang/en/setup-mih.tra"
 
 
+// ===================
+// MiH Item Pack (BG1)
+// ===================
+
+BEGIN "Made in Heaven Item Pack for BG1"
+GROUP "Baldur's Gate 1" GAME_INCLUDES "bg1"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "bg1_item_pack"
+END
+
+
 // =====================
 // Missing Dialogs (BG1)
 // =====================

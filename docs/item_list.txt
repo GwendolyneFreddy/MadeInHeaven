@@ -1,0 +1,26 @@
+mh#amul1	Amulet against Undead		+3 to-hit & damage undead				Dungeon Master Guide (2E)
+mh#amul2	Gem of Insight			+1 intelligence, +1 wisdom				Dungeon Master Guide (2E)
+
+mh#armr1	Green Dragon Scale		base AC 0, poison immunity
+
+mh#belt1	Girdle of Dwarvenkind		-1 cha, +1 con, +3 saves, infravision			Dungeon Master Guide (2E)
+
+mh#boot1	Feather Tabi			+25% stealth, +10% find/remove traps			Complete Ninja's Handbook (2E)
+
+mh#clck1	Mutamin's Cloak			petrification immunity
+mh#clck2	Battlecloak of Vycaena		+4 AC, +1 saves						Fallen Empires of Faerun (3E)
+
+mh#helm1	Helm of Valor			+3 AC vs missiles, 50% missile resistance		Complete Book of Elves (2E)
+
+mh#misc1	Green Dragon Scales
+
+mh#potn1	Oil of Acid Resistance		+90% acid resistance for 10 turns			Dungeon Master Guide (2E)
+
+mh#ring1	Ring of Warmth			+20% cold resistance					Dungeon Master Guide (2E)
+mh#ring2	Ring of the Neophyte		extra 1st level wizard spell slot
+mh#ring3	Ring of Toughness		+3 max HP
+
+mh#swrd1	Terminus Est +2			bastard sword +2, poison damage				Castlevania: Symphony of the Night
+mh#swrd2	Heartsblood +1			long sword +1, +2 vs undead				Book of Lairs (2E)
+
+
