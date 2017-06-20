@@ -28,6 +28,19 @@ LAUNCH_ACTION_FUNCTION "install_component"
 END
 
 
+// ==========================
+// Creature Corrections (BG1)
+// ==========================
+
+BEGIN "Creature Corrections (BG1)"
+GROUP "Baldur's Gate 1" GAME_INCLUDES "bg1"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "bg1_creature_corrections"
+END
+
+
 // =====================
 // Missing Dialogs (BG1)
 // =====================

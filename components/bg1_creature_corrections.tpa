@@ -1,0 +1,19 @@
+// BG1 Creature Corrections
+
+
+// Bulk alignment changes
+
+INCLUDE "%MOD_FOLDER%/config/bg1_alignment_changes.tph"
+
+PRINT "Executing bulk alignment corrections..."
+
+ACTION_PHP_EACH mih_bg1_alignment_changes AS resref => alignment
+BEGIN
+  COPY_EXISTING "%resref%.cre" "override"
+    WRITE_BYTE 0x27b alignment
+
+    IF_EXISTS
+    BUT_ONLY_IF_IT_CHANGES
+END
+
+
