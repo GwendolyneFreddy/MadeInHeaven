@@ -14,7 +14,7 @@ COPY_EXISTING "%tutu_var%friend.sto" "override"
 // Thunderhammer Smithy extra items
 
 COPY_EXISTING "%tutu_var%taerum.sto" "override"
-  ADD_STORE_ITEM "%tutu_var%bow02" AFTER "%tutu_var%bow01" #0 #0 #0 "identified" #1
+  ADD_STORE_ITEM "%tutu_var%bow04" AFTER "%tutu_var%bow03" #0 #0 #0 "identified" #1
   ADD_STORE_ITEM "%tutu_var%hamm02" AFTER "%tutu_var%hamm01" #0 #0 #0 "identified" #1
   ADD_STORE_ITEM "%tutu_var%shld06" AFTER "%tutu_var%shld05" #0 #0 #0 "identified" #1
 
