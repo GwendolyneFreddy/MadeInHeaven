@@ -169,6 +169,10 @@ This makes things harder for druids and especially fighter-druids, but I feel
 it does the spirit of the class more justice.  To compensate, my Item Packs
 contain some new items that druids can use.
 
+If you feel that some items should not be changed by this component, you can
+put their resrefs (filename minus the .itm extention) in the file
+config/druid_item_exceptions.txt before installing this component.
+
 
 ==========================
 Alternative Druid XP Table

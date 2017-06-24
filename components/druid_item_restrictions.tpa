@@ -14,41 +14,11 @@ COPY_EXISTING_REGEXP ".+\.itm" "override"
 
   PATCH_MATCH item_type
   WITH
-    // Exception: Don't change Jaheira's Harper Pin in BG2 at all
-    ANY GAME_INCLUDES "bg2" AND ("%SOURCE_RES%" STRING_EQUAL_CASE "misc5x")
+    // Check external exception list.
+    ANY FILE_CONTAINS_EVALUATED ("%MOD_FOLDER%/config/druid_item_exceptions.txt" "^%SOURCE_RES%$")
     BEGIN
-      // No change!
+      PATCH_PRINT "Exception found: %SOURCE_RES%"
     END
-
-    // Exception: Throne of Bhaal's Wong Fei's ioun stone is okay for fighter/druids.
-    ANY GAME_INCLUDES "tob" AND ("%SOURCE_RES%" STRING_EQUAL_CASE "helm34")
-    BEGIN
-      use_mask &= `BIT12
-    END
-
-    // Exception: Icewind Dale's Gauntlet of Elven Might is okay for fighter/druids.
-    ANY GAME_INCLUDES "iwd1" AND ("%SOURCE_RES%" STRING_EQUAL_CASE "gauntem")
-    BEGIN
-      use_mask &= `BIT12
-    END
-
-    ANY ENGINE_IS "bg2 tob bgee bg2ee" AND ("%SOURCE_RES%" STRING_EQUAL_CASE "d1brac02")
-    BEGIN
-      use_mask &= `BIT12
-    END
-
-    // Exception: Remorrhaz Shell Helm from IWD Item Upgrade mod is okay for druids and fighter-druids.
-    ANY GAME_INCLUDES "iwd1" AND ("%SOURCE_RES%" STRING_EQUAL_CASE "cdrelm")
-    BEGIN
-      use_mask &= `BIT12 & `BIT30
-    END
-
-    // Exception: Emerald Ioun Stone from my own Item Pack is okay for druids and fighter/druids!
-    ANY ("%SOURCE_RES%" STRING_EQUAL_CASE "mh#ioun1")
-    BEGIN
-      use_mask &= `BIT12 & `BIT30
-    END
-
 
     // Helmets are a complicated thing because ioun stones are also included.
     // If it can't be used by a bard, it's probably a helm.
