@@ -26,19 +26,19 @@ COPY "%MOD_FOLDER%/paladin_powers/mh#smtud.spl" "override"
 
 COPY_EXISTING "clabpa01.2da" "override"
               "clabpa02.2da" "override"
-  APPEND_FILE "%MOD_FOLDER%/paladin_powers/extra_lay_hands.2da"
-  APPEND_FILE "%MOD_FOLDER%/paladin_powers/smite_evil.2da"
+  APPEND_FILE TEXT "%MOD_FOLDER%/paladin_powers/extra_lay_hands.txt"
+  APPEND_FILE TEXT "%MOD_FOLDER%/paladin_powers/smite_evil.txt"
 
 
 // Inquisitor
 
 COPY_EXISTING "clabpa03.2da" "override"
-  APPEND_FILE "%MOD_FOLDER%/paladin_powers/smite_evil.2da"
+  APPEND_FILE TEXT "%MOD_FOLDER%/paladin_powers/smite_evil.txt"
 
 
 // Undead Hunter
 
 COPY_EXISTING "clabpa04.2da" "override"
-  APPEND_FILE "%MOD_FOLDER%/paladin_powers/smite_undead.2da"
+  APPEND_FILE TEXT "%MOD_FOLDER%/paladin_powers/smite_undead.txt"
 
 

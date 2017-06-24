@@ -46,6 +46,12 @@ END
 COPY_LARGE "%MOD_FOLDER%/item_pack/bgt/bams" "override"
 
 
+// Update itemexcl.2da
+
+COPY_EXISTING "itemexcl.2da" "override"
+  APPEND_FILE TEXT "%MOD_FOLDER%/item_pack/item_exclude.txt"
+
+
 // mh#amul1 - Amulet against Undead
 
 COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#amul1.itm" "override"

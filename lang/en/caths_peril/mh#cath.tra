@@ -1,0 +1,47 @@
+@0    = ~Oh, thank you so much!  I really thought I was done for!~
+@1    = ~What happened?~
+@2    = ~Are you always this... uh, under-dressed?~
+@3    = ~That's the monster's doing!~
+@4    = ~When I came home the door was open and that horrible creature was inside!  I tried to fight it, but suddenly my armor crumbled and I got hit by its tentacles!~
+@5    = ~I was paralyzed, and then that... that thing just went and gobbled me up whole!~
+@6    = ~My clothes dissolved in its stomach and I was sure I'd be next, until there was all this shouting and I got battered left and right.  I think some of your blows only just missed me!~
+@7    = ~And then all the movement just ceased and this huge gash opened up in front of me and... well, you know the rest.~
+@8    = ~Sounds like it was a really close call then.  It was pure luck I happened to be nearby.~
+@9    = ~Well, I would say that this monster had -heh- good taste.~
+@10   = ~Whatever.  Might there be a reward for saving your life?~
+@11   = ~Heh well, I am used to men devouring me, but not quite so literally!~
+@12   = ~I'd like to give you something for your help, but I need a little time to prepare it.  Meanwhile, could you do me a favor and get me a new suit of armor from Taerum?~
+@13   = ~New Armor for Cathline
+
+I barely saved the life of an elven priestess named Cathline.  Her armor had failed her in battle and she was almost devoured alive by the largest carrion crawler I have ever seen.
+
+She did mention a reward, but asked me if I could fetch her some new armor first.  Considering her formidable -ahem- 'assets', I believe only chain mail would have any chance of fitting her properly.~
+@14   = ~I prefer chain mail, that heavy plate is uncomfortable to me in, ahem, certain places.~
+@15   = ~Why don't you try this chain mail?  I'll just get another for myself.~
+@16   = ~You definitely need something better than normal chain.  Try this magical one!~
+@17   = ~Sure miss, I can do that for you.~
+@18   = ~Sure, why not.  I've carried orders for everyone else on the sword coast...~
+@19   = ~Yeah, I can do that.  But we're tired, would you mind if we rested here for a spell first?~
+@20   = ~Oh, let me try that... It's a little tight, but it will do.~
+@21   = ~Here, you can have this scroll.  If you are hurt badly, this can patch you right up!~
+@22   = ~New Armor for Cathline
+
+I gave the elf priestess Cathline a new suit of chain mail to replace the one that was destroyed in her encounter with the carrion crawler.  She was very thankful and gave us a magical scroll in return.
+
+Still, with the iron plague and all, the risk of another dangerous wardrobe failure remains.  Perhaps I could give her something better?~
+@23   = ~Really, an enchanted suit of chain, for me?  Oh, it fits perfectly!  Thank you so much!~
+@24   = ~This is so much better than that other chain!  Here, this scroll is for you!~
+@25   = ~New Armor for Cathline
+
+I gave the elf priestess Cathline an enchanted suit of chain instead of the normal chain I gave her earlier.  She thanked me by giving me another magical scroll.~
+@26   = ~You went way beyond what I asked for, and I shall be equally generous in return.  Here, with these two scrolls there should be no wound you can't cure.~
+@27   = ~New Armor for Cathline
+
+I gave the elf priestess Cathline a suit of magical chain mail to replace the armor she lost in her encounter with the carrion crawler.  She was very thankful indeed and gave me two magical scrolls in return.~
+@28   = ~Thanks again for saving me!  Come back anytime!~
+@29   = ~I brought you that suit of chain mail you asked for.~
+@30   = ~You need much better protection.  Here, take this enchanted suit of chain mail.~
+@31   = ~Would you mind if we rested here for a spell?  It's such a long trek back to town.~
+@32   = ~Glad to see you're still safe.  Later!~
+@33   = ~Sure, no problem.  Make yourselves at home!~
+@34   = ~Alright, have a safe trip!~

@@ -1,4 +1,12 @@
 IF
+!GlobalTimerNotExpired("rest", "LOCALS")
+THEN
+RESPONSE #100
+SetGlobalTimer("rest", "LOCALS", ONE_DAY)
+Rest()
+END
+
+IF
 !GlobalTimerNotExpired("heal_pc", "LOCALS")
 HaveSpell( CLERIC_NEUTRALIZE_POISON)
 Allegiance(Myself, NEUTRAL)

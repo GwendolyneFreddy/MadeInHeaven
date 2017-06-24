@@ -35,7 +35,11 @@ COPY_EXISTING_REGEXP ".+\.itm" "override"
 	      
 	      PATCH_IF (min_level < 12)
 	      BEGIN
-	        SET min_level -= 1
+	        SET min_level -= 3
+	      END
+	      ELSE
+	      BEGIN
+	        SET min_level -= 2
 	      END
 	    END
 	  END
