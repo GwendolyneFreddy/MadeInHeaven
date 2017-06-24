@@ -15,7 +15,7 @@ COPY_EXISTING_REGEXP ".+\.itm" "override"
   PATCH_MATCH item_type
   WITH
     // Check external exception list.
-    ANY FILE_CONTAINS_EVALUATED ("%MOD_FOLDER%/config/druid_item_exceptions.txt" "^%SOURCE_RES%$")
+    ANY FILE_CONTAINS_EVALUATED ("%MOD_FOLDER%/config/druid_item_exceptions.txt" "^%SOURCE_RES%")
     BEGIN
       PATCH_PRINT "Exception found: %SOURCE_RES%"
     END
