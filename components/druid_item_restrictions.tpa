@@ -38,11 +38,17 @@ COPY_EXISTING_REGEXP ".+\.itm" "override"
     END
 
     // Exception: Remorrhaz Shell Helm from IWD Item Upgrade mod is okay for druids and fighter-druids.
-
     ANY GAME_INCLUDES "iwd1" AND ("%SOURCE_RES%" STRING_EQUAL_CASE "cdrelm")
     BEGIN
       use_mask &= `BIT12 & `BIT30
     END
+
+    // Exception: Emerald Ioun Stone from my own Item Pack is okay for druids and fighter/druids!
+    ANY ("%SOURCE_RES%" STRING_EQUAL_CASE "mh#ioun1")
+    BEGIN
+      use_mask &= `BIT12 & `BIT30
+    END
+
 
     // Helmets are a complicated thing because ioun stones are also included.
     // If it can't be used by a bard, it's probably a helm.
