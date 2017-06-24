@@ -29,6 +29,13 @@ COPY_EXISTING "%GibberlingMountains%.are" "override"
     new_item		= "mh#ring1"
   END
 
+COPY_EXISTING "%Nashkel%.are" "override"
+  LAUNCH_PATCH_FUNCTION REPLACE_AREA_ITEM
+    STR_VAR
+    old_item		= "%tutu_var%plat06"
+    new_item		= "mh#ioun1"
+  END
+
 
 // Move Varscona to Bandit Camp, replace with Heartsblood
 
@@ -56,6 +63,18 @@ COPY_EXISTING "%tutu_scripth%ighhedg.sto" "override"
 
 COPY_EXISTING "%tutu_var%tem3402.sto" "override"
   ADD_STORE_ITEM "mh#amul1" LAST #0 #0 #0 "identified" #1
+
+
+// Give Bjornin the Shield of the Phoenix
+
+COPY_EXISTING "%tutu_var%bjorni.cre" "override"
+  REPLACE_CRE_ITEM "mh#shld1" #0 #0 #0 "none" "qitem1"
+
+COPY_EXISTING "%tutu_var%bjorni.dlg" "override"
+  DECOMPILE_AND_PATCH
+  BEGIN
+    REPLACE_TEXTUALLY "%tutu_var%shld04" "mh#shld1"
+  END
 
 
 // Add Oils of Acid Resistance to some shops and dungeons
@@ -107,7 +126,13 @@ COPY_EXISTING "%Candlekeep_Catacombs_L1%.are" "override"
     item_to_add		= "mh#potn1"
   END
 
-  // TODO: Put something in empty container #4
+  // Put Ring of Protection +3 in previously empty grave
+  LAUNCH_PATCH_FUNCTION ADD_AREA_ITEM
+    INT_VAR
+    container_to_add_to	= 4
+    STR_VAR
+    item_to_add		= "mh#ring4"
+  END
 
 
 // Durlag's Tower D4

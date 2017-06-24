@@ -12,6 +12,8 @@ mh#clck2	Battlecloak of Vycaena		Durlag's Tower D4 (replaces Cloak of the Shield
 
 mh#helm1	Helm of Valor			Brokk (shop)
 
+mh#ioun1	Lush Emerald Ioun Stone		Nashkel (replaces extra ankheg armor)
+
 mh#misc1	Green Dragon Scales		Durlag's Tower D4 (in bag)
 
 mh#potn1	Oil of Acid Resistance		various shops and dungeons
@@ -19,6 +21,9 @@ mh#potn1	Oil of Acid Resistance		various shops and dungeons
 mh#ring1	Ring of Warmth			Gibberling Mountains (replaces extra Ring of Fire Resistance)
 mh#ring2	Ring of the Neophyte		Friendly Arm Inn (replaces extra Ring of Wizardry)
 mh#ring3	Ring of Toughness		Coast Way (replaces extra Ring of Protection +1)
+mh#ring4	Ring of Protection +3		Candlekeep Catacoms (in previously empty grave)
+
+mh#shld1	Shield of the Phoenix +1	Jovial Juggler (Bjornin, replaces Medium Shield +1)
 
 mh#swrd1	Terminus Est +2			
 mh#swrd2	Heartsblood +1			Greywolf (replaces Varscona +2, this is moved to Raemon in the bandit camp)

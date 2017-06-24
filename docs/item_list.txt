@@ -19,6 +19,7 @@ mh#potn1	Oil of Acid Resistance		+90% acid resistance for 10 turns			Dungeon Mas
 mh#ring1	Ring of Warmth			+20% cold resistance					Dungeon Master Guide (2E)
 mh#ring2	Ring of the Neophyte		extra 1st level wizard spell slot
 mh#ring3	Ring of Toughness		+3 max HP
+mh#ring4	Ring of Protection +3		+3 AC, +3 saves						Dungeon Master Guide (2E)
 
 mh#swrd1	Terminus Est +2			bastard sword +2, poison damage				Castlevania: Symphony of the Night
 mh#swrd2	Heartsblood +1			long sword +1, +2 vs undead				Book of Lairs (2E)

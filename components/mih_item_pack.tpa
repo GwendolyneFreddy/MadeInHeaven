@@ -205,6 +205,29 @@ Not usable by:
  Thief"
 
 
+// mh#ioun1 - Lush Emerald Ioun Stone
+
+COPY_EXISTING "%MOD_FOLDER%/item_pack/bgt/items/mh#ioun1.itm" "override"
+  SAY NAME1 "Ioun Stone"
+  SAY NAME2 "Lush Emerald Ioun Stone"
+  SAY UNIDENTIFIED_DESC "This is a small stone that floats in an orbit around the owner's head.  Simply equip the stone to set it in its orbit.  These obviously magical stones have different properties depending on their color."
+  SAY IDENTIFIED_DESC "Lush Emerald Ioun Stone
+
+Deep green ioun stones like this one are sometimes found between the roots of ancient oaks and other old trees.  Followers of Sylvanus consider them sacred to the Oak Father, and elves likewise consider them gifts from Rillifane Ralathil, the Leaflord.  Whether either of these gods actually has anything to do with the creation of these stones is unknown.  Some theorize they are buried treasures of old, probably from some tree-worshiping cult, while others speculate they are formed by some yet unknown natural or magical process.
+
+In the hands of someone with a strong connection to nature, like a druid or ranger, this ioun stone becomes a powerful magical item.  But to anyone else it remains an inert, if very beautiful stone.
+
+STATISTICS:
+
+Armor Class: +1 bonus
+Regeneration: 1 hp/2 rounds
+Weight: 2
+
+Only usable by:
+ Druid
+ Ranger"
+
+
 // mh#misc1 - Green Dragon Scales
 
 COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#misc1.itm" "override"
@@ -267,6 +290,45 @@ It's not known who created the first of these rings, but they occasionally show 
 STATISTICS:
 
 Hit Points: +3 maximum"
+
+
+// mh#ring4 - Ring of Protection +3
+
+COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#ring4.itm" "override"
+  SAY NAME2 "Ring of Protection +3"
+  SAY IDENTIFIED_DESC "Ring of Protection +3: 'Ring of the Lich'
+
+This ring is a creation of the Netherese lich Trachir the Elder, also known as the Ebon Skull.  When Karsus cast his fateful spell that destroyed High Netheril, Trachir had just completed the final rituals and drank the lethal potion that would transform his body into an undead horror.  Trachir's enclave plunged into the Trackless Sea several miles from the coast of Candlekeep, and he was thought to have perished with it.  One night he surfaced however, and started a reign of terror on the Sword Coast for several years until he was defeated by a powerful cleric of Azuth.  This ring was taken from the lich's bony finger and still worn by the cleric on the day of his death many years later.  The ring was then interred in the catacombs below Candlekeep along with him.
+
+STATISTICS:
+
+Armor Class: +3 bonus
+Saving Throws: +3 bonus"
+
+
+// mh#shld1 - Shield of the Phoenix
+
+COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#shld1.itm" "override"
+  SAY NAME2 "Shield of the Phoenix +1"
+  SAY IDENTIFIED_DESC "Medium Shield +1: 'Shield of the Phoenix'
+
+The Holy Order of the Phoenix was a paladin order several hundred years ago.  It eventually fell apart due to differences in faith, but at the height of their power they were known throughout Faerun by their blazing golden shields.  Some of the higher ranking members had their shields enchanted, and these shields still exist today, most of them lying in treasure hordes somewhere in forgotten dungeons, waiting for a brave adventurer to recover them.
+
+The sacred nature of the enchantment on this shield causes extreme physical pain to anyone of evil alignment who tries to use it.
+
+STATISTICS:
+
+Armor Class: +2
+Fire Resistance: +30%
+Weight: 6
+Requires: 12 Strength
+
+Not usable by:
+ Bard
+ Druid
+ Mage
+ Thief
+ Evil characters"
 
 
 // mh#swrd1 - Terminus Est +2
