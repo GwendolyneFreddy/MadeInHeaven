@@ -52,32 +52,7 @@ BEGIN
 END
 
 
-DEFINE_ACTION_FUNCTION compile_dialog
-  STR_VAR
-  path_to_file		= "dummy"
-BEGIN
-  OUTER_PATCH_SAVE path_to_tra "%path_to_file%"
-  BEGIN
-    REPLACE_TEXTUALLY CASE_INSENSITIVE EVALUATE_REGEXP "^%MOD_FOLDER%" "%LANGUAGE%"
-    REPLACE_TEXTUALLY CASE_INSENSITIVE EVALUATE_REGEXP "\.d$" ".tra"
-  END
-
-  ACTION_IF NOT FILE_EXISTS "%path_to_tra%"
-  BEGIN
-    OUTER_TEXT_SPRINT path_to_tra "%MOD_FOLDER%/dummy.tra"
-  END
-
-  COMPILE EVALUATE_BUFFER "%path_to_file%"
-//    PATCH_IF ENGINE_IS "bg1 totsc"
-//    BEGIN
-//      LAUNCH_PATCH_MACRO bg1_token_replacements
-//    END
-
-    USING "%path_to_tra%"
-END
-
-
-DEFINE_ACTION_FUNCTION compile_script
+DEFINE_ACTION_FUNCTION compile_dialog_or_script
   STR_VAR
   path_to_file		= "dummy"
 BEGIN
@@ -85,6 +60,7 @@ BEGIN
   BEGIN
     REPLACE_TEXTUALLY CASE_INSENSITIVE EVALUATE_REGEXP "^%MOD_FOLDER%" "%LANGUAGE%"
     REPLACE_TEXTUALLY CASE_INSENSITIVE EVALUATE_REGEXP "\.baf$" ".tra"
+    REPLACE_TEXTUALLY CASE_INSENSITIVE EVALUATE_REGEXP "\.d$" ".tra"
   END
 
   ACTION_IF NOT FILE_EXISTS "%path_to_tra%"
@@ -95,8 +71,26 @@ BEGIN
   COMPILE EVALUATE_BUFFER "%path_to_file%"
     PATCH_IF ENGINE_IS "bg1 totsc"
     BEGIN
+      // BG1 compatibility hacks
+//      LAUNCH_PATCH_MACRO bg1_token_replacements
       REPLACE_TEXTUALLY CASE_SENSITIVE EXACT_MATCH "MYAREA" "GLOBAL"
       REPLACE_TEXTUALLY CASE_SENSITIVE EXACT_MATCH "FaceObject(" "//FaceObject("
+      REPLACE_TEXTUALLY CASE_SENSITIVE EXACT_MATCH "EraseJournalEntry(" "//EraseJournalEntry("
+      REPLACE_TEXTUALLY CASE_SENSITIVE EXACT_MATCH "RestParty()" "ClearAllActions()
+StartCutSceneMode()
+CutSceneId(Player1)
+FadeToColor([20.0],0)
+Wait(5)
+Rest()
+ActionOverride(Player2,Rest())
+ActionOverride(Player3,Rest())
+ActionOverride(Player4,Rest())
+ActionOverride(Player5,Rest())
+ActionOverride(Player6,Rest())
+Wait(10)
+FadeFromColor([20.0],0)
+Wait(1)
+EndCutSceneMode()"
     END
 
     USING "%path_to_tra%"

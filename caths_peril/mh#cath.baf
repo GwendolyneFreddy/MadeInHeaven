@@ -1,0 +1,72 @@
+IF
+!GlobalTimerNotExpired("heal_pc", "LOCALS")
+HaveSpell( CLERIC_NEUTRALIZE_POISON)
+Allegiance(Myself, NEUTRAL)
+See([PC])
+StateCheck([PC], STATE_POISONED)
+THEN
+RESPONSE #100
+SetGlobalTimer("heal_pc", "LOCALS", ONE_ROUND)
+Spell([PC],  CLERIC_NEUTRALIZE_POISON)
+END
+
+IF
+!GlobalTimerNotExpired("heal_pc", "LOCALS")
+HaveSpell( CLERIC_SLOW_POISON)
+Allegiance(Myself, NEUTRAL)
+See([PC])
+StateCheck([PC], STATE_POISONED)
+THEN
+RESPONSE #100
+SetGlobalTimer("heal_pc", "LOCALS", ONE_ROUND)
+Spell([PC],  CLERIC_SLOW_POISON)
+END
+
+IF
+!GlobalTimerNotExpired("heal_pc", "LOCALS")
+HaveSpell( CLERIC_REMOVE_PARALYSIS)
+Allegiance(Myself, NEUTRAL)
+See([PC])
+StateCheck([PC], STATE_HELPLESS)
+THEN
+RESPONSE #100
+SetGlobalTimer("heal_pc", "LOCALS", ONE_ROUND)
+Spell([PC],  CLERIC_REMOVE_PARALYSIS)
+END
+
+IF
+!GlobalTimerNotExpired("heal_pc", "LOCALS")
+HaveSpell( CLERIC_CURE_CRITICAL_WOUNDS)
+Allegiance(Myself, NEUTRAL)
+See([PC])
+HPPercentLT([PC], 25)
+THEN
+RESPONSE #100
+SetGlobalTimer("heal_pc", "LOCALS", ONE_ROUND)
+Spell([PC],  CLERIC_CURE_CRITICAL_WOUNDS)
+END
+
+IF
+!GlobalTimerNotExpired("heal_pc", "LOCALS")
+HaveSpell( CLERIC_CURE_SERIOUS_WOUNDS)
+Allegiance(Myself, NEUTRAL)
+See([PC])
+HPPercentLT([PC], 50)
+THEN
+RESPONSE #100
+SetGlobalTimer("heal_pc", "LOCALS", ONE_ROUND)
+Spell([PC],  CLERIC_CURE_SERIOUS_WOUNDS)
+END
+
+IF
+!GlobalTimerNotExpired("heal_pc", "LOCALS")
+HaveSpell( CLERIC_CURE_LIGHT_WOUNDS)
+Allegiance(Myself, NEUTRAL)
+See([PC])
+HPPercentLT([PC], 75)
+THEN
+RESPONSE #100
+SetGlobalTimer("heal_pc", "LOCALS", ONE_ROUND)
+Spell([PC],  CLERIC_CURE_LIGHT_WOUNDS)
+END
+

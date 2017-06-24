@@ -28,6 +28,19 @@ LAUNCH_ACTION_FUNCTION "install_component"
 END
 
 
+// ===========================
+// Cathline's Peril mini-quest
+// ===========================
+
+BEGIN "Cathline's Peril mini-quest for BG1"
+GROUP "Baldur's Gate 1" GAME_INCLUDES "bg1"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "bg1_caths_peril"
+END
+
+
 // ==========================
 // Creature Corrections (BG1)
 // ==========================

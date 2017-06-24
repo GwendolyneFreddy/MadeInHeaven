@@ -22,7 +22,7 @@
 COPY_EXISTING "%tutu_var%chante.cre" "override"
   WRITE_ASCIIE DIALOG "%tutu_var%chante"
 
-LAUNCH_ACTION_FUNCTION compile_dialog
+LAUNCH_ACTION_FUNCTION compile_dialog_or_script
   STR_VAR
   path_to_file	= "%MOD_FOLDER%/missing_dialogs/bg1/candlekeep.d"
 END

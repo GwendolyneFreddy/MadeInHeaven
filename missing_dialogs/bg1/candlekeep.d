@@ -54,7 +54,7 @@ END
 
 APPEND "%tutu_var%phlydi"
 
-IF WEIGHT #999 "True()"
+IF "True()"
 BEGIN default
   SAY @0
   IF ""
@@ -65,7 +65,7 @@ END	// APPEND
 
 
 APPEND "%tutu_var%reevor"
-IF WEIGHT #999 "True()"
+IF "True()"
 BEGIN default
   SAY @1
   IF ""
