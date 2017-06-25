@@ -1,0 +1,12 @@
+// Vampiric Wolf corrections
+
+DEFINE_PATCH_MACRO fix_vampiric_wolf
+BEGIN
+  WRITE_BYTE	0x0052 13	// THAC0
+
+  WRITE_BYTE	0x0271 IDS_OF_SYMBOL("general" "undead")
+  WRITE_BYTE	0x0272 IDS_OF_SYMBOL("race" "wolf")
+  WRITE_BYTE	0x0273 IDS_OF_SYMBOL("class" "wolf_vampiric")
+END
+
+

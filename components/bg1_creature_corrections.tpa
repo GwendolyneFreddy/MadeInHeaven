@@ -17,3 +17,53 @@ BEGIN
 END
 
 
+// Dread Wolf
+//
+// - THAC0 correction: 19 => 15
+// - Marked as undead
+// - Regenerates 3 hp/round
+// - Bite causes disease (1hp/turn for 10 turns)
+
+INCLUDE "%MOD_FOLDER%/creature_corrections/dread_wolf.tpa"
+
+COPY_EXISTING "%tutu_var%wolfdr.cre" "override"
+              "%tutu_var%wolfd1.cre" "override"
+  LAUNCH_PATCH_MACRO fix_dread_wolf
+
+
+// Vampiric Wolf
+//
+// - THAC0 correction: 12 => 13
+// - Marked as undead
+// - Corrected race/class
+
+INCLUDE "%MOD_FOLDER%/creature_corrections/vampiric_wolf.tpa"
+
+COPY_EXISTING "%tutu_var%wolfva.cre" "override"
+  LAUNCH_PATCH_MACRO fix_vampiric_wolf
+
+
+// Winter Wolf
+//
+// - THAC0 correcttion 14 => 15
+// - Proper winter wolf breath
+
+INCLUDE "%MOD_FOLDER%/creature_corrections/winter_wolf.tpa"
+
+COPY_EXISTING "%tutu_var%wolfwi.cre" "override"
+  LAUNCH_PATCH_MACRO fix_winter_wolf
+
+
+// Wraith Spider
+//
+// - THAC0 correction: 14 => 17
+// - AC correction: 1 => 5
+// - Bite causes level drain and con damage
+// - Marked as undead
+
+INCLUDE "%MOD_FOLDER%/creature_corrections/wraith_spider.tpa"
+
+COPY_EXISTING "%tutu_var%spidwr.cre" "override"
+  LAUNCH_PATCH_MACRO fix_wraith_spider
+
+

@@ -11,6 +11,7 @@ BEGIN
   ACTION_IF GAME_IS "bg1 totsc"
   BEGIN
     INCLUDE "%MOD_FOLDER%/lib/g3_bg_cpmvars.tpa"
+    INCLUDE "%MOD_FOLDER%/lib/mih_bg1_compat.tpa"
   END
 
   ACTION_IF GAME_IS "bgt"
