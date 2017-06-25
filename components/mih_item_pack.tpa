@@ -49,7 +49,7 @@ COPY_LARGE "%MOD_FOLDER%/item_pack/bgt/bams" "override"
 // Update itemexcl.2da
 
 COPY_EXISTING "itemexcl.2da" "override"
-  APPEND_FILE TEXT "%MOD_FOLDER%/item_pack/item_exclude.txt"
+  APPEND_FILE TEXT "%MOD_FOLDER%/item_pack/bgt/item_exclude.txt"
 
 
 // mh#amul1 - Amulet against Undead
@@ -93,7 +93,7 @@ COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#armr1.itm" "override"
   SAY NAME2 "Green Dragon Scale"
   SAY IDENTIFIED_DESC "Green Dragon Scale
 
-This armor was expertly crafted by the dwarven smith Brokk from green dragon scales which <CHARNAME> found in the depths of Durlag's Tower.  Whom exactly slew the green dragon that these scales were harvest from is not known, but most likely it was Durlag himself.
+This armor was expertly crafted by the dwarven smith Brokk from green dragon scales which <CHARNAME> found in the depths of Durlag's Tower.  Whom exactly slew the green dragon that these scales were harvested from is not known, but most likely it was the dwarven hero Durlag himself.
 
 STATISTICS:
 
@@ -106,6 +106,14 @@ Not usable by:
  Bard
  Mage
  Thief"
+
+  PATCH_IF ENGINE_IS "bg2 tob bgee bg2ee"
+  BEGIN
+    LAUNCH_PATCH_FUNCTION cd_apply_batch
+      STR_VAR
+      array_name	= cd_immunity_poison_arrays
+    END
+  END
 
 
 // mh#belt1 - Girdle of Dwarvenkind: 'Moradin's Blessing'
@@ -164,6 +172,14 @@ STATISTICS:
 Special: wearer is immune to all forms of petrification
 Weight: 3"
 
+  PATCH_IF ENGINE_IS "bg2 tob bgee bg2ee"
+  BEGIN
+    LAUNCH_PATCH_FUNCTION cd_apply_batch
+      STR_VAR
+      array_name	= cd_immunity_petrification_arrays
+    END
+  END
+
 
 // mh#clck2 - Battlecloak of Vycaena
 
@@ -220,7 +236,7 @@ In the hands of someone with a strong connection to nature, like a druid or rang
 STATISTICS:
 
 Armor Class: +1 bonus
-Regeneration: 1 hp/2 rounds
+Regeneration: 1 hp/5 rounds
 Weight: 2
 
 Only usable by:
@@ -350,7 +366,7 @@ Proficiency Type: Bastard Sword
 Type: 1-handed
 Requires: 11 Strength
 
-Not Usable By:
+Not usable by:
  Druid
  Cleric
  Mage

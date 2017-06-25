@@ -28,6 +28,8 @@ BEGIN
     INCLUDE "%MOD_FOLDER%/lib/g3_bgee_cpmvars.tpa"
   END
 
+  INCLUDE "%MOD_FOLDER%/lib/bg2fp_effect_batches.tpa"
+
 
   // Additions/changes to IDS files
 
