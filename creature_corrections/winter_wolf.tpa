@@ -1,6 +1,6 @@
 // Winter Wolf fixes
 
-COPY_EXISTING "p2-8.itm" "override"
+COPY_EXISTING "p2-8.itm" "override/wolfwi1.itm"
   SAY NAME1 "Attack"
   SAY NAME2 "Attack"
 
@@ -23,7 +23,7 @@ COPY_EXISTING "p2-8.itm" "override"
   END
 
 
-ADD_SPELL "%MOD_FOLDER%/creature_corrections/winter_wolf_breath.spl" 4 1 MH_WINTER_WOLF_BREATH
+ADD_SPELL "%MOD_FOLDER%/creature_corrections/winter_wolf_breath.spl" 3 1 MH_WINTER_WOLF_BREATH
   SAY NAME1 "Winter Wolf Breath"
 
 
