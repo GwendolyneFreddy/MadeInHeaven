@@ -1,0 +1,40 @@
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_HOLD_PERSON)
+  !GlobalTimerNotExpired("spell", "LOCALS")
+THEN
+  RESPONSE #70
+  SetGlobalTimer("spell", "LOCALS", ONE_ROUND)
+  Spell(LastSeenBy(Myself), CLERIC_HOLD_PERSON)
+  Wait(2)
+  RESPONSE #30
+  Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_BLESS)
+  !GlobalTimerNotExpired("spell", "LOCALS")
+THEN
+  RESPONSE #70
+  SetGlobalTimer("spell", "LOCALS", ONE_ROUND)
+  Spell(Myself, CLERIC_BLESS)
+  Wait(2)
+  RESPONSE #30
+  Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_MAGIC_STONE)
+  !GlobalTimerNotExpired("spell", "LOCALS")
+THEN
+  RESPONSE #70
+  SetGlobalTimer("spell", "LOCALS", ONE_ROUND)
+  Spell(LastSeenBy(Myself), CLERIC_MAGIC_STONE)
+  Wait(2)
+  RESPONSE #30
+  Continue()
+END
+
+
