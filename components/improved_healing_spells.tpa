@@ -15,10 +15,10 @@ BEGIN
     READ_LONG 0x0034 spell_level
     SET min_level = (spell_level - 1) * 2 + 1
 
-    LAUNCH_PATCH_FUNCTION make_spell_scaleable
+    LAUNCH_PATCH_FUNCTION CD_EXTEND-O-MATIC
       INT_VAR
-      level_low		= min_level + 1
-      level_high	= spell_level * 5
+      min_lev_alt	= min_level
+      level_cap		= spell_level * 5
     END
 
     GET_OFFSET_ARRAY ab_array SPL_V10_HEADERS

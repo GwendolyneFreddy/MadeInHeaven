@@ -41,17 +41,6 @@ BEGIN
 END
 
 
-DEFINE_PATCH_FUNCTION bcopy
-  INT_VAR
-  count				= 0
-BEGIN
-  FOR (i = 0; i < count; ++i)
-  BEGIN
-    WRITE_BYTE dst + i BYTE_AT (src + i)
-  END
-END
-
-
 DEFINE_ACTION_FUNCTION compile_dialog_or_script
   STR_VAR
   path_to_file		= "dummy"

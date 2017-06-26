@@ -1,93 +1,3 @@
-DEFINE_PATCH_FUNCTION make_spell_scaleable
-  INT_VAR
-  level_low			= 2
-  level_high			= 20
-BEGIN
-  SET ab_block_length = 0x0028
-  SET fx_block_length = 0x0030
-
-  READ_LONG 0x0064 ab_offset
-  READ_SHORT 0x0068 ab_count
-  READ_LONG 0x006a fx_offset
-  READ_SHORT 0x006e cst_index
-  READ_SHORT ab_offset + 0x001e fx_count
-  READ_SHORT ab_offset + 0x0020 fx_index
-
-  PATCH_IF ab_count == 1
-  BEGIN
-    // Calculate new offsets, indices and counts
-
-    SET new_header_count = level_high + 1 - level_low
-    SET ab_count += new_header_count
-
-    PATCH_IF cst_index > fx_index
-    BEGIN
-      cst_index += new_header_count * fx_count
-    END
-
-
-    // Clone and adjust headers
-
-    SET insert_point = ab_offset + ab_block_length
-    SET insert_length = new_header_count * ab_block_length
-   
-    INSERT_BYTES insert_point insert_length
-
-    PATCH_IF fx_offset >= insert_point
-    BEGIN
-      fx_offset += insert_length
-    END
-
-    FOR (i = 0; i < new_header_count; ++i)
-    BEGIN
-      LAUNCH_PATCH_FUNCTION bcopy
-        INT_VAR
-	src			= ab_offset
-	dst			= insert_point + i * ab_block_length
-	count			= ab_block_length
-      END
-
-      WRITE_SHORT (insert_point + i * ab_block_length + 0x0010) i + level_low
-      WRITE_SHORT (insert_point + i * ab_block_length + 0x0020) THIS + (i + 1) * fx_count
-    END
-
-
-    // Clone spell effects
-
-    SET insert_point = fx_offset + fx_count * fx_block_length
-    SET insert_length = new_header_count * fx_count * fx_block_length
-
-    PATCH_IF ab_offset > fx_offset
-    BEGIN
-      SET ab_offset += insert_length
-    END
-
-    INSERT_BYTES insert_point insert_length
-
-    FOR (i = 0; i < new_header_count; ++i)
-    BEGIN
-      LAUNCH_PATCH_FUNCTION bcopy
-        INT_VAR
-	src			= fx_offset
-	dst			= insert_point + i * fx_count * fx_block_length
-	count			= fx_count * fx_block_length
-      END
-    END
-
-    // Update offsets, indices and counts
-
-    WRITE_LONG 0x0064 ab_offset
-    WRITE_SHORT 0x0068 ab_count
-    WRITE_LONG 0x006a fx_offset
-    WRITE_SHORT 0x006e cst_index
-  END
-  ELSE
-  BEGIN
-    PATCH_WARN "make_spell_scaleable: Spell %SOURCE_RES% is already level-scaled."
-  END
-END
-
-
 DEFINE_PATCH_FUNCTION add_energy_drain
 INT_VAR
 levels_drained			= 1
@@ -241,9 +151,45 @@ END
 
 DEFINE_PATCH_FUNCTION prevent_spell_effect_stacking
   INT_VAR
-  match_opcode		= 0
+  match_opcode		= 142
 BEGIN
-  PATCH_IF NOT ENGINE_IS "bg1 totsc"
+  PATCH_IF ENGINE_IS "iwd1 how totlm"
+  BEGIN
+    LAUNCH_PATCH_FUNCTION CLONE_EFFECT
+      INT_VAR
+      match_opcode
+      multi_match	= 1
+      silent		= 1	// Don't care about warnings
+      opcode		= 254	// Remove effects by resource
+      timing		= 0	// Duration
+      duration		= 0
+      parameter1	= 0
+      parameter2	= 0
+      STR_VAR
+      insert		= "first"
+      resource		= "%SOURCE_RES%"
+    END
+  END
+
+  PATCH_IF ENGINE_IS "bgee bg2ee"
+  BEGIN
+    LAUNCH_PATCH_FUNCTION CLONE_EFFECT
+      INT_VAR
+      match_opcode
+      multi_match	= 1
+      silent		= 1	// Don't care about warnings
+      opcode		= 321	// Remove effects by resource
+      timing		= 0	// Duration
+      duration		= 0
+      parameter1	= 0
+      parameter2	= 0
+      STR_VAR
+      insert		= "first"
+      resource		= "%SOURCE_RES%"
+    END
+  END
+
+  PATCH_IF ENGINE_IS "bg2 tob"
   BEGIN
     LAUNCH_PATCH_FUNCTION CLONE_EFFECT
       INT_VAR
