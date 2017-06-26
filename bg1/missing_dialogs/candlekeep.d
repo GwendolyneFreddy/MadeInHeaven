@@ -1,6 +1,6 @@
 // Alaundro's Prophecies by the chanters
 
-BEGIN "%tutu_var%chanter"
+BEGIN "chanter"
 
 IF "True()"
 BEGIN default
