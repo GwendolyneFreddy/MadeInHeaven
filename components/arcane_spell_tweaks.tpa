@@ -23,7 +23,10 @@ COPY_EXISTING "spwi114.spl" "override"
     match_opcode	= 0	// Stat: AC against Specific
   END
 
-  LAUNCH_PATCH_MACRO prevent_spell_effect_stacking
+  LAUNCH_PATCH_FUNCTION prevent_spell_effect_stacking
+    INT_VAR
+    match_opcode	= 0
+  END
 
 
 COPY_EXISTING "amul15.itm" "override"

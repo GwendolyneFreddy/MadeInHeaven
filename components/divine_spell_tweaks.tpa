@@ -62,7 +62,10 @@ COPY_EXISTING "sppr202.spl" "override"
     END
   END
 
-  LAUNCH_PATCH_MACRO prevent_spell_effect_stacking
+  LAUNCH_PATCH_FUNCTION prevent_spell_effect_stacking
+    INT_VAR
+    match_opcode	= 0
+  END
 
 
 // Handle BG2's Staff of the Woodlands

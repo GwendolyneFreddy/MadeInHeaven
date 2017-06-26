@@ -239,12 +239,15 @@ BEGIN
 END
 
 
-DEFINE_PATCH_MACRO prevent_spell_effect_stacking
+DEFINE_PATCH_FUNCTION prevent_spell_effect_stacking
+  INT_VAR
+  match_opcode		= 0
 BEGIN
   PATCH_IF NOT ENGINE_IS "bg1 totsc"
   BEGIN
     LAUNCH_PATCH_FUNCTION CLONE_EFFECT
       INT_VAR
+      match_opcode
       multi_match	= 1
       silent		= 1	// Don't care about warnings
       opcode		= 206	// Spell Effect: Immunity Spell
