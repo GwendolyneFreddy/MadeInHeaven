@@ -9,7 +9,7 @@ BEGIN
   OUTER_FOR (i = 1; i <= 3; ++i)
   BEGIN
     CREATE EFF "undhit%i%"
-      WRITE_SHORT	0x0010 178	// THAC0 vs. Creature Type
+      WRITE_LONG	0x0010 178	// THAC0 vs. Creature Type
       WRITE_LONG	0x001c IDS_OF_SYMBOL("general" "undead")
       WRITE_LONG	0x0020 3
       WRITE_SHORT	0x0024 1	// Permanent
@@ -17,7 +17,7 @@ BEGIN
       WRITE_LONG	0x0060 i
 
     CREATE EFF "unddam%i%"
-      WRITE_SHORT	0x0010 179	// Damage vs. Creature Type
+      WRITE_LONG	0x0010 179	// Damage vs. Creature Type
       WRITE_LONG	0x001c IDS_OF_SYMBOL("general" "undead")
       WRITE_LONG	0x0020 3
       WRITE_SHORT	0x0024 1	// Permanent
