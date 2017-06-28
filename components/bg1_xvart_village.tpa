@@ -7,7 +7,7 @@ COPY_EXISTING "%tutu_var%nexlit.cre" "override"
   REPLACE_CRE_ITEM "%tutu_var%sw1h08" #0 #0 #0 "none" "weapon1" EQUIP
 
   WRITE_LONG	0x0014 420	// XP value
-  WRITE_BYTE	0x0052 16	// THAC0
+  WRITE_BYTE	0x0052 17	// THAC0
   WRITE_BYTE	0x0054 13	// Save vs. Death
   WRITE_BYTE	0x0055 15	// Save vs. Wands
   WRITE_BYTE	0x0056 14	// Save vs. Polymorph

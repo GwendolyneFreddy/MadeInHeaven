@@ -5,28 +5,6 @@
 
 OUTER_FOR (i = 1; i <= 3; ++i)
 BEGIN
-  ACTION_IF NOT FILE_EXISTS_IN_GAME "undhit%i%.eff"
-  BEGIN
-    CREATE EFF "undhit%i%"
-      WRITE_SHORT	0x0010 178	// THAC0 vs. Creature Type
-      WRITE_LONG	0x001c IDS_OF_SYMBOL("general" "undead")
-      WRITE_LONG	0x0020 3
-      WRITE_SHORT	0x0024 1	// Permanent
-      WRITE_SHORT	0x002c 100	// 100% chance
-      WRITE_LONG	0x0060 i
-  END
-
-  ACTION_IF NOT FILE_EXISTS_IN_GAME "unddam%i%.eff"
-  BEGIN
-    CREATE EFF "unddam%i%"
-      WRITE_SHORT	0x0010 179	// Damage vs. Creature Type
-      WRITE_LONG	0x001c IDS_OF_SYMBOL("general" "undead")
-      WRITE_LONG	0x0020 3
-      WRITE_SHORT	0x0024 1	// Permanent
-      WRITE_SHORT	0x002c 100	// 100% chance
-      WRITE_LONG	0x0060 i
-  END
-
   CREATE EFF "mh#crsh%i%"
     WRITE_LONG	0x001c i
     WRITE_LONG	0x0020 0
