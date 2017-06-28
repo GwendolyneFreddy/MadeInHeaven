@@ -1,0 +1,43 @@
+// BG1 compatibility hacks
+
+ACTION_IF NOT FILE_EXISTS "override/bg1_compat_hacks.mih"
+BEGIN
+  COPY "dummy.mih" "override/bg1_compat_hacks.mih"
+
+  // Create missing effect files
+
+  OUTER_FOR (i = 1; i <= 3; ++i)
+  BEGIN
+    CREATE EFF "undhit%i%"
+      WRITE_SHORT	0x0010 178	// THAC0 vs. Creature Type
+      WRITE_LONG	0x001c IDS_OF_SYMBOL("general" "undead")
+      WRITE_LONG	0x0020 3
+      WRITE_SHORT	0x0024 1	// Permanent
+      WRITE_SHORT	0x002c 100	// 100% chance
+      WRITE_LONG	0x0060 i
+
+    CREATE EFF "unddam%i%"
+      WRITE_SHORT	0x0010 179	// Damage vs. Creature Type
+      WRITE_LONG	0x001c IDS_OF_SYMBOL("general" "undead")
+      WRITE_LONG	0x0020 3
+      WRITE_SHORT	0x0024 1	// Permanent
+      WRITE_SHORT	0x002c 100	// 100% chance
+      WRITE_LONG	0x0060 i
+  END
+
+
+  // Create missing attack items
+
+  COPY_EXISTING "p1-4.itm" "override/p2-8.itm"
+    LAUNCH_PATCH_FUNCTION ALTER_ITEM_HEADER
+      INT_VAR
+      dicenumber	= 2
+    END
+
+
+  // Copy in extended state.bams (from ToB, uncompressed)
+
+  COPY "%MOD_FOLDER%/lib/bg1_compat/states.bam" "override"
+END
+
+

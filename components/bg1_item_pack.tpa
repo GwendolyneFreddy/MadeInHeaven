@@ -40,7 +40,7 @@ COPY_EXISTING "%Nashkel%.are" "override"
 // Move Varscona to Bandit Camp, replace with Heartsblood
 
 COPY_EXISTING "%tutu_var%greywo.cre" "override"
-  REPLACE_CRE_ITEM "mh#swrd1" #0 #0 #0 "none" "weapon1" EQUIP
+  REPLACE_CRE_ITEM "mh#swrd2" #0 #0 #0 "none" "weapon1" EQUIP
 
 COPY_EXISTING "%tutu_var%raemon.cre" "override"
   REPLACE_CRE_ITEM "%tutu_var%sw1h06" #0 #0 #0 "none" "weapon1" EQUIP
