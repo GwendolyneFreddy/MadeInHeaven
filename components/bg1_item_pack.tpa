@@ -56,7 +56,7 @@ COPY_EXISTING "%tutu_var%mutami.cre" "override"
 
 COPY_EXISTING "%tutu_scripth%ighhedg.sto" "override"
   ADD_STORE_ITEM "mh#potn1" AFTER "%tutu_var%potn45" #1 #0 #0 "identified" #3
-  ADD_STORE_ITEM "mh#amul2" LAST #0 #0 #0 "identified" #1
+  ADD_STORE_ITEM "mh#amul2" LAST #1 #0 #0 "identified" #1
 
 
 // Song of the Morning sells Amulet against Undead
