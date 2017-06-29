@@ -2,7 +2,7 @@
 
 ACTION_IF NOT FILE_EXISTS "override/bg1_compat_hacks.mih"
 BEGIN
-  COPY "dummy.mih" "override/bg1_compat_hacks.mih"
+  COPY "%MOD_FOLDER%/dummy.mih" "override/bg1_compat_hacks.mih"
 
   // Create missing effect files
 
