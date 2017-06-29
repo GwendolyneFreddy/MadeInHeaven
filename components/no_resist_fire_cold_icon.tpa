@@ -1,0 +1,182 @@
+// No Resist Fire/Cold Icon
+
+PRINT "Patching all items, wait..."
+
+COPY_EXISTING_REGEXP ".+\.itm" "override"
+  SET item_displays_icon	= 0
+  SET item_resists_fire		= 0
+  SET item_resists_cold		= 0
+
+  // Check equipped effects
+
+  GET_OFFSET_ARRAY fx_array ITM_V10_GEN_EFFECTS
+  PHP_EACH fx_array AS int => fx_offset
+  BEGIN
+    PATCH_IF ((SHORT_AT (fx_offset) == 142) && (LONG_AT (fx_offset + 0x0008) == 26))
+    BEGIN
+      SET item_displays_icon	= 1
+    END
+  
+    PATCH_IF ((SHORT_AT (fx_offset) == 30) && (SLONG_AT (fx_offset + 0x0008) >= 20))
+    BEGIN
+      SET item_resists_fire	= 1
+    END
+  
+    PATCH_IF ((SHORT_AT (fx_offset) == 28) && (SLONG_AT (fx_offset + 0x0008) >= 20))
+    BEGIN
+      SET item_resists_cold	= 1
+    END
+  END
+  
+
+  // Check ability effects
+
+  GET_OFFSET_ARRAY ab_array ITM_V10_HEADERS
+  PHP_EACH ab_array AS int => ab_offset
+  BEGIN
+    GET_OFFSET_ARRAY2 fx_array ab_offset ITM_V10_HEAD_EFFECTS
+    PHP_EACH fx_array AS int => fx_offset
+    BEGIN
+      PATCH_IF ((SHORT_AT (fx_offset) == 142) && (LONG_AT (fx_offset + 0x0008) == 26))
+      BEGIN
+        SET item_displays_icon	= 1
+      END
+  
+      PATCH_IF ((SHORT_AT (fx_offset) == 30) && (SLONG_AT (fx_offset + 0x0008) >= 20))
+      BEGIN
+        SET item_resists_fire	= 1
+      END
+  
+      PATCH_IF ((SHORT_AT (fx_offset) == 28) && (SLONG_AT (fx_offset + 0x0008) >= 20))
+      BEGIN
+        SET item_resists_cold	= 1
+      END
+    END
+  END
+
+  PATCH_IF item_displays_icon
+  BEGIN
+    PATCH_IF item_resists_fire
+    BEGIN
+      LAUNCH_PATCH_FUNCTION CLONE_EFFECT
+        INT_VAR
+        match_opcode		= 142	// Graphics: Display Special Effect Icon
+        match_parameter2	= 26	// Resist Fire/Ice
+        parameter2		= 16	// Protection from Fire
+        STR_VAR
+        insert			= "below"
+      END
+    END
+
+    PATCH_IF item_resists_cold
+    BEGIN
+      LAUNCH_PATCH_FUNCTION CLONE_EFFECT
+        INT_VAR
+        match_opcode		= 142	// Graphics: Display Special Effect Icon
+        match_parameter2	= 26	// Resist Fire/Ice
+        parameter2		= 25	// Protection from Cold
+        STR_VAR
+        insert			= "below"
+      END
+    END
+
+    LAUNCH_PATCH_FUNCTION DELETE_EFFECT
+      INT_VAR
+      match_opcode		= 142	// Graphics: Display Special Effect Icon
+      match_parameter2		= 26	// Resist Fire/Ice
+    END
+  END
+
+  BUT_ONLY_IF_IT_CHANGES
+
+
+PRINT "Patching all spells, wait..."
+
+COPY_EXISTING_REGEXP ".+\.spl" "override"
+  SET spell_displays_icon	= 0
+  SET spell_resists_fire	= 0
+  SET spell_resists_cold	= 0
+
+  // Check casting effects
+
+  GET_OFFSET_ARRAY fx_array SPL_V10_GEN_EFFECTS
+  PHP_EACH fx_array AS int => fx_offset
+  BEGIN
+    PATCH_IF ((SHORT_AT (fx_offset) == 142) && (LONG_AT (fx_offset + 0x0008) == 26))
+    BEGIN
+      SET spell_displays_icon	= 1
+    END
+  
+    PATCH_IF ((SHORT_AT (fx_offset) == 30) && (SLONG_AT (fx_offset + 0x0008) >= 20))
+    BEGIN
+      SET spell_resists_fire	= 1
+    END
+  
+    PATCH_IF ((SHORT_AT (fx_offset) == 28) && (SLONG_AT (fx_offset + 0x0008) >= 20))
+    BEGIN
+      SET spell_resists_cold	= 1
+    END
+  END
+  
+
+  // Check ability effects
+
+  GET_OFFSET_ARRAY ab_array SPL_V10_HEADERS
+  PHP_EACH ab_array AS int => ab_offset
+  BEGIN
+    GET_OFFSET_ARRAY2 fx_array ab_offset SPL_V10_HEAD_EFFECTS
+    PHP_EACH fx_array AS int => fx_offset
+    BEGIN
+      PATCH_IF ((SHORT_AT (fx_offset) == 142) && (LONG_AT (fx_offset + 0x0008) == 26))
+      BEGIN
+        SET spell_displays_icon	= 1
+      END
+  
+      PATCH_IF ((SHORT_AT (fx_offset) == 30) && (SLONG_AT (fx_offset + 0x0008) >= 20))
+      BEGIN
+        SET spell_resists_fire	= 1
+      END
+    
+      PATCH_IF ((SHORT_AT (fx_offset) == 28) && (SLONG_AT (fx_offset + 0x0008) >= 20))
+      BEGIN
+        SET spell_resists_cold	= 1
+      END
+    END
+  END
+
+  PATCH_IF spell_displays_icon
+  BEGIN
+    PATCH_IF spell_resists_fire
+    BEGIN
+      LAUNCH_PATCH_FUNCTION CLONE_EFFECT
+        INT_VAR
+        match_opcode			= 142	// Graphics: Display Special Effect Icon
+        match_parameter2		= 26	// Resist Fire/Ice
+        parameter2			= 16	// Protection from Fire
+        STR_VAR
+        insert				= "below"
+      END
+    END
+
+    PATCH_IF spell_resists_cold
+    BEGIN
+      LAUNCH_PATCH_FUNCTION CLONE_EFFECT
+        INT_VAR
+        match_opcode			= 142	// Graphics: Display Special Effect Icon
+        match_parameter2		= 26	// Resist Fire/Ice
+        parameter2			= 25	// Protection from Cold
+        STR_VAR
+        insert				= "below"
+      END
+    END
+
+    LAUNCH_PATCH_FUNCTION DELETE_EFFECT
+      INT_VAR
+      match_opcode			= 142	// Graphics: Display Special Effect Icon
+      match_parameter2		= 26	// Resist Fire/Ice
+    END
+  END
+
+  BUT_ONLY_IF_IT_CHANGES
+
+

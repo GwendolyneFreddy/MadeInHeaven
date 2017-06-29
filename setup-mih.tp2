@@ -373,3 +373,16 @@ LAUNCH_ACTION_FUNCTION "install_component"
 END
 
 
+// ========================
+// No Resist Fire/Cold Icon
+// ========================
+
+BEGIN "No Resist Fire/Cold Icon"
+GROUP "Item/Spell Tweaks"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "no_resist_fire_cold_icon"
+END
+
+

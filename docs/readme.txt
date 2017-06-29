@@ -37,6 +37,7 @@ Item- & Spell Tweaks:
 - Divine Spell Tweaks
 - Improved Healing Spells
 - Additional Paladin Powers
+- No Resist Fire/Ice Icon
 
 
 =====================
@@ -372,5 +373,18 @@ This component gives paladins a few more innate powers.
 The Smite Evil/Undead ability was based on Icewind Dale: Heart of Winter.
 
 Currently this component only works on games with the BG2/ToB engine.
+
+
+=======================
+No Resist Fire/Ice Icon
+=======================
+
+This component patches items and spells to no longer display the Resist
+Fire/Ice icon.  Instead, if the item or spell grants 20% or more fire
+resistance, it will display the Protection from Fire icon, and likewise for
+Protection from Cold.
+
+I wrote this because the Resist Fire/Ice icon is ugly and nearly impossible to
+tell apart from Protection from Fire in modern resolutions.
 
 

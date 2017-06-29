@@ -18,7 +18,6 @@ BEGIN
 
       LOAD_TRA "%LANGUAGE%/%component_name%/setup.tra"
     END
-    ELSE
 
 
     // Run command file, or fail if it's missing.

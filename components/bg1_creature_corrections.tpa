@@ -17,6 +17,19 @@ BEGIN
 END
 
 
+// Ankheg
+//
+// - Strength set to 18/50
+// - Proper Acid Squirt
+
+INCLUDE "%MOD_FOLDER%/creature_corrections/ankheg.tpa"
+
+COPY_EXISTING "%tutu_var%ankheg.cre" "override"
+              "%tutu_var%ankhegg.cre" "override"
+              "%tutu_var%ankhegq.cre" "override"
+  LAUNCH_PATCH_MACRO fix_ankheg
+
+
 // Dread Wolf
 //
 // - THAC0 correction: 19 => 15
