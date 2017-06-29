@@ -19,6 +19,9 @@ END
 
 // Ankheg
 //
+// - THAC0 correction: 17 => 13
+// - #attacks correction: 2 => 1
+// - Level (HD) correction: 3 => 8
 // - Strength set to 18/50
 // - Proper Acid Squirt
 

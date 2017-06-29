@@ -1,0 +1,12 @@
+IF
+  See(NearestEnemyOf(Myself))
+  Range(NearestEnemyOf(Myself), 30)
+  HPPercentLT(Myself, 50)
+  !GlobalTimerNotExpired("acid_squirt", "LOCALS")
+THEN
+  RESPONSE #100
+  SetGlobalTimer("acid_squirt", "LOCALS", SIX_HOURS)
+  ForceSpell(LastSeenBy(Myself), MH_ANKHEG_ACID_SQUIRT)
+END
+
+

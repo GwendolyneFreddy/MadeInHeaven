@@ -207,3 +207,75 @@ BEGIN
 END
 
 
+DEFINE_PATCH_FUNCTION replace_cre_script
+  INT_VAR
+  check_override	= 1
+  check_class		= 1
+  check_race		= 1
+  check_general		= 1
+  check_default		= 1
+  STR_VAR
+  old_script		= ""
+  new_script		= ""
+  RET
+  found
+BEGIN
+  SET found = 0
+
+  PATCH_IF check_override
+  BEGIN
+    READ_ASCII SCRIPT_OVERRIDE script
+
+    PATCH_IF ("%script%" STRING_EQUAL_CASE "%old_script%")
+    BEGIN
+      WRITE_EVALUATED_ASCII SCRIPT_OVERRIDE "%new_script%"
+      SET found = 1
+    END
+  END
+
+  PATCH_IF check_class
+  BEGIN
+    READ_ASCII SCRIPT_CLASS script
+
+    PATCH_IF ("%script%" STRING_EQUAL_CASE "%old_script%")
+    BEGIN
+      WRITE_EVALUATED_ASCII SCRIPT_CLASS "%new_script%"
+      SET found = 1
+    END
+  END
+
+  PATCH_IF check_race
+  BEGIN
+    READ_ASCII SCRIPT_RACE script
+
+    PATCH_IF ("%script%" STRING_EQUAL_CASE "%old_script%")
+    BEGIN
+      WRITE_EVALUATED_ASCII SCRIPT_RACE "%new_script%"
+      SET found = 1
+    END
+  END
+
+  PATCH_IF check_general
+  BEGIN
+    READ_ASCII SCRIPT_GENERAL script
+
+    PATCH_IF ("%script%" STRING_EQUAL_CASE "%old_script%")
+    BEGIN
+      WRITE_EVALUATED_ASCII SCRIPT_GENERAL "%new_script%"
+      SET found = 1
+    END
+  END
+
+  PATCH_IF check_default
+  BEGIN
+    READ_ASCII SCRIPT_DEFAULT script
+
+    PATCH_IF ("%script%" STRING_EQUAL_CASE "%old_script%")
+    BEGIN
+      WRITE_EVALUATED_ASCII SCRIPT_DEFAULT "%new_script%"
+      SET found = 1
+    END
+  END
+END
+
+

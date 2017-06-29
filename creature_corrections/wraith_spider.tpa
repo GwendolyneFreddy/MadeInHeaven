@@ -1,6 +1,6 @@
 // Wraith Spider corrections
 
-COPY_EXISTING "p1-4.itm" "override/spidwr1.itm"
+COPY_EXISTING "p1-4.itm" "override/mh#spdwr.itm"
   SAY NAME1 "Attack"
   SAY NAME2 "Attack"
 
@@ -41,7 +41,8 @@ COPY_EXISTING "p1-4.itm" "override/spidwr1.itm"
 
 DEFINE_PATCH_MACRO fix_wraith_spider
 BEGIN
-  REPLACE_CRE_ITEM "spidwr1" #0 #0 #0 "unstealable&undroppable" "weapon1" EQUIP
+  REMOVE_CRE_ITEM "spidwr" "spidwr1" "_spidwr" "_spidwr1"
+  ADD_CRE_ITEM "mh#spdwr" #0 #0 #0 "unstealable&undroppable" "weapon1" EQUIP
 
   WRITE_SHORT	0x0046 5	// Natural AC
   WRITE_SHORT	0x0048 5	// Effective AC
