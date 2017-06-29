@@ -17,12 +17,12 @@ COPY_EXISTING_REGEXP ".+\.itm" "override"
       SET item_displays_icon	= 1
     END
   
-    PATCH_IF ((SHORT_AT (fx_offset) == 30) && (SLONG_AT (fx_offset + 0x0008) >= 20))
+    PATCH_IF ((SHORT_AT (fx_offset) == 30) && (SLONG_AT (fx_offset + 0x0004) >= 20))
     BEGIN
       SET item_resists_fire	= 1
     END
   
-    PATCH_IF ((SHORT_AT (fx_offset) == 28) && (SLONG_AT (fx_offset + 0x0008) >= 20))
+    PATCH_IF ((SHORT_AT (fx_offset) == 28) && (SLONG_AT (fx_offset + 0x0004) >= 20))
     BEGIN
       SET item_resists_cold	= 1
     END
@@ -42,12 +42,12 @@ COPY_EXISTING_REGEXP ".+\.itm" "override"
         SET item_displays_icon	= 1
       END
   
-      PATCH_IF ((SHORT_AT (fx_offset) == 30) && (SLONG_AT (fx_offset + 0x0008) >= 20))
+      PATCH_IF ((SHORT_AT (fx_offset) == 30) && (SLONG_AT (fx_offset + 0x0004) >= 20))
       BEGIN
         SET item_resists_fire	= 1
       END
   
-      PATCH_IF ((SHORT_AT (fx_offset) == 28) && (SLONG_AT (fx_offset + 0x0008) >= 20))
+      PATCH_IF ((SHORT_AT (fx_offset) == 28) && (SLONG_AT (fx_offset + 0x0004) >= 20))
       BEGIN
         SET item_resists_cold	= 1
       END
@@ -107,12 +107,12 @@ COPY_EXISTING_REGEXP ".+\.spl" "override"
       SET spell_displays_icon	= 1
     END
   
-    PATCH_IF ((SHORT_AT (fx_offset) == 30) && (SLONG_AT (fx_offset + 0x0008) >= 20))
+    PATCH_IF ((SHORT_AT (fx_offset) == 30) && (SLONG_AT (fx_offset + 0x0004) >= 20))
     BEGIN
       SET spell_resists_fire	= 1
     END
   
-    PATCH_IF ((SHORT_AT (fx_offset) == 28) && (SLONG_AT (fx_offset + 0x0008) >= 20))
+    PATCH_IF ((SHORT_AT (fx_offset) == 28) && (SLONG_AT (fx_offset + 0x0004) >= 20))
     BEGIN
       SET spell_resists_cold	= 1
     END
@@ -132,12 +132,12 @@ COPY_EXISTING_REGEXP ".+\.spl" "override"
         SET spell_displays_icon	= 1
       END
   
-      PATCH_IF ((SHORT_AT (fx_offset) == 30) && (SLONG_AT (fx_offset + 0x0008) >= 20))
+      PATCH_IF ((SHORT_AT (fx_offset) == 30) && (SLONG_AT (fx_offset + 0x0004) >= 20))
       BEGIN
         SET spell_resists_fire	= 1
       END
     
-      PATCH_IF ((SHORT_AT (fx_offset) == 28) && (SLONG_AT (fx_offset + 0x0008) >= 20))
+      PATCH_IF ((SHORT_AT (fx_offset) == 28) && (SLONG_AT (fx_offset + 0x0004) >= 20))
       BEGIN
         SET spell_resists_cold	= 1
       END
