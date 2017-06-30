@@ -47,6 +47,24 @@ COPY_EXISTING "%tutu_var%wolfdr.cre" "override"
   LAUNCH_PATCH_MACRO fix_dread_wolf
 
 
+// Mustard Jelly
+//
+// - XP value 2000 => 4000
+// - # of attacks 1 => 2
+// - Cold Resistance 0% => 50%
+// - Lightning Resistance 0% => 100%
+// - Magic Resistance 125% => 10%
+// - Stealth 0% => 90%
+// - Mustard Jelly Vapor
+
+INCLUDE "%MOD_FOLDER%/creature_corrections/mustard_jelly.tpa"
+
+COPY_EXISTING "%tutu_var%jellmu.cre" "override"
+              "%tutu_var%jellmul.cre" "override"
+              "%tutu_var%jellymu.cre" "override"
+  LAUNCH_PATCH_MACRO fix_mustard_jelly
+
+
 // Vampiric Wolf
 //
 // - THAC0 correction: 12 => 13

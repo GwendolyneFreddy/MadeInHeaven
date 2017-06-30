@@ -111,7 +111,7 @@ END
 
 DEFINE_PATCH_FUNCTION add_magic_missile_immunity
   INT_VAR
-  match_opcode		= 0	// Stat:AC against specific
+  match_opcode		= 142	// Graphics: Display Special Effect Icon
 BEGIN
   PATCH_FOR_EACH projectile IN 36 67 68 69 70 71 72 73 74 75 76 77
   BEGIN

@@ -1,0 +1,52 @@
+// Mustard Jelly
+
+COPY "%MOD_FOLDER%/creature_corrections/mh#musjl.itm" "override"
+  SAY NAME1 "Attack"
+  SAY NAME2 "Attack"
+
+  LAUNCH_PATCH_FUNCTION add_magic_missile_immunity
+    INT_VAR
+    match_opcode	= 63	// State: Infravision
+  END
+
+
+ADD_SPELL "%MOD_FOLDER%/creature_corrections/mustard_jelly_vapor.spl" 3 1 MH_MUSTARD_JELLY_VAPOR
+  SAY NAME1 "Mustard Jelly Vapor"
+
+  PATCH_IF ENGINE_IS "bg1 totsc"
+  BEGIN
+    LAUNCH_PATCH_FUNCTION ALTER_SPELL_HEADER
+      INT_VAR
+      projectile	= 159
+    END
+  END
+
+
+LAUNCH_ACTION_FUNCTION compile_dialog_or_script
+  STR_VAR
+  path_to_file		= "%MOD_FOLDER%/creature_corrections/mh#musjl.baf"
+END
+
+
+DEFINE_PATCH_MACRO fix_mustard_jelly
+BEGIN
+  REMOVE_CRE_ITEM "jellmu1" "jellmu2" "_jellmu1" "_jellmu2"
+  ADD_CRE_ITEM "mh#musjl" #0 #0 #0 "unstealable&undroppable" "weapon1" EQUIP
+
+  WRITE_LONG	0x0014 4000	// XP value
+  WRITE_BYTE	0x0045 90	// Hide in shadows
+  WRITE_BYTE	0x0053 2	// # of attacks
+  WRITE_BYTE	0x005a 50	// Cold resistance
+  WRITE_BYTE	0x005b 100	// Lightning res.
+  WRITE_BYTE	0x005d 10	// Magic resistance
+  WRITE_BYTE	0x005f 50	// Mag. cold res.
+  WRITE_BYTE	0x0061 30	// Crushing res.
+  WRITE_BYTE	0x0068 90	// Stealth
+
+  WRITE_BYTE	0x0272 IDS_OF_SYMBOL("race" "slime")
+  WRITE_BYTE	0x0273 IDS_OF_SYMBOL("class" "mustard_jelly")
+
+  WRITE_ASCII	SCRIPT_CLASS "mh#musjl"
+END
+
+
