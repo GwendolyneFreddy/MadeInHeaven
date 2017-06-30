@@ -2,8 +2,11 @@ mh#amul1	Amulet against Undead		+3 to-hit & damage undead				Dungeon Master Guid
 mh#amul2	Gem of Insight			+1 intelligence, +1 wisdom				Dungeon Master Guide (2E)
 
 mh#armr1	Green Dragon Scale		base AC 0, poison immunity
+mh#armr2	Eversing +2			base AC 1, +2 vs spells, 5% magic resistance
 
 mh#belt1	Girdle of Dwarvenkind		-1 cha, +1 con, +3 saves, infravision			Dungeon Master Guide (2E)
+
+mh#blun1	Slime Crusher +1		morning star +1, +4 vs. Slimes
 
 mh#boot1	Feather Tabi			+25% stealth, +10% find/remove traps			Complete Ninja's Handbook (2E)
 

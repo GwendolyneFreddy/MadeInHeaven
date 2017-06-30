@@ -2,8 +2,11 @@ mh#amul1	Amulet against Undead		Song of the Morning temple
 mh#amul2	Gem of Insight			Thalantyr (shop)
 
 mh#armr1	Green Dragon Scale		Brokk (event)
+mh#armr2	Eversing +2			Brokk (shop)
 
 mh#belt1	Girdle of Dwarvenkind		Brokk (event)
+
+mh#blun1	Slime Crusher +1		Brokk (shop)
 
 mh#boot1	Feather Tabi			Brokk (shop)
 

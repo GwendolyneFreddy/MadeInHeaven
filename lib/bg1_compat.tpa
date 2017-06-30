@@ -35,6 +35,24 @@ BEGIN
     END
 
 
+  // Restore missing Buckler +1 (shld17)
+
+  COPY_LARGE "%MOD_FOLDER%/lib/bg1_compat/ishld17.bam" "override"
+
+  COPY "%MOD_FOLDER%/lib/bg1_compat/shld17.itm" "override"
+    SAY NAME2 "Buckler +1"
+    SAY IDENTIFIED_DESC "A buckler is a small shield of wood or metal that fastens to the forearm.  Because of its size it is light and can be worn with very little restriction to movement.  This buckler has some form of generic enchantment, making it more resistant to blows.
+
+STATISTICS:
+
+Armor Class Bonus:  2
+Special:  No Missile/Piercing Attack Protection
+Weight:  2
+Requires: 4 Strength
+Unusable By:
+ Mage"
+
+
   // Copy in extended state.bams (from ToB, uncompressed)
 
   COPY "%MOD_FOLDER%/lib/bg1_compat/states.bam" "override"

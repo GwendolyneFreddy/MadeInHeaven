@@ -6,6 +6,46 @@ LAUNCH_ACTION_FUNCTION "install_component"
 END
 
 
+// Brokk's Forge
+
+COPY "%MOD_FOLDER%/item_pack/bgt/actors/mh#brok1.cre" "override"
+  SAY NAME1 "Brokk"
+  SAY NAME2 "Brokk"
+
+  PATCH_IF ENGINE_IS "bg1 totsc"
+  BEGIN
+    WRITE_BYTE 0x0072 3
+    WRITE_BYTE 0x0071 1
+    WRITE_BYTE 0x0074 3
+  END
+  ELSE
+  BEGIN
+    SET_BG2_PROFICIENCY PROFICIENCYAXE 3
+    SET_BG2_PROFICIENCY PROFICIENCYWARHAMMER 3
+    SET_BG2_PROFICIENCY PROFICIENCYSWORDANDSHIELD 1
+  END
+
+LAUNCH_ACTION_FUNCTION compile_dialog_or_script
+  STR_VAR
+  path_to_file		= "%MOD_FOLDER%/item_pack/bgt/dialog/brokk_bg1.d"
+END
+
+COPY "%MOD_FOLDER%/item_pack/bgt/stores/mh#brok1.sto" "override"
+  SAY NAME2 "Brokk's Forge"
+
+COPY_EXISTING "%FriendlyArmInn_House%.are" "override"
+  LAUNCH_PATCH_MACRO remove_all_area_actors
+
+  LAUNCH_PATCH_FUNCTION add_area_actor
+    INT_VAR
+    x_position		= 450
+    y_position		= 300
+    orientation		= 2
+    STR_VAR
+    cre_resref		= "mh#brok1"
+  END
+
+
 // Replace some overpowered easter eggs with lesser items
 
 COPY_EXISTING "%FriendlyArmInn%.are" "override"

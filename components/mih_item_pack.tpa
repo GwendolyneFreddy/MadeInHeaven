@@ -1,7 +1,7 @@
 // Made in Heaven item pack for the Baldur's Gate trilogy
 
 
-// Generate needed .eff files
+// Generate generic extra damage .eff files
 
 OUTER_FOR (i = 1; i <= 3; ++i)
 BEGIN
@@ -96,6 +96,30 @@ Not usable by:
   END
 
 
+// mh#armr2 - Eversing +2
+
+COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#armr2.itm" "override"
+  SAY NAME2 "Eversing +2"
+  SAY IDENTIFIED_DESC "Plate Armor +2: 'Eversing'
+
+This magnificent set of silvered plate was created hundreds of years ago by a joined effort between master dwarven smiths from Dorn's Deep and elven high mages from the Hand of the Seldarine.  Unfortunately it was stolen from the dwarven vaults and later found on the body of an orc chieftain by the elves, sowing deep distrust between the two races.  This eventually led to the fall of both the Hand of the Seldarine and Dorn's Deep to orc hordes.
+
+The silver coating on this armor never loses its shine and may occasionally deflect hostile spells away from the wearer.
+
+STATISTICS:
+
+Armor Class: 1
+Saving Throws: +2 vs. Spells
+Magic Resistance: +5%
+Weight: 25
+Requires: 12 Strength
+Not Usable By:
+ Bard
+ Druid
+ Mage
+ Thief"
+
+
 // mh#belt1 - Girdle of Dwarvenkind: 'Moradin's Blessing'
 
 COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#belt1.itm" "override"
@@ -117,6 +141,40 @@ Weight: 2
 Not usable by:
  Dwarf
  Gnome"
+
+
+// mh#blun1 - Slime Crusher +1
+
+CREATE EFF "mh#blun1"
+  WRITE_LONG	0x0010 178	// THAC0 vs. Creature Type
+  WRITE_LONG	0x001c IDS_OF_SYMBOL("race" "slime")
+  WRITE_LONG	0x0020 4
+  WRITE_SHORT	0x0024 1	// Permanent
+  WRITE_SHORT	0x002c 100	// 100% chance
+  WRITE_LONG	0x0060 3
+
+COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#blun1.itm" "override"
+  SAY NAME2 "Slime Crusher +1"
+  SAY IDENTIFIED_DESC "Morning Star +1, +4 vs. Slimes: 'Slime Crusher'
+
+This enchanted morning star was crafted by a troll shaman of the Silver Marshes in an effort to deal with an infestation of mustard jellies.  It was effective eventually, but the tribe suffered heavy losses in the process and was later easily wiped out by a band of human- and dwarven adventurers.
+
+This morning star is considered a +4 weapon for purposes of what it can hit, but against enemies that aren't slimes it performs as a +1 weapon only.
+
+STATISTICS:
+
+THAC0: +1, +4 vs. Slimes
+Damage: 2d4 +1, +4 vs. Slimes
+Damage type: crushing
+Weight: 10
+Speed Factor: 6
+Proficiency Type: Flail/Morning Star
+Type: 1-handed
+Requires: 11 Strength
+Not Usable By:
+ Druid
+ Mage
+ Thief"
 
 
 // mh#boot1 - Feather Tabi
@@ -337,7 +395,7 @@ When lady Walraven was sentenced to death for high treason, she had but one last
 STATISTICS:
 
 THAC0: +2 bonus
-Damage: 2d4 + 2, 50% chance of additional 1d3 + 1 poison damage
+Damage: 2d4 +2, 50% chance of additional 1d3 + 1 poison damage
 Damage type: slashing (and poison)
 Weight: 7
 Speed Factor: 6
@@ -365,7 +423,7 @@ This sword is always considered +2 for purposes of what it can hit, but against 
 STATISTICS:
 
 THAC0: +1 bonus, +2 vs. Undead
-Damage: 1D8 + 1, +2 vs. Undead
+Damage: 1d8 +1, +2 vs. Undead
 Damage type: slashing
 Weight: 4
 Speed Factor: 4
