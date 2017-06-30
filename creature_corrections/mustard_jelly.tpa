@@ -30,8 +30,10 @@ END
 
 DEFINE_PATCH_MACRO fix_mustard_jelly
 BEGIN
-  REMOVE_CRE_ITEM "jellmu1" "jellmu2" "_jellmu1" "_jellmu2"
-  ADD_CRE_ITEM "mh#musjl" #0 #0 #0 "unstealable&undroppable" "weapon1" EQUIP
+  REPLACE_CRE_ITEM "mh#musjl" #0 #0 #0 "unstealable&undroppable" "weapon1" EQUIP
+  REPLACE_CRE_ITEM "mh#musjl" #0 #0 #0 "unstealable&undroppable" "weapon2"
+  REPLACE_CRE_ITEM "mh#musjl" #0 #0 #0 "unstealable&undroppable" "weapon3"
+  REPLACE_CRE_ITEM "mh#musjl" #0 #0 #0 "unstealable&undroppable" "weapon4"
 
   WRITE_LONG	0x0014 4000	// XP value
   WRITE_BYTE	0x0045 90	// Hide in shadows

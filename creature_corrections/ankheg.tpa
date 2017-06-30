@@ -36,8 +36,10 @@ END
 
 DEFINE_PATCH_MACRO fix_ankheg
 BEGIN
-  REMOVE_CRE_ITEM "ankheg1" "ankheg2" "_ankheg1" "_ankheg2"
-  ADD_CRE_ITEM "mh#ankhg" #0 #0 #0 "unstealable&undroppable" "weapon1" EQUIP
+  REPLACE_CRE_ITEM "mh#ankhg" #0 #0 #0 "unstealable&undroppable" "weapon1" EQUIP
+  REPLACE_CRE_ITEM "mh#ankhg" #0 #0 #0 "unstealable&undroppable" "weapon2"
+  REPLACE_CRE_ITEM "mh#ankhg" #0 #0 #0 "unstealable&undroppable" "weapon3"
+  REPLACE_CRE_ITEM "mh#ankhg" #0 #0 #0 "unstealable&undroppable" "weapon4"
 
   WRITE_BYTE	0x0052 13	// THAC0
   WRITE_BYTE	0x0053 1	// # of attacks

@@ -35,8 +35,10 @@ END
 
 DEFINE_PATCH_MACRO fix_winter_wolf
 BEGIN
-  REMOVE_CRE_ITEM "wolfwi1" "wolfwi2" "_wolfwi1" "_wolfwi2"
-  ADD_CRE_ITEM "mh#wlfwi" #0 #0 #0 "unstealable&undroppable" "weapon1" EQUIP
+  REPLACE_CRE_ITEM "mh#wlfwi" #0 #0 #0 "unstealable&undroppable" "weapon1" EQUIP
+  REPLACE_CRE_ITEM "mh#wlfwi" #0 #0 #0 "unstealable&undroppable" "weapon2"
+  REPLACE_CRE_ITEM "mh#wlfwi" #0 #0 #0 "unstealable&undroppable" "weapon3"
+  REPLACE_CRE_ITEM "mh#wlfwi" #0 #0 #0 "unstealable&undroppable" "weapon4"
 
   WRITE_BYTE	0x0052 15	// THAC0
 
