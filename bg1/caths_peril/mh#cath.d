@@ -90,6 +90,8 @@ BEGIN enchanted_chain
   = @24
   IF ""
     DO ~TakePartyItem("%tutu_var%chan02")
+EraseJournalEntry(@13)
+EraseJournalEntry(@22)
 GiveItem("%tutu_var%scrl61", LastTalkedToBy(Myself))
 SetGlobal("mh#HelpCathline", "GLOBAL", 3)
 AddexperienceParty(700)~
@@ -102,6 +104,8 @@ BEGIN both_scrolls
   = @26
   IF ""
     DO ~TakePartyItem("%tutu_var%chan02")
+EraseJournalEntry(@13)
+EraseJournalEntry(@22)
 GiveItem("%tutu_var%scrl56", LastTalkedToBy(Myself))
 GiveItem("%tutu_var%scrl61", LastTalkedToBy(Myself))
 SetGlobal("mh#HelpCathline", "GLOBAL", 3)
