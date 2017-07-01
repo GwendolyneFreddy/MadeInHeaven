@@ -1,56 +1,59 @@
 // Wraith Spider corrections
 
-COPY_EXISTING "p1-4.itm" "override/mh#spdwr.itm"
-  SAY NAME1 "Attack"
-  SAY NAME2 "Attack"
-
-  WRITE_LONG 0x0018 (THIS | BIT6)	// Make magical
-  WRITE_LONG 0x0060 1			// Enchantment level
-
-  WRITE_ASCII 0x003a "iwolf"
-
-  LAUNCH_PATCH_FUNCTION ALTER_ITEM_HEADER
-    STR_VAR
-    icon		= "iwolf"
-  END
-
-  LAUNCH_PATCH_FUNCTION add_energy_drain
-    INT_VAR
-    levels_drained	= 1
-  END
-
-  LAUNCH_PATCH_FUNCTION ADD_ITEM_EFFECT
-    INT_VAR
-    opcode		= 78	// Disease
-    target		= 2	// Pre-target
-    duration		= 300	// 5 turns
-    parameter1		= 5
-    parameter2		= 6	// Constitution loss
-    savingthrow		= 4	// Death/Poison
-  END
-
-  LAUNCH_PATCH_FUNCTION ADD_ITEM_EFFECT
-    INT_VAR
-    opcode		= 142	// Graphics: Display Special Effect Icon
-    target		= 2	// Pre-target
-    duration		= 300	// 5 turns
-    parameter2		= 7	// Diseased
-    savingthrow		= 4	// Death/Poison
-  END
-
-
-DEFINE_PATCH_MACRO fix_wraith_spider
+ACTION_IF NOT FILE_EXISTS_IN_GAME "mh#spdwr.itm"
 BEGIN
-  REPLACE_CRE_ITEM "mh#spdwr" #0 #0 #0 "unstealable&undroppable" "weapon1" EQUIP
-  REPLACE_CRE_ITEM "mh#spdwr" #0 #0 #0 "unstealable&undroppable" "weapon2"
-  REPLACE_CRE_ITEM "mh#spdwr" #0 #0 #0 "unstealable&undroppable" "weapon3"
-  REPLACE_CRE_ITEM "mh#spdwr" #0 #0 #0 "unstealable&undroppable" "weapon4"
+  COPY_EXISTING "p1-4.itm" "override/mh#spdwr.itm"
+    SAY NAME1 "Attack"
+    SAY NAME2 "Attack"
 
-  WRITE_SHORT	0x0046 5	// Natural AC
-  WRITE_SHORT	0x0048 5	// Effective AC
-  WRITE_BYTE	0x0052 17	// THAC0
-  WRITE_BYTE	0x005a 100	// Cold Resistance
-  WRITE_BYTE	0x0271 IDS_OF_SYMBOL("general" "undead")
+    WRITE_LONG 0x0018 (THIS | BIT6)	// Make magical
+    WRITE_LONG 0x0060 1			// Enchantment level
+
+    WRITE_ASCII 0x003a "iwolf"
+
+    LAUNCH_PATCH_FUNCTION ALTER_ITEM_HEADER
+      STR_VAR
+      icon		= "iwolf"
+    END
+
+    LAUNCH_PATCH_FUNCTION add_energy_drain
+      INT_VAR
+      levels_drained	= 1
+    END
+
+    LAUNCH_PATCH_FUNCTION ADD_ITEM_EFFECT
+      INT_VAR
+      opcode		= 78	// Disease
+      target		= 2	// Pre-target
+      duration		= 300	// 5 turns
+      parameter1		= 5
+      parameter2		= 6	// Constitution loss
+      savingthrow		= 4	// Death/Poison
+    END
+
+    LAUNCH_PATCH_FUNCTION ADD_ITEM_EFFECT
+      INT_VAR
+      opcode		= 142	// Graphics: Display Special Effect Icon
+      target		= 2	// Pre-target
+      duration		= 300	// 5 turns
+      parameter2		= 7	// Diseased
+      savingthrow		= 4	// Death/Poison
+    END
+
+
+  DEFINE_PATCH_MACRO fix_wraith_spider
+  BEGIN
+    REPLACE_CRE_ITEM "mh#spdwr" #0 #0 #0 "unstealable&undroppable" "weapon1" EQUIP
+    REPLACE_CRE_ITEM "mh#spdwr" #0 #0 #0 "unstealable&undroppable" "weapon2"
+    REPLACE_CRE_ITEM "mh#spdwr" #0 #0 #0 "unstealable&undroppable" "weapon3"
+    REPLACE_CRE_ITEM "mh#spdwr" #0 #0 #0 "unstealable&undroppable" "weapon4"
+
+    WRITE_SHORT	0x0046 5	// Natural AC
+    WRITE_SHORT	0x0048 5	// Effective AC
+    WRITE_BYTE	0x0052 17	// THAC0
+    WRITE_BYTE	0x005a 100	// Cold Resistance
+    WRITE_BYTE	0x0271 IDS_OF_SYMBOL("general" "undead")
+  END
 END
 
 
