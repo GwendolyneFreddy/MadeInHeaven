@@ -6,7 +6,7 @@ BEGIN
     SAY NAME1 "Attack"
     SAY NAME2 "Attack"
 
-    WRITE_ASCII 0x003a "iwolf"
+    WRITE_ASCII 0x003a "iwolf" #8
 
     LAUNCH_PATCH_FUNCTION ALTER_ITEM_HEADER
       STR_VAR
@@ -56,10 +56,10 @@ BEGIN
 
     PATCH_IF !found
     BEGIN
-      WRITE_ASCII	SCRIPT_RACE	"mh#wlfwi"
+      WRITE_ASCII SCRIPT_RACE "mh#wlfwi" #8
     END
 
-    WRITE_ASCII	SCRIPT_DEFAULT	"wtasight"
+    WRITE_ASCII SCRIPT_DEFAULT "wtasight" #8
   END
 END
 

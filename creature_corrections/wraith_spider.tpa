@@ -9,7 +9,7 @@ BEGIN
     WRITE_LONG 0x0018 (THIS | BIT6)	// Make magical
     WRITE_LONG 0x0060 1			// Enchantment level
 
-    WRITE_ASCII 0x003a "iwolf"
+    WRITE_ASCII 0x003a "iwolf" #8
 
     LAUNCH_PATCH_FUNCTION ALTER_ITEM_HEADER
       STR_VAR

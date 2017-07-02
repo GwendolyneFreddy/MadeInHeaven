@@ -50,7 +50,7 @@ BEGIN
     WRITE_BYTE	0x0272 IDS_OF_SYMBOL("race" "slime")
     WRITE_BYTE	0x0273 IDS_OF_SYMBOL("class" "mustard_jelly")
 
-    WRITE_ASCII	SCRIPT_CLASS "mh#musjl"
+    WRITE_ASCII	SCRIPT_CLASS "mh#musjl" #8
   END
 END
 

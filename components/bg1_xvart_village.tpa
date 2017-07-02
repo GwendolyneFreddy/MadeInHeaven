@@ -49,7 +49,7 @@ COPY_EXISTING "%tutu_var%xvart.cre" "override/mh#xvshm.cre"
   ADD_MEMORIZED_SPELL "sppr106" #0 "priest"	// Magic Stone
   ADD_MEMORIZED_SPELL "sppr208" #1 "priest"	// Hold Person
 
-  WRITE_ASCII SCRIPT_CLASS "mh#xvshm"
+  WRITE_ASCII SCRIPT_CLASS "mh#xvshm" #8
 
 
 LAUNCH_ACTION_FUNCTION compile_dialog_or_script
@@ -75,7 +75,7 @@ COPY_EXISTING "%tutu_var%xvart.cre" "override/mh#xvadp.cre"
   ADD_MEMORIZED_SPELL "spwi118" #0 "wizard"	// Chromatic Orb
   ADD_MEMORIZED_SPELL "spwi212" #1 "wizard"	// Mirror Image
 
-  WRITE_ASCII SCRIPT_CLASS "mh#xvadp"
+  WRITE_ASCII SCRIPT_CLASS "mh#xvadp" #8
 
 
 LAUNCH_ACTION_FUNCTION compile_dialog_or_script

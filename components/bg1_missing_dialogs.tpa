@@ -20,7 +20,7 @@
 // Candlekeep (prologue)
 
 COPY_EXISTING "%tutu_var%chante.cre" "override"
-  WRITE_ASCIIE DIALOG "chanter"
+  WRITE_ASCIIE DIALOG "chanter" #8
 
 LAUNCH_ACTION_FUNCTION compile_dialog_or_script
   STR_VAR
