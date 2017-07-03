@@ -1,8 +1,10 @@
 mh#amul1	Amulet against Undead		Song of the Morning temple
 mh#amul2	Gem of Insight			Thalantyr (shop)
+mh#amul3	Necklace of Prayer Beads	The Lady's Hall
 
 mh#armr1	Green Dragon Scale		Brokk (event)
 mh#armr2	Eversing +2			Brokk (shop)
+mh#armr3	Winter Wolf Hide +1		Tania (event)
 
 mh#belt1	Girdle of Dwarvenkind		Brokk (event)
 
@@ -12,6 +14,7 @@ mh#boot1	Feather Tabi			Brokk (shop)
 
 mh#clck1	Mutamin's Cloak			Mutamin (where else?)
 mh#clck2	Battlecloak of Vycaena		Durlag's Tower D4 (replaces Cloak of the Shield, this is moved to Firewine)
+mh#clck3	Cloak of Arachnida		Sorcerous Sundries
 
 mh#helm1	Helm of Valor			Brokk (shop)
 
@@ -26,9 +29,12 @@ mh#ring2	Ring of the Neophyte		Friendly Arm Inn (replaces extra Ring of Wizardry
 mh#ring3	Ring of Toughness		Coast Way (replaces extra Ring of Protection +1)
 mh#ring4	Ring of Protection +3		Candlekeep Catacoms (in previously empty grave)
 
+mh#robe1	Robe of the Elements		Tania (event)
+
 mh#shld1	Shield of the Phoenix +1	Jovial Juggler (Bjornin, replaces Medium Shield +1)
 
 mh#swrd1	Terminus Est +2			
 mh#swrd2	Heartsblood +1			Greywolf (replaces Varscona +2, this is moved to Raemon in the bandit camp)
+mh#swrd3	Selune's Blessing +1		Black Alaric's Cave
 
 

@@ -27,7 +27,7 @@ COPY "%MOD_FOLDER%/item_pack/bgt/actors/mh#brok1.cre" "override"
 
 LAUNCH_ACTION_FUNCTION compile_dialog_or_script
   STR_VAR
-  path_to_file		= "%MOD_FOLDER%/item_pack/bgt/dialog/brokk_bg1.d"
+  path_to_file		= "%MOD_FOLDER%/item_pack/bgt/dialog/mh#brok1.d"
 END
 
 COPY "%MOD_FOLDER%/item_pack/bgt/stores/mh#brok1.sto" "override"
@@ -43,6 +43,28 @@ COPY_EXISTING "%FriendlyArmInn_House%.are" "override"
     orientation		= 2
     STR_VAR
     cre_resref		= "mh#brok1"
+  END
+
+
+// Tania the magical seamstress
+
+COPY "%MOD_FOLDER%/item_pack/bgt/actors/mh#tania.cre" "override"
+  SAY NAME1 "Tania"
+  SAY NAME2 "Tania"
+
+LAUNCH_ACTION_FUNCTION compile_dialog_or_script
+  STR_VAR
+  path_to_file		= "%MOD_FOLDER%/item_pack/bgt/dialog/mh#tania.d"
+END
+
+COPY_EXISTING "%NashkelCarnival_ArmorTent%.are" "override"
+  LAUNCH_PATCH_FUNCTION add_area_actor
+    INT_VAR
+    x_position		= 660
+    y_position		= 330
+    orientation		= 2
+    STR_VAR
+    cre_resref		= "mh#tania"
   END
 
 
@@ -119,8 +141,7 @@ COPY_EXISTING "%tutu_var%bjorni.dlg" "override"
 
 // Add Oils of Acid Resistance to some shops and dungeons
 
-COPY_EXISTING "%tutu_var%sto0703.sto" "override"
-              "%tutu_var%sto1115.sto" "override"
+COPY_EXISTING "%tutu_var%sto1115.sto" "override"
 	      "%tutu_var%sto4905.sto" "override"
   ADD_STORE_ITEM "mh#potn1" AFTER "%tutu_var%potn45" #1 #0 #0 "identified" #2
 
@@ -143,6 +164,12 @@ COPY_EXISTING "%UlcasterRuins%.are" "override"
   END
 
 
+// The Lady's Hall sells Necklace of Prayer Beads
+
+COPY_EXISTING "%tutu_var%tem0132.sto" "override"
+  ADD_STORE_ITEM "mh#amul3" LAST #3 #1 #1 "identified" #2
+
+
 // The Great Hammer Shuffle
 
 // TODO: Add shiny new hammer in Ulgoth's Beard
@@ -152,6 +179,24 @@ COPY_EXISTING "%tutu_var%bassil.cre" "override"
 
 COPY_EXISTING "%tutu_var%taugos.cre" "override"
   REPLACE_CRE_ITEM "%tutu_var%hamm03" #0 #0 #0 "none" "weapon1" EQUIP
+
+
+// Black Alaric's Cave
+
+COPY_EXISTING "%Lighthouse_BlackAlaricsCave%.are" "override"
+  LAUNCH_PATCH_FUNCTION ADD_AREA_ITEM
+    INT_VAR
+    container_to_add_to	= 1
+    STR_VAR
+    item_to_add		= "mh#swrd3"
+  END
+
+
+// Sorcerous Sundries sells Cloak of Arachnida & Oils of Acid Resistance
+
+COPY_EXISTING "%tutu_var%sto0703.sto" "override"
+  ADD_STORE_ITEM "mh#potn1" AFTER "%tutu_var%potn45" #1 #0 #0 "identified" #3
+  ADD_STORE_ITEM "mh#clck3" LAST #3 #1 #1 "identified" #1
 
 
 // Candlekeep Catacombs L1
@@ -175,6 +220,8 @@ COPY_EXISTING "%Candlekeep_Catacombs_L1%.are" "override"
   END
 
 
+// Sorcerous Sundries
+
 // Durlag's Tower D4
 
 COPY_EXISTING "%DurlagsTower_D4%.are" "override"
@@ -197,4 +244,14 @@ COPY_EXISTING "%DurlagsTower_D4%.are" "override"
 COPY_EXISTING "%tutu_scripto%grema02.cre" "override"
   ADD_CRE_ITEM "%tutu_var%clck20" #20 #0 #0 "none" "cloak"
 
+  PATCH_IF ENGINE_IS "bg1 totsc"
+  BEGIN
+    WRITE_BYTE 0x006f 1
+    WRITE_BYTE 0x0072 1
+  END
+  ELSE
+  BEGIN
+    SET_BG2_PROFICIENCY PROFICIENCYQUARTERSTAFF 1
+    SET_BG2_PROFICIENCY PROFICIENCYDAGGER 1
+  END
 

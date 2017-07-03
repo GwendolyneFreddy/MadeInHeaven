@@ -3,8 +3,10 @@
 
 // Generate generic extra damage .eff files
 
-OUTER_FOR (i = 1; i <= 3; ++i)
+OUTER_FOR (i = 1; i <= 4; ++i)
 BEGIN
+  // Extra damage of various types.
+
   CREATE EFF "mh#crsh%i%"
     WRITE_LONG	0x0010 12	// HP: Damage
     WRITE_LONG	0x001c i
@@ -18,6 +20,44 @@ BEGIN
     WRITE_LONG	0x0020 16777216
     WRITE_SHORT	0x0024 1	// Permanent
     WRITE_SHORT	0x002c 100	// 100% chance
+
+
+  // Increase to-hit/damage against specific creatures.
+  //
+  // Some of these already exist in BG1/BG2, but have various errors,
+  // so creating them all fresh here.
+
+  CREATE EFF "undhit%i%"
+    WRITE_LONG	0x0010 178	// THAC0 vs. Creature Type
+    WRITE_LONG	0x001c IDS_OF_SYMBOL("general" "undead")
+    WRITE_LONG	0x0020 3
+    WRITE_SHORT	0x0024 1	// Permanent
+    WRITE_SHORT	0x002c 100	// 100% chance
+    WRITE_LONG	0x0060 i
+
+  CREATE EFF "unddam%i%"
+    WRITE_LONG	0x0010 179	// Damage vs. Creature Type
+    WRITE_LONG	0x001c IDS_OF_SYMBOL("general" "undead")
+    WRITE_LONG	0x0020 3
+    WRITE_SHORT	0x0024 1	// Permanent
+    WRITE_SHORT	0x002c 100	// 100% chance
+    WRITE_LONG	0x0060 i
+
+  CREATE EFF "lycnhit%i%"
+    WRITE_LONG	0x0010 178	// Damage vs. Creature Type
+    WRITE_LONG	0x001c IDS_OF_SYMBOL("race" "lycanthrope")
+    WRITE_LONG	0x0020 3
+    WRITE_SHORT	0x0024 1	// Permanent
+    WRITE_SHORT	0x002c 100	// 100% chance
+    WRITE_LONG	0x0060 i
+
+  CREATE EFF "lycndam%i%"
+    WRITE_LONG	0x0010 179	// Damage vs. Creature Type
+    WRITE_LONG	0x001c IDS_OF_SYMBOL("race" "lycanthrope")
+    WRITE_LONG	0x0020 3
+    WRITE_SHORT	0x0024 1	// Permanent
+    WRITE_SHORT	0x002c 100	// 100% chance
+    WRITE_LONG	0x0060 i
 END
 
 
@@ -67,6 +107,33 @@ Special: Can enhance intelligence permanently, but by doing so the gem is foreve
 Weight: 1"
 
 
+// mh#amul3 - Necklace of Prayer Beads
+
+COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#amul3.itm" "override"
+  SAY NAME2 "Necklace of Prayer Beads"
+  SAY IDENTIFIED_DESC "Necklace of Prayer Beads
+
+Necklaces like these are sometimes created by the clergy of Tymora for sale to adventurers in need of a little extra preparation.  The clergy claims they are doing it to help adventurers be successful in their cause, but the more cynical remark that an adventurer already has to be pretty successful in order to even be able to afford one of these items.
+
+STATISTICS:
+
+Abilities: Bless 3/day, Cure Serious Wounds 1/day and Neutralize Poison 1/day, all as a 12th level cleric
+
+Only usable by:
+  Cleric
+  Druid"
+
+  // BG1 engine does not support charges per day
+  PATCH_IF ENGINE_IS "bg1 totsc"
+  BEGIN
+    LAUNCH_PATCH_FUNCTION ALTER_ITEM_HEADER
+      INT_VAR
+      charges		= 10
+      flag_recharge	= 0
+    END
+  END
+
+
 // mh#armr1 - Green Dragon Scale
 
 COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#armr1.itm" "override"
@@ -87,6 +154,7 @@ Not usable by:
  Mage
  Thief"
 
+  // Apply CamDawg's full poison immunity macro on BG2 or better engine
   PATCH_IF ENGINE_IS "bg2 tob bgee bg2ee"
   BEGIN
     LAUNCH_PATCH_FUNCTION cd_apply_batch
@@ -118,6 +186,31 @@ Not Usable By:
  Druid
  Mage
  Thief"
+
+
+// mh#armr3 - Winter Wolf Hide +1
+
+COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#armr3.itm" "override"
+  SAY NAME2 "Winter Wolf Hide +1"
+  SAY IDENTIFIED_DESC "Winter Wolf Hide +1
+
+Expertly sown together for <CHARNAME> by the elven seamstress Tania, this hide armor is actually surprisingly comfortable.  The luxurious white winter wolf pelts keep the wearer pleasantly warm in the highlands of the Cloudpeaks, or any other cold place for that matter.  Tania seems to have woven a little elven magic into it as well, as some of the winter wolf's immunity to cold has been preserved and the armor restricts thieves only half as much as hide armor should.
+
+However, since hide armor has a reputation as 'barbaric', and still remains somewhat uncomfortable and smelly, shops generally buy and sell it for a fairly low price.
+
+STATISTICS:
+
+Armor Class: 5
+Cold Resistance: +30%
+Penalties:
+  Stealth: -10%
+  Lockpicking: -5%
+  Find/Remove Traps: -5%
+  Pick Pockets: -15%
+Weight: 30
+
+Not usable by:
+ Mage"
 
 
 // mh#belt1 - Girdle of Dwarvenkind: 'Moradin's Blessing'
@@ -210,6 +303,7 @@ STATISTICS:
 Special: wearer is immune to all forms of petrification
 Weight: 3"
 
+  // Apply CamDawg's full petrification immunity macro on BG2 or better engine
   PATCH_IF ENGINE_IS "bg2 tob bgee bg2ee"
   BEGIN
     LAUNCH_PATCH_FUNCTION cd_apply_batch
@@ -234,6 +328,43 @@ STATISTICS:
 Armor Class: +4 bonus
 Saving Throws: +1 bonus
 Weight: 3"
+
+
+// mh#clck1 - Cloak of Arachnida
+
+COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#clck3.itm" "override"
+  SAY NAME2 "Cloak of Arachnida"
+  SAY IDENTIFIED_DESC "Cloak of Arachnida: 'Lloth's Caress'
+
+This dark cloak was created by drow sorcerers, but how it came to leave their dark realm is not exactly known.  Most likely an overconfident drow was slain during a nightly surface raid and the cloak taken from his corpse.  Precious little is known about what happened to it on the surface either, something in the dark elven magic used to create this item seems to resist exact divination.  A few adventurers are known to have used it on various quests, but details are sketchy at best.
+
+The wearer of this cloak can easily move through all spider webs without getting stuck, including those created by the wizard spell Web.  It also helps in resisting the poisons of arachnids.
+
+STATISTICS:
+
+Saving Throws: +2 vs. Poison
+Special: Wearer is immune to the Web spell and all spider webbing.
+Abilities: Casts Web as a 12th level wizard twice per day.
+Weight: 3"
+
+  // BG1 engine does not support charges per day
+  PATCH_IF ENGINE_IS "bg1 totsc"
+  BEGIN
+    LAUNCH_PATCH_FUNCTION ALTER_ITEM_HEADER
+      INT_VAR
+      charges		= 20
+      flag_recharge	= 0
+    END
+  END
+
+  // Apply CamDawg's full web immunity macro on BG2 or better engine
+  PATCH_IF ENGINE_IS "bg2 tob bgee bg2ee"
+  BEGIN
+    LAUNCH_PATCH_FUNCTION cd_apply_batch
+      STR_VAR
+      array_name	= cd_immunity_web_arrays
+    END
+  END
 
 
 // mh#helm1 - Helm of Valor
@@ -359,6 +490,26 @@ Armor Class: +3 bonus
 Saving Throws: +3 bonus"
 
 
+// mh#robe1 - Robe of the Elements
+
+COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#robe1.itm" "override"
+  SAY NAME2 "Robe of the Elements"
+  SAY IDENTIFIED_DESC "Robe of the Elements
+
+This beautiful robe was custom-made by the elf Tania for <CHARNAME>.  It combines all of the powers of the more common minor mage robes like the Knave's Robe and the Robe of Fire Resistance into one more powerful item.  It also looks quite classy.
+
+STATISTICS:
+
+Armor Class: +1 bonus
+Saving Throws: +1 vs. Poison, Polymorph and Breath
+Fire Resistance: +20%
+Cold Resistance: +20%
+Electricity Resistance: +20%
+
+Only usable by:
+ Mage"
+
+
 // mh#shld1 - Shield of the Phoenix
 
 COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#shld1.itm" "override"
@@ -435,5 +586,35 @@ Not usable by:
  Cleric
  Druid
  Mage"
+
+
+// mh#swrd3 - Selune's Blessing +1
+
+COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#swrd3.itm" "override"
+  SAY NAME2 "Selune's Blessing +1"
+  SAY IDENTIFIED_DESC "Scimitar +1, +3 vs. Lycanthropes & Undead: 'Selune's Blessing'
+
+Hundreds of years ago, a cleric of Selune got lost in the High Forest, and would surely have perished if she hadn't been found by a kind-hearted druid.  He introduced her to his circle and they became friends and, despite their differences in faith, lovers.  At some point when horrid monsters threated the forest, the cleric prayed to her goddess under the light of a full moon to help her friends.  Suddenly milky white light flooded the altar and condensed into solid form, creating this blessed scimitar.  The Selunite gave it to her druidic friend and together they successfully defended the forest, after which they married and lived a long and happy life.  This scimitar has remained a beacon of hope and the bane of things that go bump in the night ever since.
+
+STATISTICS:
+
+THAC0: +1, +3 vs Lycanthropes & Undead
+Damage: 1d8 +1, +3 vs. Lycanthropes & Undead
+Damage type: slashing
+Weight: 3
+Speed Factor: 4
+Proficiency Type: Scimitar
+Type: 1-handed
+Requires: 10 Strength
+
+Not usable by:
+ Cleric
+ Mage"
+
+  // BG1 does not have scimitar animation
+  PATCH_IF ENGINE_IS "bg1 totsc"
+  BEGIN
+    WRITE_ASCII 0x0022 "S1" #2
+  END
 
 
