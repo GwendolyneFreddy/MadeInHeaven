@@ -1,0 +1,189 @@
+// BG1 Miscellaneous Tweaks
+
+
+// Move Chase for visibility.
+
+COPY_EXISTING "%LionsWay%.are" "override"
+  LAUNCH_PATCH_FUNCTION ALTER_AREA_ACTOR
+    INT_VAR
+    x_coord		= 1055
+    y_coord		= 2745
+    dest_x		= 1055
+    dest_y		= 2745
+    orientation		= 5
+    STR_VAR
+    actor_name		= "Chase"
+  END
+
+
+// Move Fahrington for visibility.
+
+COPY_EXISTING "%SpiderWood%.are" "override"
+  LAUNCH_PATCH_FUNCTION ALTER_AREA_ACTOR
+    INT_VAR
+    x_coord		= 1625
+    y_coord		= 1300
+    dest_x		= 1625
+    dest_y		= 1300
+    orientation		= 6
+    STR_VAR
+    actor_name		= "Fahrington"
+  END
+
+
+// Gerde & ankhegs quest improvement:
+// - Don't spawn Gerde until after talking with Fenten
+// - Spawn Gerde's ankhegs through area script
+// - More reliable trigger to know if quest is over
+
+COPY_EXISTING "%FishingVillage%.are" "override"
+  FOR (i = 10; i > 3; --i)
+  BEGIN
+    LAUNCH_PATCH_FUNCTION fj_are_structure
+      INT_VAR
+      fj_delete_mode	= i
+      STR_VAR
+      fj_structure_type	= "actor"
+    END
+  END
+
+LAUNCH_ACTION_FUNCTION cd_extend_bg_area_script
+  STR_VAR
+  area		= "%FishingVillage%"
+  script	= "%MOD_FOLDER%/bg1/misc/bg1400"
+END
+
+LAUNCH_ACTION_FUNCTION compile_dialog_or_script
+  STR_VAR
+  path_to_file	= "%MOD_FOLDER%/bg1/misc/gerde_fenten.d"
+END
+
+COPY_EXISTING "%tutu_var%ankhegg.cre" "override"
+  WRITE_ASCII	DEATHVAR "AnkhegGerde" #32
+
+
+// Sonner and friends won't turn hostile through dialog.
+
+COPY_EXISTING "%tutu_var%sonner.dlg" "override"
+  DECOMPILE_AND_PATCH
+  BEGIN
+    REPLACE_TEXTUALLY CASE_SENSITIVE EXACT_MATCH
+     ~SetGlobal("HostileFishermen","GLOBAL",1)~
+     ~ActionOverride("Telman", EscapeArea())
+      ActionOverride("Jebadoh", EscapeArea())
+      EscapeArea()~
+  END
+
+
+// Farmer Brun does not run if a fight breaks out near him.
+
+COPY_EXISTING "%tutu_var%farmbr.cre" "override"
+  WRITE_ASCII	SCRIPT_RACE "NONE" #8
+
+
+// Quinn's ankheg quest improvement:
+// - Ankheg behind Tanya's house does not spawn until after talking to Quinn
+// - Nester's dagger stands out a little more with unique icon and desc.
+
+COPY_EXISTING "%WyrmsCrossing%.are" "override"
+  LAUNCH_PATCH_FUNCTION fj_are_structure
+    INT_VAR
+    fj_delete_mode	= 5
+    STR_VAR
+    fj_structure_type	= "actor"
+  END
+
+LAUNCH_ACTION_FUNCTION cd_extend_bg_area_script
+  STR_VAR
+  area			= "%WyrmsCrossing%"
+  script		= "%MOD_FOLDER%/bg1/misc/bg0900"
+END
+
+COPY_LARGE "%MOD_FOLDER%/bg1/misc/mh#nesdg.bam" "override"
+
+COPY_EXISTING "%tutu_var%dagg06.itm" "override"
+  SAY IDENTIFIED_DESC "Nester's Dagger
+
+This is a masterwork dagger, honed and whetted to razor-sharp perfection.  It looks like someone really put some care and effort into it.  Engraved near the hilt is a name: 'Nester'.
+
+STATISTICS:
+
+THAC0: +1
+Damage: 1d4
+Damage type: piercing
+Weight: 1
+Speed Factor: 2
+Proficiency Type: Dagger
+Type: 1-handed
+Requires: 3 Strength
+
+Not usable by:
+ Cleric"
+
+  WRITE_ASCII	0x003a "mh#nesdg" #8
+
+  LAUNCH_PATCH_FUNCTION ALTER_ITEM_HEADER
+    INT_VAR
+    thac0_bonus		= 1
+    STR_VAR
+    icon		= "mh#nesdg"
+  END
+
+
+// Hentold's Quest improvement:
+// - Hentold's dagger (dagg08) is used instead of the unique Heart of the Golem dagger (dagg03)
+// - The dagger is given a unique icon and a nifty little ability to up the temptation...
+
+COPY_EXISTING "%tutu_var%hentol.cre" "override"
+  REMOVE_CRE_ITEM "%tutu_var%dagg03" "%tutu_var%dagg08"
+  ADD_CRE_ITEM "%tutu_var%dagg08" #0 #0 #0 "none" "weapon1" EQUIP
+
+COPY_EXISTING "%tutu_var%hentol.dlg" "override"
+              "%tutu_var%reven3.dlg" "override"
+  DECOMPILE_AND_PATCH
+  BEGIN
+    REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH "%tutu_var%dagg03" "%tutu_var%dagg08"
+  END
+
+COPY_LARGE "%MOD_FOLDER%/bg1/misc/mh#revdg.bam" "override"
+
+COPY_EXISTING "%tutu_var%dagg08.itm" "override"
+  SAY IDENTIFIED_DESC "Hentold's Dagger
+
+The dagger you got from the paniced Hentold appears to be quite old, and has a strange design you have never seen before.  It feels quite warm to the touch, and at times it almost seems to shift in your hand as if it were alive.  Etched into the blade is a rune that translates to 'Fire'.
+
+THAC0: +1 bonus
+Damage: 1d4 +1, 25% change of +1d6 fire damage
+Damage type: Piercing
+Weight: 1
+Speed Factor: 1
+Proficiency Type: Dagger
+Type: 1-handed
+
+Not usable by:
+ Cleric"
+
+  WRITE_LONG	0x0018 (THIS | BIT6)	// Make magical
+  WRITE_ASCII	0x003a "mh#revdg" #8
+  WRITE_SHORT	0x0042 20		// Lore to ID
+  WRITE_LONG	0x0060 1		// Enchantment level
+
+  LAUNCH_PATCH_FUNCTION ALTER_ITEM_HEADER
+    INT_VAR
+    thac0_bonus		= 1
+    damage_bonus	= 1
+    speed		= 1
+    STR_VAR
+    icon		= "mh#revdg"
+  END
+
+  LAUNCH_PATCH_FUNCTION ADD_ITEM_EFFECT
+    INT_VAR
+    opcode		= 12	// HP: Damage
+    parameter2		= 524288
+    probability2	= 25
+    dicenumber		= 1
+    dicesize		= 6
+  END
+
+

@@ -9,9 +9,11 @@ Baldur's Gate 1:
 
 - MiH Item Pack for BG1
 - Cathline's Peril
+- Enhanced Xvart Village
 - Creature Corrections
 - Missing Dialogs
 - Shop Fixes & Tweaks
+- Miscelaneous Tweaks
 
 Icewind Dale 1:
 
@@ -69,6 +71,21 @@ Cathline can be found in the previously occupied house near the High Hedge.
 But she's a woman alone and there are monsters in the area...
 
 
+======================
+Enhanced Xvart Village
+======================
+
+This component seeks to make the Xvart Village area west of Nashkel a bit more
+of a challenge.  It's still not that hard, but you can expect the xvarts to
+put up much more of a fight in the defense of their homes.
+
+List of changes:
+- Number of xvarts at the north- and south entrances has doubled.
+- The xvarts now have a few low-level spellcasters for backup.
+- Nexlit the Xvart is a full-fledged 4th level fighter.
+- A few minor traps have been added to the area.
+
+
 ====================
 Creature Corrections
 ====================
@@ -120,6 +137,44 @@ any spells to fill their 4th level slot until you finish Cloakwood.
 Finally this component moves two items that seem out of place in the
 Thunderhammer Smithy to Black Lily's store in the thieves' guild in Baldur's
 Gate instead.  These are the Shadow Armor +3 and the Dagger of Venom.
+
+
+=======================
+BG1 Miscelaneous Tweaks
+=======================
+
+This is a collection of small tweaks and enhancements to make certain aspects
+of BG1 more convenient or simply more interesting.  Some of these might
+perhaps be turned into full enhancements and given their own component in the
+future, but for now they are collected here.
+
+The list of changes:
+- Chase at the Lion's Way and Fahrington in the Spider Wood tend to blend into
+  the background if you don't have blue circles on.  This moves them slightly
+  to a position where they stand out more.  (And in Chase's case, also feels
+  more appropriate to his drama queen dialog.)
+- The ranger Gerde in the Fishing Village does not spawn until you have talked
+  to Fenten in Baldur's Gate.  The ankhegs she wants you to kill spawn after
+  talking to her (east and a bit north of her).  There will be six of them, so
+  watch out.  Finally, her trigger to see if you did her quest has been
+  changed to one that is (hopefully) more reliable.
+- The Talos-worshipping fishermen won't turn hostile through dialog anymore.
+  This prevents them from needlessly being mowed down by your party AI scripts
+  kicking in after the quest has been resolved.  (They will still go hostile
+  if attacked.)
+- Farmer Brun won't run into the woods anymore if you happen to fight ankhegs
+  near him.
+- The ankheg north of Tenya's hut won't spawn until after you talked to Quinn
+  in Baldur's Gate.  Nester's dagger (dagg06) has been given a unique icon
+  (lifted from Icewind Dale) and description to make it stand out a bit more.
+  (And yes, it really is a masterwork dagger now.  No, you can't get it
+  enchanted.)
+- Hentold's Quest uses a unique dagger (with an icon lifted from Icewind Dale)
+  instead of the supposedly one of a kind Heart of the Golem.  This is a bit
+  of a restoration of sorts as the unique dagger (dagg08) was already in the
+  game.  I did make it a little more tempting to keep it, though...
+  (I might turn this into a full quest enhancement sometime, with the revenant
+  stalking you if you keep the dagger...)
 
 
 ==================================================

@@ -80,9 +80,9 @@ LAUNCH_ACTION_FUNCTION "install_component"
 END
 
 
-// ===================
-// Shop Fixes & Tweaks
-// ===================
+// =========================
+// Shop Fixes & Tweaks (BG1)
+// =========================
 
 BEGIN "Shop Fixes & Tweaks (BG1)"
 GROUP "Baldur's Gate 1" GAME_INCLUDES "bg1"
@@ -90,6 +90,19 @@ GROUP "Baldur's Gate 1" GAME_INCLUDES "bg1"
 LAUNCH_ACTION_FUNCTION "install_component"
   STR_VAR
   component_name	= "bg1_shop_tweaks"
+END
+
+
+// ==========================
+// Miscellaneous Tweaks (BG1)
+// ==========================
+
+BEGIN "Miscellanous Tweaks (BG1)"
+GROUP "Baldur's Gate 1" GAME_INCLUDES "bg1"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "bg1_miscellaneous"
 END
 
 

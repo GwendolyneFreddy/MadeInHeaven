@@ -1,4 +1,5 @@
 // CamDawg's tools, all credit should go to him.
+// Code dumped here with minimal editing.
 
 
 /////                                                  \\\\\
@@ -48,6 +49,40 @@ BEGIN
   END
   WRITE_SHORT 0x68 abil_num
   WRITE_LONG  0x6a fx_off
+
+END
+
+
+DEFINE_ACTION_FUNCTION cd_extend_bg_area_script
+
+  INT_VAR extend_top = 0
+  STR_VAR area       = ""
+          script     = ""
+BEGIN
+
+  // make sure we have area scripts assigned
+  COPY_EXISTING ~%area%.are~ ~override~
+    READ_ASCII 0x94 a_script
+    PATCH_IF ("%script%" STRING_COMPARE_CASE ~~ = 0) BEGIN // if blank
+      PATCH_IF GAME_IS ~tutu tutu_totsc~ BEGIN // if Tutu
+        WRITE_ASCIIE 0x95 ~%SOURCE_RES%~ #7
+        WRITE_ASCII  0x94 ~_ar~
+      END ELSE BEGIN // bgt
+        WRITE_ASCIIE 0x94 ~%SOURCE_RES%~ #8
+      END
+      READ_ASCII 0x94 a_script
+    END
+    BUT_ONLY
+
+  ACTION_IF extend_top = 1 THEN BEGIN
+
+    EXTEND_TOP ~%a_script%.bcs~ ~%script%.baf~ EVALUATE_BUFFER
+
+  END ELSE BEGIN
+
+    EXTEND_BOTTOM ~%a_script%.bcs~ ~%script%.baf~ EVALUATE_BUFFER
+
+  END
 
 END
 

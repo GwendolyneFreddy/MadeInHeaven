@@ -68,11 +68,10 @@ Though covered in blood and gunk, you soon recognize it as a female hand, reachi
 
 The elven woman blushes, realizing she is practically naked in front of you, and stammers, "Hi...  I'm Cathline..."~
 
-LAUNCH_ACTION_FUNCTION compile_dialog_or_script
+LAUNCH_ACTION_FUNCTION cd_extend_bg_area_script
   STR_VAR
-  path_to_file	= "%MOD_FOLDER%/bg1/caths_peril/bg3201.baf"
+  area		= "%HighHedge_House%"
+  script	= "%MOD_FOLDER%/bg1/caths_peril/bg3201"
 END
-
-MOVE "override/bg3201.bcs" "override/%HighHedge_House%.bcs"
 
 
