@@ -993,11 +993,11 @@ END
 // human transform array - clears out special abilities from all forms
 DEFINE_PATCH_MACRO ~cd_spell_transformation_human_arrays~ BEGIN
   DEFINE_ASSOCIATIVE_ARRAY cd_immunity_batches_key BEGIN
-    279, "-10",     7,    "same", 1, 0, "same" => 1 // enable talk button
-    279, "-10",     2,    "same", 1, 0, "same" => 1 // enable select spell button
-    279, "-10",     3,    "same", 1, 0, "same" => 1 // enable quick spell 1 button
-    279, "-10",     4,    "same", 1, 0, "same" => 1 // enable quick spell 2 button
-    279, "-10",     5,    "same", 1, 0, "same" => 1 // enable quick spell 3 button
+    279, "-10",     7,        "", 1, 0, "same" => 1 // enable talk button
+    279, "-10",     2,        "", 1, 0, "same" => 1 // enable select spell button
+    279, "-10",     3,        "", 1, 0, "same" => 1 // enable quick spell 1 button
+    279, "-10",     4,        "", 1, 0, "same" => 1 // enable quick spell 2 button
+    279, "-10",     5,        "", 1, 0, "same" => 1 // enable quick spell 3 button
     172, "-10", "-10", "spin160", 1, 0, "same" => 3 // remove spell x3
     172, "-10", "-10", "spinhum", 1, 0, "same" => 1 // remove spell
     172, "-10", "-10", "spwi491", 1, 0, "same" => 1 // remove spell

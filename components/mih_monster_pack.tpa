@@ -1,0 +1,37 @@
+// Made in Hell: Monster Pack
+
+COPY_EXISTING "spwi304.spl" "%MOD_FOLDER%/work/bone_blaze.spl"
+  LAUNCH_PATCH_FUNCTION DELETE_SPELL_HEADER
+    INT_VAR
+    min_level		= 2
+  END
+  LAUNCH_PATCH_FUNCTION ALTER_SPELL_HEADER
+    INT_VAR
+    dicenumber		= 6
+    speed		= 1
+  END
+  LAUNCH_PATCH_MACRO spell_to_innate
+
+ADD_SPELL "%MOD_FOLDER%/work/bone_blaze.spl" 3 1 MH_BONE_BLAZE
+  SAY NAME1 "Bone Blaze"
+
+DELETE "%MOD_FOLDER%/work/bone_blaze.spl"
+
+
+COPY "%MOD_FOLDER%/monster_pack/bgt/items/mh#blaze.itm" "override"
+     "%MOD_FOLDER%/monster_pack/bgt/items/mh#blzrg.itm" "override"
+  SAY NAME1 "Attack"
+  SAY NAME2 "Attack"
+
+
+COPY "%MOD_FOLDER%/monster_pack/bgt/actors/mh#blaze.cre" "override"
+  SAY NAME1 "Blazing Bones"
+  SAY NAME2 "Blazing Bones"
+
+
+LAUNCH_ACTION_FUNCTION compile_dialog_or_script
+  STR_VAR
+  path_to_file		= "%MOD_FOLDER%/monster_pack/bgt/scripts/mh#blaze.baf"
+END
+
+
