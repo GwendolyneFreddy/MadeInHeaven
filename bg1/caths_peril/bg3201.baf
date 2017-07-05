@@ -3,9 +3,9 @@ IF
   Global("mh#SpawnCath", "MYAREA", 0)
 THEN
   RESPONSE #100
-  SetGlobal("mh#SpawnCath", "MYAREA", 1)
-  TextScreen("mh#cathr")
-  CreateCreature("mh#cath", [320.220], 1)
+    SetGlobal("mh#SpawnCath", "MYAREA", 1)
+    TextScreen("mh#cathr")
+    CreateCreature("mh#cath", [320.220], 1)
 END
 
 

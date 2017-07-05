@@ -5,8 +5,9 @@ IF
   !GlobalTimerNotExpired("acid_squirt", "LOCALS")
 THEN
   RESPONSE #100
-  SetGlobalTimer("acid_squirt", "LOCALS", SIX_HOURS)
-  ForceSpell(LastSeenBy(Myself), MH_ANKHEG_ACID_SQUIRT)
+    SetGlobalTimer("acid_squirt", "LOCALS", SIX_HOURS)
+    ForceSpell(LastSeenBy(Myself), MH_ANKHEG_ACID_SQUIRT)
+    Wait(2)
 END
 
 

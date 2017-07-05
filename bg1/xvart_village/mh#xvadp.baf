@@ -4,11 +4,11 @@ IF
   !GlobalTimerNotExpired("spell", "LOCALS")
 THEN
   RESPONSE #70
-  SetGlobalTimer("spell", "LOCALS", ONE_ROUND)
-  Spell(Myself, WIZARD_MIRROR_IMAGE)
-  Wait(2)
+    SetGlobalTimer("spell", "LOCALS", ONE_ROUND)
+    Spell(Myself, WIZARD_MIRROR_IMAGE)
+    Wait(2)
   RESPONSE #30
-  Continue()
+    Continue()
 END
 
 IF
@@ -17,11 +17,11 @@ IF
   !GlobalTimerNotExpired("spell", "LOCALS")
 THEN
   RESPONSE #70
-  SetGlobalTimer("spell", "LOCALS", ONE_ROUND)
-  Spell(LastSeenBy(Myself), WIZARD_SLEEP)
-  Wait(2)
+    SetGlobalTimer("spell", "LOCALS", ONE_ROUND)
+    Spell(LastSeenBy(Myself), WIZARD_SLEEP)
+    Wait(2)
   RESPONSE #30
-  Continue()
+    Continue()
 END
 
 IF
@@ -30,11 +30,11 @@ IF
   !GlobalTimerNotExpired("spell", "LOCALS")
 THEN
   RESPONSE #70
-  SetGlobalTimer("spell", "LOCALS", ONE_ROUND)
-  Spell(LastSeenBy(Myself), WIZARD_CHROMATIC_ORB)
-  Wait(2)
+    SetGlobalTimer("spell", "LOCALS", ONE_ROUND)
+    Spell(LastSeenBy(Myself), WIZARD_CHROMATIC_ORB)
+    Wait(2)
   RESPONSE #30
-  Continue()
+    Continue()
 END
 
 

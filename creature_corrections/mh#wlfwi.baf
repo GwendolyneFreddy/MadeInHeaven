@@ -4,12 +4,12 @@ IF
   !GlobalTimerNotExpired("breath", "LOCALS")
 THEN
   RESPONSE #40
-  SetGlobalTimer("breath", "LOCALS", 60)
-  FaceObject(LastSeenBy(Myself))
-  ForceSpell(LastSeenBy(Myself), MH_WINTER_WOLF_BREATH)
-  Wait(2)
+    SetGlobalTimer("breath", "LOCALS", 60)
+    FaceObject(LastSeenBy(Myself))
+    ForceSpell(LastSeenBy(Myself), MH_WINTER_WOLF_BREATH)
+    Wait(2)
   RESPONSE #60
-  Continue()
+    Continue()
 END
 
 

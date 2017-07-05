@@ -3,8 +3,8 @@ IF
   Global("mh#SpawnedQuinnsAnkheg", "GLOBAL", 0)
 THEN
   RESPONSE #100
-  CreateCreature("%tutu_var%ankhegq", [4073.97], 0)
-  SetGlobal("mh#SpawnedQuinnsAnkheg", "GLOBAL", 1)
+    CreateCreature("%tutu_var%ankhegq", [4073.97], 0)
+    SetGlobal("mh#SpawnedQuinnsAnkheg", "GLOBAL", 1)
 END
 
 

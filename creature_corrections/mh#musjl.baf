@@ -3,7 +3,7 @@ IF
   NotStateCheck(Myself, STATE_INVISIBLE)
 THEN
   RESPONSE #100
-  Hide()
+    Hide()
 END
 
 IF
@@ -11,9 +11,9 @@ IF
   !GlobalTimerNotExpired("vapor", "LOCALS")
 THEN
   RESPONSE #100
-  SetGlobalTimer("vapor", "LOCALS", THREE_ROUNDS)
-  ForceSpell(Myself, MH_MUSTARD_JELLY_VAPOR)
-  Wait(2)
+    SetGlobalTimer("vapor", "LOCALS", THREE_ROUNDS)
+    ForceSpell(Myself, MH_MUSTARD_JELLY_VAPOR)
+    Wait(2)
 END
 
 
