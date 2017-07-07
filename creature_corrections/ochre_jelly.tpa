@@ -1,0 +1,27 @@
+// Ochre Jelly
+
+ACTION_IF NOT FILE_EXISTS_IN_GAME "mh#ochjl.itm"
+BEGIN
+  COPY "%MOD_FOLDER%/creature_corrections/mh#ochjl.itm" "override"
+    SAY NAME1 "Attack"
+    SAY NAME2 "Attack"
+
+
+  DEFINE_PATCH_MACRO fix_ochre_jelly
+  BEGIN
+    REPLACE_CRE_ITEM "mh#ochjl" #0 #0 #0 "unstealable&undroppable" "weapon1" EQUIP
+    REPLACE_CRE_ITEM "mh#ochjl" #0 #0 #0 "unstealable&undroppable" "weapon2"
+    REPLACE_CRE_ITEM "mh#ochjl" #0 #0 #0 "unstealable&undroppable" "weapon3"
+    REPLACE_CRE_ITEM "mh#ochjl" #0 #0 #0 "unstealable&undroppable" "weapon4"
+
+    WRITE_BYTE	0x0052 15	// THAC0
+    WRITE_BYTE	0x0046 8	// Natural AC
+    WRITE_BYTE	0x0048 8	// Effective AC
+    WRITE_BYTE	0x005a 0	// Cold resistance
+    WRITE_BYTE	0x005b 100	// Lightning res.
+    WRITE_BYTE	0x005d 0	// Magic resistance
+    WRITE_BYTE	0x005f 0	// Mag. cold res.
+  END
+END
+
+

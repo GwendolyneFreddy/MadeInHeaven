@@ -47,8 +47,20 @@ COPY_EXISTING "%tutu_var%wolfdr.cre" "override"
   LAUNCH_PATCH_MACRO fix_dread_wolf
 
 
+// Gray Ooze
+//
+// - Attack does 2d8 acid damage
+// - THAC0 correction 20 => 17
+
+INCLUDE "%MOD_FOLDER%/creature_corrections/gray_ooze.tpa"
+
+COPY_EXISTING "%tutu_var%jellgr.cre" "override"
+  LAUNCH_PATCH_MACRO fix_gray_ooze
+
+
 // Mustard Jelly
 //
+// - Attack does 5d4 acid damage
 // - XP value 2000 => 4000
 // - # of attacks 1 => 2
 // - Cold Resistance 0% => 50%
@@ -63,6 +75,21 @@ COPY_EXISTING "%tutu_var%jellmu.cre" "override"
               "%tutu_var%jellmul.cre" "override"
               "%tutu_var%jellymu.cre" "override"
   LAUNCH_PATCH_MACRO fix_mustard_jelly
+
+
+// Ochre Jelly
+//
+// - Attack does 1d10 +2 acid damage
+// - THAC0 correction 13 => 15
+// - AC correction 4 => 8
+// - Cold Resistance 50% => 0%
+// - Lightning Resistance 0% => 100%
+// - Magic Resistance 10% => 0%
+
+INCLUDE "%MOD_FOLDER%/creature_corrections/ochre_jelly.tpa"
+
+COPY_EXISTING "%tutu_var%jelloc.cre" "override"
+  LAUNCH_PATCH_MACRO fix_ochre_jelly
 
 
 // Vampiric Wolf
