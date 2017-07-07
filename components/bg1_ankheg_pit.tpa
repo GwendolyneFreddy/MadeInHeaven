@@ -1,0 +1,53 @@
+// Enhanced Ankheg Pit
+
+LAUNCH_ACTION_FUNCTION compile_dialog_or_script
+  STR_VAR
+  path_to_file		= "%MOD_FOLDER%/bg1/ankheg_pit/mh#ankh1.baf"
+END
+
+
+LAUNCH_ACTION_FUNCTION compile_dialog_or_script
+  STR_VAR
+  path_to_file		= "%MOD_FOLDER%/bg1/ankheg_pit/mh#ankh2.baf"
+END
+
+
+COPY_EXISTING "%FishingVillage_AnkhegPit%.are" "override"
+  LAUNCH_PATCH_FUNCTION add_area_actors_from_2da
+    STR_VAR
+    path_to_2da		= "%MOD_FOLDER%/bg1/ankheg_pit/more_ankhegs_%tutuorbgt%.2da"
+  END
+
+  LAUNCH_PATCH_FUNCTION add_simple_trap
+    INT_VAR
+    lr_x		= 1786
+    lr_y		= 1247
+    ll_x		= 1726
+    ll_y		= 1253
+    ul_x		= 1583
+    ul_y		= 111
+    ur_x		= 1637
+    ur_y		= 106
+    trap_detect		= 100
+    trap_remove		= 100
+    STR_VAR
+    trap_script		= "mh#ankh1"
+  END
+
+  LAUNCH_PATCH_FUNCTION add_simple_trap
+    INT_VAR
+    lr_x		= 2487
+    lr_y		= 1410
+    ll_x		= 2438
+    ll_y		= 1418
+    ul_x		= 2269
+    ul_y		= 200
+    ur_x		= 2315
+    ur_y		= 193
+    trap_detect		= 100
+    trap_remove		= 100
+    STR_VAR
+    trap_script		= "mh#ankh2"
+  END
+
+

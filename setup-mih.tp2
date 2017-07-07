@@ -42,6 +42,32 @@ END
 
 
 // ======================
+// Enhanced Ankheg Pit
+// ======================
+
+BEGIN "Enhanced Ankheg Pit"
+GROUP "Baldur's Gate 1" GAME_INCLUDES "bg1"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "bg1_ankheg_pit"
+END
+
+
+// =======================
+// Enhanced Ulcaster Ruins
+// =======================
+
+BEGIN "Enhanced Ulcaster Ruins"
+GROUP "Baldur's Gate 1" GAME_INCLUDES "bg1"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "bg1_ulcaster_ruins"
+END
+
+
+// ======================
 // Enhanced Xvart Village
 // ======================
 
