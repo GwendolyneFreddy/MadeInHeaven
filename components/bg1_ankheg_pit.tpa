@@ -50,4 +50,11 @@ COPY_EXISTING "%FishingVillage_AnkhegPit%.are" "override"
     trap_script		= "mh#ankh2"
   END
 
+  LAUNCH_PATCH_FUNCTION ADD_AREA_ITEM
+    INT_VAR
+    container_to_add_to	= 1
+    STR_VAR
+    item_to_add		= "%tutu_var%ring19"
+  END
+
 
