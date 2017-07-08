@@ -48,7 +48,7 @@ BEGIN default
     REPLY @12
     GOTO robe_study
   IF ~Global("mh#TaniaNewRobe", "GLOBAL", 2)
-      GlobalTimerExpired("mh#TaniaCraftRobe", "GLOBAL")~
+      GlobalTimerExpired("mh#TaniaCraftingRobe", "GLOBAL")~
     REPLY @13
     GOTO elemental_robe
   IF ""
@@ -87,7 +87,7 @@ IF ""
       DestroyItem("misc01")
       DestroyItem("misc01")
       DestroyItem("misc01")
-      SetGlobal("mh#TaniaWolfHide", "GLOBAL", 1)
+      SetGlobal("mh#TaniaWolfHide", "GLOBAL", 2)
       SetGlobalTimer("mh#TaniaCraftingHide", "GLOBAL", THREE_DAYS)~
     UNSOLVED_JOURNAL @23
     EXIT
@@ -133,7 +133,7 @@ BEGIN robe_study
 	DestroyItem("clck13")
 	DestroyItem("clck14")
 	SetGlobal("mh#TaniaNewRobe", "GLOBAL", 2)
-	SetGlobalTimer("mh#TaniaCraftRobe", "GLOBAL", SEVEN_DAYS)~
+	SetGlobalTimer("mh#TaniaCraftingRobe", "GLOBAL", SEVEN_DAYS)~
     UNSOLVED_JOURNAL @31
     EXIT
 END
