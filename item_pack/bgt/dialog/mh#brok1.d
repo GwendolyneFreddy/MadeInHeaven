@@ -141,6 +141,10 @@ END
 IF ""
 BEGIN hub
   SAY "So, ye be wanting sumthin' from this old dwarf?"
+  IF ~Global("mh#BrokkForgeAnkheg", "GLOBAL", 1)
+      PartyHasItem("%tutu_var%misc12")~
+    REPLY "I brought you an ankheg shell!"
+    GOTO ankheg3
   IF ~Global("mh#BrokkForgeScale", "GLOBAL", 1)
       PartyHasItem("mh#misc1")
       PartyGoldGT(7999)~
