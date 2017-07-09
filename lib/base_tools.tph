@@ -1,13 +1,13 @@
 DEFINE_ACTION_FUNCTION install_component
 BEGIN
-  ACTION_IF NOT FILE_EXISTS "override/%component_name%.mih"
+  ACTION_IF NOT FILE_EXISTS "%MOD_FOLDER%/installed/%component_name%.mrk"
   BEGIN
     PRINT "Installing component %component_name%...."
 
 
     // File to detect this component.
 
-    COPY "%MOD_FOLDER%/dummy.mih" "override/%component_name%.mih"
+    COPY "%MOD_FOLDER%/dummy.mih" "%MOD_FOLDER%/installed/%component_name%.mrk"
 
 
     // Load translation file if it exists.
