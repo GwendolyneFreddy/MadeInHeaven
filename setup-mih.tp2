@@ -28,6 +28,19 @@ LAUNCH_ACTION_FUNCTION "install_component"
 END
 
 
+// ===============================
+// Potions of Extra Healing in BG1
+// ===============================
+
+BEGIN "Potions of Extra Healing in BG1"
+GROUP "Baldur's Gate 1" GAME_INCLUDES "bg1"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "bg1_potions_of_extra_healing"
+END
+
+
 // ===========================
 // Cathline's Peril mini-quest
 // ===========================

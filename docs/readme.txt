@@ -8,6 +8,7 @@ Component List
 Baldur's Gate 1:
 
 - MiH Item Pack for BG1
+- Potions of Extra Healing in BG1
 - Cathline's Peril
 - Enhanced Xvart Village
 - Creature Corrections
@@ -57,6 +58,18 @@ Others will be found on enemies both old and new.  Some may replace others
 that I felt were either too strong or too weak for where they appear.  But
 don't worry, you can still find the old item elsewhere.  And a few have been
 placed in dungeons, mostly the Candlekeep catacombs and Durlag's Tower.
+
+
+// ===============================
+// Potions of Extra Healing in BG1
+// ===============================
+
+Like the name suggests, this modification makes Potions of Extra Healing
+available at the Sword Coast.  You'll find some for sale in major temples and
+in a few select stores.
+
+For vanilla BG1, this mod will create potn52.itm from potn08.itm, with
+graphics lifted from BG2.
 
 
 ================
