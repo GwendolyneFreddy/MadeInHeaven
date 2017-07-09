@@ -18,7 +18,7 @@ BEGIN no_business
     GOTO let_me_be
 END
 
-IF ~GlobalLT("Chapter", "GLOBAL", 3)~
+IF ~GlobalLT("Chapter", "GLOBAL", %tutu_chapter_3%)~
 BEGIN let_me_be
   SAY "Just let me be..."
   IF ""
@@ -43,6 +43,51 @@ The dwarf Brokk at the Friendly Arm Inn gave me an enchanted girdle for restorin
     GOTO hub
 END
 
+IF ~PartyHasItem("%tutu_var%plat06")
+    Global("mh#BrokkForgeAnkheg", "GLOBAL", 0)~
+BEGIN ankheg1
+  SAY "Interesting armor ya be wearin' there.  Ankheg, if I be nae mistaken?  Allow an old dwarf a closer look..."
+  = "Aye, ankheg, and expertly crafted, I gotta say.  Must have been that fellah down south, the Thunderhammer?  Only master smith around these parts, besides meself of course."
+  IF ""
+    DO ~SetGlobal("mh#BrokkForgeAnkheg", "GLOBAL", 1)~
+    GOTO ankheg2
+END
+
+IF ""
+BEGIN ankheg2
+  SAY "By Moradin, why didn't I think of this meself?  Say, do you think you can get 'nother o' these shells?  I be hearin' a place up north be crawlin' with these critters lately."
+  IF ~PartyHasItem("%tutu_var%misc12")~
+    REPLY "I have one here actually.  I was hoping to get something else crafted out of it."
+    GOTO ankheg3
+  IF ""
+    REPLY "It's dangerous business to get these, but I'll consider it."
+    GOTO hub
+END
+
+IF ""
+BEGIN ankheg3
+  SAY "Ye be quite sumthin', these bugs are nae t' be trifled with!  Alright, let's see here..."
+  = "Mm, mm...  Aye, this should create two, maybe three shields...  Tell ya what, come back in a day and ye can have da first one."
+  = "By Moradin, no human is gonna outperform me!  This will be one of me finest!"
+  IF ""
+    DO ~TakePartyItem("%tutu_var%misc12")
+        DestroyItem("%tutu_var%misc12")
+	SetGlobal("mh#BrokkForgeAnkheg", "GLOBAL", 2)
+	SetGlobalTimer("mh#BrokkForgingAnkheg", "GLOBAL", ONE_DAY)~
+    GOTO goodbye
+END
+
+IF ~Global("mh#BrokkForgeAnkheg", "GLOBAL", 2)
+    GlobalTimerExpired("mh#BrokkForgingAnkheg", "GLOBAL")~
+BEGIN ankheg4
+  SAY "Ah, there ya be!  And here be what I promised ye.  A fine shield, if I do say so meself."
+  = "And nae, it be on the house.  Ya saved me business again really, I already be having more people waitin' for any shields I'll be carving outta that shell ye brought."
+  IF ""
+    DO ~GiveItemCreate("mh#shld2", LastTalkedToBy(Myself), 0, 0, 0)
+        SetGlobal("mh#BrokkForgeAnkheg", "GLOBAL", 3)~
+    GOTO goodbye
+END
+
 IF ~PartyHasItem("mh#misc1")
     Global("mh#BrokkForgeScale", "GLOBAL", 0)~
 BEGIN scale1
@@ -56,12 +101,12 @@ IF ""
 BEGIN scale2
   SAY "Green dragon scales, aye?  And from da look of 'm, already cured.  Y'be wantin' me t' craft some armor then?"
   = "These be lean times, so I'll give ye a fine deal, only 8000 gold."
-  IF ""
-    REPLY "Not right now, sorry."
-    GOTO hub
   IF "PartyGoldGT(7999)"
     REPLY "That sounds fine, let's do it!"
     GOTO scale3
+  IF ""
+    REPLY "Not right now, sorry."
+    GOTO hub
 END
 
 IF ""
@@ -83,7 +128,7 @@ BEGIN scale4
   IF ""
     DO ~GiveItemCreate("mh#armr1", LastTalkedToBy(Myself), 0, 0, 0)
         SetGlobal("mh#BrokkForgeScale", "GLOBAL", 3)~
-    GOTO hub
+    GOTO goodbye
 END
 
 IF "True()"

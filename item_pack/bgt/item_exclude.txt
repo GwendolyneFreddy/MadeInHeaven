@@ -1,2 +1,5 @@
+mh#armr1	1
+mh#armr2	1
+mh#armr3	1
 mh#clck2	1
 mh#ring4	1

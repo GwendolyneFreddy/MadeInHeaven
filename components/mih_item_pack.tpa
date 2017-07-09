@@ -367,6 +367,34 @@ Weight: 3"
   END
 
 
+// mh#hamm1 - Thronumin +3
+
+COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#hamm1.itm" "override"
+  SAY NAME1 "Thronumin +3"
+  SAY IDENTIFIED_DESC "War Hammer +3, Defender: 'Thronumin'
+
+Thronumin, 'The Hammer of the Meteor', was forged almost a thousand years ago.  A meteor from Realmspace struck Aber-Toril, falling into a remote area of the Cloudpeak mountains and burying itself deep underground.  Dwarves from a now forgotten clan eventually tunneled to it and found that the meteor's core was almost pure iron.  From it a number of powerful weapons and armor were forged, but most have have been lost over the years.
+
+Several dwarven runes have been inscribed into the head, glowing with power.  The enchantment on this weapon is quite formidable, not only enabling it to strike hard and true but also granting additional protection to the wielder.
+
+STATISTICS:
+
+THAC0: +3 bonus
+Damage: 1D4 +4
+Damage type: crushing
+Armor Class: +1 bonus
+Weight: 4
+Speed Factor: 1
+Proficiency Type: War Hammer
+Type: 1-handed
+Requires: 9 Strength
+
+Not usable by:
+ Druid
+ Mage
+ Thief"
+
+
 // mh#helm1 - Helm of Valor
 
 COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#helm1.itm" "override"
@@ -533,6 +561,29 @@ Not usable by:
  Mage
  Thief
  Evil characters"
+
+
+// mh#shld2 - Ankheg Shield +1
+
+COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#shld2.itm" "override"
+  SAY NAME2 "Ankheg Shield +1"
+  SAY IDENTIFIED_DESC "Ankheg Shield +1
+
+This medium shield was created from the chitinous shell of an ankheg by the dwarven smith Brokk.  After seeing the beautiful ankheg plate that Taerum 'Thunderhammer' created from <CHARNAME>'s ankheg shell, the proud dwarf decided that no human would outdo him, by Moradin!  He then crafted this sturdy medium shield from another ankheg shell.
+
+Like the ankheg plate that inspired it, this shield's greatest advantage is also its light weight, weighing about a third less than its metal equivalent.  Likewise, druids can use this shield without violating their vows, as no metal has been used in its construction.
+
+STATISTICS:
+
+Armor Class: +2
+Acid Resistance: +30%
+Weight: 4
+Requires: 8 Strength
+
+Not usable by:
+ Bard
+ Mage
+ Thief"
 
 
 // mh#swrd1 - Terminus Est +2

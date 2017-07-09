@@ -172,7 +172,14 @@ COPY_EXISTING "%tutu_var%tem0132.sto" "override"
 
 // The Great Hammer Shuffle
 
-// TODO: Add shiny new hammer in Ulgoth's Beard
+COPY_EXISTING "%tutu_var%hurgan.cre" "override"
+  REPLACE_CRE_ITEM "mh#hamm1" #0 #0 #0 "none" "qitem3"
+
+COPY_EXISTING "%tutu_var%hurgan.dlg" "override"
+  DECOMPILE_AND_PATCH
+  BEGIN
+    REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH "%tutu_var%hamm04" "mh#hamm1"
+  END
 
 COPY_EXISTING "%tutu_var%bassil.cre" "override"
   REPLACE_CRE_ITEM "%tutu_var%hamm04" #0 #0 #0 "none" "weapon1" EQUIP

@@ -16,7 +16,11 @@ mh#clck1	Mutamin's Cloak			petrification immunity
 mh#clck2	Battlecloak of Vycaena		+4 AC, +1 saves						Fallen Empires of Faerun (3E)
 mh#clck3	Cloak of Arachnida		+2 vs death, web immunity, casts Web 2/day		Dungeon Master Guide (2E)
 
+mh#hamm1	Thronumin +3			+3 war hammer, +1 AC
+
 mh#helm1	Helm of Valor			+3 AC vs missiles, 50% missile resistance		Complete Book of Elves (2E)
+
+mh#ioun1	Lush Emerald Ioun Stone		+1 AC, regen 2 HP/turn, druids only
 
 mh#misc1	Green Dragon Scales		preserved scales used as a component
 
@@ -28,6 +32,9 @@ mh#ring3	Ring of Toughness		+3 max HP
 mh#ring4	Ring of Protection +3		+3 AC, +3 saves						Dungeon Master Guide (2E)
 
 mh#robe1	Robe of the Elements		+1 AC, +1 saves, +20% fire/cold/elec.
+
+mh#shld1	Shield of the Phoenix +1	+2 AC, +30% fire resistance
+mh#shld2	Ankheg Shield +1		+2 AC, +30% acid resistance
 
 mh#swrd1	Terminus Est +2			bastard sword +2, poison damage				Castlevania: Symphony of the Night
 mh#swrd2	Heartsblood +1			long sword +1, +2 vs undead				Book of Lairs (2E)
