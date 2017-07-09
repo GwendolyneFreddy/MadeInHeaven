@@ -24,21 +24,23 @@ BEGIN
 
     LAUNCH_PATCH_FUNCTION ADD_ITEM_EFFECT
       INT_VAR
+      type		= 1	// Melee
       opcode		= 78	// State: Disease
       target		= 2	// Pre-target
       duration		= 300	// 5 turns
-      parameter1		= 60
-      parameter2		= 3	// Lose 1 HP every <parameter1> seconds
-      savingthrow		= 4	// Death/Poison
+      parameter1	= 60
+      parameter2	= 3	// Lose 1 HP every <parameter1> seconds
+      savingthrow	= 4	// Death/Poison
     END
 
     LAUNCH_PATCH_FUNCTION ADD_ITEM_EFFECT
       INT_VAR
+      type		= 1	// Melee
       opcode		= 142	// Graphics: Display Special Effect Icon
       target		= 2	// Pre-target
       duration		= 300	// 5 turns
-      parameter2		= 7	// Diseased
-      savingthrow		= 4	// Death/Poison
+      parameter2	= 7	// Diseased
+      savingthrow	= 4	// Death/Poison
     END
 
 

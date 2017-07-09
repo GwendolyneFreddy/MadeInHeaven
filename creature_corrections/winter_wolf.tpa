@@ -15,6 +15,7 @@ BEGIN
 
     LAUNCH_PATCH_FUNCTION ADD_ITEM_EFFECT
       INT_VAR
+      type		= 1	// Melee
       opcode		= 12	// HP: Damage
       target		= 2	// Pre-target
       timing		= 1	// Permanent
