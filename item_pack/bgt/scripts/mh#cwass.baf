@@ -1,0 +1,18 @@
+IF
+  AttackedBy([GOODCUTOFF], DEFAULT)
+  Allegiance(Myself, NEUTRAL)
+THEN
+  RESPONSE #100
+    SetGlobal("mh#CWAssassinsHostile", "MYAREA", 1)
+    Enemy()
+END
+
+IF
+  Global("mh#CWAssassinsHostile", "MYAREA", 1)
+  Allegiance(Myself, NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+

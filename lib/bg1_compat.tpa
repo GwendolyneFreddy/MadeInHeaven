@@ -35,6 +35,14 @@ Unusable By:
   // Copy in extended state.bams (from ToB, uncompressed)
 
   COPY "%MOD_FOLDER%/lib/bg1_compat/states.bam" "override"
+
+
+  // Compile initin15 script
+
+  LAUNCH_ACTION_FUNCTION compile_dialog_or_script
+    STR_VAR
+    path_to_file	= "%MOD_FOLDER%/lib/bg1_compat/initin15.baf"
+  END
 END
 
 
