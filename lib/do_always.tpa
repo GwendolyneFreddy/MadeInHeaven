@@ -4,6 +4,13 @@ ACTION_IF NOT VARIABLE_IS_SET done_init
 BEGIN
   OUTER_SET done_init = 1
 
+  INCLUDE "%MOD_FOLDER%/lib/base_tools.tph" 
+  INCLUDE "%MOD_FOLDER%/lib/patch_tools.tph" 
+  INCLUDE "%MOD_FOLDER%/lib/area_tools.tph" 
+
+  INCLUDE "%MOD_FOLDER%/lib/cd_tools.tph" 
+  INCLUDE "%MOD_FOLDER%/lib/bg2fp_effect_batches.tph"
+
   ACTION_IF GAME_IS "bg1 totsc"
   BEGIN
     INCLUDE "%MOD_FOLDER%/lib/g3_bg_cpmvars.tpa"
@@ -24,13 +31,6 @@ BEGIN
   BEGIN
     INCLUDE "%MOD_FOLDER%/lib/g3_bgee_cpmvars.tpa"
   END
-
-  INCLUDE "%MOD_FOLDER%/lib/base_tools.tph" 
-  INCLUDE "%MOD_FOLDER%/lib/patch_tools.tph" 
-  INCLUDE "%MOD_FOLDER%/lib/area_tools.tph" 
-
-  INCLUDE "%MOD_FOLDER%/lib/cd_tools.tph" 
-  INCLUDE "%MOD_FOLDER%/lib/bg2fp_effect_batches.tpa"
 
 
   // Additions/changes to IDS files

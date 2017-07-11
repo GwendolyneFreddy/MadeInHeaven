@@ -22,13 +22,14 @@ COPY_EXISTING "%tutu_var%taerum.sto" "override"
   ADD_STORE_ITEM "%tutu_var%shld06" AFTER "%tutu_var%shld05" #0 #0 #0 "identified" #1
 
 
-// Thalantyr extra spell scrolls
+// Thalantyr extra spell scrolls and Bracers of Defense AC 7
 
 COPY_EXISTING "%tutu_scripth%ighhedg.sto" "override"
   ADD_STORE_ITEM "%tutu_var%scrl1u" AFTER "%tutu_var%scrl1q" #1 #0 #0 "identified" #1
   ADD_STORE_ITEM "%tutu_var%scrl1z" AFTER "%tutu_var%scrl1u" #1 #0 #0 "identified" #1
   ADD_STORE_ITEM "%tutu_var%scrl5i" AFTER "%tutu_var%scrl1z" #1 #0 #0 "identified" #1
   ADD_STORE_ITEM "%tutu_var%scrl5l" AFTER "%tutu_var%scrl5i" #1 #0 #0 "identified" #1
+  ADD_STORE_ITEM "%tutu_var%brac02" BEFORE "%tutu_var%clck15" #1 #0 #0 "identified" #1
 
 
 // Move Shadow Armor & Dagger of Venom to Black Lily's

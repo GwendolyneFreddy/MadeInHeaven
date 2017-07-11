@@ -10,6 +10,8 @@ Baldur's Gate 1:
 - MiH Item Pack for BG1
 - Potions of Extra Healing in BG1
 - Cathline's Peril
+- Enhanced Ankheg Pit
+- Enhanced Ulcaster Ruins
 - Enhanced Xvart Village
 - Creature Corrections
 - Missing Dialogs
@@ -84,6 +86,31 @@ Cathline can be found in the previously occupied house near the High Hedge.
 But she's a woman alone and there are monsters in the area...
 
 
+===================
+Enhanced Ankheg Pit
+===================
+
+This component greatly increases the number of ankhegs in the ankheg pit near
+farmer Brun's farm.  They will no longer wait for you to fight them one at a
+time, but come at you in groups.  Better be prepared.
+
+There is also some minor restored content, a Ruby Ring (ring19) was placed in
+the treasure hoard.  A transition in farmer Brun's dialog suggests this was
+originally supposed to be there.
+
+=======================
+Enhanced Ulcaster Ruins
+=======================
+
+This component adds a few extra encounters to the Ulcaster Ruins, including a
+new type of undead enemy, the Blazing Bones.  You might want to pack some fire
+resistance...
+
+Blazing Bones are the undead remains of wizards or priests who were killed by
+fire while having Contingency spells prepared to preserve their life.  They
+now hate all life and see their flames as a means to cleanse the world.
+
+
 ======================
 Enhanced Xvart Village
 ======================
@@ -145,7 +172,8 @@ that other shops no longer carry it.
 
 This component also adds a few 4th level spell scrolls to Thalantyr's
 inventory, so your 7th level wizard will no longer be running around without
-any spells to fill their 4th level slot until you finish Cloakwood.
+any spells to fill their 4th level slot until you finish Cloakwood.  In
+addition, Thalantyr will also have a Bracers of Defense A.C. 7 for sale.
 
 Finally this component moves two items that seem out of place in the
 Thunderhammer Smithy to Black Lily's store in the thieves' guild in Baldur's
@@ -277,6 +305,12 @@ More Versatile Bucklers and Small Shields
 Implementing a house rule of a GM friend of mine, this component allows mages
 to use bucklers and thieves to use small shields.  I feel this makes bucklers
 and small shields a little more useful than they normally are.
+
+Note: In the BG games there are no separate item types for bucklers and small-,
+medium- and large shields.  This modification checks their animation to tell
+the difference.  Unfortunately this means that some mod-added bucklers that use
+a different animation, like those from Rogue Rebalancing, whill not be affected.
+This is not an issue in IWD where shields do have separate item types.
 
 
 ========================
