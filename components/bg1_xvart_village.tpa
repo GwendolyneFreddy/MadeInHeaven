@@ -89,7 +89,7 @@ END
 COPY_EXISTING "%XvartVillage%.are" "override"
   LAUNCH_PATCH_FUNCTION add_area_actors_from_2da
     STR_VAR
-    path_to_2da		= "%MOD_FOLDER%/bg1/xvart_village/more_xvarts_%tutuorbgt%.2da"
+    path_to_2da		= "%MOD_FOLDER%/bg1/xvart_village/more_xvarts.2da"
   END
 
   LAUNCH_PATCH_FUNCTION add_simple_trap

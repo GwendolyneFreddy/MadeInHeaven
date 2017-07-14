@@ -15,7 +15,7 @@ END
 COPY_EXISTING "%FishingVillage_AnkhegPit%.are" "override"
   LAUNCH_PATCH_FUNCTION add_area_actors_from_2da
     STR_VAR
-    path_to_2da		= "%MOD_FOLDER%/bg1/ankheg_pit/more_ankhegs_%tutuorbgt%.2da"
+    path_to_2da		= "%MOD_FOLDER%/bg1/ankheg_pit/more_ankhegs.2da"
   END
 
   LAUNCH_PATCH_FUNCTION add_simple_trap
