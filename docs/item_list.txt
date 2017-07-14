@@ -1,6 +1,7 @@
 mh#amul1	Amulet against Undead		+3 to-hit & damage undead				Dungeon Master Guide (2E)
 mh#amul2	Gem of Insight			+1 intelligence, +1 wisdom				Dungeon Master Guide (2E)
 mh#amul3	Necklace of Prayer Beads	Bless 3/day, CSWs & NP 1/day				Dungeon Master Guide (2E)
+mh#amul4	Periapt of Health		immunity to blindness, deafness and disease		Dungeon Master Guide (2E)
 
 mh#armr1	Green Dragon Scale		base AC 0, poison immunity
 mh#armr2	Eversing +2			base AC 1, +2 vs spells, +5% magic resistance
@@ -12,9 +13,13 @@ mh#blun1	Slime Crusher +1		morning star +1, +4 vs. Slimes
 
 mh#boot1	Feather Tabi			+25% stealth, +10% find/remove traps			Complete Ninja's Handbook (2E)
 
+mh#btax1	Foesplitter +1			counts as +3, 10% chance of double damage		Races of Faerun (3E)
+
 mh#clck1	Mutamin's Cloak			petrification immunity
 mh#clck2	Battlecloak of Vycaena		+4 AC, +1 saves						Fallen Empires of Faerun (3E)
 mh#clck3	Cloak of Arachnida		+2 vs death, web immunity, casts Web 2/day		Dungeon Master Guide (2E)
+
+mh#dagg1	Mage Masher +1			+2 vs. mages						Final Fantasy games
 
 mh#hamm1	Thronumin +3			+3 war hammer, +1 AC
 

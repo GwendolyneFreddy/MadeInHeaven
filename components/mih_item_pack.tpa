@@ -21,6 +21,13 @@ BEGIN
     WRITE_SHORT	0x0024 1	// Permanent
     WRITE_SHORT	0x002c 100	// 100% chance
 
+  CREATE EFF "mh#prce%i%"
+    WRITE_LONG	0x0010 12	// HP: Damage
+    WRITE_LONG	0x001c i
+    WRITE_LONG	0x0020 16777216
+    WRITE_SHORT	0x0024 1	// Permanent
+    WRITE_SHORT	0x002c 100	// 100% chance
+
 
   // Increase to-hit/damage against specific creatures.
   //
@@ -130,6 +137,39 @@ Only usable by:
       INT_VAR
       charges		= 10
       flag_recharge	= 0
+    END
+  END
+
+
+// mh#amul4 - Periapt of Health
+
+COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#amul4.itm" "override"
+  SAY NAME2 "Periapt of Health"
+  SAY IDENTIFIED_DESC "Periapt of Health
+
+This blessed jewel protects the wearer from all kinds of diseases mundane and magical, except for lycanthropy which is more a curse than a disease.  The wearer is also immune to attacks that would blind or deafen her.
+
+STATISTICS:
+
+Special: Wearer is immune to blindness, deafness and disease.
+Weight: 1"
+
+  // Apply CamDawg's macros for blindness, deafness and disease on BG2 or better engine
+  PATCH_IF ENGINE_IS "bg2 tob bgee bg2ee"
+  BEGIN
+    LAUNCH_PATCH_FUNCTION cd_apply_batch
+      STR_VAR
+      array_name	= cd_immunity_blindness_arrays
+    END
+
+    LAUNCH_PATCH_FUNCTION cd_apply_batch
+      STR_VAR
+      array_name	= cd_immunity_deafness_arrays
+    END
+
+    LAUNCH_PATCH_FUNCTION cd_apply_batch
+      STR_VAR
+      array_name	= cd_immunity_disease_arrays
     END
   END
 
@@ -290,6 +330,44 @@ Only usable by:
  Thief"
 
 
+// mh#btax1 - Foesplitter +1
+
+CREATE EFF "mh#btax1"
+  WRITE_LONG	0x0010 12	// HP: Damage
+  WRITE_LONG	0x001c 1
+  WRITE_LONG	0x0020 16777216	// Slashing
+  WRITE_SHORT	0x0024 1	// Permanent
+  WRITE_SHORT	0x002c 100	// 100% chance
+  WRITE_LONG	0x0038 1	// # dice
+  WRITE_LONG	0x003c 8	// # sides
+
+COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#btax1.itm" "override"
+  SAY NAME2 "Foesplitter +1"
+  SAY IDENTIFIED_DESC "Battle Axe of Sharpness +1: 'Foesplitter'
+
+Forged centuries ago by the shield dwarves of the north, Foesplitter is a fearsome weapon.  It earned its name and reputation when its first owner, the dwarven hero Gorhan Axebeard, used it to literally cleave an orc chieftain in half.  This demoralized the horde so much that they ran and hid, and did not return for almost twenty years.  Unfortunately when they eventually did return they caught the dwarves by surprise and completely razed their stronghold.  The axe was taken as a war trophy until it was reclaimed by a human adventurer a few years later.  Since then the axe has been in the hands of several humans and dwarves, and even the odd elf or two, all over the Sword Coast from Waterdeep to Amn.
+
+This axe has been crafted entirely from darksteel, both the blade and handle.  The cutting edge is magically honed to razor sharpness and will never chip or get dull.  This deadly business end easily chops through even magical defenses, one of the previous owners is known to have sliced the arm of an iron golem clean off.  The lower end is wrapped in sturdy leather for a better grip, but this is the only non-metallic part of the entire axe.
+
+This weapon is considered a +3 weapon for purposes of what it can hit, even though it only functions as a +1 weapon.
+
+STATISTICS:
+
+Damage: 1d8 +1, 10% chance of double damage
+Damage Type: Slashing
+THAC0: +1
+Weight: 7
+Speed Factor: 6
+Proficiency Type: Axe
+Type: 1-handed
+
+Not usable by:
+ Druid
+ Cleric
+ Mage 
+ Thief"
+
+
 // mh#clck1 - Mutamin's Cloak
 
 COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#clck1.itm" "override"
@@ -365,6 +443,39 @@ Weight: 3"
       array_name	= cd_immunity_web_arrays
     END
   END
+
+
+// mh#dagg1 - Mage Masher +1
+
+CREATE EFF "mh#dagg1"
+  WRITE_LONG	0x0010 178	// THAC0 vs. Creature Type
+  WRITE_LONG	0x001c IDS_OF_SYMBOL("class" "mage")
+  WRITE_LONG	0x0020 5
+  WRITE_SHORT	0x0024 1	// Permanent
+  WRITE_SHORT	0x002c 100	// 100% chance
+  WRITE_LONG	0x0060 1
+
+COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#dagg1.itm" "override"
+  SAY NAME2 "Mage Masher +1"
+  SAY IDENTIFIED_DESC "Dagger +1, +2 vs. Mages: 'Mage Masher'
+
+After a foiled attempt to break into a local wizard's tower, the thief Vernon the Bold was so utterly humiliated that he developed a maniacal hatred of all mages.  He kidnapped another mage named Borin the Red and forced the hapless fellow to make this dagger, after which he slew the unfortunate man with his own creation.  Vernon then went on a killing spree, slaughtering any and all mages he came across.  Inevitably, he eventually bit off more than he could chew by attacking a trio of red wizards.  After their Fireballs and Lightning Bolts had stuck, this dagger was pretty much all that was left of the mad thief.
+
+This dagger is always considered +2 for purposes of what it can hit, but it functions as only a +1 weapon against most enemies.  Against duel- and multi-classed mages (including ogre mages), it is still only +1 to hit, but it deals +2 damage.  Only against single-class mages does it function as a full +2 dagger.
+
+STATISTICS:
+
+THAC0: +1 bonus, +2 against single-class mages
+Damage: 1d4 +1, +2 against all mages (including ogre mages)
+Damage type: piercing
+Weight: 1
+Speed Factor: 1
+Proficiency Type: Dagger
+Type: 1-handed
+Requires: 3 Strength
+
+Not usable by:
+ Cleric"
 
 
 // mh#hamm1 - Thronumin +3

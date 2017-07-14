@@ -127,6 +127,12 @@ COPY_EXISTING "%tutu_var%tem3402.sto" "override"
   ADD_STORE_ITEM "mh#amul1" LAST #0 #0 #0 "identified" #1
 
 
+// Temple of Yondala sells Periapt of Health
+
+COPY_EXISTING "%tutu_var%tem4003.sto" "override"
+  ADD_STORE_ITEM "mh#amul4" LAST #0 #0 #0 "identified" #1
+
+
 // Give Bjornin the Shield of the Phoenix
 
 COPY_EXISTING "%tutu_var%bjorni.cre" "override"
@@ -263,11 +269,28 @@ COPY_EXISTING "%CloakwoodWyverns%.are" "override"
   END
 
 
+// Put Foesplitter +1 in the dwarven armory at L3
+
+COPY_EXISTING "%CloakwoodMines_L3%.are" "override"
+  LAUNCH_PATCH_FUNCTION ADD_AREA_ITEM
+    INT_VAR
+    container_to_add_to	= 29
+    STR_VAR
+    item_to_add		= "mh#btax1"
+  END
+
+
 // Sorcerous Sundries sells Cloak of Arachnida & Oils of Acid Resistance
 
 COPY_EXISTING "%tutu_var%sto0703.sto" "override"
   ADD_STORE_ITEM "mh#potn1" AFTER "%tutu_var%potn45" #1 #0 #0 "identified" #3
-  ADD_STORE_ITEM "mh#clck3" LAST #3 #1 #1 "identified" #1
+  ADD_STORE_ITEM "mh#clck3" LAST #2 #0 #0 "identified" #1
+
+
+// Black Lily sells Feather Tabi
+
+COPY_EXISTING "%tutu_scripts%toblack.sto" "override"
+  ADD_STORE_ITEM "mh#boot1" LAST #0 #0 #0 "identified" #1
 
 
 // Candlekeep Catacombs L1

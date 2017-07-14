@@ -1,6 +1,7 @@
 mh#amul1	Amulet against Undead		Song of the Morning temple
 mh#amul2	Gem of Insight			Thalantyr (shop)
 mh#amul3	Necklace of Prayer Beads	The Lady's Hall
+mh#amul4	Periapt of Health		Temple of Yondala
 
 mh#armr1	Green Dragon Scale		Brokk (event)
 mh#armr2	Eversing +2			Brokk (shop)
@@ -10,11 +11,15 @@ mh#belt1	Girdle of Dwarvenkind		Brokk (event)
 
 mh#blun1	Slime Crusher +1		Brokk (shop)
 
-mh#boot1	Feather Tabi			Brokk (shop)
+mh#boot1	Feather Tabi			Black Lily (shop)
+
+mh#btax1	Foesplitter +1			Cloakwood Mine L3 (armory)
 
 mh#clck1	Mutamin's Cloak			Mutamin (where else?)
 mh#clck2	Battlecloak of Vycaena		Durlag's Tower D4 (replaces Cloak of the Shield, this is moved to Firewine)
 mh#clck3	Cloak of Arachnida		Sorcerous Sundries
+
+mh#dagg1	Mage Masher +1			Brokk (shop)
 
 mh#hamm1	Thronumin +3			Ulgoth's Beard (replaces the Knee-Capper, this is moved to Bassilus)
 
@@ -36,7 +41,7 @@ mh#robe1	Robe of the Elements		Tania (event)
 mh#shld1	Shield of the Phoenix +1	Jovial Juggler (Bjornin, replaces Medium Shield +1)
 mh#shld2	Ankheg Shield +1		Brokk (event)
 
-mh#swrd1	Terminus Est +2			
+mh#swrd1	Terminus Est +2			Cloakwood (new encounter in wyverns area)
 mh#swrd2	Heartsblood +1			Greywolf (replaces Varscona +2, this is moved to Raemon in the bandit camp)
 mh#swrd3	Selune's Blessing +1		Black Alaric's Cave
 
