@@ -1,0 +1,102 @@
+// Item Improvements
+
+
+// Potion of Invulnerability
+// - only +2 to AC and saves
+// - protection from normal weapons
+// (This is what it does in P&P)
+
+COPY_EXISTING "%tutu_var%potn11.itm" "override"
+  PATCH_FOR_EACH match_opcode IN 0 33 34 35 36 37
+  BEGIN
+    LAUNCH_PATCH_FUNCTION ALTER_EFFECT
+      INT_VAR
+      match_opcode
+      parameter1	= 2
+      parameter2	= 0
+    END
+  END
+
+  LAUNCH_PATCH_FUNCTION CLONE_EFFECT
+    INT_VAR
+    match_opcode	= 0	// Stat: AC against specific
+    opcode		= 120	// Protection: from Melee Weapons
+    parameter1		= 0
+    parameter2		= 2
+  END
+    
+  LAUNCH_PATCH_FUNCTION CLONE_EFFECT
+    INT_VAR
+    match_opcode	= 142	// Graphics: Display SFX Icon
+    parameter2		= 70	// Protection from Normal Weapons
+  END
+
+
+// Elixer of Health
+// - Cures Blindness & Deafness
+
+COPY_EXISTING "%tutu_var%potn17.itm" "override"
+  LAUNCH_PATCH_FUNCTION CLONE_EFFECT
+    INT_VAR
+    match_opcode	= 11	// Cure: Poison
+    opcode		= 75	// Cure: Blindness
+    STR_VAR
+    insert		= "below"
+  END
+
+  LAUNCH_PATCH_FUNCTION CLONE_EFFECT
+    INT_VAR
+    match_opcode	= 79	// Cure: Disease
+    opcode		= 81	// Cure: Deafness
+    STR_VAR
+    insert		= "below"
+  END
+
+  // This can't be done in BG1/BG2/IWD1 since opcode 240 does not exist
+  // (or rather is a very different effect in IWD1's case)
+  PATCH_IF NOT ENGINE_IS "bg1 totsc iwd1 how totlm"
+  BEGIN
+    LAUNCH_PATCH_FUNCTION CLONE_EFFECT
+      INT_VAR
+      match_opcode	= 240	// Graphics: Remove SFX Icon
+      match_parameter2	= 7	// Disease
+      parameter2	= 8	// Blindness
+      STR_VAR
+      insert		= "below"
+    END
+
+    LAUNCH_PATCH_FUNCTION CLONE_EFFECT
+      INT_VAR
+      match_opcode	= 240	// Graphics: Remove SFX Icon
+      match_parameter2	= 8	// Blindness
+      parameter2	= 112	// Deafness
+      STR_VAR
+      insert		= "below"
+    END
+  END
+
+
+// Wand of Magic Missiles
+// - Fires 2 missiles (as per P&P)
+
+COPY_EXISTING "%tutu_var%wand03.itm" "override"
+  GET_OFFSET_ARRAY ab_array ITM_V10_HEADERS
+  PHP_EACH ab_array AS int => ab_offset
+  BEGIN
+    WRITE_SHORT	(ab_offset + 0x002a) 69
+  END
+
+
+// Wand of Lightning
+// - Revert to BG1 behaviour (single target)
+
+COPY_EXISTING "%tutu_var%wand07.itm" "override"
+  GET_OFFSET_ARRAY ab_array ITM_V10_HEADERS
+  PHP_EACH ab_array AS int => ab_offset
+  BEGIN
+    WRITE_BYTE	(ab_offset + 0x000d) 0
+  END
+
+  BUT_ONLY_IF_IT_CHANGES	// Some games already have this.
+
+

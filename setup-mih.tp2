@@ -451,3 +451,16 @@ LAUNCH_ACTION_FUNCTION "install_component"
 END
 
 
+// =======================
+// Other Item Improvements
+// =======================
+
+BEGIN "Other Item Improvements"
+GROUP "Item/Spell Tweaks"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "other_item_improvements"
+END
+
+

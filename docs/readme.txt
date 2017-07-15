@@ -43,6 +43,7 @@ Item- & Spell Tweaks:
 - Improved Healing Spells
 - Additional Paladin Powers
 - No Resist Fire/Ice Icon
+- Other Item Improvements
 
 
 =====================
@@ -488,5 +489,24 @@ Protection from Cold.
 
 I wrote this because the Resist Fire/Ice icon is ugly and nearly impossible to
 tell apart from Protection from Fire in modern resolutions.
+
+
+=======================
+Other Item Improvements
+=======================
+
+This is a small collection of changes and (hopefully) improvements to items
+that are shared by BG1, BG2 and IWD1.  The list is as follows:
+
+- Potion of Invulnerability (potn11):
+  This potion now works as the P&P version, granting +2 to AC and saves, and
+  immunity to normal weapons.
+- Elixer of Health (potn17):
+  This potion will now also cure blindness and deafness.
+- Wand of Magic Missiles (wand03):
+  This wand will fire two magic missiles now, as per P&P.
+  (The BG1 version of wand12 is deliberately left untouched.)
+- Wand of Lightning (wand07):
+  Now fires just one lightning bolt instead of six.  (BG2 only)
 
 
