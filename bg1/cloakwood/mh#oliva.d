@@ -1,7 +1,7 @@
 BEGIN "mh#oliva"
 
 IF ~NumTimesTalkedTo(0)
-    ReactionLT(Myself, NEUTRAL_LOWER)~
+    ReactionLT(LastTalkedToBy(Myself), NEUTRAL_LOWER)~
 BEGIN greet_evil
   SAY @0
   IF ""

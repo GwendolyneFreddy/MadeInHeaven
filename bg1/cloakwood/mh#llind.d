@@ -63,12 +63,13 @@ BEGIN not_found
 END
 
 IF ~Global("mh#HelpLlindellyn", "GLOBAL", 1)
-    ReactionLT(Myself, NEUTRAL_LOWER)
+    ReactionLT(LastTalkedToBy(Myself), NEUTRAL_LOWER)
     PartyHasItem("mh#lucky")~
 BEGIN found_evil
   SAY @6
   IF ""
-    DO ~GiveItem("%tutu_var%arow02", LastTalkedToBy(Myself))
+    DO ~TakePartyItem("mh#lucky")
+        GiveItem("%tutu_var%arow02", LastTalkedToBy(Myself))
         AddexperienceParty(750)
 	EraseJournalEntry(@2)
 	EraseJournalEntry(@4)
@@ -78,12 +79,13 @@ BEGIN found_evil
 END
 
 IF ~Global("mh#HelpLlindellyn", "GLOBAL", 1)
-    ReactionLT(Myself, FRIENDLY_LOWER)
+    ReactionLT(LastTalkedToBy(Myself), FRIENDLY_LOWER)
     PartyHasItem("mh#lucky")~
 BEGIN found_neutral
   SAY @8
   IF ""
-    DO ~GiveItem("%tutu_var%arow10", LastTalkedToBy(Myself))
+    DO ~TakePartyItem("mh#lucky")
+        GiveItem("%tutu_var%arow10", LastTalkedToBy(Myself))
         AddexperienceParty(750)
 	EraseJournalEntry(@2)
 	EraseJournalEntry(@4)
@@ -97,7 +99,8 @@ IF ~Global("mh#HelpLlindellyn", "GLOBAL", 1)
 BEGIN found_good
   SAY @10
   IF ""
-    DO ~GiveItem("%tutu_var%arow06", LastTalkedToBy(Myself))
+    DO ~TakePartyItem("mh#lucky")
+        GiveItem("%tutu_var%arow06", LastTalkedToBy(Myself))
         AddexperienceParty(750)
 	EraseJournalEntry(@2)
 	EraseJournalEntry(@4)

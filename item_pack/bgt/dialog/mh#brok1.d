@@ -29,7 +29,7 @@ A dwarven smith I met at the Friendly Arm Inn told me he can't forge anything be
 END
 
 IF ~Global("mh#BrokkGaveGirdle", "GLOBAL", 0)
-    ReactionGT(Myself, HOSTILE_UPPER)~
+    ReactionGT(LastTalkedToBy(Myself), HOSTILE_UPPER)~
 BEGIN girdle1
   SAY "Hey, I recognize t' lot of ye.  Y've been cleaning out that mine down south, aye?"
   = "Y'did mighty fine, and this old dwarf thanks ye.  Here, take this with ye with me thanks."
