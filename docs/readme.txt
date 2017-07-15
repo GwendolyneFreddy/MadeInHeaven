@@ -10,6 +10,7 @@ Baldur's Gate 1:
 - MiH Item Pack for BG1
 - Potions of Extra Healing in BG1
 - Cathline's Peril
+- The Surgeon's Plight
 - Enhanced Ankheg Pit
 - Enhanced Ulcaster Ruins
 - Enhanced Xvart Village
@@ -85,6 +86,18 @@ art used in this little encounter.
 
 Cathline can be found in the previously occupied house near the High Hedge.
 But she's a woman alone and there are monsters in the area...
+
+
+====================
+The Surgeon's Plight
+====================
+
+The Surgeon is an interesting character, but is only met once in the game.
+This modification adds two more encounters with him, one in Cloakwood before
+the confrontation with Davaeorn in the mine, and another at the Friendly Arm
+Inn after it is all done.  The only condition is that you must already have
+met The Surgeon at the Sword Coast and must have gotten him to tell his story.
+I feel this provides a bit more closure to the story.
 
 
 ===================
