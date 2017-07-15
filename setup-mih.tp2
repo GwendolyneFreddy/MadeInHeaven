@@ -54,6 +54,19 @@ LAUNCH_ACTION_FUNCTION "install_component"
 END
 
 
+// ====================
+// The Surgeon's Plight
+// ====================
+
+BEGIN "The Surgeon's Plight mini-quest for BG1"
+GROUP "Baldur's Gate 1" GAME_INCLUDES "bg1"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "bg1_surgeons_plight"
+END
+
+
 // ===================
 // Enhanced Ankheg Pit
 // ===================
