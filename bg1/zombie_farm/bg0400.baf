@@ -1,0 +1,10 @@
+IF
+  Global("ZombiesDead", "GLOBAL", 21)
+  Global("mh#FarmOfFear", "GLOBAL", 0)
+THEN
+  RESPONSE #100
+    SetGlobal("mh#FarmOfFear", "GLOBAL", 1)
+    SetGlobalTimer("mh#WenricAppear", "GLOBAL", SEVEN_DAYS)
+END
+
+    

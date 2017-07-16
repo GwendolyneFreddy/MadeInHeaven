@@ -15,9 +15,12 @@
 // installing it since the old shille.itm is still there.
 
 COPY_EXISTING "shille.itm" "override"
-  WRITE_LONG 0x0018 (THIS | BIT6)	// Make magical
   WRITE_BYTE 0x0031 0x73		// Use club proficiency
-  WRITE_LONG 0x0060 1			// Enchantment level
+
+  LAUNCH_PATCH_FUNCTION make_magical
+    INT_VAR
+    enchantment		= 1
+  END
 
   // Double base damage, +1 to-hit and damage
   LAUNCH_PATCH_FUNCTION ALTER_ITEM_HEADER
@@ -103,9 +106,12 @@ END
 OUTER_FOR (i = 1; i <= 10; ++i)
 BEGIN
   COPY_EXISTING "fblade.itm" "override/fblade%i%.itm"
-    WRITE_LONG 0x0018 (THIS | BIT6)	// Make magical
     WRITE_BYTE 0x0031 0x5f		// Use scimitar proficiency
-    WRITE_LONG 0x0060 2			// Enchantment level
+
+    LAUNCH_PATCH_FUNCTION make_magical
+      INT_VAR
+      enchantment		= 2
+    END
 
     // +4 to-hit (touch), no physical damage
     LAUNCH_PATCH_FUNCTION ALTER_ITEM_HEADER

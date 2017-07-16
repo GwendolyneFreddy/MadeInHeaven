@@ -176,10 +176,13 @@ Type: 1-handed
 Not usable by:
  Cleric"
 
-  WRITE_LONG	0x0018 (THIS | BIT6)	// Make magical
   WRITE_ASCII	0x003a "mh#revdg" #8
-  WRITE_SHORT	0x0042 20		// Lore to ID
-  WRITE_LONG	0x0060 1		// Enchantment level
+
+  LAUNCH_PATCH_FUNCTION make_magical
+    INT_VAR
+    enchantment		= 1
+    lore		= 20
+  END
 
   LAUNCH_PATCH_FUNCTION ALTER_ITEM_HEADER
     INT_VAR
