@@ -58,6 +58,20 @@ COPY_EXISTING "%tutu_var%jellgr.cre" "override"
   LAUNCH_PATCH_MACRO fix_gray_ooze
 
 
+// Greater Basilisk
+//
+// - XP value 4000 => 7000
+// - THAC0 correction 10 => 11
+// - Added poisonous breath
+
+INCLUDE "%MOD_FOLDER%/creature_corrections/greater_basilisk.tpa"
+
+COPY_EXISTING "%tutu_var%basilg.cre" "override"
+              "%tutu_scriptb%asilmut.cre" "override"
+              "%tutu_scriptb%asilnad.cre" "override"
+  LAUNCH_PATCH_MACRO fix_greater_basilisk
+
+
 // Mustard Jelly
 //
 // - Attack does 5d4 acid damage

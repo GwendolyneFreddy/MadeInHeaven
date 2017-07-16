@@ -1,0 +1,27 @@
+// Greater Basilisk fixes
+
+ADD_SPELL "%MOD_FOLDER%/creature_corrections/greater_basilisk_breath.spl" 3 1 MH_GREATER_BASILISK_BREATH
+  SAY NAME1 "Greater Basilisk Breath"
+
+  PATCH_IF ENGINE_IS "bg1 totsc"
+  BEGIN
+    LAUNCH_PATCH_FUNCTION ALTER_SPELL_HEADER
+      INT_VAR
+      projectile	= 159
+    END
+  END
+
+  IF_EXISTING
+    // Nothing, use current version!
+  END
+
+
+DEFINE_PATCH_MACRO fix_greater_basilisk
+BEGIN
+  WRITE_LONG	0x0014	7000	// XP value
+  WRITE_BYTE	0x0052	11	// THAC0
+
+  WRITE_ASCII	SCRIPT_CLASS	"mh#basgr" #8
+END
+
+
