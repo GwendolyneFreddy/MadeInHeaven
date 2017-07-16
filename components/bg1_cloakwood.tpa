@@ -117,19 +117,19 @@ COPY_EXISTING "%tutu_var%bearca.cre" "override/mh#bearl.cre"
 COPY_EXISTING "%CloakwoodNest%.are" "override"
   LAUNCH_PATCH_FUNCTION add_area_actors_from_2da
     STR_VAR
-    path_to_2da		= "%MOD_FOLDER%/bg1/cloakwood/cloakwood_spiders.2da"
+    path_to_2da		= "%MOD_FOLDER%/bg1/cloakwood/bg2100.2da"
   END
 
 COPY_EXISTING "%CloakwoodNestSpiderNest%.are" "override"
   LAUNCH_PATCH_FUNCTION add_area_actors_from_2da
     STR_VAR
-    path_to_2da		= "%MOD_FOLDER%/bg1/cloakwood/centeols_lair.2da"
+    path_to_2da		= "%MOD_FOLDER%/bg1/cloakwood/bg2101.2da"
   END
 
 COPY_EXISTING "%CloakwoodDruids%.are" "override"
   LAUNCH_PATCH_FUNCTION add_area_actors_from_2da
     STR_VAR
-    path_to_2da		= "%MOD_FOLDER%/bg1/cloakwood/cloakwood_druids.2da"
+    path_to_2da		= "%MOD_FOLDER%/bg1/cloakwood/bg1600.2da"
   END
 
 COPY_EXISTING "%tutu_var%amaran.cre" "override"
@@ -138,7 +138,7 @@ COPY_EXISTING "%tutu_var%amaran.cre" "override"
 COPY_EXISTING "%CloakwoodWyverns%.are" "override"
   LAUNCH_PATCH_FUNCTION add_area_actors_from_2da
     STR_VAR
-    path_to_2da		= "%MOD_FOLDER%/bg1/cloakwood/cloakwood_wyverns.2da"
+    path_to_2da		= "%MOD_FOLDER%/bg1/cloakwood/bg1700.2da"
   END
 
 

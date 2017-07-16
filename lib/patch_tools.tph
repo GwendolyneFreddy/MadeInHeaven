@@ -45,15 +45,6 @@ BEGIN
       timing			= 1	// Permanent
       parameter1		= levels_drained
     END
-
-    LAUNCH_PATCH_FUNCTION ADD_ITEM_EFFECT
-      INT_VAR
-      type			= 1	// Melee
-      opcode			= 142	// Graphics: Display Special Effect Icon
-      target			= 2	// Pre-target
-      timing			= 1	// Permanent
-      parameter2		= 53
-    END
   END
 
   "SPL " WHEN ENGINE_IS "bg1 totsc iwd1 how totlm"
@@ -92,15 +83,6 @@ BEGIN
       target			= 2	// Pre-target
       timing			= 1	// Permanent
       parameter1		= levels_drained
-    END
-
-    LAUNCH_PATCH_FUNCTION ADD_SPELL_EFFECT
-      INT_VAR
-      type			= 1	// Melee
-      opcode			= 142	// Graphics: Display Special Effect Icon
-      target			= 2	// Pre-target
-      timing			= 1	// Permanent
-      parameter2		= 53
     END
   END
   DEFAULT

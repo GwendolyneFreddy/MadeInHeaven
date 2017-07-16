@@ -5,7 +5,7 @@ IF
   Global("mh#SpawnedSurgeonBG2300", "MYAREA", 0)
 THEN
   RESPONSE #100
-    CreateCreature("mh#surg1", [1500.3100], 1)
+    CreateCreature("mh#surg2", [1500.3100], 1)
     SetGlobal("mh#SpawnedSurgeonBG2300", "MYAREA", 1)
 END
 

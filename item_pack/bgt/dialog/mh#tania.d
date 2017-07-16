@@ -38,7 +38,7 @@ BEGIN default
       GlobalTimerExpired("mh#TaniaCraftingHide", "GLOBAL")~
     REPLY @11
     GOTO armor_made
-  IF ~Global("TaniaNewRobe", "GLOBAL", 1)
+  IF ~Global("mh#TaniaNewRobe", "GLOBAL", 1)
       PartyHasItem("clck09")
       PartyHasItem("clck10")
       PartyHasItem("clck11")

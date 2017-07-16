@@ -18,6 +18,7 @@ BEGIN fought_poorly
 END
 
 IF ~Global("mh#HelpFurnelaine", "GLOBAL", 0)
+    HasItem("%tutu_var%potn08", Myself)
     HPPercentLT(MostDamagedOf([PC]), 70)~
 BEGIN fought_okay
   SAY @3
