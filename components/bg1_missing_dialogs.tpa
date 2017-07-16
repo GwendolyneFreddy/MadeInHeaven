@@ -17,7 +17,7 @@
 // dialog to these people.
 
 
-// Candlekeep (prologue)
+// Candlekeep
 
 COPY_EXISTING "%tutu_var%chante.cre" "override"
   WRITE_ASCIIE DIALOG "chanter" #8
@@ -25,6 +25,19 @@ COPY_EXISTING "%tutu_var%chante.cre" "override"
 LAUNCH_ACTION_FUNCTION compile_dialog_or_script
   STR_VAR
   path_to_file	= "%MOD_FOLDER%/bg1/missing_dialogs/candlekeep.d"
+END
+
+
+// Baldur's Gate
+
+COPY_EXISTING "%tutu_scriptp%rsbax_a.cre" "override"
+              "%tutu_scriptp%rsbax_b.cre" "override"
+              "%tutu_scriptp%rsbax_c.cre" "override"
+  WRITE_ASCIIE DIALOG "%SOURCE_RES%" #8
+
+LAUNCH_ACTION_FUNCTION compile_dialog_or_script
+  STR_VAR
+  path_to_file	= "%MOD_FOLDER%/bg1/missing_dialogs/baldurs_gate.d"
 END
 
 
