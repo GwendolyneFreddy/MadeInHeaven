@@ -9,4 +9,11 @@ Western Cloudpeaks:
 Gullykin:
 - Halfling man
 
+Baldur's Gate:
+- Jessup	AR7202	450	1180
+- Narlen Darkwalk (after quest complete)
+- Varci (after quest complete)
+- Commoner	AR7214	515	555
+- Flaming Fist	AR7900	400	780
+
 

@@ -10,7 +10,7 @@ PRINT "Executing bulk alignment corrections..."
 ACTION_PHP_EACH mih_bg1_alignment_changes AS resref => alignment
 BEGIN
   COPY_EXISTING "%resref%.cre" "override"
-    WRITE_BYTE 0x27b alignment
+    WRITE_BYTE 0x027b alignment
 
     IF_EXISTS
     BUT_ONLY_IF_IT_CHANGES

@@ -3,7 +3,7 @@ IF
   Global("mh#SpawnedGerde", "MYAREA", 0)
 THEN
   RESPONSE #100
-    CreateCreature("%tutu_var%gerde", [4604.528], 0)
+    CreateCreature("%tutu_var%gerde", [3874.876], 0)
     SetGlobal("mh#SpawnedGerde", "MYAREA", 1)
 END
 
@@ -19,7 +19,7 @@ THEN
     CreateCreature("%tutu_var%ankhegg", [4357.536], 0)
     CreateCreature("%tutu_var%ankhegg", [4500.634], 0)
     CreateCreature("%tutu_var%ankhegg", [4312.653], 0)
-    SetGlobal("mh#SpawnedGerde", "MYAREA", 1)
+    SetGlobal("mh#SpawnedAnkhegs", "MYAREA", 1)
 END
 
 

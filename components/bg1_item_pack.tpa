@@ -173,7 +173,7 @@ COPY_EXISTING "%UlcasterRuins%.are" "override"
 // The Lady's Hall sells Necklace of Prayer Beads
 
 COPY_EXISTING "%tutu_var%tem0132.sto" "override"
-  ADD_STORE_ITEM "mh#amul3" LAST #3 #1 #1 "identified" #2
+  ADD_STORE_ITEM "mh#amul3" LAST #3 #1 #1 "identified" #1
 
 
 // The Great Hammer Shuffle
