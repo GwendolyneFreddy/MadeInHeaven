@@ -16,6 +16,7 @@
 
 ACTION_DEFINE_ASSOCIATIVE_ARRAY mih_bg1_alignment_changes
 BEGIN
+  "%tutu_var%achen"		=> 49	// Achen, from CN to CG (companion of Vail)
   "%tutu_var%amnis3"		=> 18	// Amnish soldier, from NONE to LN
   "%tutu_var%ashen"		=> 34	// Ashen, from NONE to N
   "%tutu_var%attslim"		=> 34	// Commoner, from NONE to N
@@ -33,6 +34,7 @@ BEGIN
   "%tutu_scriptb%oybax_a"	=> 33	// Boy, from NONE to NG
   "%tutu_scriptb%oybax_b"	=> 33	// Boy, from NONE to NG
   "%tutu_var%brevli"		=> 50	// Brevlik, from NONE to CN
+  "%tutu_var%cailan"		=> 33	// Cailan, from NE to NG (companion of Vail)
   "%tutu_var%cauter"		=> 34	// Cauter, peasant, from NONE to N
   "%tutu_var%chase"		=> 50	// Chase, suicidal man, from NONE to CN
   "%tutu_var%chherd"		=> 34	// Chicken, from NONE to N
@@ -71,6 +73,7 @@ BEGIN
   "%tutu_var%erlinh"		=> 34	// Erlin Hendrik, farmer, from NONE to N
   "%tutu_var%euric"		=> 33	// Euric, halfling boy, from NONE to NG
   "%tutu_var%fahrin"		=> 49	// Fahrington, elf cleric, from NONE to CG
+  "%tutu_var%faizah"		=> 17	// Faizah, from LE to LG (companion of Vail)
   "%tutu_var%farm"		=> 33	// Farmer, from NONE to NG
   "%tutu_var%farm2"		=> 33	// Farmer, from NONE to NG
   "%tutu_var%farm3"		=> 33	// Farmer, from NONE to NG
@@ -344,12 +347,13 @@ BEGIN
   "%tutu_scriptp%rsbax_b"	=> 34	// Courtessan, from NONE to N
   "%tutu_scriptp%rsbax_c"	=> 34	// Courtessan, from NONE to N
   "%tutu_var%quinn"		=> 33	// Quinn, from NONE to NG
+  "%tutu_var%rance"		=> 49	// Rance, from CN to CG (companion of Vail)
   "%tutu_var%reevor"		=> 17	// Reevor the dwarf, from NONE to LG
   "%tutu_var%reevor2"		=> 17	// Reevor the dwarf, from NONE to LG
   "%tutu_var%reevor3"		=> 34	// Doppleganger Reevor, from NONE to N
   "%tutu_var%regina"		=> 34	// Reginald the blatherer, from NONE to N
   "%tutu_var%rodnim"		=> 34	// Rodnim the peasant, from NONE to N
-  "%tutu_var%sailnew"		=> 34	// Sialor Newf, from NONE to N
+  "%tutu_var%sailnew"		=> 34	// Sailor Newf, from NONE to N
   "%tutu_var%samuel"		=> 18	// Samuel, Flaming Fist deserter, from NONE to LN
   "%tutu_var%shara"		=> 34	// Shara the peasant (unused?), from NONE to N
   "%tutu_var%shep"		=> 34	// Shep the peasant, from NONE to N
@@ -382,8 +386,9 @@ BEGIN
   "%tutu_var%tiber"		=> 33	// Tiber, from NONE to NG
   "%tutu_var%tick"		=> 34	// Tick, from NONE to N
   "%tutu_var%ulraun"		=> 17	// Ulraunt, from NONE to LG
+  "%tutu_var%vail"		=> 33	// Vail, from NE to NG.  Acts too noble to be evil.
   "%tutu_var%velvet"		=> 50	// Velvet, halfling gambler (unused?), from NONE to CN
-  "%tutu_var%verlin"		=> 17	// Veling, dwarf priest (unused?), from NONE to LG
+  "%tutu_var%verlin"		=> 17	// Verling, dwarf priest (unused?), from NONE to LG
   "%tutu_var%voleta"		=> 34	// Voleta the thief, from NONE to N
   "%tutu_var%welt"		=> 51	// Welt the ogre (unused?), from NONE to CE
   "%tutu_var%whelp"		=> 34	// Whelp the peasant, from NONE to N

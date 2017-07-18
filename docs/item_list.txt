@@ -4,7 +4,7 @@ mh#amul3	Necklace of Prayer Beads	Bless 3/day, CSWs & NP 1/day				Dungeon Master
 mh#amul4	Periapt of Health		immunity to blindness, deafness and disease		Dungeon Master Guide (2E)
 
 mh#armr1	Green Dragon Scale		base AC 0, poison immunity
-mh#armr2	Eversing +2			base AC 1, +2 vs spells, +5% magic resistance
+mh#armr2	Eversing +2			base AC 1, +2 vs spells, +5% magic resistance		Castlevania: Aria of Sorrow
 mh#armr3	Winter Wolf Hide +1		base AC 5, +30% cold resistance
 
 mh#belt1	Girdle of Dwarvenkind		-1 cha, +1 con, +3 saves, infravision			Dungeon Master Guide (2E)
