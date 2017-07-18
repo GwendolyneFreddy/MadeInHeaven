@@ -17,7 +17,7 @@ COPY_EXISTING_REGEXP ".+\.itm" "override"
     // Check external exception list.
     ANY FILE_CONTAINS_EVALUATED ("%MOD_FOLDER%/config/druid_item_exceptions.txt" "^%SOURCE_RES%")
     BEGIN
-      PATCH_PRINT "Exception found: %SOURCE_RES%"
+      //PATCH_PRINT "Exception found: %SOURCE_RES%"
     END
 
     // Helmets are a complicated thing because ioun stones are also included.

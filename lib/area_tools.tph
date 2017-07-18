@@ -1,12 +1,26 @@
 DEFINE_PATCH_FUNCTION add_area_actor
   INT_VAR
-  tutu_compat		= 1
+  tutu_compat		= 0
+  bgt_compat		= 0
 BEGIN
+  PATCH_IF GAME_IS "bgt" && bgt_compat
+  BEGIN
+    PATCH_IF STRING_LENGTH "%cre_resref%" < 7
+    BEGIN
+      SPRINT bgt_resref "bg%cre_resref%"
+
+      PATCH_IF FILE_EXISTS_IN_GAME "%bgt_resref%.cre"
+      BEGIN
+        SPRINT cre_resref "%bgt_resref%"
+      END
+    END
+  END
+
   PATCH_IF GAME_IS "tutu tutu_totsc" && tutu_compat
   BEGIN
     PATCH_IF STRING_LENGTH "%cre_resref%" < 8
     BEGIN
-      SPRINT tutu_resref "_%cre_resref"
+      SPRINT tutu_resref "_%cre_resref%"
     END
     ELSE
     BEGIN
@@ -135,7 +149,8 @@ END
 
 DEFINE_PATCH_FUNCTION add_area_actors_from_2da
   INT_VAR
-  tutu_compat		= 1
+  tutu_compat		= 0
+  bgt_compat		= 0
   STR_VAR
   path_to_2da		= "none"
 BEGIN
@@ -161,6 +176,7 @@ BEGIN
 	y_position
 	orientation
 	tutu_compat
+	bgt_compat
 	STR_VAR
 	cre_resref
       END

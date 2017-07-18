@@ -112,6 +112,20 @@ There is also some minor restored content, a Ruby Ring (ring19) was placed in
 the treasure hoard.  A transition in farmer Brun's dialog suggests this was
 originally supposed to be there.
 
+
+=========================
+Enhanced Ramazith's Tower
+=========================
+
+I always found Ramazith's Tower in Baldur's Gate a little disappointing for a
+supposedly powerful wizard doing mad experiments.  This mod ups the challenge
+a few notches, hopefully making it more memorable.  You may see some new
+enemies there...
+
+Hint: Keep in mind that Ramazith is responsible for the petrification of Vail
+and his party...
+
+
 =======================
 Enhanced Ulcaster Ruins
 =======================

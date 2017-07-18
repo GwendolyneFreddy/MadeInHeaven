@@ -116,12 +116,16 @@ COPY_EXISTING "%tutu_var%bearca.cre" "override/mh#bearl.cre"
 
 COPY_EXISTING "%CloakwoodNest%.are" "override"
   LAUNCH_PATCH_FUNCTION add_area_actors_from_2da
+    INT_VAR
+    tutu_compat		= 1
     STR_VAR
     path_to_2da		= "%MOD_FOLDER%/bg1/cloakwood/bg2100.2da"
   END
 
 COPY_EXISTING "%CloakwoodNestSpiderNest%.are" "override"
   LAUNCH_PATCH_FUNCTION add_area_actors_from_2da
+    INT_VAR
+    tutu_compat		= 1
     STR_VAR
     path_to_2da		= "%MOD_FOLDER%/bg1/cloakwood/bg2101.2da"
   END

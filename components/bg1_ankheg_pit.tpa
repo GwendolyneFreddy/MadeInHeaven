@@ -14,6 +14,8 @@ END
 
 COPY_EXISTING "%FishingVillage_AnkhegPit%.are" "override"
   LAUNCH_PATCH_FUNCTION add_area_actors_from_2da
+    INT_VAR
+    tutu_compat		= 1
     STR_VAR
     path_to_2da		= "%MOD_FOLDER%/bg1/ankheg_pit/bg1401.2da"
   END
