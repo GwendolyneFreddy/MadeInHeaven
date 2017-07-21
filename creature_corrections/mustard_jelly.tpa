@@ -2,6 +2,26 @@
 
 ACTION_IF NOT FILE_EXISTS_IN_GAME "mh#musjl.itm"
 BEGIN
+  ADD_SPELL "%MOD_FOLDER%/creature_corrections/mustard_jelly_vapor.spl" 3 1 MH_MUSTARD_JELLY_VAPOR
+    SAY NAME1 "Mustard Jelly Vapor"
+
+    PATCH_IF ENGINE_IS "bg1 totsc"
+    BEGIN
+      LAUNCH_PATCH_FUNCTION ALTER_SPELL_HEADER
+        INT_VAR
+        projectile	= 159
+      END
+    END
+
+
+  LAUNCH_ACTION_FUNCTION RES_NUM_OF_SPELL_NAME
+    STR_VAR
+    spell_name		= "MH_MUSTARD_JELLY_VAPOR"
+    RET
+    spell_res
+  END
+
+
   COPY "%MOD_FOLDER%/creature_corrections/mh#musjl.itm" "override"
     SAY NAME1 "Attack"
     SAY NAME2 "Attack"
@@ -11,15 +31,33 @@ BEGIN
       match_opcode	= 63	// State: Infravision
     END
 
-
-  ADD_SPELL "%MOD_FOLDER%/creature_corrections/mustard_jelly_vapor.spl" 3 1 MH_MUSTARD_JELLY_VAPOR
-    SAY NAME1 "Mustard Jelly Vapor"
-
     PATCH_IF ENGINE_IS "bg1 totsc"
     BEGIN
-      LAUNCH_PATCH_FUNCTION ALTER_SPELL_HEADER
+      LAUNCH_PATCH_FUNCTION ADD_ITEM_EQEFFECT
         INT_VAR
-        projectile	= 159
+	opcode		= 101	// Protection: from Opcode
+	target		= 1	// Self
+	timing		= 2	// While equipped
+	parameter2	= 78	// Disease
+      END
+
+      LAUNCH_PATCH_FUNCTION ADD_ITEM_EQEFFECT
+        INT_VAR
+	opcode		= 101	// Protection: from Opcode
+	target		= 1	// Self
+	timing		= 2	// While equipped
+	parameter2	= 93	// Fatigue
+      END
+    END
+    ELSE
+    BEGIN
+      LAUNCH_PATCH_FUNCTION ADD_ITEM_EQEFFECT
+        INT_VAR
+	opcode		= 206	// Protection: from Spell
+	target		= 1	// Self
+	timing		= 2	// While equipped
+	STR_VAR
+	resource	= "%spell_res%"
       END
     END
 

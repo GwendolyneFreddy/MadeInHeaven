@@ -13,6 +13,43 @@ BEGIN
       END
     END
 
+
+  LAUNCH_ACTION_FUNCTION RES_NUM_OF_SPELL_NAME
+    STR_VAR
+    spell_name		= "MH_GREATER_BASILISK_BREATH"
+    RET
+    spell_res
+  END
+
+
+  COPY_EXISTING "basilg1.itm" "override"
+                "basilg2.itm" "override"
+                "basilg3.itm" "override"
+                "basill1.itm" "override"
+                "basill2.itm" "override"
+    PATCH_IF ENGINE_IS "bg1 totsc"
+    BEGIN
+      LAUNCH_PATCH_FUNCTION ADD_ITEM_EQEFFECT
+        INT_VAR
+	opcode		= 101	// Protection: from Opcode
+	target		= 1	// Self
+	timing		= 2	// While equipped
+	parameter2	= 25	// Poison
+      END
+    END
+    ELSE
+    BEGIN
+      LAUNCH_PATCH_FUNCTION ADD_ITEM_EQEFFECT
+        INT_VAR
+	opcode		= 206	// Protection: from Spell
+	target		= 1	// Self
+	timing		= 2	// While equipped
+	STR_VAR
+	resource	= "%spell_res%"
+      END
+    END
+
+
   LAUNCH_ACTION_FUNCTION compile_dialog_or_script
     STR_VAR
     path_to_file	= "%MOD_FOLDER%/creature_corrections/mh#basgr.baf"
