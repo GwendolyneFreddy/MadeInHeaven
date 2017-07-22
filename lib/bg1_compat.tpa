@@ -19,6 +19,12 @@ BEGIN
       dicenumber	= 3
     END
 
+  COPY_EXISTING "b1-10.itm" "override/b3-30.itm"
+    LAUNCH_PATCH_FUNCTION ALTER_ITEM_HEADER
+      INT_VAR
+      dicenumber	= 3
+    END
+
 
   // Restore missing Buckler +1 (shld17)
 
