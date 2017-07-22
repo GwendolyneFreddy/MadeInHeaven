@@ -70,11 +70,12 @@ ADD_SPELL "%MOD_FOLDER%/bg1/mutamins_garden/trish_summon_slimes.spl" 2 5 MH_TRIS
 ACTION_IF NOT ENGINE_IS "bg1 totsc"
 BEGIN
   CREATE EFF "mh#trish"
+    WRITE_LONG	0x0010 67	// Summon: Creature Summoning
     WRITE_LONG	0x0020 2	// As CRE file
     WRITE_SHORT	0x0024 1	// Permanent
     WRITE_SHORT	0x002c 100	// 100% chance
     WRITE_EVALUATED_ASCII 0x0030 "%tutu_var%jellmu" #8
-    WRITE_ASCII	0x0068 "spmonsum" #8
+    WRITE_ASCII	0x0070 "spmonsum" #8
 END
 
 
