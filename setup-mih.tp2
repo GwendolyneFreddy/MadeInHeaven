@@ -94,6 +94,19 @@ END
 
 
 // =========================
+// Enhanced Mutamin's Garden
+// =========================
+
+BEGIN "Enhanced Mutamin's Garden"
+GROUP "Baldur's Gate 1" GAME_INCLUDES "bg1"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "bg1_mutamins_garden"
+END
+
+
+// =========================
 // Enhanced Ramazith's Tower
 // =========================
 

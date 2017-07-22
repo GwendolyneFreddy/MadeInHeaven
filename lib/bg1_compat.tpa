@@ -43,12 +43,22 @@ Unusable By:
   COPY "%MOD_FOLDER%/lib/bg1_compat/states.bam" "override"
 
 
-  // Compile initin15 script
+  // Compile mnissing scripts
 
   LAUNCH_ACTION_FUNCTION compile_dialog_or_script
     STR_VAR
     path_to_file	= "%MOD_FOLDER%/lib/bg1_compat/initin15.baf"
   END
+
+  LAUNCH_ACTION_FUNCTION compile_dialog_or_script
+    STR_VAR
+    path_to_file	= "%MOD_FOLDER%/lib/bg1_compat/initrg50.baf"
+  END
+
+
+  // Add RESTORE_FULL_HEALTH pseudo-spell
+
+  ADD_SPELL "%MOD_FOLDER%/lib/bg1_compat/restore_full_health.spl" 3 1 RESTORE_FULL_HEALTH
 END
 
 

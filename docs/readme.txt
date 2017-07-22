@@ -12,8 +12,12 @@ Baldur's Gate 1:
 - Cathline's Peril
 - The Surgeon's Plight
 - Enhanced Ankheg Pit
+- Enhanced Cloakwood
+- Enhanced Mutamin's Garden
+- Enhanced Ramazith's Tower
 - Enhanced Ulcaster Ruins
 - Enhanced Xvart Village
+- Enhanced Zombie Farm
 - Creature Corrections
 - Missing Dialogs
 - Shop Fixes & Tweaks
@@ -113,6 +117,34 @@ the treasure hoard.  A transition in farmer Brun's dialog suggests this was
 originally supposed to be there.
 
 
+==================
+Enhanced Cloakwood
+==================
+
+The main effect of this modification is that you will encounter far more
+spiders in the second section of the forest.  The number of phase- and sword
+spiders has been doubled.  There will also be far more spiders in Centeol's
+lair, so be prepared!
+
+The second-, third- and fourth sections will also each feature a restored
+encounter that was cut from the original game.  Can you help Olivia realize
+her dream of flight?  Will you find Llindelyn's lucky arrow?  And does
+Furnelaine truly not need your help against those cave bears?  It's for you
+to find out!
+
+
+=========================
+Enhanced Mutamin's Garden
+=========================
+
+This component modifies the field east of Beregost's temple, known informally
+as Mutamin's Garden.  Basilisk encounters will be a little more frequent now,
+so keep those potions and scrolls ready!
+
+There are also three new petrified creatures you can restore if you feel so
+inclined, but be aware that not all of them may be friendly or thankful...
+
+
 =========================
 Enhanced Ramazith's Tower
 =========================
@@ -123,7 +155,8 @@ a few notches, hopefully making it more memorable.  You may see some new
 enemies there...
 
 Hint: Keep in mind that Ramazith is responsible for the petrification of Vail
-and his party...
+and his party.  So be careful if you don't want to become the next group of
+statues he sells to Felonius Gist...
 
 
 =======================
