@@ -115,7 +115,8 @@ BEGIN scale3
   IF ""
     DO ~TakePartyItem("mh#misc1")
         DestroyItem("mh#misc1")
-	TakePartyGold(7500)
+	TakePartyGold(8000)
+	DestroyGold(8000)
 	SetGlobal("mh#BrokkForgeScale", "GLOBAL", 2)
 	SetGlobalTimer("mh#BrokkForgingScale", "GLOBAL", ONE_DAY)~
   GOTO goodbye
@@ -128,6 +129,50 @@ BEGIN scale4
   IF ""
     DO ~GiveItemCreate("mh#armr1", LastTalkedToBy(Myself), 0, 0, 0)
         SetGlobal("mh#BrokkForgeScale", "GLOBAL", 3)~
+    GOTO goodbye
+END
+
+IF ~PartyHasItem("mh#misc2")
+    Global("mh#BrokkForgeMeteoric", "GLOBAL", 0)~
+BEGIN meteoric1
+  SAY "Mm, y'got yerself something mighty interesting there..."
+  IF ""
+    DO ~SetGlobal("mh#BrokkForgeMeteoric", "GLOBAL", 1)~
+    GOTO meteoric2
+END
+
+IF ""
+BEGIN meteoric2
+  SAY "Aye, that be a mighty fine haul of meteoric iron y'all have there!  A great find, 'specially at this time!"
+  = "Mm, I think ye got yerself enough for a fine shield there.  I'll do it fer ya, fer 4,000 gold!"
+  IF "PartyGoldGT(3999)"
+    REPLY "That sounds fine, let's do it!"
+    GOTO meteoric3
+  IF ""
+    REPLY "Not right now, sorry."
+    GOTO hub
+END
+
+IF ""
+BEGIN meteoric3
+  SAY "Aye, come back in a day or three and she'll be done fer ye."
+  IF ""
+    DO ~TakePartyItem("mh#misc2")
+        DestroyItem("mh#misc2")
+	TakePartyGold(4000)
+	DestroyGold(4000)
+	SetGlobal("mh#BrokkForgeMeteoric", "GLOBAL", 2)
+	SetGlobalTimer("mh#BrokkForgingMeteoric", "GLOBAL", THREE_DAYS)~
+  GOTO goodbye
+END
+
+IF ~Global("mh#BrokkForgeMeteoric", "GLOBAL", 2)
+    GlobalTimerExpired("mh#BrokkForgingMeteoric", "GLOBAL")~
+BEGIN meteoric4
+  SAY "Yer meteoric iron shield be done.  A beauty, ain't she?  Use her well!"
+  IF ""
+    DO ~GiveItemCreate("mh#shld3", LastTalkedToBy(Myself), 0, 0, 0)
+        SetGlobal("mh#BrokkForgeMeteoric", "GLOBAL", 3)~
     GOTO goodbye
 END
 
@@ -148,8 +193,13 @@ BEGIN hub
   IF ~Global("mh#BrokkForgeScale", "GLOBAL", 1)
       PartyHasItem("mh#misc1")
       PartyGoldGT(7999)~
-    REPLY "Let's craft that dragon scale!"
+    REPLY "Let's craft that dragon scale armor!"
     GOTO scale3
+  IF ~Global("mh#BrokkForgeMeteoric", "GLOBAL", 1)
+      PartyHasItem("mh#misc2")
+      PartyGoldGT(3999)~
+    REPLY "Let's craft that meteoric iron shield!"
+    GOTO meteoric3
   IF ""
     REPLY "What do you have for sale?"
     GOTO shop

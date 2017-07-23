@@ -8,8 +8,10 @@ mh#armr2	Eversing +2			base AC 1, +2 vs spells, +5% magic resistance		Castlevani
 mh#armr3	Winter Wolf Hide +1		base AC 5, +30% cold resistance
 
 mh#belt1	Girdle of Dwarvenkind		-1 cha, +1 con, +3 saves, infravision			Dungeon Master Guide (2E)
+mh#belt2	Girdle of Cloud Giant Strength	strength 23						Dungeon Master Guide (2E)
 
 mh#blun1	Slime Crusher +1		morning star +1, +4 vs. Slimes
+mh#blun2	Blessed Mace +2			mace +2, user is blessed, +2 dmg to undead & fiends
 
 mh#boot1	Feather Tabi			+25% stealth, +10% find/remove traps			Complete Ninja's Handbook (2E)
 
@@ -24,10 +26,12 @@ mh#dagg1	Mage Masher +1			+2 vs. mages						Final Fantasy games
 mh#hamm1	Thronumin +3			+3 war hammer, +1 AC
 
 mh#helm1	Helm of Valor			+3 AC vs missiles, 50% missile resistance		Complete Book of Elves (2E)
+mh#helm2	Wizard's Hat			+1 AC, 3rd level spell slot
 
 mh#ioun1	Lush Emerald Ioun Stone		+1 AC, regen 2 HP/turn, druids only
 
-mh#misc1	Green Dragon Scales		preserved scales used as a component
+mh#misc1	Green Dragon Scales		preserved dragon scales used as a component
+mh#misc2	Meteoric Iron			lump of meteoric iron used as a component
 
 mh#potn1	Oil of Acid Resistance		+90% acid resistance for 10 turns			Dungeon Master Guide (2E)
 
@@ -40,6 +44,7 @@ mh#robe1	Robe of the Elements		+1 AC, +1 saves, +20% fire/cold/elec.
 
 mh#shld1	Shield of the Phoenix +1	+2 AC, +30% fire resistance
 mh#shld2	Ankheg Shield +1		+2 AC, +30% acid resistance
+mh#shld3	Meteoric Iron Shield +2		+3 AC
 
 mh#swrd1	Terminus Est +2			bastard sword +2, poison damage				Castlevania: Symphony of the Night
 mh#swrd2	Heartsblood +1			long sword +1, +2 vs undead				Book of Lairs (2E)

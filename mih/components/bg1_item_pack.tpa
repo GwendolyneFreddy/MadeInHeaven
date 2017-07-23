@@ -30,8 +30,10 @@ LAUNCH_ACTION_FUNCTION compile_dialog_or_script
   path_to_file		= "%MOD_FOLDER%/item_pack/bgt/dialog/mh#brok1.d"
 END
 
+
 COPY "%MOD_FOLDER%/item_pack/bgt/stores/mh#brok1.sto" "override"
   SAY NAME2 "Brokk's Forge"
+
 
 COPY_EXISTING "%FriendlyArmInn_House%.are" "override"
   LAUNCH_PATCH_MACRO remove_all_area_actors
@@ -52,10 +54,23 @@ COPY "%MOD_FOLDER%/item_pack/bgt/actors/mh#tania.cre" "override"
   SAY NAME1 "Tania"
   SAY NAME2 "Tania"
 
+  PATCH_IF ENGINE_IS "bg1 totsc"
+  BEGIN
+    WRITE_BYTE 0x006f 1
+    WRITE_BYTE 0x0072 1
+  END
+  ELSE
+  BEGIN
+    SET_BG2_PROFICIENCY PROFICIENCYQUARTERSTAFF 1
+    SET_BG2_PROFICIENCY PROFICIENCYDAGGER 1
+  END
+
+
 LAUNCH_ACTION_FUNCTION compile_dialog_or_script
   STR_VAR
   path_to_file		= "%MOD_FOLDER%/item_pack/bgt/dialog/mh#tania.d"
 END
+
 
 COPY_EXISTING "%NashkelCarnival_ArmorTent%.are" "override"
   LAUNCH_PATCH_FUNCTION add_area_actor
@@ -77,6 +92,7 @@ COPY_EXISTING "%FriendlyArmInn%.are" "override"
     new_item		= "mh#ring2"
   END
 
+
 COPY_EXISTING "%CoastWay%.are" "override"
   LAUNCH_PATCH_FUNCTION REPLACE_AREA_ITEM
     STR_VAR
@@ -84,12 +100,14 @@ COPY_EXISTING "%CoastWay%.are" "override"
     new_item		= "mh#ring3"
   END
 
+
 COPY_EXISTING "%GibberlingMountains%.are" "override"
   LAUNCH_PATCH_FUNCTION REPLACE_AREA_ITEM
     STR_VAR
     old_item		= "%tutu_var%ring02"
     new_item		= "mh#ring1"
   END
+
 
 COPY_EXISTING "%Nashkel%.are" "override"
   LAUNCH_PATCH_FUNCTION REPLACE_AREA_ITEM
@@ -103,6 +121,7 @@ COPY_EXISTING "%Nashkel%.are" "override"
 
 COPY_EXISTING "%tutu_var%greywo.cre" "override"
   REPLACE_CRE_ITEM "mh#swrd2" #0 #0 #0 "none" "weapon1" EQUIP
+
 
 COPY_EXISTING "%tutu_var%raemon.cre" "override"
   REPLACE_CRE_ITEM "%tutu_var%sw1h06" #0 #0 #0 "none" "weapon1" EQUIP
@@ -138,6 +157,7 @@ COPY_EXISTING "%tutu_var%tem4003.sto" "override"
 COPY_EXISTING "%tutu_var%bjorni.cre" "override"
   REPLACE_CRE_ITEM "mh#shld1" #0 #0 #0 "none" "qitem1"
 
+
 COPY_EXISTING "%tutu_var%bjorni.dlg" "override"
   DECOMPILE_AND_PATCH
   BEGIN
@@ -151,6 +171,7 @@ COPY_EXISTING "%tutu_var%sto1115.sto" "override"
 	      "%tutu_var%sto4905.sto" "override"
   ADD_STORE_ITEM "mh#potn1" AFTER "%tutu_var%potn45" #1 #0 #0 "identified" #2
 
+
 COPY_EXISTING "%FishingVillage_AnkhegPit%.are" "override"
   LAUNCH_PATCH_FUNCTION ADD_AREA_ITEM
     INT_VAR
@@ -159,6 +180,7 @@ COPY_EXISTING "%FishingVillage_AnkhegPit%.are" "override"
     STR_VAR
     item_to_add		= "mh#potn1"
   END
+
 
 COPY_EXISTING "%UlcasterRuins%.are" "override"
   LAUNCH_PATCH_FUNCTION ADD_AREA_ITEM
@@ -181,15 +203,20 @@ COPY_EXISTING "%tutu_var%tem0132.sto" "override"
 COPY_EXISTING "%tutu_var%hurgan.cre" "override"
   REPLACE_CRE_ITEM "mh#hamm1" #0 #0 #0 "none" "qitem3"
 
+
 COPY_EXISTING "%tutu_var%hurgan.dlg" "override"
   DECOMPILE_AND_PATCH
   BEGIN
     REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH "%tutu_var%hamm04" "mh#hamm1"
   END
 
+
+// Move Knee-capper to Bassilus
 COPY_EXISTING "%tutu_var%bassil.cre" "override"
   REPLACE_CRE_ITEM "%tutu_var%hamm04" #0 #0 #0 "none" "weapon1" EQUIP
 
+
+// Move Aishideena to Taugos
 COPY_EXISTING "%tutu_var%taugos.cre" "override"
   REPLACE_CRE_ITEM "%tutu_var%hamm03" #0 #0 #0 "none" "weapon1" EQUIP
 
@@ -222,6 +249,7 @@ COPY "%MOD_FOLDER%/item_pack/bgt/actors/mh#drikx.cre" "override"
     SET_BG2_PROFICIENCY	PROFICIENCYSWORDANDSHIELD 2
   END
 
+
 COPY "%MOD_FOLDER%/item_pack/bgt/actors/mh#strok.cre" "override"
   SAY NAME1 "Strok"
   SAY NAME2 "Strok"
@@ -236,6 +264,7 @@ COPY "%MOD_FOLDER%/item_pack/bgt/actors/mh#strok.cre" "override"
     SET_BG2_PROFICIENCY	PROFICIENCYLONGBOW 5
     SET_BG2_PROFICIENCY	PROFICIENCYLONGSWORD 2
   END
+
 
 COPY "%MOD_FOLDER%/item_pack/bgt/actors/mh#gnung.cre" "override"
   SAY NAME1 "Gnung"
@@ -252,15 +281,18 @@ COPY "%MOD_FOLDER%/item_pack/bgt/actors/mh#gnung.cre" "override"
     SET_BG2_PROFICIENCY	PROFICIENCYLONGSWORD 2
   END
 
+
 LAUNCH_ACTION_FUNCTION compile_dialog_or_script
   STR_VAR
   path_to_file		= "%MOD_FOLDER%/item_pack/bgt/dialog/cloakwood_assassins.d"
 END
 
+
 LAUNCH_ACTION_FUNCTION compile_dialog_or_script
   STR_VAR
   path_to_file		= "%MOD_FOLDER%/item_pack/bgt/scripts/mh#cwass.baf"
 END
+
 
 COPY_EXISTING "%CloakwoodWyverns%.are" "override"
   LAUNCH_PATCH_FUNCTION add_area_actors_from_2da
@@ -314,9 +346,19 @@ COPY_EXISTING "%Candlekeep_Catacombs_L1%.are" "override"
   END
 
 
-// Sorcerous Sundries
+// Balduran's Ship
 
-// Durlag's Tower D4
+COPY_EXISTING "%IsleofBalduranNShip_D1%.are" "override"
+  // Add Meteoric Iron to cargo hold
+  LAUNCH_PATCH_FUNCTION ADD_AREA_ITEM
+    INT_VAR
+    container_to_add_to	= 1
+    STR_VAR
+    item_to_add		= "mh#misc2"
+  END
+
+
+// Durlag's Tower
 
 COPY_EXISTING "%DurlagsTower_D4%.are" "override"
   // Replace Cloak of the Shield with Battlecloak of Vycaena
@@ -324,6 +366,13 @@ COPY_EXISTING "%DurlagsTower_D4%.are" "override"
     STR_VAR
     old_item		= "%tutu_var%clck20"
     new_item		= "mh#clck2"
+  END
+
+  // Replace Krogan's Skullcrusher with Blessed Mace of Ordona
+  LAUNCH_PATCH_FUNCTION REPLACE_AREA_ITEM
+    STR_VAR
+    old_item		= "%tutu_var%blun11"
+    new_item		= "mh#blun2"
   END
 
   // Add green dragon scales
@@ -335,17 +384,71 @@ COPY_EXISTING "%DurlagsTower_D4%.are" "override"
   END
 
 
+// Wizard's Hat on King
+COPY_EXISTING "%tutu_scriptbg%king.cre" "override"
+  ADD_CRE_ITEM "mh#helm2" #0 #0 #0 "none" "helmet"
+
+
+// Girdle of Cloud Giant strength on Grael
+COPY_EXISTING "%tutu_var%grael.cre" "override"
+  ADD_CRE_ITEM "mh#belt2" #0 #0 #0 "none" "belt"
+
+
+// Move Cloak of the Shield to Firewine
 COPY_EXISTING "%tutu_scripto%grema02.cre" "override"
   ADD_CRE_ITEM "%tutu_var%clck20" #20 #0 #0 "none" "cloak"
 
+
+// Oobah & Blahr encounter at Candlekeep for moved Krotan's Skullcrusher
+
+COPY_LARGE "%MOD_FOLDER%/item_pack/bgt/bitmaps/mh#oobal.bmp" "override"
+           "%MOD_FOLDER%/item_pack/bgt/bitmaps/mh#oobas.bmp" "override"
+           "%MOD_FOLDER%/item_pack/bgt/bitmaps/mh#blahl.bmp" "override"
+           "%MOD_FOLDER%/item_pack/bgt/bitmaps/mh#blahs.bmp" "override"
+
+
+COPY "%MOD_FOLDER%/item_pack/bgt/actors/mh#oobah.cre" "override"
+  SAY NAME1 "Oobah"
+  SAY NAME2 "Oobah"
+
   PATCH_IF ENGINE_IS "bg1 totsc"
   BEGIN
-    WRITE_BYTE 0x006f 1
-    WRITE_BYTE 0x0072 1
+    WRITE_BYTE	0x0072	4	// Blunt weapons
+    WRITE_BYTE	0x0073	4	// Spiked weapons
   END
   ELSE
   BEGIN
-    SET_BG2_PROFICIENCY PROFICIENCYQUARTERSTAFF 1
-    SET_BG2_PROFICIENCY PROFICIENCYDAGGER 1
+    SET_BG2_PROFICIENCY	PROFICIENCYMACE 4
+    SET_BG2_PROFICIENCY	PROFICIENCYFLAILMORNINGSTAR 4
   END
+
+
+COPY "%MOD_FOLDER%/item_pack/bgt/actors/mh#blahr.cre" "override"
+  SAY NAME1 "Blahr"
+  SAY NAME2 "Blahr"
+
+  PATCH_IF ENGINE_IS "bg1 totsc"
+  BEGIN
+    WRITE_BYTE	0x0072	4	// Blunt weapons
+    WRITE_BYTE	0x0073	4	// Spiked weapons
+  END
+  ELSE
+  BEGIN
+    SET_BG2_PROFICIENCY	PROFICIENCYMACE 4
+    SET_BG2_PROFICIENCY	PROFICIENCYFLAILMORNINGSTAR 4
+  END
+
+
+LAUNCH_ACTION_FUNCTION compile_dialog_or_script
+  STR_VAR
+  path_to_file		= "%MOD_FOLDER%/item_pack/bgt/dialog/oobah_blahr.d"
+END
+
+
+LAUNCH_ACTION_FUNCTION cd_extend_bg_area_script
+  STR_VAR
+  area			= "%Candlekeep_Ch6%"
+  script		= "%MOD_FOLDER%/item_pack/bgt/scripts/bg2626"
+END
+
 

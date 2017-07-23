@@ -276,6 +276,22 @@ Not usable by:
  Gnome"
 
 
+// mh#belt2 - Girdle of Cloud Giant Strength
+
+COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#belt2.itm" "override"
+  SAY NAME2 "Girdle of Cloud Giant Strength"
+  SAY IDENTIFIED_DESC "Girdle of Cloud Giant Strength
+
+This enchanted girdle belonged to the dwarven hero Durlag, and is the likely cause for many of the heroic feats attributed to him, although how it came into his possession is not known.  The design and apparent age suggests a Netherese origin, but other than that it defies identification.
+
+After the fateful tenday when Durlag was forced to slay the dopplegangers that had replaced his family and taken over his home, this magical belt was forgotten on one of the many heaps of treasure deep within the deadly tower, until it was recovered by <CHARNAME>.
+
+STATISTICS:
+
+Strength: set to 23
+Weight: 2"
+
+
 // mh#blun1 - Slime Crusher +1
 
 CREATE EFF "mh#blun1"
@@ -308,6 +324,49 @@ Not Usable By:
  Druid
  Mage
  Thief"
+
+
+// mh#blun2 - Blessed Mace of Ordona +2
+
+COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#blun2.itm" "override"
+  SAY NAME2 "Blessed Mace of Ordona +2"
+  SAY IDENTIFIED_DESC "Mace +2: 'Blessed Mace of Ordona'
+
+Ordona was a faithful elven cleric of Corellon Larethian hundreds of years ago, and at one point her mace was blessed with special powers against undead and fiends, the creatures she abhored the most.  When Ordona felt the Call and traveled to Evermeet, she gifted her mace to a fellow adventurer, feeling that it would see better use on the mainland than in the elven paradise.  What happened afterwards is unclear, but the mace has since then had a peculiar record of always showing up exactly where it is needed the most - that is, where there are undead and fiends to fight.
+
+STATISTICS:
+
+STATISTICS:
+
+Special: Wielder is permanently affected by a double-strength Bless spell.
+THAC0: +2 bonus
+Damage: 1D6 +3, +5 against undead and fiends
+Damage type: crushing
+Weight: 7
+Speed Factor: 5
+Proficiency Type: Mace
+Type: 1-handed
+Requires: 10 Strength
+
+Not usable by:
+ Druid
+ Mage
+ Thief
+ Evil characters"
+
+  // Prevent stacking with Bless spell if possible
+  PATCH_IF NOT ENGINE_IS "bg1 totsc"
+  BEGIN
+    LAUNCH_PATCH_FUNCTION CLONE_EFFECT
+      INT_VAR
+      match_opcode	= 130	// State: Bless
+      opcode		= 206	// Protection: from Spell
+      parameter1	= 0
+      parameter2	= 0
+      STR_VAR
+      resource		= "sppr101"
+    END
+  END
 
 
 // mh#boot1 - Feather Tabi
@@ -408,7 +467,7 @@ Saving Throws: +1 bonus
 Weight: 3"
 
 
-// mh#clck1 - Cloak of Arachnida
+// mh#clck3 - Cloak of Arachnida
 
 COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#clck3.itm" "override"
   SAY NAME2 "Cloak of Arachnida"
@@ -529,6 +588,23 @@ Not usable by:
  Thief"
 
 
+// mh#helm2 - Wizard's Hat
+
+COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#helm2.itm" "override"
+  SAY NAME2 "Wizard's Hat"
+  SAY IDENTIFIED_DESC "Wizard's Hat
+
+Enchanted wizard hats of this type are fairly common in the Shining South, but up north they are rarely seen.  Although the wizards of the north appreciate its beneficial enchantments just as much as their southern bethren, they feel that the design is horridly out of fashion and wearing one all too often results in them being on the receiving ends of jokes - and the jokers being on the receiving end of a Polymorph Other spell.
+
+STATISTICS:
+
+Armor Class: +1 bonus
+Spell Slots: +1 third level spell
+
+Only useable by:
+ Mage (single- and multi-class)"
+
+
 // mh#ioun1 - Lush Emerald Ioun Stone
 
 COPY_EXISTING "%MOD_FOLDER%/item_pack/bgt/items/mh#ioun1.itm" "override"
@@ -557,7 +633,16 @@ COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#misc1.itm" "override"
   SAY NAME2 "Green Dragon Scales"
   SAY IDENTIFIED_DESC "Green Dragon Scales
 
-These shiny emerald scales were harvested from the corpse of a green dragon and seem to have been preserved in some way.  A capable smith should be able to craft these into a suit of armor."
+These shiny emerald scales were harvested from the corpse of a green dragon and seem to have been preserved in some way.  A capable smith should be able to craft these into a strong suit of armor."
+
+
+// mh#misc2 - Meteoric Iron
+
+COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#misc1.itm" "override"
+  SAY NAME2 "Meteoric Iron"
+  SAY IDENTIFIED_DESC "Meteoric Iron
+
+Although at first glance these seem to be nothing but rusty-red rocks, closer inspection reveals them to be fragments of an iron meteorite.  Such fragments hold traces of cosmic power, and a skilled smith might be able to fashion something good out of this."
 
 
 // mh#potn1 - Oil of Acid Resistance
@@ -693,6 +778,25 @@ Requires: 8 Strength
 
 Not usable by:
  Bard
+ Mage
+ Thief"
+
+
+// mh#shld3 - Meteoric Iron Shield +2
+
+COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#shld3.itm" "override"
+  SAY NAME2 "Meteoric Iron Shield +2"
+  SAY IDENTIFIED_DESC "Meteoric Iron Shield +2
+
+This sturdy shield has been crafted from meteoric iron, beaten into shape by the capable hands of the dwarven smith Brokk.  The latent cosmic power in the meoric iron has resulted in a shield of exceptional sturdiness.
+
+Armor Class: +3 bonus
+Weight: 5
+Requires: 12 Strength
+
+Not usable by:
+ Bard
+ Druid
  Mage
  Thief"
 

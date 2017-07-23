@@ -8,8 +8,10 @@ mh#armr2	Eversing +2			Brokk (shop)
 mh#armr3	Winter Wolf Hide +1		Tania (event)
 
 mh#belt1	Girdle of Dwarvenkind		Brokk (event)
+mh#belt2	Girdle of Cloud Giant Strength	Durlag's Tower D4 (on Grael)
 
 mh#blun1	Slime Crusher +1		Brokk (shop)
+mh#blun2	Blessed Mace +2			Durlag's Tower D4 (replaces Krotan's Skullcrusher, which is moved to Candlekeep)
 
 mh#boot1	Feather Tabi			Black Lily (shop)
 
@@ -17,17 +19,19 @@ mh#btax1	Foesplitter +1			Cloakwood Mine L3 (armory)
 
 mh#clck1	Mutamin's Cloak			Mutamin (where else?)
 mh#clck2	Battlecloak of Vycaena		Durlag's Tower D4 (replaces Cloak of the Shield, this is moved to Firewine)
-mh#clck3	Cloak of Arachnida		Sorcerous Sundries
+mh#clck3	Cloak of Arachnida		Sorcerous Sundries (shop)
 
 mh#dagg1	Mage Masher +1			Brokk (shop)
 
 mh#hamm1	Thronumin +3			Ulgoth's Beard (replaces the Knee-Capper, this is moved to Bassilus)
 
 mh#helm1	Helm of Valor			Brokk (shop)
+mh#helm2	Wizard's Hat			Durlag's Tower Chessboard (on King)
 
 mh#ioun1	Lush Emerald Ioun Stone		Nashkel (replaces extra ankheg armor)
 
 mh#misc1	Green Dragon Scales		Durlag's Tower D4 (in bag)
+mh#misc2	Meteoric Iron			Balduran's Ship (cargo hold)
 
 mh#potn1	Oil of Acid Resistance		various shops and dungeons
 
@@ -40,6 +44,7 @@ mh#robe1	Robe of the Elements		Tania (event)
 
 mh#shld1	Shield of the Phoenix +1	Jovial Juggler (Bjornin, replaces Medium Shield +1)
 mh#shld2	Ankheg Shield +1		Brokk (event)
+mh#shld3	Meteoric Shield +2		Brokk (event)
 
 mh#swrd1	Terminus Est +2			Cloakwood (new encounter in wyverns area)
 mh#swrd2	Heartsblood +1			Greywolf (replaces Varscona +2, this is moved to Raemon in the bandit camp)
