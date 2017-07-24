@@ -2,7 +2,7 @@
 
 ACTION_IF NOT FILE_EXISTS_IN_GAME "mh#basgr.bcs"
 BEGIN
-  ADD_SPELL "%MOD_FOLDER%/creature_corrections/greater_basilisk_breath.spl" 3 1 MH_GREATER_BASILISK_BREATH
+  ADD_SPELL "%MOD_FOLDER%/creature_corrections/spells/greater_basilisk_breath.spl" 3 1 MH_GREATER_BASILISK_BREATH
     SAY NAME1 "Greater Basilisk Breath"
 
     PATCH_IF ENGINE_IS "bg1 totsc"
@@ -52,7 +52,7 @@ BEGIN
 
   LAUNCH_ACTION_FUNCTION compile_dialog_or_script
     STR_VAR
-    path_to_file	= "%MOD_FOLDER%/creature_corrections/mh#basgr.baf"
+    path_to_file	= "%MOD_FOLDER%/creature_corrections/scripts/mh#basgr.baf"
   END
 END
 

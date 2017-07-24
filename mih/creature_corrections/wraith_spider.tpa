@@ -2,44 +2,23 @@
 
 ACTION_IF NOT FILE_EXISTS_IN_GAME "mh#spdwr.itm"
 BEGIN
-  COPY_EXISTING "p1-4.itm" "override/mh#spdwr.itm"
+  COPY "%MOD_FOLDER%/creature_corrections/items/mh#spdwr.itm" "override"
     SAY NAME1 "Attack"
     SAY NAME2 "Attack"
 
-    WRITE_LONG 0x0018 (THIS | BIT6)	// Make magical
-    WRITE_LONG 0x0060 1			// Enchantment level
-
-    WRITE_ASCII 0x003a "iwolf" #8
-
-    LAUNCH_PATCH_FUNCTION ALTER_ITEM_HEADER
-      STR_VAR
-      icon		= "iwolf"
+    LAUNCH_PATCH_FUNCTION ADD_ITEM_EFFECT
+      INT_VAR
+      type		= 1	// Melee
+      opcode		= 139	// Text: Display String
+      target		= 2	// Pre-target
+      timing		= 1	// Permanent
+      parameter1	= RESOLVE_STR_REF("Diseased")
+      savingthrow	= 4	// Death/Poison
     END
 
     LAUNCH_PATCH_FUNCTION add_energy_drain
       INT_VAR
       levels_drained	= 1
-    END
-
-    LAUNCH_PATCH_FUNCTION ADD_ITEM_EFFECT
-      INT_VAR
-      type		= 1	// Melee
-      opcode		= 78	// Disease
-      target		= 2	// Pre-target
-      duration		= 300	// 5 turns
-      parameter1	= 5
-      parameter2	= 6	// Constitution loss
-      savingthrow	= 4	// Death/Poison
-    END
-
-    LAUNCH_PATCH_FUNCTION ADD_ITEM_EFFECT
-      INT_VAR
-      type		= 1	// Melee
-      opcode		= 142	// Graphics: Display Special Effect Icon
-      target		= 2	// Pre-target
-      duration		= 300	// 5 turns
-      parameter2	= 7	// Diseased
-      savingthrow	= 4	// Death/Poison
     END
 
 

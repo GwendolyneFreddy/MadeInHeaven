@@ -27,13 +27,13 @@ BEGIN
     END
 
 
-  ADD_SPELL "%MOD_FOLDER%/creature_corrections/ankheg_acid_squirt.spl" 3 1 MH_ANKHEG_ACID_SQUIRT
+  ADD_SPELL "%MOD_FOLDER%/creature_corrections/spells/ankheg_acid_squirt.spl" 3 1 MH_ANKHEG_ACID_SQUIRT
     SAY NAME1 "Ankheg Acid Squirt"
 
 
   LAUNCH_ACTION_FUNCTION compile_dialog_or_script
     STR_VAR
-    path_to_file	= "%MOD_FOLDER%/creature_corrections/mh#ankhg.baf"
+    path_to_file	= "%MOD_FOLDER%/creature_corrections/scripts/mh#ankhg.baf"
   END
 
 

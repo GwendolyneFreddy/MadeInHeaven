@@ -2,7 +2,7 @@
 
 ACTION_IF NOT FILE_EXISTS_IN_GAME "mh#grooz.itm"
 BEGIN
-  COPY "%MOD_FOLDER%/creature_corrections/mh#grooz.itm" "override"
+  COPY "%MOD_FOLDER%/creature_corrections/items/mh#grooz.itm" "override"
     SAY NAME1 "Attack"
     SAY NAME2 "Attack"
 

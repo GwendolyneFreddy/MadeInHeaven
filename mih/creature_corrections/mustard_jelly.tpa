@@ -2,7 +2,7 @@
 
 ACTION_IF NOT FILE_EXISTS_IN_GAME "mh#musjl.itm"
 BEGIN
-  ADD_SPELL "%MOD_FOLDER%/creature_corrections/mustard_jelly_vapor.spl" 3 1 MH_MUSTARD_JELLY_VAPOR
+  ADD_SPELL "%MOD_FOLDER%/creature_corrections/spells/mustard_jelly_vapor.spl" 3 1 MH_MUSTARD_JELLY_VAPOR
     SAY NAME1 "Mustard Jelly Vapor"
 
     PATCH_IF ENGINE_IS "bg1 totsc"
@@ -22,7 +22,7 @@ BEGIN
   END
 
 
-  COPY "%MOD_FOLDER%/creature_corrections/mh#musjl.itm" "override"
+  COPY "%MOD_FOLDER%/creature_corrections/items/mh#musjl.itm" "override"
     SAY NAME1 "Attack"
     SAY NAME2 "Attack"
 
@@ -64,7 +64,7 @@ BEGIN
 
   LAUNCH_ACTION_FUNCTION compile_dialog_or_script
     STR_VAR
-    path_to_file		= "%MOD_FOLDER%/creature_corrections/mh#musjl.baf"
+    path_to_file		= "%MOD_FOLDER%/creature_corrections/scripts/mh#musjl.baf"
   END
 
 

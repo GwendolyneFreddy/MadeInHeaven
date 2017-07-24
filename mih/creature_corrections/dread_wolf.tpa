@@ -2,44 +2,17 @@
 
 ACTION_IF NOT FILE_EXISTS_IN_GAME "mh#wlfdr.itm"
 BEGIN
-  COPY_EXISTING "p1-10.itm" "override/mh#wlfdr.itm"
+  COPY "%MOD_FOLDER%/creature_corrections/items/mh#wlfdr.itm" "override"
     SAY NAME1 "Attack"
     SAY NAME2 "Attack"
 
-    WRITE_ASCII 0x003a "iwolf" #8
-
-    LAUNCH_PATCH_FUNCTION ALTER_ITEM_HEADER
-      STR_VAR
-      icon		= "iwolf"
-    END
-
-    LAUNCH_PATCH_FUNCTION ADD_ITEM_EQEFFECT
-      INT_VAR
-      opcode		= 98	// HP: Regenerate
-      target		= 1	// Self
-      timing		= 2	// While equipped
-      parameter1		= 2
-      parameter2		= 3	// Regen 1 HP every <parameter1> seconds
-    END
-
     LAUNCH_PATCH_FUNCTION ADD_ITEM_EFFECT
       INT_VAR
       type		= 1	// Melee
-      opcode		= 78	// State: Disease
+      opcode		= 139	// Text: Display String
       target		= 2	// Pre-target
-      duration		= 300	// 5 turns
-      parameter1	= 60
-      parameter2	= 3	// Lose 1 HP every <parameter1> seconds
-      savingthrow	= 4	// Death/Poison
-    END
-
-    LAUNCH_PATCH_FUNCTION ADD_ITEM_EFFECT
-      INT_VAR
-      type		= 1	// Melee
-      opcode		= 142	// Graphics: Display Special Effect Icon
-      target		= 2	// Pre-target
-      duration		= 300	// 5 turns
-      parameter2	= 7	// Diseased
+      timing		= 1	// Permanent
+      parameter1	= RESOLVE_STR_REF("Diseased")
       savingthrow	= 4	// Death/Poison
     END
 

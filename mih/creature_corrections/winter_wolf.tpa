@@ -26,13 +26,13 @@ BEGIN
     END
 
 
-  ADD_SPELL "%MOD_FOLDER%/creature_corrections/winter_wolf_breath.spl" 3 1 MH_WINTER_WOLF_BREATH
+  ADD_SPELL "%MOD_FOLDER%/creature_corrections/spells/winter_wolf_breath.spl" 3 1 MH_WINTER_WOLF_BREATH
     SAY NAME1 "Winter Wolf Breath"
 
 
   LAUNCH_ACTION_FUNCTION compile_dialog_or_script
     STR_VAR
-    path_to_file		= "%MOD_FOLDER%/creature_corrections/mh#wlfwi.baf"
+    path_to_file		= "%MOD_FOLDER%/creature_corrections/scripts/mh#wlfwi.baf"
   END
 
 
