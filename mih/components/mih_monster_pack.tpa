@@ -40,6 +40,42 @@ LAUNCH_ACTION_FUNCTION compile_dialog_or_script
 END
 
 
+// =======
+// Huecuva
+// =======
+
+
+COPY "%MOD_FOLDER%/monster_pack/bgt/items/mh#huecu.itm" "override"
+  SAY NAME1 "Attack"
+  SAY NAME2 "Attack"
+
+  LAUNCH_PATCH_FUNCTION ADD_ITEM_EFFECT
+    INT_VAR
+    type		= 1	// Melee
+    opcode		= 139	// Text: Display String
+    target		= 2	// Pre-target
+    timing		= 1	// Permanent
+    parameter1	= RESOLVE_STR_REF("Diseased")
+    savingthrow	= 4	// Death/Poison
+  END
+
+
+COPY "%MOD_FOLDER%/monster_pack/bgt/actors/mh#huecu.cre" "override"
+  SAY NAME1 "Huecuva"
+  SAY NAME2 "Huecuva"
+
+  PATCH_IF IDS_OF_SYMBOL("animate" "skeleton_priest_pst") >= 0
+  BEGIN
+    WRITE_LONG	0x0028 IDS_OF_SYMBOL("animate" "skeleton_priest_pst")
+  END
+
+
+LAUNCH_ACTION_FUNCTION compile_dialog_or_script
+  STR_VAR
+  path_to_file		= "%MOD_FOLDER%/monster_pack/bgt/scripts/mh#huecu.baf"
+END
+
+
 // =====
 // Mohrg
 // =====
