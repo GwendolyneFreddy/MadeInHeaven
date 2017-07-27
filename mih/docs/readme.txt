@@ -12,6 +12,7 @@ Baldur's Gate 1:
 - Cathline's Peril
 - The Surgeon's Plight
 - Enhanced Ankheg Pit
+- Enhanced Candlekeep Catacombs
 - Enhanced Cloakwood
 - Enhanced Mutamin's Garden
 - Enhanced Ramazith's Tower
@@ -115,6 +116,23 @@ time, but come at you in groups.  Better be prepared.
 There is also some minor restored content, a Ruby Ring (ring19) was placed in
 the treasure hoard.  A transition in farmer Brun's dialog suggests this was
 originally supposed to be there.
+
+
+=============================
+Enhanced Candlekeep Catacombs
+=============================
+
+For a near endgame dungeon, the Candlekeep Catacombs are actually pretty tame.
+This mods seeks to up the epicness a few notches by putting some more
+resistance there.  Expect more and stronger undead when you examine the tombs,
+and more dopplegangers when you try to make your escape.
+
+There is one minor restored encounter with a doppleganger version of Erik, one of
+<CHARNAME>'s trainers in the tutorial level.  I also added two original
+doppleganger encounters with other tutorial characters.
+
+Lastly, Arkanis and Deder will now be a little better prepared for their task,
+and will count as allied creatures if they decide to help out.
 
 
 ==================

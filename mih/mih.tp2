@@ -80,6 +80,19 @@ LAUNCH_ACTION_FUNCTION "install_component"
 END
 
 
+// =============================
+// Enhanced Candlekeep Catacombs
+// =============================
+
+BEGIN "Enhanced Candlekeep Catacombs"
+GROUP "Baldur's Gate 1" GAME_INCLUDES "bg1"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "bg1_candlekeep_catacombs"
+END
+
+
 // ==================
 // Enhanced Cloakwood
 // ==================
