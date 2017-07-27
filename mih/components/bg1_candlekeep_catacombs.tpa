@@ -89,7 +89,7 @@ COPY_EXISTING "%tutu_var%arkani3.cre" "override"
   REPLACE_CRE_ITEM "%tutu_var%potn08" #5 #0 #0 "none" "qitem1"
   REPLACE_CRE_ITEM "%tutu_var%potn09" #1 #0 #0 "none" "qitem2"
   REPLACE_CRE_ITEM "%tutu_var%potn12" #1 #0 #0 "none" "qitem3"
-  REMOVE_CRE_ITEM "iarow01"
+  REMOVE_CRE_ITEM "%tutu_var%ibow3" "%tutu_var%iarow01"
 
   // Proficiencies
   PATCH_IF ENGINE_IS "bg1 totsc"
@@ -110,8 +110,8 @@ COPY_EXISTING "%tutu_var%arkani3.cre" "override"
 
   // Stats
   WRITE_LONG	0x0014	975	// XP value
-  WRITE_SHORT	0x0026	56	// Current HP
-  WRITE_SHORT	0x0028	56	// Maximum HP
+  WRITE_SHORT	0x0024	56	// Current HP
+  WRITE_SHORT	0x0026	56	// Maximum HP
   WRITE_BYTE	0x0053	7	// # of attacks 3/2
   WRITE_BYTE	0x0054	8	// Save vs. Death
   WRITE_BYTE	0x0055	10	// Save vs. Wands
@@ -154,8 +154,8 @@ COPY_EXISTING "%tutu_var%deder3.cre" "override"
 
   // Stats
   WRITE_LONG	0x0014	975	// XP value
-  WRITE_SHORT	0x0026	42	// Current HP
-  WRITE_SHORT	0x0028	42	// Maximum HP
+  WRITE_SHORT	0x0024	42	// Current HP
+  WRITE_SHORT	0x0026	42	// Maximum HP
   WRITE_BYTE	0x0053	7	// # of attacks 3/2
   WRITE_BYTE	0x0054	10	// Save vs. Death
   WRITE_BYTE	0x0055	12	// Save vs. Wands
