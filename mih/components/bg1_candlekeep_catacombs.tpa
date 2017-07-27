@@ -82,14 +82,14 @@ COPY_EXISTING "%CandlekeepCaves%.are" "override"
 COPY_EXISTING "%tutu_var%arkani3.cre" "override"
   // Equipment
   REPLACE_CRE_ITEM "%tutu_var%ax1h02" #0 #0 #0 "none" "weapon1" EQUIP
-  REPLACE_CRE_ITEM "%tutu_var%hamm02" #0 #0 #0 "none" "weapon1" EQUIP
+  REPLACE_CRE_ITEM "%tutu_var%hamm02" #0 #0 #0 "none" "weapon2"
   REPLACE_CRE_ITEM "%tutu_var%shld06" #0 #0 #0 "none" "shield" EQUIP
   REPLACE_CRE_ITEM "%tutu_var%chan02" #0 #0 #0 "none" "armor"
   REPLACE_CRE_ITEM "%tutu_var%helm08" #0 #0 #0 "none" "helmet"
   REPLACE_CRE_ITEM "%tutu_var%potn08" #5 #0 #0 "none" "qitem1"
   REPLACE_CRE_ITEM "%tutu_var%potn09" #1 #0 #0 "none" "qitem2"
   REPLACE_CRE_ITEM "%tutu_var%potn12" #1 #0 #0 "none" "qitem3"
-  REMOVE_CRE_ITEM "%tutu_var%ibow3" "%tutu_var%iarow01"
+  REMOVE_CRE_ITEM "%tutu_var%iarow01"
 
   // Proficiencies
   PATCH_IF ENGINE_IS "bg1 totsc"

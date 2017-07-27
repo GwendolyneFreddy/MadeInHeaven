@@ -131,8 +131,8 @@ There is one minor restored encounter with a doppleganger version of Erik, one o
 <CHARNAME>'s trainers in the tutorial level.  I also added two original
 doppleganger encounters with other tutorial characters.
 
-Lastly, Arkanis and Deder will now be a little better prepared for their task,
-and will count as allied creatures if they decide to help out.
+Lastly, Arkanis and Deder will now be much better prepared for their task,
+and you will get full control over them if they decide to help your party.
 
 
 ==================
@@ -586,5 +586,14 @@ that are shared by BG1, BG2 and IWD1.  The list is as follows:
   (The BG1 version of wand12 is deliberately left untouched.)
 - Wand of Lightning (wand07):
   Now fires just one lightning bolt instead of six.  (BG2 only)
+
+
+=====================
+Known Bugs and Issues
+=====================
+
+- Enhanced Candlekeep: When helping you, Deder can detect traps but not disarm
+  them.  This seems to be an engine limitation.  Since all traps in that area
+  are easily avoidable, I don't think it's a big issue.
 
 
