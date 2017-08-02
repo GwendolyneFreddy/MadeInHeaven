@@ -133,10 +133,11 @@ COPY_EXISTING "%tutu_var%mutami.cre" "override"
   ADD_CRE_ITEM "mh#clck1" #0 #0 #0 "none" "cloak"
 
 
-// Thalantyr sells Gem of Insight and Oils of Acid Resistance
+// Thalantyr sells Gem of Insight and the new potions
 
 COPY_EXISTING "%tutu_scripth%ighhedg.sto" "override"
-  ADD_STORE_ITEM "mh#potn1" AFTER "%tutu_var%potn45" #1 #0 #0 "identified" #3
+  ADD_STORE_ITEM "mh#potn1" AFTER "%tutu_var%potn38" #1 #0 #0 "identified" #3
+  ADD_STORE_ITEM "mh#potn2" AFTER "%tutu_var%potn45" #1 #0 #0 "identified" #1
   ADD_STORE_ITEM "mh#amul2" LAST #1 #0 #0 "identified" #1
 
 
@@ -165,11 +166,12 @@ COPY_EXISTING "%tutu_var%bjorni.dlg" "override"
   END
 
 
-// Add Oils of Acid Resistance to some shops and dungeons
+// Add new potions to some shops and dungeons
 
 COPY_EXISTING "%tutu_var%sto1115.sto" "override"
 	      "%tutu_var%sto4905.sto" "override"
-  ADD_STORE_ITEM "mh#potn1" AFTER "%tutu_var%potn45" #1 #0 #0 "identified" #2
+  ADD_STORE_ITEM "mh#potn1" AFTER "%tutu_var%potn36" #1 #0 #0 "identified" #2
+  ADD_STORE_ITEM "mh#potn2" AFTER "%tutu_var%potn46" #1 #0 #0 "identified" #2
 
 
 COPY_EXISTING "%FishingVillage_AnkhegPit%.are" "override"
@@ -450,5 +452,51 @@ LAUNCH_ACTION_FUNCTION cd_extend_bg_area_script
   area			= "%Candlekeep_Ch6%"
   script		= "%MOD_FOLDER%/item_pack/bgt/scripts/bg2626"
 END
+
+
+// Letha's quest on Isle of Balduran for Pearl of Power.
+
+COPY "%MOD_FOLDER%/item_pack/bgt/actors/mh#helen.cre" "override"
+  SAY NAME1 "Helen"
+  SAY NAME2 "Helen"
+
+
+COPY "%MOD_FOLDER%/item_pack/bgt/actors/mh#letha.cre" "override"
+  SAY NAME1 "Letha"
+  SAY NAME2 "Letha"
+
+
+LAUNCH_ACTION_FUNCTION compile_dialog_or_script
+  STR_VAR
+  path_to_file		= "%MOD_FOLDER%/item_pack/bgt/scripts/mh#helen.baf"
+END
+
+
+LAUNCH_ACTION_FUNCTION compile_dialog_or_script
+  STR_VAR
+  path_to_file		= "%MOD_FOLDER%/item_pack/bgt/dialog/letha_helen.d"
+END
+
+
+COPY_EXISTING "%IsleofBalduranS%.are" "override"
+  LAUNCH_PATCH_FUNCTION add_area_actor
+    INT_VAR 
+    x_position		= 3640
+    y_position		= 345
+    orientation		= 3
+    STR_VAR
+    cre_resref		= "mh#helen"
+  END
+
+
+COPY_EXISTING "%IsleofBalduranN%.are" "override"
+  LAUNCH_PATCH_FUNCTION add_area_actor
+    INT_VAR 
+    x_position		= 225
+    y_position		= 2615
+    orientation		= 1
+    STR_VAR
+    cre_resref		= "mh#letha"
+  END
 
 

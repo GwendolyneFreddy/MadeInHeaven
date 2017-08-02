@@ -1,0 +1,62 @@
+@0    = ~Not here... not here... oooh, where is it...?  Oops, excuse me strangers, I didn't notice you there!~
+@1    = ~No problem, miss.  Are you looking for something?~
+@2    = ~Oh my, you're all green!  What kind of creature are you?~
+@3    = ~Get away from me, you hag!~
+@4    = ~I am alu-tel'quessir, or sea elf in the common tongue, my good <RACE>.~
+@5    = ~Were you looking for something earlier?~
+@6    = ~Yeah, whatever.  Just stay away from me!~
+@7    = ~My, how rude you are!~
+@8    = ~I... apologize.  I have been through a lot, with the shipwreck and all.~
+@9    = ~Pft, whatever.~
+@10   = ~Hmph, arrogant land folk!  May Deep Sashelas drag you down for good the next time you set sail!~
+@11   = ~Ah, so that ship was yours.  You're very lucky to be alive, we found the bodies of your kind everywhere that night.  I suppose I can understand your stress, so you're forgiven.  Just don't let it happen again!~
+@12   = ~Hey, don't tell me what to do!~
+@13   = ~Yes, actually.  My name is Letha, and I am a messenger to her majesty the queen.  I was carrying an important magical jewel for her majesty, but I lost it around here somewhere when I had to hide from a band of sahuagin.~
+@14   = ~The tide should have carried it here to this shore, but I don't think it's here anymore, I'm not detecting its magic.  I suspect one of the islanders took it.~
+@15   = ~If you come across it, would you bring it to me?  Its magic is nearly useless to you, but can give you one of the treasures of my home in return.  It will be worth your time, I assure you.~
+@16   = ~Of course, my lady!  How would I recognize it?~
+@17   = ~Eh, I suppose.  What does it look like?~
+@18   = ~It is called a telkiira, or lore-gem in the common tongue.  At first glance it looks like a jewel you know as a Laeral's tear, but unlike a normal jewel it radiates magic.  Some identification magic might help you there.~
+@19   = ~If you find it, bring it to me as soon as you can.  I cannot be on dry land for long so I cannot come with you.  Here, take this scroll with you in case you need help with identification magic.~
+@20   = ~Good luck!~
+@21   = ~The Lore-Gem
+
+I met a sea elf named Letha on the shore of the island.  She is looking for a gem called a telkiira, or lore-gem, which she lost.  She thinks one of the villagers may have found it.  The gem looks like a Laeral's tear, but an Identify spell should reveal its true nature.  Letha promised me a reward if I bring it back to her.~
+@22   = ~The telkiira, I can sense it!  You have found it, haven't you?  Here, I'll trade you this for it!  It's a pearl from my home, enchanted with a powerful magic.  It will be of great value to any wizard!~
+@23   = ~You have done me a great service and spared me the shame of failure.  Thank you, may Deep Sashelas protect you on your journey!~
+@24   = ~Had no luck finding the telkiira yet, did you?  I'm pretty sure one of the villagers has it.~
+@25   = ~Hey <CHARNAME>, look what I found!  Isn't it pretty?~
+@26   = ~I believe a lady I met was looking for that!  Would you give it back?~
+@27   = ~That is a very pretty necklace!  Where did you find it?~
+@28   = ~Oh, it was in the sand here somewhere.  I found it while I was playing.~
+@29   = ~It sure is pretty, but it gives me a headache if I try to wear it.~
+@30   = ~A headache?  Oh no, that gem is dangerous!  Quick, give it to me!~
+@31   = ~Mm, okay, but only because you are nice.  Tell the lady I found it for her, yes?~
+@32   = ~Thank you, I will!~
+@33   = ~The Lore-Gem
+
+One of the children of the island found Letha's lore-gem, and she gave it back when I explained that Letha was looking for it.  I'd better go return it to her.~
+@34   = ~It is?  ...well, it does give me that nasty headache.  Okay <CHARNAME>, you take it!~
+@35   = ~Good girl!  Run along and play now!~
+@36   = ~The Lore-Gem
+
+One of the children of the island found Letha's lore-gem, and she gave it back after I tricked her into thinking it was dangerous.  I'd better take it back to Letha now.~
+@37   = ~No!  I don't like you, you do not belong!~
+@38   = ~Look, I'll give you these 50 gold for it, okay?~
+@39   = ~Insolent brat!  I oughtta...~
+@40   = ~Gold, what's that...?  Oh, these are pretty!  Alright, it's yours!~
+@41   = ~The Lore-Gem
+
+One of the children of the island found Letha's lore-gem, and a few of my gold coins convinced her to part with it.  I should take it back to Letha now.~
+@42   = ~If you hurt me, you'll never belong, and Kaishas will have your head!~
+@43   = ~Fine, keep it then!~
+@44   = ~The Lore-Gem
+
+One of the children of the island found Letha's lore-gem, but the little brat proved uncooperative!  I can't use violence here, the whole village would turn against me.  But maybe I could steal it from her and then return it to Letha for my reward...?~
+@45   = ~Hi, I'm Helen!~
+@46   = ~Can't talk now, I'm busy playing.  Maybe later?~
+@47   = ~The Lore-Gem
+
+I returned the lost telkiira to Letha, and the thankful sea elf gave me an enchanted pearl from her home in return before departing.  Another satisfied customer of <CHARNAME>'s Delivery Service, I suppose...~
+
+

@@ -1,0 +1,14 @@
+IF
+  See([PC])
+  !Allegiance(Myself,ENEMY)
+  Global("Infected", "GLOBAL", 0)
+  Global("mh#HelpLetha", "GLOBAL", 1)
+THEN
+  RESPONSE #100
+    CreateItem("mh#misc3", 0, 0, 0)
+    SetGlobal("mh#HelpLetha", "GLOBAL", 2)
+    Wait(1)
+    Dialogue([PC])
+END
+
+

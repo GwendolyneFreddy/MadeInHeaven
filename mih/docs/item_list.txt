@@ -21,7 +21,7 @@ mh#clck1	Mutamin's Cloak			petrification immunity
 mh#clck2	Battlecloak of Vycaena		+4 AC, +1 saves						Fallen Empires of Faerun (3E)
 mh#clck3	Cloak of Arachnida		+2 vs death, web immunity, casts Web 2/day		Dungeon Master Guide (2E)
 
-mh#dagg1	Mage Masher +1			+2 vs. mages						Final Fantasy games
+mh#dagg1	Mage Masher +1			+2 vs. mages						Final Fantasy IV
 
 mh#hamm1	Thronumin +3			+3 war hammer, +1 AC
 
@@ -29,11 +29,14 @@ mh#helm1	Helm of Valor			+3 AC vs missiles, 50% missile resistance		Complete Boo
 mh#helm2	Wizard's Hat			+1 AC, 3rd level spell slot
 
 mh#ioun1	Lush Emerald Ioun Stone		+1 AC, regen 2 HP/turn, druids only
+mh#ioun2	Pearl of Power			+1 4rd and 5th level wizard spell slots			Dungeon Master's Guide (2E)
 
 mh#misc1	Green Dragon Scales		preserved dragon scales used as a component
 mh#misc2	Meteoric Iron			lump of meteoric iron used as a component
+mh#misc3	Telkiira			+2 intelligence, +2 vs spell, elf only, trade item	Lost Empires of Faerun (3E)
 
 mh#potn1	Oil of Acid Resistance		+90% acid resistance for 10 turns			Dungeon Master Guide (2E)
+mh#potn2	Oil of Disenchantment		Removes magical effects from target			Dungeon Master Guide (2E)
 
 mh#ring1	Ring of Warmth			+20% cold resistance					Dungeon Master Guide (2E)
 mh#ring2	Ring of the Neophyte		extra 1st level wizard spell slot

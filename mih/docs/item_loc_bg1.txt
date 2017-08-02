@@ -29,11 +29,14 @@ mh#helm1	Helm of Valor			Brokk (shop)
 mh#helm2	Wizard's Hat			Durlag's Tower Chessboard (on King)
 
 mh#ioun1	Lush Emerald Ioun Stone		Nashkel (replaces extra ankheg armor)
+mh#ioun2	Pearl of Power			Isle of Balduran (new enounter in wilderness)
 
 mh#misc1	Green Dragon Scales		Durlag's Tower D4 (in bag)
 mh#misc2	Meteoric Iron			Balduran's Ship (cargo hold)
+mh#misc3	Telkiira			Isle of Balduran (new encounter in village)
 
 mh#potn1	Oil of Acid Resistance		various shops and dungeons
+mh#potn2	Oil of Disenchantment		various shops and dungeons
 
 mh#ring1	Ring of Warmth			Gibberling Mountains (replaces extra Ring of Fire Resistance)
 mh#ring2	Ring of the Neophyte		Friendly Arm Inn (replaces extra Ring of Wizardry)

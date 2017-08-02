@@ -155,7 +155,7 @@ Special: Wearer is immune to blindness, deafness and disease.
 Weight: 1"
 
   // Apply CamDawg's macros for blindness, deafness and disease on BG2 or better engine
-  PATCH_IF ENGINE_IS "bg2 tob bgee bg2ee"
+  PATCH_IF NOT ENGINE_IS "bg1 totsc"
   BEGIN
     LAUNCH_PATCH_FUNCTION cd_apply_batch
       STR_VAR
@@ -195,7 +195,7 @@ Not usable by:
  Thief"
 
   // Apply CamDawg's full poison immunity macro on BG2 or better engine
-  PATCH_IF ENGINE_IS "bg2 tob bgee bg2ee"
+  PATCH_IF NOT ENGINE_IS "bg1 totsc"
   BEGIN
     LAUNCH_PATCH_FUNCTION cd_apply_batch
       STR_VAR
@@ -441,7 +441,7 @@ Special: wearer is immune to all forms of petrification
 Weight: 3"
 
   // Apply CamDawg's full petrification immunity macro on BG2 or better engine
-  PATCH_IF ENGINE_IS "bg2 tob bgee bg2ee"
+  PATCH_IF NOT ENGINE_IS "bg1 totsc"
   BEGIN
     LAUNCH_PATCH_FUNCTION cd_apply_batch
       STR_VAR
@@ -495,7 +495,7 @@ Weight: 3"
   END
 
   // Apply CamDawg's full web immunity macro on BG2 or better engine
-  PATCH_IF ENGINE_IS "bg2 tob bgee bg2ee"
+  PATCH_IF NOT ENGINE_IS "bg1 totsc"
   BEGIN
     LAUNCH_PATCH_FUNCTION cd_apply_batch
       STR_VAR
@@ -599,7 +599,7 @@ Enchanted wizard hats of this type are fairly common in the Shining South, but u
 STATISTICS:
 
 Armor Class: +1 bonus
-Spell Slots: +1 third level spell
+Spells: +1 third level spell
 
 Only useable by:
  Mage (single- and multi-class)"
@@ -627,6 +627,24 @@ Only usable by:
  Druid"
 
 
+// mh#ioun2 - Pearl of Power
+
+COPY_EXISTING "%MOD_FOLDER%/item_pack/bgt/items/mh#ioun2.itm" "override"
+  SAY NAME1 "Ioun Stone"
+  SAY NAME2 "Pearl of Power"
+  SAY UNIDENTIFIED_DESC "This is a small stone that floats in an orbit around the owner's head.  Simply equip the stone to set it in its orbit.  These obviously magical stones have different properties depending on their color."
+  SAY IDENTIFIED_DESC "Pearl of Power
+
+This pearl of exceptional quality has been enchanted to function as an ioun stone, allowing a mage to prepare and cast more spells than normal while the pearl is floating around his head.  Although the process itself has been well documented in various books of arcane lore, the difficulty of actually obtaining a pearl of suitable quality ensures that this remains a rather rare, and thus highly sought after item.
+
+STATISTICS:
+
+Spells: one extra 4th- and 5th level spell slot
+
+Only usable by:
+ Mage (single- and multi-class)"
+
+
 // mh#misc1 - Green Dragon Scales
 
 COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#misc1.itm" "override"
@@ -638,11 +656,31 @@ These shiny emerald scales were harvested from the corpse of a green dragon and 
 
 // mh#misc2 - Meteoric Iron
 
-COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#misc1.itm" "override"
+COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#misc2.itm" "override"
   SAY NAME2 "Meteoric Iron"
   SAY IDENTIFIED_DESC "Meteoric Iron
 
 Although at first glance these seem to be nothing but rusty-red rocks, closer inspection reveals them to be fragments of an iron meteorite.  Such fragments hold traces of cosmic power, and a skilled smith might be able to fashion something good out of this."
+
+
+// mh#misc3 - Telkiira
+
+COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#misc3.itm" "override"
+  SAY NAME2 "Telkiira"
+  SAY IDENTIFIED_DESC "Telkiira
+
+This necklace is actually an elven artifact known as a telkiira, or lore-gem.  It records the memories and experiences of its ower, and allows her to draw upon the memories and experiences of previous owners.  Only alves or those with elven blood like a half-elf can use it, everyone else just gets a splitting headache from wearing it.
+
+In addition, all but the most basic of its functions seem to be locked to only certain people.  There doesn't seem to be any way for you to pass the lock; it is keyed to a certain bloodline.  However, these gems are very precious to the elves and returning it to the rightful owner will likely result in a generous reward.
+
+STATISTICS:
+
+Intelligence: +2 bonus
+Saving Throws: +2 vs. Spells
+
+Only usable by:
+ Elves
+ Half-elves"
 
 
 // mh#potn1 - Oil of Acid Resistance
@@ -652,6 +690,35 @@ COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#potn1.itm" "override"
   SAY IDENTIFIED_DESC "Oil of Acid Resistance
 
 This is a black, viscous and non-flamable oil.  When applied to exposed equipment and skin, it confers virtual immunity to all acids and other corrosive agents.  All acid damage is reduced by 90%, on top of any other resistances the person might have.  The effect lasts for 10 turns, or until dispelled."
+
+
+// mh#potn2 - Oil of Disenchantment
+
+COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#potn2.itm" "override"
+  SAY NAME2 "Oil of Dispelling"
+  SAY IDENTIFIED_DESC "Oil of Disenchantment
+
+This sparkling golden fluid is an ethereal, rapidly evaporating thin oil.  When poured over a creature, it removes all dispelable magical effect on that creature unless it makes a saving throw versus wands at a -4 penalty."
+
+  PATCH_IF ENGINE_IS "bg1 totsc"
+  BEGIN
+    LAUNCH_PATCH_FUNCTION CLONE_EFFECT
+      INT_VAR
+      match_opcode	= 58	// Cure: Dispelable Effects
+      opcode		= 141	// Graphics: Lighting Effects
+      parameter1	= 1
+      parameter2	= 12
+      STR_VAR
+      insert		= "last"
+    END
+  END
+  ELSE
+  BEGIN
+    LAUNCH_PATCH_FUNCTION cd_apply_batch
+      STR_VAR
+      array_name	= cd_full_dispel_arrays
+    END
+  END
 
 
 // mh#ring1 - Ring of Warmth
@@ -682,7 +749,7 @@ STATISTICS:
 Spells: one extra 1st level spell slot
 
 Only usable by:
- Mage"
+ Mage (single- and multi-class)"
 
 
 // mh#ring3 - Ring of Toughness
