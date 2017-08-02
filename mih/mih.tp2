@@ -311,6 +311,8 @@ END
 BEGIN "Enforce Druid Item Restrictions"
 GROUP "Rule Tweaks"
 
+DEPRECATED "This mod is now part of Tweak Anthologies"
+
 LAUNCH_ACTION_FUNCTION "install_component"
   STR_VAR
   component_name	= "druid_item_restrictions"
@@ -337,6 +339,8 @@ END
 BEGIN "Level-locked Spell Scrolls"
 GROUP "Rule Tweaks"
 
+DEPRECATED "This mod is now part of Tweak Anthologies"
+
 REQUIRE_PREDICATE ENGINE_IS "bg2 tob bgee bg2ee"
   "This component is not available for your game."
 
@@ -352,6 +356,8 @@ END
 
 BEGIN "More Versatile Bucklers & Small Shields"
 GROUP "Rule Tweaks"
+
+DEPRECATED "This mod is now part of Tweak Anthologies"
 
 LAUNCH_ACTION_FUNCTION "install_component"
   STR_VAR
@@ -378,6 +384,8 @@ END
 
 BEGIN "Extended HP Dice Rolls"
 GROUP "Rule Tweaks"
+
+DEPRECATED "This mod is now part of Tweak Anthologies"
 
 LAUNCH_ACTION_FUNCTION "install_component"
   STR_VAR
@@ -406,6 +414,8 @@ BEGIN "Bolt from the Sky"
 SUBCOMPONENT "Non-Bouncing Lightning Bolts"
 GROUP "Item/Spell Tweaks"
 
+DEPRECATED "This mod is now part of Tweak Anthologies"
+
 LAUNCH_ACTION_FUNCTION "install_component"
   INT_VAR
   use_projectile	= 23
@@ -417,6 +427,8 @@ END
 BEGIN "Line of Lightning"
 SUBCOMPONENT "Non-Bouncing Lightning Bolts"
 GROUP "Item/Spell Tweaks"
+
+DEPRECATED "This mod is now part of Tweak Anthologies"
 
 REQUIRE_PREDICATE ENGINE_IS "bg2 tob bgee bg2ee" "This component is not available for your game."
 
@@ -522,6 +534,8 @@ END
 
 BEGIN "No Resist Fire/Cold Icon"
 GROUP "Item/Spell Tweaks"
+
+DEPRECATED "This mod is now part of Tweak Anthologies"
 
 LAUNCH_ACTION_FUNCTION "install_component"
   STR_VAR
