@@ -10,7 +10,9 @@ BEGIN unthankful
 	AddexperienceParty(700)
 	ForceSpell(Myself, MH_TRISH_SUMMON_SLIMES)
 	Wait(1)
-	ForceSpell(Myself, DRYAD_TELEPORT)~
+	ForceSpell(Myself, DRYAD_TELEPORT)
+	Wait(1)
+	DestroySelf()~
     JOURNAL @3
     EXIT
 END
