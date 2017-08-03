@@ -481,8 +481,8 @@ END
 COPY_EXISTING "%IsleofBalduranS%.are" "override"
   LAUNCH_PATCH_FUNCTION add_area_actor
     INT_VAR 
-    x_position		= 3640
-    y_position		= 345
+    x_position		= 345
+    y_position		= 3640
     orientation		= 3
     STR_VAR
     cre_resref		= "mh#helen"

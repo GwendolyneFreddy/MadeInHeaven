@@ -773,7 +773,7 @@ COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#ring4.itm" "override"
   SAY NAME2 "Ring of Protection +3"
   SAY IDENTIFIED_DESC "Ring of Protection +3: 'Ring of the Lich'
 
-This ring is a creation of the Netherese lich Trachir the Elder, also known as the Ebon Skull.  When Karsus cast his fateful spell that destroyed High Netheril, Trachir had just completed the final rituals and drank the lethal potion that would transform his body into an undead horror.  Trachir's enclave plunged into the Trackless Sea several miles from the coast of Candlekeep, and he was thought to have perished with it.  One night he surfaced however, and started a reign of terror on the Sword Coast for several years until he was defeated by a powerful cleric of Azuth.  This ring was taken from the lich's bony finger and still worn by the cleric on the day of his death many years later.  The ring was then interred in the catacombs below Candlekeep along with him.
+This ring is a creation of the Netherese lich Trachir the Elder, also known as the Ebon Skull.  When Karsus cast his fateful spell that destroyed High Netheril, Trachir had just completed the final rituals and drank the lethal potion that would transform his body into an undead horror.  Trachir's enclave plunged into the Sea of Swords several miles from the coast of Candlekeep, and he was thought to have perished with it.  One night he surfaced however, and started a reign of terror on the Sword Coast for several years until he was defeated by a powerful cleric of Azuth.  This ring was taken from the lich's bony finger and still worn by the cleric on the day of his death many years later.  The ring was then interred in the catacombs below Candlekeep along with him.
 
 STATISTICS:
 
