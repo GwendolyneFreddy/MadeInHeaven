@@ -7,4 +7,55 @@ THEN
     SetGlobalTimer("mh#WenricAppear", "GLOBAL", SEVEN_DAYS)
 END
 
-    
+IF
+  Global("mh#FarmOfFear", "GLOBAL", 2)
+  Global("mh#SpawnedCovey", "MYAREA", 0)
+THEN
+  RESPONSE #100
+    SetGlobal("mh#SpawnedCovey", "MYAREA", 1)
+    ActionOverride("mh#NormalWenric", DestroySelf())
+    CreateCreature("mh#annis", [4020. 230], 4)
+    CreateCreature("mh#ghag1", [3920.  40], 2)
+    CreateCreature("mh#ghag2", [3925. 435], 6)
+    CreateCreature("mh#sklcr", [4085. 390], 5)
+    CreateCreature("mh#sklcr", [4095. 100], 3)
+    CreateCreature("mh#sklcr", [4345. 195], 4)
+
+    CreateCreature("%tutu_scripto%greberz", [3090. 200], 3)
+    CreateCreature("%tutu_scripto%greberz", [3165. 330], 4)
+    CreateCreature("%tutu_var%ogre", [3165. 330], 2)
+    CreateCreature("%tutu_var%ogre", [2975. 290], 3)
+    CreateCreature("%tutu_var%ogre", [3065. 425], 3)
+
+    CreateCreature("%tutu_scripto%greberz", [ 950.1475], 0)
+    CreateCreature("%tutu_scripto%greberz", [1150.1550], 1)
+    CreateCreature("%tutu_var%ogre", [1035.1660], 0)
+    CreateCreature("%tutu_var%ogre", [ 975.1625], 15)
+    CreateCreature("%tutu_var%ogre", [ 835.1725], 14)
+
+    CreateCreature("%tutu_scripto%greberz", [1240.2480], 0)
+    CreateCreature("%tutu_scripto%greberz", [1400.2560], 15)
+    CreateCreature("%tutu_scripto%greberz", [1105.2630], 1)
+    CreateCreature("%tutu_var%ogre", [1060.2760], 14)
+    CreateCreature("%tutu_var%ogre", [1240.2725], 0)
+    CreateCreature("%tutu_var%ogre", [1435.2775], 1)
+
+    CreateCreature("%tutu_scripto%greberz", [ 640.3390], 12)
+    CreateCreature("%tutu_scripto%greberz", [ 750.3500], 11)
+    CreateCreature("%tutu_var%ogre", [1070.3410], 13)
+END
+
+IF
+  Global("mh#FarmOfFear", "GLOBAL", 3)
+  Dead("mh#annis")
+  Dead("mh#greenhag1")
+  Dead("mh#greenhag2")
+  !Dead("mh#FledWenric")
+  Global("mh#spawnNewWenric", "MYAREA", 0)
+THEN
+  RESPONSE #100
+    SetGlobal("mh#spawnNewWenric", "MYAREA", 1)
+    CreateCreature("mh#wenr3", [ 615. 545], 14)
+END
+
+

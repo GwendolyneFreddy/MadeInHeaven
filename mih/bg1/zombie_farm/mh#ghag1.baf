@@ -1,0 +1,97 @@
+IF
+  Global("mh#PeacefulMeilum", "GLOBAL", 1)
+  !Dead("meilum")
+THEN
+  RESPONSE #100
+    SetGlobal("mh#PeacefulMeilum", "GLOBAL", 2)
+    CreateItem("%tutu_var%brac10", 0, 0, 0)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !GlobalTimerNotExpired("covey_call_lightning", "LOCALS")
+  !GlobalTimerNotExpired("covey_spell", "MYAREA")
+  !Dead("mh#annis")
+  !Dead("mh#greenhag2")
+THEN
+  RESPONSE #40
+    SetGlobalTimer("covey_call_lightning", "LOCALS", ONE_DAY)
+    SetGlobalTimer("covey_spell", "MYAREA", ONE_ROUND)
+    ForceSpell(LastSeenBy(Myself), MH_COVEY_CALL_LIGHTNING)
+  RESPONSE #60
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  NotStateCheck(Myself, STATE_INVISIBLE)
+  !GlobalTimerNotExpired("invis", "LOCALS")
+THEN
+  RESPONSE #50
+    ForceSpell(Myself, WIZARD_INVISIBILITY)
+    SetGlobalTimer("invis", "LOCALS", ONE_ROUND)
+  RESPONSE #50
+    Continue()
+END
+
+IF
+  StateCheck(Myself, STATE_INVISIBLE)
+  !AttackedBy([ANYONE], DEFAULT)
+  See(SixthNearestEnemyOf(Myself))
+  !Range(SixthNearestEnemyOf(Myself), 5)
+THEN
+  RESPONSE #70
+    MoveToObject(LastSeenBy(Myself))
+  RESPONSE #30
+    Continue()
+END
+
+IF
+  StateCheck(Myself, STATE_INVISIBLE)
+  !AttackedBy([ANYONE], DEFAULT)
+  See(FifthNearestEnemyOf(Myself))
+  !Range(FifthNearestEnemyOf(Myself), 5)
+THEN
+  RESPONSE #70
+    MoveToObject(LastSeenBy(Myself))
+  RESPONSE #30
+    Continue()
+END
+
+IF
+  StateCheck(Myself, STATE_INVISIBLE)
+  !AttackedBy([ANYONE], DEFAULT)
+  See(FourthNearestEnemyOf(Myself))
+  !Range(FourthNearestEnemyOf(Myself), 5)
+THEN
+  RESPONSE #70
+    MoveToObject(LastSeenBy(Myself))
+  RESPONSE #30
+    Continue()
+END
+
+IF
+  StateCheck(Myself, STATE_INVISIBLE)
+  !AttackedBy([ANYONE], DEFAULT)
+  See(ThirdNearestEnemyOf(Myself))
+  !Range(ThirdNearestEnemyOf(Myself), 5)
+THEN
+  RESPONSE #70
+    MoveToObject(LastSeenBy(Myself))
+  RESPONSE #30
+    Continue()
+END
+
+IF
+  StateCheck(Myself, STATE_INVISIBLE)
+  !AttackedBy([ANYONE], DEFAULT)
+  See(SecondNearestEnemyOf(Myself))
+  !Range(SecondNearestEnemyOf(Myself), 5)
+THEN
+  RESPONSE #70
+    MoveToObject(LastSeenBy(Myself))
+  RESPONSE #30
+    Continue()
+END
+
+

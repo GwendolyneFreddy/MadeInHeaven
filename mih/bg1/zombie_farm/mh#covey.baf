@@ -1,0 +1,26 @@
+IF
+  AttackedBy([GOODCUTOFF], DEFAULT)
+  Allegiance(Myself, NEUTRAL)
+THEN
+  RESPONSE #100
+    SetGlobal("mh#CoveyAttacked", "GLOBAL", 1)
+    Enemy()
+END
+
+IF
+  Global("mh#CoveyAttacked", "GLOBAL", 1)
+  Allegiance(Myself, NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  Global("mh#CoveyAttacked", "GLOBAL", 1)
+  !Range(NearestEnemyOf(Myself), 20)
+THEN
+  RESPONSE #100
+    MoveToObject(NearestEnemyOf(Myself))
+END
+
+
