@@ -298,6 +298,8 @@ END
 BEGIN "Wear Protection Items with Magical Armor"
 GROUP "Rule Tweaks"
 
+DEPRECATED "This mod is now part of Tweak Anthologies"
+
 LAUNCH_ACTION_FUNCTION "install_component"
   STR_VAR
   component_name	= "no_armor_exclude"
@@ -347,6 +349,21 @@ REQUIRE_PREDICATE ENGINE_IS "bg2 tob bgee bg2ee"
 LAUNCH_ACTION_FUNCTION "install_component"
   STR_VAR
   component_name	= "level_locked_spell_scrolls"
+END
+
+
+// ==============================
+// More Versatile Light Crossbows
+// ==============================
+
+BEGIN "More Versatile Light Crossbows"
+GROUP "Rule Tweaks"
+
+//DEPRECATED "This mod is now part of Tweak Anthologies"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "versatile_light_crossbows"
 END
 
 
