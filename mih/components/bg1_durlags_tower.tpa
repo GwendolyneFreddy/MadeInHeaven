@@ -1,0 +1,90 @@
+// Enhanced Durlag's Tower
+
+LAUNCH_ACTION_FUNCTION install_component
+  STR_VAR
+  component_name	= "mih_monster_pack"
+END
+
+
+// New spawn groups for games supporting it
+
+ACTION_IF FILE_EXISTS_IN_GAME "spawngrp.2da"
+BEGIN
+  APPEND_COL "spawngrp.2da" "$ $ RDBGdopp 80 %tutu_var%dopple %tutu_var%dopple %tutu_var%doppgr %tutu_var%doppgr %tutu_var%dopple %tutu_var%dopple * *" UNLESS "RDBGdopp"
+END
+
+
+// Outside area
+
+COPY_EXISTING "%DurlagsTower%.are" "override"
+  // Move unreachable Greater Ghoul
+  LAUNCH_PATCH_FUNCTION ALTER_AREA_ACTOR
+    INT_VAR
+    x_coord		= 410
+    y_coord		= 2110
+    dest_x		= 410
+    dest_y		= 2110
+    orient		= 9
+    STR_VAR
+    actor_name		= "Greater Ghoul"
+  END
+
+  // Additional monsters
+  LAUNCH_PATCH_FUNCTION add_area_actors_from_2da
+    INT_VAR
+    bgt_compat		= 1
+    tutu_compat		= 1
+    STR_VAR
+    path_to_2da		= "%MOD_FOLDER%/bg1/durlags_tower/bg0500.2da"
+  END
+
+  // Alter spawn points
+  GET_OFFSET_ARRAY spawn_array ARE_V10_SPAWN_POINTS
+  PHP_EACH spawn_array AS int => spawn_offset
+  BEGIN
+    WRITE_SHORT (spawn_offset + 0x0074) 3
+
+    PATCH_IF FILE_EXISTS_IN_GAME "spawngrp.2da"
+    BEGIN
+      WRITE_ASCII (spawn_offset + 0x0024) "RDBGdopp" #8
+      WRITE_ASCII (spawn_offset + 0x002c) "RDBGdopp" #8
+      WRITE_ASCII (spawn_offset + 0x0034) "%tutu_scriptbg%basill" #8
+    END
+    ELSE
+    BEGIN
+      WRITE_ASCII (spawn_offset + 0x0024) "dopple" #8
+      WRITE_ASCII (spawn_offset + 0x002c) "doppgr" #8
+      WRITE_ASCII (spawn_offset + 0x0034) "%tutu_scriptbg%basill" #8
+    END
+  END
+
+
+// Cellar & Upper Floors (more ghasts)
+
+COPY_EXISTING "%DurlagsTower_Cellar%.are" "override"
+  LAUNCH_PATCH_FUNCTION add_area_actors_from_2da
+    INT_VAR
+    tutu_compat		= 1
+    STR_VAR
+    path_to_2da		= "%MOD_FOLDER%/bg1/durlags_tower/bg0501.2da"
+  END
+
+
+COPY_EXISTING "%DurlagsTower_L2%.are" "override"
+  LAUNCH_PATCH_FUNCTION add_area_actors_from_2da
+    INT_VAR
+    tutu_compat		= 1
+    STR_VAR
+    path_to_2da		= "%MOD_FOLDER%/bg1/durlags_tower/bg0503.2da"
+  END
+
+
+COPY_EXISTING "%DurlagsTower_L4%.are" "override"
+  LAUNCH_PATCH_FUNCTION add_area_actors_from_2da
+    INT_VAR
+    tutu_compat		= 1
+    STR_VAR
+    path_to_2da		= "%MOD_FOLDER%/bg1/durlags_tower/bg0505.2da"
+  END
+
+

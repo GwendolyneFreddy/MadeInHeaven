@@ -19,6 +19,8 @@ Baldur's Gate 1:
 - Enhanced Ulcaster Ruins
 - Enhanced Xvart Village
 - Enhanced Zombie Farm
+- Enhanced Isle of Balduran
+- Enhanced Durlag's Tower
 - Creature Corrections
 - Missing Dialogs
 - Shop Fixes & Tweaks
@@ -36,6 +38,7 @@ Rule Tweaks:
 - Alternative Druid XP Table
 - Level-locked Spell Scrolls
 - More Versatile Bucklers & Small Shields
+- More Versatile Light Crossbows
 - Alternative Stat Bonuses
 - Extended HP Dice Rolls
 
@@ -196,13 +199,52 @@ Enhanced Xvart Village
 
 This component seeks to make the Xvart Village area west of Nashkel a bit more
 of a challenge.  It's still not that hard, but you can expect the xvarts to
-put up much more of a fight in the defense of their homes.
+put up much more of a fight in the defense of their homes.  Nextlit the Xvart
+is now a full-fledged fighter, and the xvarts will be more numerous.  They
+also now have a few shamans and adepts aiding them in battle, and have learned
+to set up some simple traps for the unwary of foot...
 
-List of changes:
-- Number of xvarts at the north- and south entrances has doubled.
-- The xvarts now have a few low-level spellcasters for backup.
-- Nexlit the Xvart is a full-fledged 4th level fighter.
-- A few minor traps have been added to the area.
+
+====================
+Enhanced Zombie Farm
+====================
+
+The farms north of the river were a quite boring area, with just a bunch of
+zombies to slay for some pitiful gold and experience.  This modification tries
+to turn it into something more exciting.
+
+The first part plays exactly as before, except that the zombies now have the
+stats and defenses of ju-ju zombies, making them fairly dangerous.  You still
+have to slay all twenty and collect your reward from Wenric.
+
+However, during the final chapter of BG1, Wenric will come looking for you
+with dire news, something else has invaded the peaceful farmlands.  If you
+decide to help Wenric again you will fight an entirely new encounter at the
+farmlands.  And although Wenric has no gold to give this time, there might be
+a karmic reward after all, if you have been good...
+
+
+=========================
+Enhanced Isle of Balduran
+=========================
+
+This small enhancement adds one new encounter near the shipwreck on the
+island.  You will also meet more resistance within the ship itself, so beware!
+
+
+=======================
+Enhanced Durlag's Tower
+=======================
+
+While the dreaded tower is already plenty dangerous, I felt there was still
+room for some extra excitement!
+
+The fun already starts in the outside area, where you may encounter slightly
+more dangerous monsters than just common skeletons...  There will also be more
+basilisks roosting on the rooftop, and occasionally one may wander elsewhere,
+so better be prepared!  There is also a minor restoration in that a lonely
+greater ghoul who was previously trapped on a unreachable ledge has now been
+moved to a location where it can be actually encountered.
 
 
 ====================
@@ -377,9 +419,9 @@ This component does not work with the original Baldur's Gate and Icewind dale,
 the BG2 engine or better is required.
 
 
-=========================================
-More Versatile Bucklers and Small Shields
-=========================================
+====================================
+Versatile Bucklers and Small Shields
+====================================
 
 Implementing a house rule of a GM friend of mine, this component allows mages
 to use bucklers and thieves to use small shields.  I feel this makes bucklers
@@ -390,6 +432,14 @@ medium- and large shields.  This modification checks their animation to tell
 the difference.  Unfortunately this means that some mod-added bucklers that use
 a different animation, like those from Rogue Rebalancing, whill not be affected.
 This is not an issue in IWD where shields do have separate item types.
+
+
+=========================
+Versatile Light Crossbows
+=========================
+
+Another house rule of that GM friend of mine, this modification lets
+single-class mages use light crossbows.
 
 
 ========================
