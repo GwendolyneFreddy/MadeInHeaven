@@ -45,3 +45,15 @@ LAUNCH_ACTION_FUNCTION cd_extend_bg_area_script
 END
 
 
+// ======================================
+// Erase Journal Entries when BGT is over
+// ======================================
+
+ACTION_FOR_EACH dialog IN "mh#surg1" "mh#surg2"
+BEGIN
+  LAUNCH_ACTION_FUNCTION erase_journal_entries_on_bg2_transition
+    STR_VAR
+    dialog
+  END
+END
+

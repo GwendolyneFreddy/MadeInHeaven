@@ -99,3 +99,16 @@ COPY_EXISTING "%MutaminsGarden%.are" "override"
   END
 
 
+// ======================================
+// Erase Journal Entries when BGT is over
+// ======================================
+
+ACTION_FOR_EACH dialog IN "mh#lurch" "mh#stngr" "mh#trish"
+BEGIN
+  LAUNCH_ACTION_FUNCTION erase_journal_entries_on_bg2_transition
+    STR_VAR
+    dialog
+  END
+END
+
+

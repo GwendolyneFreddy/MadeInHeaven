@@ -30,6 +30,11 @@ LAUNCH_ACTION_FUNCTION compile_dialog_or_script
   path_to_file		= "%MOD_FOLDER%/item_pack/bgt/dialog/mh#brok1.d"
 END
 
+LAUNCH_ACTION_FUNCTION erase_journal_entries_on_bg2_transition
+  STR_VAR
+  dialog		= "mh#brok1"
+END
+
 
 COPY "%MOD_FOLDER%/item_pack/bgt/stores/mh#brok1.sto" "override"
   SAY NAME2 "Brokk's Forge"
@@ -69,6 +74,11 @@ COPY "%MOD_FOLDER%/item_pack/bgt/actors/mh#tania.cre" "override"
 LAUNCH_ACTION_FUNCTION compile_dialog_or_script
   STR_VAR
   path_to_file		= "%MOD_FOLDER%/item_pack/bgt/dialog/mh#tania.d"
+END
+
+LAUNCH_ACTION_FUNCTION erase_journal_entries_on_bg2_transition
+  STR_VAR
+  dialog		= "mh#tania"
 END
 
 
@@ -477,6 +487,11 @@ LAUNCH_ACTION_FUNCTION compile_dialog_or_script
   path_to_file		= "%MOD_FOLDER%/item_pack/bgt/dialog/letha_helen.d"
 END
 
+LAUNCH_ACTION_FUNCTION erase_journal_entries_on_bg2_transition
+  STR_VAR
+  dialog		= "mh#tania"
+END
+
 
 COPY_EXISTING "%IsleofBalduranS%.are" "override"
   LAUNCH_PATCH_FUNCTION add_area_actor
@@ -498,5 +513,18 @@ COPY_EXISTING "%IsleofBalduranN%.are" "override"
     STR_VAR
     cre_resref		= "mh#letha"
   END
+
+
+// ======================================
+// Erase Journal Entries when BGT is over
+// ======================================
+
+ACTION_FOR_EACH dialog IN "mh#brok1" "mh#helen" "mh#letha" "mh#tania"
+BEGIN
+  LAUNCH_ACTION_FUNCTION erase_journal_entries_on_bg2_transition
+    STR_VAR
+    dialog
+  END
+END
 
 

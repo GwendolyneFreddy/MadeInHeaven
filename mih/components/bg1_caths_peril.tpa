@@ -75,3 +75,13 @@ LAUNCH_ACTION_FUNCTION cd_extend_bg_area_script
 END
 
 
+// ==============================================
+// Erase Journal Entries on BG2 transition in BGT
+// ==============================================
+
+LAUNCH_ACTION_FUNCTION erase_journal_entries_on_bg2_transition
+  STR_VAR
+  dialog	= "mh#cath"
+END
+
+
