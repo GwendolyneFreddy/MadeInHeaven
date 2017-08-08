@@ -389,6 +389,53 @@ Only usable by:
  Thief"
 
 
+// mh#boot2 - Boots of Striding and Springing
+
+COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#boot2.itm" "override"
+  SAY NAME2 "Boots of Striding and Springing"
+  SAY IDENTIFIED_DESC "Boots of Striding and Springing
+
+These enchanted boots make the wearer exceptionally light on her feet, allowing her to sprint, dash and tumble with ease.  This makes the wearer harder to hit in battle, and allows for quicker movement.  No details about previous owners of this specific pair are known, it's possible they are relatively new and haven't been worn by anyone famous or notorious enough to be noteworthy yet.
+
+STATISTICS:
+
+Armor Class: +1 bonus
+Movement: +2 bonus
+Weight: 4"
+
+
+// mh#brac1 - Bracers of Winter's Chill
+
+COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#brac1.itm" "override"
+  SAY NAME2 "Bracers of Winter's Chill"
+  SAY IDENTIFIED_DESC "Bracers of Winter's Chill
+
+Not all items of great power have a heroic background, in fact just as many if not more are made by unscrupulous wizards out of vanity or greed, or by evil clerics at the command of their dark deities.  This particular item is an example of the latter, created by a cleric of Auril.  The Frost Maiden commands her followers to snuff all fires and open all structures to the icy cold, making the northern lands and eventually the entire world into a frozen hell with no light or warmth.  Of course many more benevolent powers seek to oppose such dark designs, and this struggle continues in the cold northern lands of Faerun to this day.
+
+These bracers were forged as a weapon to be used by the followers of Auril, but one of their number had a crisis of faith and defected from the church, taking the bracers with her.  She fled south to escape Auril's icy grasp, and made it all the way to the Sword Coast before assassins sent by her former church caught up with her.  Fortunately for her, a passing group of adventurers foiled the assassination attempt, and out of thankfulness she joined them.  They had many more adventures together, until one day they ventured into the depths of Durlag's Tower and were never seen again.
+
+STATISTICS:
+
+Armor Class: base 4
+Fire Resistance: +30%
+Cold Resistance: +30%
+Abilities: Casts Ice Storm and Cone of Cold 1/day each.
+Weight: 2
+
+Only usable by:
+ Mage (single- or multi-class)"
+
+  PATCH_IF ENGINE_IS "bg1 totsc"
+  BEGIN
+    // BG1 engine does not support charges per day
+    LAUNCH_PATCH_FUNCTION ALTER_ITEM_HEADER
+      INT_VAR
+      charges		= 12
+      flag_recharge	= 0
+    END
+  END
+
+
 // mh#btax1 - Foesplitter +1
 
 CREATE EFF "mh#btax1"
@@ -424,6 +471,33 @@ Not usable by:
  Druid
  Cleric
  Mage 
+ Thief"
+
+// mh#btax2 - Trollkiller +3
+
+COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#btax2.itm" "override"
+  SAY NAME2 "Trollkiller +3"
+  SAY IDENTIFIED_DESC "Battle Axe +3: 'Trollkiller'
+
+This was the favored weapon of the dwarven hero Durlag 'Trollkiller', and true to its name he ended many a troll's life with it, not to mention several greater foes including a dragon.  This was also the weapon he used in that terrifying tenday when he fought to reclaim his tower from the dopplegangers that had infiltrated and murdered his clan.
+
+After the battle, he could no longer bear to look at it, and for many years it laid on a forgotten pile of treasure at the bottom of the death trap that Durlag had reshaped his tower into.  It was eventually reclaimed by <CHARNAME> when <PRO_HESHE> finally made <PRO_HISHER> way through many deadly traps and challenges.
+
+STATISTICS:
+
+THAC0: +3 bonus
+Damage: 1d8 +3, 70% change of +1d3 acid damage, 10% chance of +1d10 acid damage (these stack)
+Damage Type: Slashing (and Acid)
+Weight: 7
+Speed Factor: 4
+Proficiency Type: Axe
+Type: 1-handed
+Requires: 10 Strength
+
+Not usable by:
+ Cleric
+ Druid
+ Mage
  Thief"
 
 
@@ -484,19 +558,18 @@ Special: Wearer is immune to the Web spell and all spider webbing.
 Abilities: Casts Web as a 12th level wizard twice per day.
 Weight: 3"
 
-  // BG1 engine does not support charges per day
   PATCH_IF ENGINE_IS "bg1 totsc"
   BEGIN
+    // BG1 engine does not support charges per day
     LAUNCH_PATCH_FUNCTION ALTER_ITEM_HEADER
       INT_VAR
       charges		= 20
       flag_recharge	= 0
     END
   END
-
-  // Apply CamDawg's full web immunity macro on BG2 or better engine
-  PATCH_IF NOT ENGINE_IS "bg1 totsc"
+  ELSE
   BEGIN
+    // Apply CamDawg's full web immunity macro on BG2 or better engine
     LAUNCH_PATCH_FUNCTION cd_apply_batch
       STR_VAR
       array_name	= cd_immunity_web_arrays
@@ -529,6 +602,36 @@ Damage: 1d4 +1, +2 against all mages (including ogre mages)
 Damage type: piercing
 Weight: 1
 Speed Factor: 1
+Proficiency Type: Dagger
+Type: 1-handed
+Requires: 3 Strength
+
+Not usable by:
+ Cleric"
+
+
+// mh#dagg2 - Catclaw +3
+
+COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#dagg2.itm" "override"
+  SAY NAME2 "Catclaw +3"
+  SAY IDENTIFIED_DESC "Dagger +3: 'Catclaw'
+
+This well-made, finely balanced dagger was the property of a mysterious rogue known only as 'The Gray Mouser'.  A charismatic and notorious womanizer, the Mouser was far more interested in stealing hearts than treasure.  He has been seen in several cities on Faerun, sometimes in the company of a huge Northern barbarian named Fafhrd, who apparently shared his lecherous fondness of members of the opposite sex.  Nobody has ever been able to find out where they hale from; when asked they claimed a city named 'Lankhmar' was their home, but no city or town by that name exists anywhere on Faerun.
+
+One affair with a twin pair of noblewomen in Waterdeep ended with the two having to beat a hasty retreat, and it was apparently on this occasion that the Mouser lost Catclaw.  He has yet to come back to reclaim it, and it is not known if he is even looking for it.
+
+While the dagger functions well enough, a peculiarity in the enchantment suggests it might not have been created in Faerun, but somewhere else where magic functions slightly differently.  Whether Fafhrd and the Gray Mouser truly were travelers from another plane of existence nobody knows for sure, but such things are not unheard of in the Forgotten Realms.
+
+
+STATISTICS:
+
+Dexterity: +1 bonus
+Stealth: +10% bonus
+THAC0: +3 bonus
+Damage: 1d4 +3
+Damage Type: Piercing
+Weight: 1
+Speed Factor: 0
 Proficiency Type: Dagger
 Type: 1-handed
 Requires: 3 Strength
@@ -719,6 +822,74 @@ This sparkling golden fluid is an ethereal, rapidly evaporating thin oil.  When 
       array_name	= cd_full_dispel_arrays
     END
   END
+
+
+// mh#misc4 - Bag of Tricks
+
+ACTION_IF NOT ENGINE_IS "bg1 totsc"
+BEGIN
+  ACTION_FOR_EACH animal IN "bearbl" "bearbr" "bearca" "beargr" "bearpo" "catjag" "catlio" "dogwa" "dogwi" "etterc" "gibber" "jaguar" "rabbit" "spidgi" "spidph" "wolf" "wolfdi" "wolfwi" "worg" "wyvern"
+  BEGIN
+    ACTION_IF NOT FILE_EXISTS_IN_GAME "%animal%su.cre"
+    BEGIN
+      ACTION_IF FILE_EXISTS_IN_GAME "%animal%.cre"
+      BEGIN
+        COPY "%MOD_FOLDER%/item_pack/bgt/actors/%animal%.cre" "override/%animal%su.cre"
+	  LAUNCH_PATCH_FUNCTION make_summon END
+      END
+      ELSE
+      BEGIN
+        COPY "%MOD_FOLDER%/item_pack/bgt/actors/%animal%su.cre" "override"
+      END
+    END
+
+    ACTION_IF NOT FILE_EXISTS_IN_GAME "%animal%su.eff"
+    BEGIN
+      CREATE EFF "%animal%su"
+        WRITE_LONG	0x0010 67	// Summon: Creature Summoning
+        WRITE_SHORT	0x0024 1	// Permanent
+        WRITE_SHORT	0x002c 100	// 100% chance
+        WRITE_ASCII	0x0030 "%animal%su" #8
+        WRITE_ASCII	0x0068 "spanisum" #8
+    END
+  END
+
+  COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#misc4.itm" "override"
+    SAY NAME1 "Bag"
+    SAY NAME2 "Bag of Tricks"
+    SAY UNIDENTIFIED_DESC "Bag
+
+This seems to be a rather plain-looking burlap sack used to store common items, but something does not seem quite right.  Occasionally the bag seems to be moving, and when you reach inside, sometimes you feel something warm and fuzzy brush against your hand."
+    SAY IDENTIFIED_DESC "Bag of Tricks: 'Thierdon's Crutch'
+
+Thierdon was a druid in the forest of Tethyr hundreds of years ago.  Not very strong himself, he often relied on animal companions to aid him in battle against orc raiders and others who defiled the forest.  He found that this was a disadvantage when he was not in his beloved woods, and thus he created this magical bag so he would always have an animal companion with him no matter where he went.
+
+The plain look of this enchanted burlap sack hides a powerful summoning magic inside.  Once per day, the owner may reach inside and pull a small fuzzy object out.  This object can be tossed up to 20 feet, and upon landing will turn into a random animal.  It can be anything from a tiny rabbit to a large wyvern, but the creature will always be friendly to the owner of the bag.  The creature will attack enemies to the best of its ability, until it is slain in battle or one turn has passed.  If no enemies are around, the animal might perform other services if it is able to do so.
+
+STATISTICS:
+
+Ability: Summons a single random animal once per day for one turn.
+Weight: 2" 
+END
+ELSE
+BEGIN
+  COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#misc4-bg1.itm" "override/mh#misc4.itm"
+    SAY NAME1 "Bag"
+    SAY NAME2 "Bag of Tricks"
+    SAY UNIDENTIFIED_DESC "Bag
+
+This seems to be a rather plain-looking burlap sack used to store common items, but something does not seem quite right.  Occasionally the bag seems to be moving, and when you reach inside, sometimes you feel something warm and fuzzy brush against your hand."
+    SAY IDENTIFIED_DESC "Bag of Tricks: 'Thierdon's Crutch'
+
+Thierdon was a druid in the forest of Tethyr hundreds of years ago.  Not very strong himself, he often relied on animal companions to aid him in battle against orc raiders and others who defiled the forest.  He found that this was a disadvantage when he was not in his beloved woods, and thus he created this magical bag so he would always have an animal companion with him no matter where he went.
+
+The plain look of this enchanted burlap sack hides a powerful summoning magic inside.  The bag contains several fuzzy objects which when taken out can be tossed up to twenty feet.  Upon landing, the object will become a cave bear that is friendly to the owner of the bag and will attack his enemies to the best of its ability.  Bears summoned will remain until slain, or one turn has passed, and the bag can be used twelve times before it is exhausted.
+
+STATISTICS:
+
+Ability: Summons a friendly cave bear up to twelve times.
+Weight: 2" 
+END
 
 
 // mh#ring1 - Ring of Warmth

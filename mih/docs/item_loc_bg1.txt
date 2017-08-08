@@ -14,14 +14,19 @@ mh#blun1	Slime Crusher +1		Brokk (shop)
 mh#blun2	Blessed Mace +2			Durlag's Tower D4 (replaces Krotan's Skullcrusher, which is moved to Candlekeep)
 
 mh#boot1	Feather Tabi			Black Lily (shop)
+mh#boot2	Boots of Striding and Springing	Carnival magic trinkets shop
+
+mh#brac1	Bracers of Winter's Chill	Durlag's Tower D4 (replaces worthless Bracers of Defense AC 8)
 
 mh#btax1	Foesplitter +1			Cloakwood Mine L3 (armory)
+mh#btax2	Trollkiller +3			Durlag's Tower D4 (on treasure pile in inner vault)
 
 mh#clck1	Mutamin's Cloak			Mutamin (where else?)
 mh#clck2	Battlecloak of Vycaena		Durlag's Tower D4 (replaces Cloak of the Shield, this is moved to Firewine)
 mh#clck3	Cloak of Arachnida		Sorcerous Sundries (shop)
 
 mh#dagg1	Mage Masher +1			Brokk (shop)
+mh#dagg2	Catclaw +3			Durlag's Tower D4 (replaces Flame Tongue, this is moved to D1)
 
 mh#hamm1	Thronumin +3			Ulgoth's Beard (replaces the Knee-Capper, this is moved to Bassilus)
 
@@ -34,6 +39,7 @@ mh#ioun2	Pearl of Power			Isle of Balduran (new enounter in wilderness)
 mh#misc1	Green Dragon Scales		Durlag's Tower D4 (in bag)
 mh#misc2	Meteoric Iron			Balduran's Ship (cargo hold)
 mh#misc3	Telkiira			Isle of Balduran (new encounter in village)
+mh#misc4	Bag of Tricks			Carnival magic trinkets shop
 
 mh#potn1	Oil of Acid Resistance		various shops and dungeons
 mh#potn2	Oil of Disenchantment		various shops and dungeons

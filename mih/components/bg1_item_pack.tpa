@@ -30,12 +30,6 @@ LAUNCH_ACTION_FUNCTION compile_dialog_or_script
   path_to_file		= "%MOD_FOLDER%/item_pack/bgt/dialog/mh#brok1.d"
 END
 
-LAUNCH_ACTION_FUNCTION erase_journal_entries_on_bg2_transition
-  STR_VAR
-  dialog		= "mh#brok1"
-END
-
-
 COPY "%MOD_FOLDER%/item_pack/bgt/stores/mh#brok1.sto" "override"
   SAY NAME2 "Brokk's Forge"
 
@@ -75,12 +69,6 @@ LAUNCH_ACTION_FUNCTION compile_dialog_or_script
   STR_VAR
   path_to_file		= "%MOD_FOLDER%/item_pack/bgt/dialog/mh#tania.d"
 END
-
-LAUNCH_ACTION_FUNCTION erase_journal_entries_on_bg2_transition
-  STR_VAR
-  dialog		= "mh#tania"
-END
-
 
 COPY_EXISTING "%NashkelCarnival_ArmorTent%.are" "override"
   LAUNCH_PATCH_FUNCTION add_area_actor
@@ -163,6 +151,12 @@ COPY_EXISTING "%tutu_var%tem4003.sto" "override"
   ADD_STORE_ITEM "mh#amul4" LAST #0 #0 #0 "identified" #1
 
 
+// Carnival magic trinkets shop sells Boots of S&S and Bag of Tricks
+COPY_EXISTING "%tutu_var%sto4906.sto" "override"
+  ADD_STORE_ITEM "mh#misc4" LAST #1 #0 #0 "identified" #1
+  ADD_STORE_ITEM "mh#boot2" LAST #0 #0 #0 "identified" #1
+
+
 // Give Bjornin the Shield of the Phoenix
 
 COPY_EXISTING "%tutu_var%bjorni.cre" "override"
@@ -223,12 +217,10 @@ COPY_EXISTING "%tutu_var%hurgan.dlg" "override"
   END
 
 
-// Move Knee-capper to Bassilus
 COPY_EXISTING "%tutu_var%bassil.cre" "override"
   REPLACE_CRE_ITEM "%tutu_var%hamm04" #0 #0 #0 "none" "weapon1" EQUIP
 
 
-// Move Aishideena to Taugos
 COPY_EXISTING "%tutu_var%taugos.cre" "override"
   REPLACE_CRE_ITEM "%tutu_var%hamm03" #0 #0 #0 "none" "weapon1" EQUIP
 
@@ -372,6 +364,22 @@ COPY_EXISTING "%IsleofBalduranNShip_D1%.are" "override"
 
 // Durlag's Tower
 
+COPY_EXISTING "%tutu_scriptbg%skelwa.cre" "override/mh#skwft.cre"
+  REPLACE_CRE_ITEM "%tutu_var%sw1h24" #0 #0 #0 "none" "weapon1" EQUIP
+  ADD_CRE_ITEM "%tutu_var%shld06" #0 #0 #0 "none" "shield"
+  REPLACE_CRE_ITEM "%tutu_var%helm12" #0 #0 #0 "none" "helmet"
+
+
+COPY_EXISTING "%DurlagsTower_D1%.are" "override"
+  LAUNCH_PATCH_FUNCTION add_area_actors_from_2da
+    INT_VAR
+    tutu_compat		= 1
+    bgt_compat		= 1
+    STR_VAR
+    path_to_2da		= "%MOD_FOLDER%/item_pack/bgt/tables/bg0511.2da"
+  END
+
+
 COPY_EXISTING "%DurlagsTower_D4%.are" "override"
   // Replace Cloak of the Shield with Battlecloak of Vycaena
   LAUNCH_PATCH_FUNCTION REPLACE_AREA_ITEM
@@ -385,6 +393,28 @@ COPY_EXISTING "%DurlagsTower_D4%.are" "override"
     STR_VAR
     old_item		= "%tutu_var%blun11"
     new_item		= "mh#blun2"
+  END
+
+  // Replace Bracers of Defense AC 8 with Bracers of Winter's Chill
+  LAUNCH_PATCH_FUNCTION REPLACE_AREA_ITEM
+    STR_VAR
+    old_item		= "%tutu_var%brac01"
+    new_item		= "mh#brac1"
+  END
+
+  // Replace Flame Tongue with Catclaw +3
+  LAUNCH_PATCH_FUNCTION REPLACE_AREA_ITEM
+    STR_VAR
+    old_item		= "%tutu_var%sw1h24"
+    new_item		= "mh#dagg2"
+  END
+
+  // Add Trollkiller +3
+  LAUNCH_PATCH_FUNCTION ADD_AREA_ITEM
+    INT_VAR
+    container_to_add_to	= 36
+    STR_VAR
+    item_to_add		= "mh#btax2"
   END
 
   // Add green dragon scales
@@ -486,12 +516,6 @@ LAUNCH_ACTION_FUNCTION compile_dialog_or_script
   STR_VAR
   path_to_file		= "%MOD_FOLDER%/item_pack/bgt/dialog/letha_helen.d"
 END
-
-LAUNCH_ACTION_FUNCTION erase_journal_entries_on_bg2_transition
-  STR_VAR
-  dialog		= "mh#tania"
-END
-
 
 COPY_EXISTING "%IsleofBalduranS%.are" "override"
   LAUNCH_PATCH_FUNCTION add_area_actor

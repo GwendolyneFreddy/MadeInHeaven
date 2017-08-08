@@ -14,14 +14,19 @@ mh#blun1	Slime Crusher +1		morning star +1, +4 vs. Slimes
 mh#blun2	Blessed Mace +2			mace +2, user is blessed, +2 dmg to undead & fiends
 
 mh#boot1	Feather Tabi			+25% stealth, +10% find/remove traps			Complete Ninja's Handbook (2E)
+mh#boot2	Boots of Striding and Springing	movement rate +2, +1 AC					Dungeon Master Guide (2E)
+
+mh#brac1	Bracers of Winter's Chill	AC 4, +30% fire/ice, Ice Storm & Cone of Cold 1/day
 
 mh#btax1	Foesplitter +1			counts as +3, 10% chance of double damage		Races of Faerun (3E)
+mh#btax2	Trollkiller +3			70% chance of 1d3 acid, 10% chance of 1d10 acid
 
 mh#clck1	Mutamin's Cloak			petrification immunity
 mh#clck2	Battlecloak of Vycaena		+4 AC, +1 saves						Fallen Empires of Faerun (3E)
 mh#clck3	Cloak of Arachnida		+2 vs death, web immunity, casts Web 2/day		Dungeon Master Guide (2E)
 
 mh#dagg1	Mage Masher +1			+2 vs. mages						Final Fantasy IV
+mh#dagg2	Catclaw +3			+1 dexterity, +10% stealth				Fafhrd & The Gray Mouser
 
 mh#hamm1	Thronumin +3			+3 war hammer, +1 AC
 
@@ -34,6 +39,7 @@ mh#ioun2	Pearl of Power			+1 4rd and 5th level wizard spell slots			Dungeon Mast
 mh#misc1	Green Dragon Scales		preserved dragon scales used as a component
 mh#misc2	Meteoric Iron			lump of meteoric iron used as a component
 mh#misc3	Telkiira			+2 intelligence, +2 vs spell, elf only, trade item	Lost Empires of Faerun (3E)
+mh#misc4	Bag of Tricks			summons a random animal once per day			Dungeon Master's Guide (2E)
 
 mh#potn1	Oil of Acid Resistance		+90% acid resistance for 10 turns			Dungeon Master Guide (2E)
 mh#potn2	Oil of Disenchantment		Removes magical effects from target			Dungeon Master Guide (2E)
