@@ -9,6 +9,7 @@ mh#armr3	Winter Wolf Hide +1		Tania (event)
 
 mh#belt1	Girdle of Dwarvenkind		Brokk (event)
 mh#belt2	Girdle of Cloud Giant Strength	Durlag's Tower D4 (on Grael)
+mh#belt3	Sunite Sash			Durlag's Tower L4 (on Kirinhale)
 
 mh#blun1	Slime Crusher +1		Brokk (shop)
 mh#blun2	Blessed Mace +2			Durlag's Tower D4 (replaces Krotan's Skullcrusher, which is moved to Candlekeep)
@@ -17,6 +18,7 @@ mh#boot1	Feather Tabi			Black Lily (shop)
 mh#boot2	Boots of Striding and Springing	Carnival magic trinkets shop
 
 mh#brac1	Bracers of Winter's Chill	Durlag's Tower D4 (replaces worthless Bracers of Defense AC 8)
+mh#brac2	Gauntlets of the Dwarven King	Durlag's Tower D1 (in a bag)
 
 mh#btax1	Foesplitter +1			Cloakwood Mine L3 (armory)
 mh#btax2	Trollkiller +3			Durlag's Tower D4 (on treasure pile in inner vault)

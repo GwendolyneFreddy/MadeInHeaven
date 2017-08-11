@@ -292,6 +292,32 @@ Strength: set to 23
 Weight: 2"
 
 
+// mh#belt3 - Sunite Sash
+
+COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#belt3.itm" "override"
+  SAY NAME2 "Sunite Sash"
+  SAY IDENTIFIED_DESC "Sunite Sash
+
+This scarlet sash is woven of fine red threat and gold wire.  Sashes like these are created by the clergy of Sune and worn by their most prominent members.  This particular one was worn by a Sunite whom was whispered to have a lover from another plane of existence.  However, the relation seems to not have been a beneficial one.  One day his corpse was drained of all life, lying naked on his bed.  Whomever was responsible had taken the sash with her.
+
+STATISTICS:
+
+Armor Class: +2 bonus
+Charisma: +2 bonus
+Ability: Casts Burning Hands 1/day
+Weight: 2"
+
+  PATCH_IF ENGINE_IS "bg1 totsc"
+  BEGIN
+    // BG1 engine does not support charges per day
+    LAUNCH_PATCH_FUNCTION ALTER_ITEM_HEADER
+      INT_VAR
+      charges		= 12
+      flag_recharge	= 0
+    END
+  END
+
+
 // mh#blun1 - Slime Crusher +1
 
 CREATE EFF "mh#blun1"
@@ -434,6 +460,26 @@ Only usable by:
       flag_recharge	= 0
     END
   END
+
+
+// mh#brac2 - Gauntlets of the Dwarven King
+
+COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#brac2.itm" "override"
+  SAY NAME2 "Gauntlets of the Dwarven King"
+  SAY IDENTIFIED_DESC "Gauntlets of the Dwarven King
+
+
+
+STATISTICS:
+
+Armor Class: +1 bonus
+Hit Points: +5 maximum
+Weight: 5
+
+Only usable by:
+ Fighter
+ Paladin
+ Ranger"
 
 
 // mh#btax1 - Foesplitter +1
@@ -1098,7 +1144,7 @@ COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#swrd3.itm" "override"
   SAY NAME2 "Selune's Blessing +1"
   SAY IDENTIFIED_DESC "Scimitar +1, +3 vs. Lycanthropes & Undead: 'Selune's Blessing'
 
-Hundreds of years ago, a cleric of Selune got lost in the High Forest, and would surely have perished if she hadn't been found by a kind-hearted druid.  He introduced her to his circle and they became friends and, despite their differences in faith, lovers.  At some point when horrid monsters threated the forest, the cleric prayed to her goddess under the light of a full moon to help her friends.  Suddenly milky white light flooded the altar and condensed into solid form, creating this blessed scimitar.  The Selunite gave it to her druidic friend and together they successfully defended the forest, after which they married and lived a long and happy life.  This scimitar has remained a beacon of hope and the bane of things that go bump in the night ever since.
+This scimitar is said to have been created by Selune herself in a manifestation of moonfire.  Valia, a priestess of the Moon Maiden, once got lost in the High Forest had a kind druid not found her and guided her back to civilization.  Later on, when Valia heard that the druids were under attack by dangerous creatures of the night, she prayed to her goddess for salvation of those who had helped her.  One night under a full moon her prayers were answered when the alter glowed with milky-white light which solidified and condenced to form this scimitar.  Valia traveled to the druid grove and presented the weapon to them, and then volunteered to stay and help them fight off the threat, and eventually they were successful.  Since then, this scimitar has been a beacon of hope for those who face the evil things that go bump in the night.
 
 STATISTICS:
 

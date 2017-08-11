@@ -6,7 +6,9 @@ LAUNCH_ACTION_FUNCTION "install_component"
 END
 
 
+// =============
 // Brokk's Forge
+// =============
 
 COPY "%MOD_FOLDER%/item_pack/bgt/actors/mh#brok1.cre" "override"
   SAY NAME1 "Brokk"
@@ -47,7 +49,9 @@ COPY_EXISTING "%FriendlyArmInn_House%.are" "override"
   END
 
 
+// ============================
 // Tania the magical seamstress
+// ============================
 
 COPY "%MOD_FOLDER%/item_pack/bgt/actors/mh#tania.cre" "override"
   SAY NAME1 "Tania"
@@ -81,7 +85,9 @@ COPY_EXISTING "%NashkelCarnival_ArmorTent%.are" "override"
   END
 
 
-// Replace some overpowered easter eggs with lesser items
+// =======================
+// Easter Egg Replacements
+// =======================
 
 COPY_EXISTING "%FriendlyArmInn%.are" "override"
   LAUNCH_PATCH_FUNCTION REPLACE_AREA_ITEM
@@ -115,7 +121,9 @@ COPY_EXISTING "%Nashkel%.are" "override"
   END
 
 
-// Move Varscona to Bandit Camp, replace with Heartsblood
+// Varscona & Heartsblood shuffle
+// ==============================
+// ==============================
 
 COPY_EXISTING "%tutu_var%greywo.cre" "override"
   REPLACE_CRE_ITEM "mh#swrd2" #0 #0 #0 "none" "weapon1" EQUIP
@@ -125,13 +133,17 @@ COPY_EXISTING "%tutu_var%raemon.cre" "override"
   REPLACE_CRE_ITEM "%tutu_var%sw1h06" #0 #0 #0 "none" "weapon1" EQUIP
 
 
-// Give Mutamin his cloak
+// =====================
+// Mutamin and his cloak
+// =====================
 
 COPY_EXISTING "%tutu_var%mutami.cre" "override"
   ADD_CRE_ITEM "mh#clck1" #0 #0 #0 "none" "cloak"
 
 
-// Thalantyr sells Gem of Insight and the new potions
+// =======================
+// New items for Thalantyr
+// =======================
 
 COPY_EXISTING "%tutu_scripth%ighhedg.sto" "override"
   ADD_STORE_ITEM "mh#potn1" AFTER "%tutu_var%potn38" #1 #0 #0 "identified" #3
@@ -139,25 +151,34 @@ COPY_EXISTING "%tutu_scripth%ighhedg.sto" "override"
   ADD_STORE_ITEM "mh#amul2" LAST #1 #0 #0 "identified" #1
 
 
-// Song of the Morning sells Amulet against Undead
+// ======================================
+// New item in Song of the Morning temple
+// ======================================
 
 COPY_EXISTING "%tutu_var%tem3402.sto" "override"
   ADD_STORE_ITEM "mh#amul1" LAST #0 #0 #0 "identified" #1
 
 
-// Temple of Yondala sells Periapt of Health
+// =============================
+// New item in Temple of Yondala
+// =============================
 
 COPY_EXISTING "%tutu_var%tem4003.sto" "override"
   ADD_STORE_ITEM "mh#amul4" LAST #0 #0 #0 "identified" #1
 
 
-// Carnival magic trinkets shop sells Boots of S&S and Bag of Tricks
+// =========================================
+// New items in Carnival magic trinkets shop
+// =========================================
+
 COPY_EXISTING "%tutu_var%sto4906.sto" "override"
   ADD_STORE_ITEM "mh#misc4" LAST #1 #0 #0 "identified" #1
   ADD_STORE_ITEM "mh#boot2" LAST #0 #0 #0 "identified" #1
 
 
-// Give Bjornin the Shield of the Phoenix
+// ====================
+// Bjornin's new shield
+// ====================
 
 COPY_EXISTING "%tutu_var%bjorni.cre" "override"
   REPLACE_CRE_ITEM "mh#shld1" #0 #0 #0 "none" "qitem1"
@@ -170,7 +191,9 @@ COPY_EXISTING "%tutu_var%bjorni.dlg" "override"
   END
 
 
-// Add new potions to some shops and dungeons
+// =============================
+// New potions in various places
+// =============================
 
 COPY_EXISTING "%tutu_var%sto1115.sto" "override"
 	      "%tutu_var%sto4905.sto" "override"
@@ -198,13 +221,17 @@ COPY_EXISTING "%UlcasterRuins%.are" "override"
   END
 
 
-// The Lady's Hall sells Necklace of Prayer Beads
+// ===========================
+// New item in The Lady's Hall
+// ===========================
 
 COPY_EXISTING "%tutu_var%tem0132.sto" "override"
   ADD_STORE_ITEM "mh#amul3" LAST #3 #1 #1 "identified" #1
 
 
+// ========================
 // The Great Hammer Shuffle
+// ========================
 
 COPY_EXISTING "%tutu_var%hurgan.cre" "override"
   REPLACE_CRE_ITEM "mh#hamm1" #0 #0 #0 "none" "qitem3"
@@ -225,7 +252,9 @@ COPY_EXISTING "%tutu_var%taugos.cre" "override"
   REPLACE_CRE_ITEM "%tutu_var%hamm03" #0 #0 #0 "none" "weapon1" EQUIP
 
 
-// Black Alaric's Cave
+// ===============================
+// New item in Black Alaric's Cave
+// ===============================
 
 COPY_EXISTING "%Lighthouse_BlackAlaricsCave%.are" "override"
   LAUNCH_PATCH_FUNCTION ADD_AREA_ITEM
@@ -236,7 +265,9 @@ COPY_EXISTING "%Lighthouse_BlackAlaricsCave%.are" "override"
   END
 
 
-// New Cloakwood encounter for Terminus Est (mh#swrd1)
+// =======================
+// New Cloakwood encounter
+// =======================
 
 COPY "%MOD_FOLDER%/item_pack/bgt/actors/mh#drikx.cre" "override"
   SAY NAME1 "Drikx"
@@ -305,7 +336,9 @@ COPY_EXISTING "%CloakwoodWyverns%.are" "override"
   END
 
 
-// Put Foesplitter +1 in the dwarven armory at L3
+// ===============
+// Cloakwood Mines
+// ===============
 
 COPY_EXISTING "%CloakwoodMines_L3%.are" "override"
   LAUNCH_PATCH_FUNCTION ADD_AREA_ITEM
@@ -316,20 +349,26 @@ COPY_EXISTING "%CloakwoodMines_L3%.are" "override"
   END
 
 
-// Sorcerous Sundries sells Cloak of Arachnida & Oils of Acid Resistance
+// ===============================
+// New items in Sorcerous Sundries
+// ===============================
 
 COPY_EXISTING "%tutu_var%sto0703.sto" "override"
   ADD_STORE_ITEM "mh#potn1" AFTER "%tutu_var%potn45" #1 #0 #0 "identified" #3
   ADD_STORE_ITEM "mh#clck3" LAST #2 #0 #0 "identified" #1
 
 
-// Black Lily sells Feather Tabi
+// ========================
+// New items for Black Lily
+// ========================
 
 COPY_EXISTING "%tutu_scripts%toblack.sto" "override"
   ADD_STORE_ITEM "mh#boot1" LAST #0 #0 #0 "identified" #1
 
 
-// Candlekeep Catacombs L1
+// ====================
+// Candlekeep Catacombs
+// ====================
 
 COPY_EXISTING "%Candlekeep_Catacombs_L1%.are" "override"
   // Add some Oils of Acid Resistance
@@ -350,7 +389,56 @@ COPY_EXISTING "%Candlekeep_Catacombs_L1%.are" "override"
   END
 
 
-// Balduran's Ship
+// ================
+// Isle of Balduran
+// ================
+
+// Letha's quest
+
+COPY "%MOD_FOLDER%/item_pack/bgt/actors/mh#helen.cre" "override"
+  SAY NAME1 "Helen"
+  SAY NAME2 "Helen"
+
+
+COPY "%MOD_FOLDER%/item_pack/bgt/actors/mh#letha.cre" "override"
+  SAY NAME1 "Letha"
+  SAY NAME2 "Letha"
+
+
+LAUNCH_ACTION_FUNCTION compile_dialog_or_script
+  STR_VAR
+  path_to_file		= "%MOD_FOLDER%/item_pack/bgt/scripts/mh#helen.baf"
+END
+
+
+LAUNCH_ACTION_FUNCTION compile_dialog_or_script
+  STR_VAR
+  path_to_file		= "%MOD_FOLDER%/item_pack/bgt/dialog/letha_helen.d"
+END
+
+COPY_EXISTING "%IsleofBalduranS%.are" "override"
+  LAUNCH_PATCH_FUNCTION add_area_actor
+    INT_VAR 
+    x_position		= 345
+    y_position		= 3640
+    orientation		= 3
+    STR_VAR
+    cre_resref		= "mh#helen"
+  END
+
+
+COPY_EXISTING "%IsleofBalduranN%.are" "override"
+  LAUNCH_PATCH_FUNCTION add_area_actor
+    INT_VAR 
+    x_position		= 225
+    y_position		= 2615
+    orientation		= 1
+    STR_VAR
+    cre_resref		= "mh#letha"
+  END
+
+
+// New item in shipwreck
 
 COPY_EXISTING "%IsleofBalduranNShip_D1%.are" "override"
   // Add Meteoric Iron to cargo hold
@@ -362,7 +450,17 @@ COPY_EXISTING "%IsleofBalduranNShip_D1%.are" "override"
   END
 
 
+// ==============
 // Durlag's Tower
+// ==============
+
+// New item on Kirinhale
+
+COPY_EXISTING "%tutu_var%kirinh.cre" "override"
+  ADD_CRE_ITEM "mh#belt3" #0 #0 #0 "none" "belt"
+
+
+// New items and encounter on D1
 
 COPY_EXISTING "%tutu_scriptbg%skelwa.cre" "override/mh#skwft.cre"
   REPLACE_CRE_ITEM "%tutu_var%sw1h24" #0 #0 #0 "none" "weapon1" EQUIP
@@ -379,6 +477,16 @@ COPY_EXISTING "%DurlagsTower_D1%.are" "override"
     path_to_2da		= "%MOD_FOLDER%/item_pack/bgt/tables/bg0511.2da"
   END
 
+  // Add Gauntlets of the Dwarven King
+  LAUNCH_PATCH_FUNCTION ADD_AREA_ITEM
+    INT_VAR
+    container_to_add_to	= 19
+    STR_VAR
+    item_to_add		= "mh#brac2"
+  END
+
+
+// New items on D4
 
 COPY_EXISTING "%DurlagsTower_D4%.are" "override"
   // Replace Cloak of the Shield with Battlecloak of Vycaena
@@ -427,16 +535,19 @@ COPY_EXISTING "%DurlagsTower_D4%.are" "override"
 
 
 // Wizard's Hat on King
+
 COPY_EXISTING "%tutu_scriptbg%king.cre" "override"
   ADD_CRE_ITEM "mh#helm2" #0 #0 #0 "none" "helmet"
 
 
 // Girdle of Cloud Giant strength on Grael
+
 COPY_EXISTING "%tutu_var%grael.cre" "override"
   ADD_CRE_ITEM "mh#belt2" #0 #0 #0 "none" "belt"
 
 
 // Move Cloak of the Shield to Firewine
+
 COPY_EXISTING "%tutu_scripto%grema02.cre" "override"
   ADD_CRE_ITEM "%tutu_var%clck20" #20 #0 #0 "none" "cloak"
 
@@ -492,51 +603,6 @@ LAUNCH_ACTION_FUNCTION cd_extend_bg_area_script
   area			= "%Candlekeep_Ch6%"
   script		= "%MOD_FOLDER%/item_pack/bgt/scripts/bg2626"
 END
-
-
-// Letha's quest on Isle of Balduran for Pearl of Power.
-
-COPY "%MOD_FOLDER%/item_pack/bgt/actors/mh#helen.cre" "override"
-  SAY NAME1 "Helen"
-  SAY NAME2 "Helen"
-
-
-COPY "%MOD_FOLDER%/item_pack/bgt/actors/mh#letha.cre" "override"
-  SAY NAME1 "Letha"
-  SAY NAME2 "Letha"
-
-
-LAUNCH_ACTION_FUNCTION compile_dialog_or_script
-  STR_VAR
-  path_to_file		= "%MOD_FOLDER%/item_pack/bgt/scripts/mh#helen.baf"
-END
-
-
-LAUNCH_ACTION_FUNCTION compile_dialog_or_script
-  STR_VAR
-  path_to_file		= "%MOD_FOLDER%/item_pack/bgt/dialog/letha_helen.d"
-END
-
-COPY_EXISTING "%IsleofBalduranS%.are" "override"
-  LAUNCH_PATCH_FUNCTION add_area_actor
-    INT_VAR 
-    x_position		= 345
-    y_position		= 3640
-    orientation		= 3
-    STR_VAR
-    cre_resref		= "mh#helen"
-  END
-
-
-COPY_EXISTING "%IsleofBalduranN%.are" "override"
-  LAUNCH_PATCH_FUNCTION add_area_actor
-    INT_VAR 
-    x_position		= 225
-    y_position		= 2615
-    orientation		= 1
-    STR_VAR
-    cre_resref		= "mh#letha"
-  END
 
 
 // ======================================

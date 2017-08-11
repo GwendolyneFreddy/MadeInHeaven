@@ -9,14 +9,16 @@ mh#armr3	Winter Wolf Hide +1		base AC 5, +30% cold resistance
 
 mh#belt1	Girdle of Dwarvenkind		-1 cha, +1 con, +3 saves, infravision			Dungeon Master Guide (2E)
 mh#belt2	Girdle of Cloud Giant Strength	strength 23						Dungeon Master Guide (2E)
+mh#belt3	Sunite Sash			AC +2, charisma +2					Magic of Faerun (3E)
 
 mh#blun1	Slime Crusher +1		morning star +1, +4 vs. Slimes
 mh#blun2	Blessed Mace +2			mace +2, user is blessed, +2 dmg to undead & fiends
 
 mh#boot1	Feather Tabi			+25% stealth, +10% find/remove traps			Complete Ninja's Handbook (2E)
-mh#boot2	Boots of Striding and Springing	movement rate +2, +1 AC					Dungeon Master Guide (2E)
+mh#boot2	Boots of Striding and Springing	movement rate +2, AC +1					Dungeon Master Guide (2E)
 
 mh#brac1	Bracers of Winter's Chill	AC 4, +30% fire/ice, Ice Storm & Cone of Cold 1/day
+mh#brac2	Gauntlets of the Dwarven King	AC +1, maximum HP +5
 
 mh#btax1	Foesplitter +1			counts as +3, 10% chance of double damage		Races of Faerun (3E)
 mh#btax2	Trollkiller +3			70% chance of 1d3 acid, 10% chance of 1d10 acid
