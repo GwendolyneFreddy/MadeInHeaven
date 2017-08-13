@@ -6,15 +6,50 @@ LAUNCH_ACTION_FUNCTION install_component
 END
 
 
+// Give unique Durlag's Tower ghast a power boost
+
+COPY_EXISTING "%tutu_var%ghastd.cre" "override"
+  SAY NAME1 "Evolved Ghast"
+  SAY NAME2 "Evolved Ghast"
+
+  ADD_CRE_ITEM "immune1" #0 #0 #0 "unstealable&undroppable" "ring"
+
+  WRITE_LONG	0x0014	1400		// XP value
+  WRITE_SHORT	0x0024	(THIS * 2)	// Current HP
+  WRITE_SHORT	0x0026	(THIS * 2)	// Maximum HP
+  WRITE_SHORT	0x0046	(THIS - 2)	// Natural AC
+  WRITE_SHORT	0x0048	(THIS - 2)	// Effective AC
+  WRITE_BYTE	0x0052	(THIS - 2)	// THAC0
+  WRITE_BYTE	0x0053	(THIS + 1)	// APR
+  WRITE_BYTE	0x0054	(THIS - 1)	// Save vs. death
+  WRITE_BYTE	0x0055	(THIS - 1)	// Save vs. wands
+  WRITE_BYTE	0x0056	(THIS - 1)	// Save vs. poly
+  WRITE_BYTE	0x0057	(THIS - 1)	// Save vs. breath
+  WRITE_BYTE	0x0058	(THIS - 1)	// Save vs. spell
+  WRITE_BYTE	0x005d	(THIS + 20)	// MR
+  WRITE_BYTE	0x0234	(THIS + 2)	// Level
+  WRITE_BYTE	0x0238	(THIS + 2)	// Strength
+  WRITE_BYTE	0x023d	(THIS + 2)	// Charisma
+
+
 // New spawn groups for games supporting it
 
 ACTION_IF FILE_EXISTS_IN_GAME "spawngrp.2da"
 BEGIN
   APPEND_COL "spawngrp.2da" "$ $ RDBGdopp 80 %tutu_var%dopple %tutu_var%dopple %tutu_var%doppgr %tutu_var%doppgr %tutu_var%dopple %tutu_var%dopple * *" UNLESS "RDBGdopp"
+  APPEND_COL "spawngrp.2da" "$ $ RDBGspid 80 %tutu_var%spidwr %tutu_var%spidph %tutu_var%spidsw %tutu_scripts%pidphas %tutu_var%spidwr %tutu_var%spidph %tutu_var%spidsw %tutu_scripts%pidphas" UNLESS "RDBGspid"
+  APPEND_COL "spawngrp.2da" "$ $ RDBGdead 80 %tutu_var%ghastd %tutu_var%ghastd %tutu_scriptg%houllor %tutu_scriptg%houllor %tutu_scriptbg%skelwa %tutu_scriptbg%skelwa * *"
+  APPEND_COL "spawngrp.2da" "$ $ RDBGjell 80 %tutu_var%jellgr %tutu_var%jellgr %tutu_var%jelloc %tutu_var%jelloc %tutu_var%jellmu %tutu_var%jellmu * *" UNLESS "RDBGjell"
+
+  // Make sure table is properly formatted
+  COPY_EXISTING "spawngrp.2da" "override"
+    PRETTY_PRINT_2DA
 END
 
 
-// Outside area
+// ======================
+// Outside area (phase 0)
+// ======================
 
 COPY_EXISTING "%DurlagsTower%.are" "override"
   // Move unreachable Greater Ghoul
@@ -59,7 +94,9 @@ COPY_EXISTING "%DurlagsTower%.are" "override"
   END
 
 
-// Cellar & Upper Floors (more ghasts)
+// ===============================
+// Cellar & Upper Floors (phase 1)
+// ===============================
 
 COPY_EXISTING "%DurlagsTower_Cellar%.are" "override"
   LAUNCH_PATCH_FUNCTION add_area_actors_from_2da
@@ -85,6 +122,109 @@ COPY_EXISTING "%DurlagsTower_L4%.are" "override"
     tutu_compat		= 1
     STR_VAR
     path_to_2da		= "%MOD_FOLDER%/bg1/durlags_tower/bg0505.2da"
+  END
+
+
+// ====================================
+// First three dungeon floors (phase 2)
+// ====================================
+
+
+// Area edits D1
+
+COPY_EXISTING "%DurlagsTower_D1%.are" "override"
+  // Additional monsters
+  LAUNCH_PATCH_FUNCTION add_area_actors_from_2da
+    INT_VAR
+    bgt_compat		= 1
+    tutu_compat		= 1
+    STR_VAR
+    path_to_2da		= "%MOD_FOLDER%/bg1/durlags_tower/bg0511.2da"
+  END
+
+  // Alter spawn points
+  GET_OFFSET_ARRAY spawn_array ARE_V10_SPAWN_POINTS
+  PHP_EACH spawn_array AS int => spawn_offset
+  BEGIN
+    PATCH_IF FILE_EXISTS_IN_GAME "spawngrp.2da"
+    BEGIN
+      WRITE_SHORT (spawn_offset + 0x0074) 4
+
+      WRITE_ASCII (spawn_offset + 0x0024) "RDBGdopp" #8
+      WRITE_ASCII (spawn_offset + 0x002c) "RDBGspid" #8
+      WRITE_ASCII (spawn_offset + 0x0034) "RDBGdead" #8
+      WRITE_ASCII (spawn_offset + 0x003c) "RDBGjell" #8
+    END
+    ELSE
+    BEGIN
+      WRITE_SHORT (spawn_offset + 0x0074) 8
+
+      WRITE_ASCII (spawn_offset + 0x0024) "dopple" #8
+      WRITE_ASCII (spawn_offset + 0x002c) "doppgr" #8
+      WRITE_ASCII (spawn_offset + 0x0034) "spidwr" #8
+      WRITE_ASCII (spawn_offset + 0x003c) "spidphas" #8
+      WRITE_ASCII (spawn_offset + 0x0024) "ghastd" #8
+      WRITE_ASCII (spawn_offset + 0x002c) "ghoullor" #8
+      WRITE_ASCII (spawn_offset + 0x0024) "jelloc" #8
+      WRITE_ASCII (spawn_offset + 0x002c) "jellmu" #8
+    END
+  END
+
+
+// Area edits D2
+
+COPY_EXISTING "%DurlagsTower_D2%.are" "override"
+  // Additional monsters
+  LAUNCH_PATCH_FUNCTION add_area_actors_from_2da
+    INT_VAR
+    bgt_compat		= 1
+    tutu_compat		= 1
+    STR_VAR
+    path_to_2da		= "%MOD_FOLDER%/bg1/durlags_tower/bg0512.2da"
+  END
+
+
+// Sparring dummies on D2 are not hostile (though still red)
+
+COPY_EXISTING "%tutu_var%dumfue.cre" "override"
+              "%tutu_var%dumisl.cre" "override"
+              "%tutu_var%dumkie.cre" "override"
+  PATCH_IF (IDS_OF_SYMBOL("ea" "goodbutred") >= 0)
+  BEGIN
+    WRITE_BYTE	0x0270 IDS_OF_SYMBOL("ea" "goodbutred")
+  END
+  ELSE
+  BEGIN
+    WRITE_BYTE	0x0270 IDS_OF_SYMBOL("ea" "neutral")
+  END
+
+  WRITE_ASCII DIALOG "mh#spdum" #8
+
+
+LAUNCH_ACTION_FUNCTION compile_dialog_or_script
+  STR_VAR
+  path_to_file		= "%MOD_FOLDER%/bg1/durlags_tower/sparring_dummy.d"
+END
+
+
+// More varied undead from crypts in D2 southwest corner
+
+LAUNCH_ACTION_FUNCTION compile_dialog_or_script
+  STR_VAR
+  path_to_file		= "%MOD_FOLDER%/bg1/durlags_tower/trpghast.baf"
+END
+
+
+// Area edits D3
+
+COPY_EXISTING "%DurlagsTower_D3%.are" "override"
+  // Additional monsters
+  LAUNCH_PATCH_FUNCTION add_area_actors_from_2da
+    INT_VAR
+    bgt_compat		= 1
+    tutu_compat		= 1
+    STR_VAR
+    path_to_2da		= "%MOD_FOLDER%/bg1/durlags_tower/bg0513.2da"
   END
 
 
