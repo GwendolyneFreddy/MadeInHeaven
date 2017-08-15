@@ -90,3 +90,23 @@ COPY "%MOD_FOLDER%/monster_pack/bgt/actors/mh#mohrg.cre" "override"
   SAY NAME2 "Mohrg"
 
 
+// ============
+// Crystal Ooze
+// ============
+
+COPY "%MOD_FOLDER%/monster_pack/bgt/items/mh#oozcr.itm" "override"
+  SAY NAME1 "Attack"
+  SAY NAME2 "Attack"
+
+
+COPY "%MOD_FOLDER%/monster_pack/bgt/actors/mh#oozcr.cre" "override"
+  SAY NAME1 "Crystal Ooze"
+  SAY NAME2 "Crystal Ooze"
+
+
+LAUNCH_ACTION_FUNCTION compile_dialog_or_script
+  STR_VAR
+  path_to_file		= "%MOD_FOLDER%/monster_pack/bgt/scripts/mh#oozcr.baf"
+END
+
+

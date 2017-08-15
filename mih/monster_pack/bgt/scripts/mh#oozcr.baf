@@ -1,0 +1,9 @@
+IF
+  !See(NearestEnemyOf(Myself))
+  NotStateCheck(Myself, STATE_INVISIBLE)
+THEN
+  RESPONSE #100
+     Hide()
+END
+
+
