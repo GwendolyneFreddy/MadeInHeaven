@@ -474,13 +474,13 @@ END
 // Cap Item Charges
 // ================
 
-BEGIN "Set a maximum of 20 charges"
+BEGIN "Set a maximum of 12 charges"
 SUBCOMPONENT "Cap Item Charges"
 GROUP "Item/Spell Tweaks"
 
 LAUNCH_ACTION_FUNCTION "install_component"
   INT_VAR
-  charge_cap		= 20
+  charge_cap		= 12
   STR_VAR
   component_name	= "cap_item_charges"
 END
