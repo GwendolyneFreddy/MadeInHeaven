@@ -246,6 +246,40 @@ so better be prepared!  There is also a minor restoration in that a lonely
 greater ghoul who was previously trapped on a unreachable ledge has now been
 moved to a location where it can be actually encountered.
 
+Most of the upper levels have more ghasts than before, backed up by a few
+mohrgs.  Some of the ghasts are evolved ghasts which are slightly tougher and
+immune to normal weapons.
+
+On the first dungeon level, all spawn points have been changed to give tougher
+and more varied enemies, like dopplegangers, ghasts, wraith spiders, mustard
+jellies and more.  The few fixed encounters have also been beefed up, and a
+few doom guards have been added here and there.
+
+The scripted encounters of the second level are unchanged, but a few battle
+horrors have been placed in previously empty rooms and the crypts in the
+southwest corner will now spawn a variety of undead, including skeleton
+warriors.
+
+The third level has two more ancient wyverns to fight in the left path, while
+the right path has more greater ghasts and a few additional ashirukuru.  The
+middle path is left unchanged for now though.  There are also a few more
+greater ghouls near the stone heads.
+
+All four elemental challenges have been overhauled.  The Ice Chamber has a
+frost giant added to it, and the Earth Chamber's fission slime is no longer
+alone, a host of various other jellies has been added.  The Air Chamber has
+more invisible stalkers and the enemy layout has been changed, you'll have to
+go through them to fight the air aspect.  The biggest change is in the Fire
+Chamber, the original challenge has been replaced by a battle with fire
+elementals instead (on vanilla BG1, blazing bones).
+
+The final level has many more enemies now, expect a lot more resistance
+here.  The Demon Knight now has two slightly tougher than normal skeleton
+warriors backing him up, and has better equipment now.  There is also a
+minor restoration here: he will now drop the previously unavailable Helm of
+Opposite Alignment, as well as an additional full plate mail +1.  (His
+appearance on L1 already carried these but was designed to be unkillable.)
+
 
 ====================
 Creature Corrections
