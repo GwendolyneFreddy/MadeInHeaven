@@ -7,6 +7,14 @@
 // (This is what it does in P&P)
 
 COPY_EXISTING "%tutu_var%potn11.itm" "override"
+  SAY IDENTIFIED_DESC "This potion makes the wearer immune to normal, unenchanted weapons and grants resistance to all other attacks, while giving bonuses to all saving throws.  The effects of the elixir last for 5 turns but can only be used by warriors.
+
+STATISTICS:
+
+Armor Class: +2 bonus
+Saving Throws: +2 bonus
+Special: Imbiber is immune to normal weapons"
+
   PATCH_FOR_EACH match_opcode IN 0 33 34 35 36 37
   BEGIN
     LAUNCH_PATCH_FUNCTION ALTER_EFFECT
@@ -36,6 +44,8 @@ COPY_EXISTING "%tutu_var%potn11.itm" "override"
 // - Cures Blindness & Deafness
 
 COPY_EXISTING "%tutu_var%potn17.itm" "override"
+  SAY IDENTIFIED_DESC "The Elixir of Health is a powerful healing mixture designed to cleanse the body  of all impurities.  First it cures all poisons, diseases, blindness and deafness, then once the system has been purged, the imbibed is cured by 10 hit points to speed the recovery process."
+
   LAUNCH_PATCH_FUNCTION CLONE_EFFECT
     INT_VAR
     match_opcode	= 11	// Cure: Poison
@@ -80,6 +90,16 @@ COPY_EXISTING "%tutu_var%potn17.itm" "override"
 // - Fires 2 missiles (as per P&P)
 
 COPY_EXISTING "%tutu_var%wand03.itm" "override"
+  SAY IDENTIFIED_DESC "When activated, the wand will eject two missiles of magical energy that dart forth and unerringly strike its target. This includes enemy creatures in a melee. The target creature must be seen or otherwise detected to be hit, however, so near-total concealment, such as that offered by arrow slits, can render the spell ineffective. Against a creature, each missile will inflict 1d4 + 1 points of damage.
+
+STATISTICS:
+
+Special: 2 magic missiles will strike target
+Damage: 2d4 +2
+Range: 100'
+Area of Effect: 1 creature
+Weight: 1"
+
   GET_OFFSET_ARRAY ab_array ITM_V10_HEADERS
   PHP_EACH ab_array AS int => ab_offset
   BEGIN
@@ -91,12 +111,63 @@ COPY_EXISTING "%tutu_var%wand03.itm" "override"
 // - Revert to BG1 behaviour (single target)
 
 COPY_EXISTING "%tutu_var%wand07.itm" "override"
+  SAY IDENTIFIED_DESC "The possessor of the wand can discharge a bolt of lightning. As it passes through a creature, it does six dice six points of damage, with a save vs. wands for half damage. The bolt will continue through the target and proceed to 'rebound' until expended.
+
+STATISTICS:
+
+Effect: Lightning Bolt
+Damage: 6d6 (save vs. wands for half)
+Range: 100ft
+Area: Path of bolt
+Weight: 1
+
+Usable by:
+ Mage
+ Bard"
+
   GET_OFFSET_ARRAY ab_array ITM_V10_HEADERS
   PHP_EACH ab_array AS int => ab_offset
   BEGIN
     WRITE_BYTE	(ab_offset + 0x000d) 0
   END
 
+  LAUNCH_PATCH_FUNCTION ALTER_EFFECT
+    INT_VAR
+    match_opcode	= 12	// HP: Damage
+    dicenumber		= 3
+  END
+
   BUT_ONLY_IF_IT_CHANGES	// Some games already have this.
+
+
+// Cloak of the Wolf
+// - also grants +1 AC and infravision
+
+COPY_EXISTING "%tutu_var%clck04.itm" "override"
+  SAY IDENTIFIED_DESC "Cloak of the Wolf:  'Relair's Mistake' 
+
+A great amount of irony surrounds the creation of this magical cloak.  Relair was a mage who overestimated the amount of control he had over magic, and in the course of creating this garment he apparently inflicted lycanthropy upon himself.  The wearer can change form whenever he wishes.  Relair was not so lucky.
+
+STATISTICS:
+
+Armor Class: +1 bonus
+Special: Wearer gains infravision
+Ability: Polymorph into wolf at will
+Weight: 3"
+
+  LAUNCH_PATCH_FUNCTION ADD_ITEM_EQEFFECT
+    INT_VAR
+    opcode		= 0	// AC vs. Damage Type Modifier
+    target		= 1	// Self
+    timing		= 2	// While equipped
+    parameter1		= 1
+  END
+
+  LAUNCH_PATCH_FUNCTION ADD_ITEM_EQEFFECT
+    INT_VAR
+    opcode		= 63	// State: Infravision
+    target		= 1	// Self
+    timing		= 2	// While equipped
+  END
 
 
