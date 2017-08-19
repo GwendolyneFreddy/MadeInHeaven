@@ -1,0 +1,13 @@
+IF
+  PartyHasItem("mh#tear1")
+  PartyHasItem("mh#tear2")
+  PartyHasItem("mh#tear3")
+  OpenState("Door0125", FALSE)
+THEN
+  RESPONSE #100
+    Unlock("Door0125")
+    OpenDoor("Door0125")
+    AddExperienceParty(20000)
+END
+
+

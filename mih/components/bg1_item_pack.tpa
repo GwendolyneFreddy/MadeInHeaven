@@ -121,8 +121,9 @@ COPY_EXISTING "%Nashkel%.are" "override"
   END
 
 
-// Varscona & Heartsblood shuffle
 // ==============================
+// ==============================
+// Varscona & Heartsblood shuffle
 // ==============================
 
 COPY_EXISTING "%tutu_var%greywo.cre" "override"

@@ -46,6 +46,8 @@ BEGIN
   // Make sure table is properly formatted
   COPY_EXISTING "spawngrp.2da" "override"
     PRETTY_PRINT_2DA
+
+    BUT_ONLY_IF_IT_CHANGES
 END
 
 

@@ -1,0 +1,12 @@
+IF
+  See(NearestEnemyOf(Myself))
+  Range(NearestEnemyOf(Myself), 15)
+  !GlobalTimerNotExpired("ice_storm", "LOCALS")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("ice_storm", "LOCALS", ONE_TURN)
+    ForceSpell(Myself, WIZARD_ICE_STORM)
+    Wait(2)
+END
+
+

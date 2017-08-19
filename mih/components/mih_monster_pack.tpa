@@ -110,3 +110,41 @@ LAUNCH_ACTION_FUNCTION compile_dialog_or_script
 END
 
 
+// =========
+// Baneguard
+// =========
+
+COPY "%MOD_FOLDER%/monster_pack/bgt/actors/mh#baneg.cre" "override"
+  SAY NAME1 "Baneguard"
+  SAY NAME2 "Baneguard"
+
+  PATCH_IF ENGINE_IS "bg1 totsc"
+  BEGIN
+    WRITE_BYTE	0x006e	1	// Large sword proficiency
+  END
+  ELSE
+  BEGIN
+    SET_BG2_PROFICIENCY	PROFICIENCYLONGSWORD 1
+  END
+
+
+LAUNCH_ACTION_FUNCTION compile_dialog_or_script
+  STR_VAR
+  path_to_file		= "%MOD_FOLDER%/monster_pack/bgt/scripts/mh#baneg.baf"
+END
+
+
+// ========
+// Banedead
+// ========
+
+COPY "%MOD_FOLDER%/monster_pack/bgt/items/mh#baned.itm" "override"
+  SAY NAME1 "Attack"
+  SAY NAME2 "Attack"
+
+
+COPY "%MOD_FOLDER%/monster_pack/bgt/actors/mh#baned.cre" "override"
+  SAY NAME1 "Banedead"
+  SAY NAME2 "Banedead"
+
+

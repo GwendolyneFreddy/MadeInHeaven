@@ -1,0 +1,23 @@
+IF
+  See(NearestEnemyOf(Myself))
+  !GlobalTimerNotExpired("mirror_image", "LOCALS")
+THEN
+  RESPONSE #90
+    SetGlobalTimer("mirror_image", "LOCALS", ONE_TURN)
+    ForceSpell(Myself, WIZARD_MIRROR_IMAGE)
+  RESPONSE #10
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !GlobalTimerNotExpired("magic_missile", "LOCALS")
+THEN
+  RESPONSE #90
+    SetGlobalTimer("magic_missile", "LOCALS", THREE_ROUNDS)
+    ForceSpell(LastSeenBy(Myself), WIZARD_MAGIC_MISSILE)
+  RESPONSE #10
+    Continue()
+END
+
+

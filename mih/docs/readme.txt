@@ -193,6 +193,15 @@ fire while having Contingency spells prepared to preserve their life.  They
 now hate all life and see their flames as a means to cleanse the world.
 
 
+==================
+Enhanced Undercity
+==================
+
+This component puts more resistance in the Thieves' Maze and Undercity, the
+final areas of BG1.  Also, Sarevok remembered that doors can be locked, you
+won't be able to march straight into the temple this time...
+
+
 ======================
 Enhanced Xvart Village
 ======================
