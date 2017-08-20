@@ -1,0 +1,114 @@
+// Enhanced Mutamin's Garden
+
+
+// ===============
+// Lurch encounter
+// ===============
+
+COPY "%MOD_FOLDER%/bg1/mutamins_garden/mh#lurch.cre" "override"
+  SAY NAME1 "Lurch"
+  SAY NAME2 "Lurch"
+
+  PATCH_IF ENGINE_IS "bg1 totsc"
+  BEGIN
+    WRITE_BYTE	0x0071	5	// Spear prof.
+  END
+  ELSE
+  BEGIN
+    SET_BG2_PROFICIENCY	PROFICIENCYHALBERD	5
+    SET_BG2_PROFICIENCY	PROFICIENCY2HANDED	2
+  END
+
+
+LAUNCH_ACTION_FUNCTION compile_dialog_or_script
+  STR_VAR
+  path_to_file		= "%MOD_FOLDER%/bg1/mutamins_garden/mh#lurch.d"
+END
+
+
+// =======================
+// Stone grizzly encounter
+// =======================
+
+COPY "%MOD_FOLDER%/bg1/mutamins_garden/mh#stngr.cre" "override"
+  SAY NAME1 "Grizzly Bear"
+  SAY NAME2 "Grizzly Bear"
+
+
+LAUNCH_ACTION_FUNCTION compile_dialog_or_script
+  STR_VAR
+  path_to_file		= "%MOD_FOLDER%/bg1/mutamins_garden/mh#stngr.d"
+END
+
+
+// ===============
+// Trish encounter
+// ===============
+
+COPY "%MOD_FOLDER%/bg1/mutamins_garden/mh#trish.cre" "override"
+  SAY NAME1 "Trish"
+  SAY NAME2 "Trish"
+
+
+ADD_SPELL "%MOD_FOLDER%/bg1/mutamins_garden/trish_summon_slimes.spl" 2 5 MH_TRISH_SUMMON_SLIMES
+  SAY NAME1 "Summon Slimes"
+
+  // Summoning by EFF file doesn't work in vanilla BG1
+  PATCH_IF ENGINE_IS "bg1 totsc"
+  BEGIN
+    LAUNCH_PATCH_FUNCTION ALTER_EFFECT
+      INT_VAR
+      match_opcode	= 177	// Use EFF file
+      opcode		= 67	// Summon: Creature Summoning
+      STR_VAR
+      resource		= "jellmu"
+    END
+  END
+
+
+// Not needed in BG1/TotSC as summoning by EFF doesn't work there.
+ACTION_IF NOT ENGINE_IS "bg1 totsc"
+BEGIN
+  CREATE EFF "mh#trish"
+    WRITE_LONG	0x0010 67	// Summon: Creature Summoning
+    WRITE_LONG	0x0020 2	// As CRE file
+    WRITE_SHORT	0x0024 1	// Permanent
+    WRITE_SHORT	0x002c 100	// 100% chance
+    WRITE_EVALUATED_ASCII 0x0030 "%tutu_var%jellmu" #8
+    WRITE_ASCII	0x0070 "spmonsum" #8
+END
+
+
+LAUNCH_ACTION_FUNCTION compile_dialog_or_script
+  STR_VAR
+  path_to_file		= "%MOD_FOLDER%/bg1/mutamins_garden/mh#trish.d"
+END
+
+
+// ==========
+// Area edits
+// ==========
+
+COPY_EXISTING "%MutaminsGarden%.are" "override"
+  LAUNCH_PATCH_FUNCTION add_area_actors_from_2da
+    INT_VAR
+    tutu_compat		= 1
+    bgt_compat		= 1
+    STR_VAR
+    path_to_2da		= "%MOD_FOLDER%/bg1/mutamins_garden/bg3500.2da"
+  END
+
+
+// ======================================
+// Erase Journal Entries when BGT is over
+// ======================================
+
+ACTION_FOR_EACH dialog IN "mh#lurch" "mh#stngr" "mh#trish"
+BEGIN
+  LAUNCH_ACTION_FUNCTION erase_journal_entries_on_bg2_transition
+    STR_VAR
+    dialog
+  END
+END
+
+

@@ -1,0 +1,159 @@
+// Enhanced Cloakwood
+
+
+// Olivia's mini-quest
+
+COPY "%MOD_FOLDER%/bg1/cloakwood/mh#oliva.cre" "override"
+  SAY NAME1 "Olivia"
+  SAY NAME2 "Olivia"
+
+  PATCH_IF ENGINE_IS "bg1 totsc"
+  BEGIN
+    WRITE_BYTE	0x0072 2	// Blunt + simulate 2-handed weapon
+  END
+  ELSE
+  BEGIN
+    SET_BG2_PROFICIENCY PROFICIENCYQUARTERSTAFF 1
+    SET_BG2_PROFICIENCY PROFICIENCY2HANDED 1
+  END
+
+
+ADD_SPELL "%MOD_FOLDER%/bg1/cloakwood/olivia_transformation.spl" 3 1 MH_OLIVIA_TRANSFORMATION
+  SAY NAME1 "Shapeshift Seagull"
+
+
+LAUNCH_ACTION_FUNCTION compile_dialog_or_script
+  STR_VAR
+  path_to_file		= "%MOD_FOLDER%/bg1/cloakwood/mh#oliva.d"
+END
+
+
+COPY_LARGE "%MOD_FOLDER%/bg1/cloakwood/mh#hiero.bam" "override"
+
+COPY "%MOD_FOLDER%/bg1/cloakwood/mh#hiero.itm" "override"
+  SAY NAME2 "Ring of the Hierophant"
+  SAY IDENTIFIED_DESC "Ring of the Hierophant
+
+This mysterious druidic ring is clearly magical and is rumored to contain powerful shape-shifting magic, but you have no clue how to unlock it.  It is of no use to your party, but perhaps someone you have encountered could make use of it...?"
+
+
+// Furnelaine's mini-quest
+
+COPY "%MOD_FOLDER%/bg1/cloakwood/mh#furne.cre" "override"
+  SAY NAME1 "Furnelaine"
+  SAY NAME2 "Furnelaine"
+
+  PATCH_IF ENGINE_IS "bg1 totsc"
+  BEGIN
+    WRITE_SHORT	0x004a 2	// Simulate single weapon prof.
+    WRITE_SHORT	0x004e 2	// Simulate single weapon prof.
+    WRITE_SHORT	0x0050 2	// Simulate single weapon prof.
+    WRITE_BYTE	0x006e 2	// Large sword
+    WRITE_BYTE	0x0070 2	// Bow
+  END
+  ELSE
+  BEGIN
+    SET_BG2_PROFICIENCY PROFICIENCYBASTARDSWORD 2
+    SET_BG2_PROFICIENCY PROFICIENCYLONGBOW 2
+    SET_BG2_PROFICIENCY PROFICIENCYSINGLEWEAPON 2
+  END
+
+
+LAUNCH_ACTION_FUNCTION compile_dialog_or_script
+  STR_VAR
+  path_to_file		= "%MOD_FOLDER%/bg1/cloakwood/mh#furne.d"
+END
+
+
+COPY_EXISTING "%tutu_var%bearca.cre" "override/mh#bearf.cre"
+  WRITE_ASCII SCRIPT_OVERRIDE "mh#bearf"
+
+
+LAUNCH_ACTION_FUNCTION compile_dialog_or_script
+  STR_VAR
+  path_to_file		= "%MOD_FOLDER%/bg1/cloakwood/mh#bearf.baf"
+END
+
+
+// Llindelyn's mini-quest
+
+COPY "%MOD_FOLDER%/bg1/cloakwood/mh#llind.cre" "override"
+  SAY NAME1 "Llindelyn"
+  SAY NAME2 "Llindelyn"
+
+  PATCH_IF ENGINE_IS "bg1 totsc"
+  BEGIN
+    WRITE_BYTE	0x006e 2	// Large sword
+    WRITE_BYTE	0x0070 4	// Bow
+  END
+  ELSE
+  BEGIN
+    SET_BG2_PROFICIENCY PROFICIENCYLONGSWORD 2
+    SET_BG2_PROFICIENCY PROFICIENCYLONGBOW 4
+  END
+
+
+LAUNCH_ACTION_FUNCTION compile_dialog_or_script
+  STR_VAR
+  path_to_file		= "%MOD_FOLDER%/bg1/cloakwood/mh#llind.d"
+END
+
+
+COPY_LARGE "%MOD_FOLDER%/bg1/cloakwood/mh#lucky.bam" "override"
+
+COPY "%MOD_FOLDER%/bg1/cloakwood/mh#lucky.itm" "override"
+  SAY NAME2 "Lucky Arrow"
+  SAY IDENTIFIED_DESC "Lucky Arrow
+
+This arrow has been painted with odd patterns and the head has not been sharpened.  You've heard that some elven archers keep a 'lucky arrow' on their person as a good luck talisman, perhaps this is one of those?"
+
+
+COPY_EXISTING "%tutu_var%bearca.cre" "override/mh#bearl.cre"
+  ADD_CRE_ITEM "mh#lucky" #0 #0 #0 "none" "inv"
+
+
+// Inserting it all into the game
+
+COPY_EXISTING "%CloakwoodNest%.are" "override"
+  LAUNCH_PATCH_FUNCTION add_area_actors_from_2da
+    INT_VAR
+    tutu_compat		= 1
+    STR_VAR
+    path_to_2da		= "%MOD_FOLDER%/bg1/cloakwood/bg2100.2da"
+  END
+
+COPY_EXISTING "%CloakwoodNestSpiderNest%.are" "override"
+  LAUNCH_PATCH_FUNCTION add_area_actors_from_2da
+    INT_VAR
+    tutu_compat		= 1
+    STR_VAR
+    path_to_2da		= "%MOD_FOLDER%/bg1/cloakwood/bg2101.2da"
+  END
+
+COPY_EXISTING "%CloakwoodDruids%.are" "override"
+  LAUNCH_PATCH_FUNCTION add_area_actors_from_2da
+    STR_VAR
+    path_to_2da		= "%MOD_FOLDER%/bg1/cloakwood/bg1600.2da"
+  END
+
+COPY_EXISTING "%tutu_var%amaran.cre" "override"
+  ADD_CRE_ITEM "mh#hiero" #0 #0 #0 "none" "inv"
+
+COPY_EXISTING "%CloakwoodWyverns%.are" "override"
+  LAUNCH_PATCH_FUNCTION add_area_actors_from_2da
+    STR_VAR
+    path_to_2da		= "%MOD_FOLDER%/bg1/cloakwood/bg1700.2da"
+  END
+
+
+// ======================================
+// Erase Journal Entries when BGT is over
+// ======================================
+
+ACTION_FOR_EACH dialog IN "mh#furne" "mh#oliva" "mh#llind"
+BEGIN
+  LAUNCH_ACTION_FUNCTION erase_journal_entries_on_bg2_transition
+    STR_VAR
+    dialog
+  END
+END

@@ -1,0 +1,144 @@
+// BG1 Creature Corrections
+
+
+// Bulk alignment changes
+
+INCLUDE "%MOD_FOLDER%/config/bg1_alignment_changes.tph"
+
+PRINT "Executing bulk alignment corrections..."
+
+ACTION_PHP_EACH mih_bg1_alignment_changes AS resref => alignment
+BEGIN
+  COPY_EXISTING "%resref%.cre" "override"
+    WRITE_BYTE 0x027b alignment
+
+    IF_EXISTS
+    BUT_ONLY_IF_IT_CHANGES
+END
+
+
+// Ankheg
+//
+// - THAC0 correction: 17 => 13
+// - #attacks correction: 2 => 1
+// - Level (HD) correction: 3 => 8
+// - Strength set to 18/50
+// - Proper Acid Squirt
+
+INCLUDE "%MOD_FOLDER%/creature_corrections/ankheg.tpa"
+
+COPY_EXISTING "%tutu_var%ankheg.cre" "override"
+              "%tutu_var%ankhegg.cre" "override"
+              "%tutu_var%ankhegq.cre" "override"
+  LAUNCH_PATCH_MACRO fix_ankheg
+
+
+// Dread Wolf
+//
+// - THAC0 correction: 19 => 15
+// - Marked as undead
+// - Regenerates 3 hp/round
+// - Bite causes disease (1hp/turn for 10 turns)
+
+INCLUDE "%MOD_FOLDER%/creature_corrections/dread_wolf.tpa"
+
+COPY_EXISTING "%tutu_var%wolfdr.cre" "override"
+              "%tutu_var%wolfd1.cre" "override"
+  LAUNCH_PATCH_MACRO fix_dread_wolf
+
+
+// Gray Ooze
+//
+// - Attack does 2d8 acid damage
+// - THAC0 correction 20 => 17
+
+INCLUDE "%MOD_FOLDER%/creature_corrections/gray_ooze.tpa"
+
+COPY_EXISTING "%tutu_var%jellgr.cre" "override"
+  LAUNCH_PATCH_MACRO fix_gray_ooze
+
+
+// Greater Basilisk
+//
+// - XP value 4000 => 7000
+// - THAC0 correction 10 => 11
+// - Added poisonous breath
+
+INCLUDE "%MOD_FOLDER%/creature_corrections/greater_basilisk.tpa"
+
+COPY_EXISTING "%tutu_var%basilg.cre" "override"
+              "%tutu_scriptb%asilmut.cre" "override"
+              "%tutu_scriptb%asilnad.cre" "override"
+  LAUNCH_PATCH_MACRO fix_greater_basilisk
+
+
+// Mustard Jelly
+//
+// - Attack does 5d4 acid damage
+// - XP value 2000 => 4000
+// - # of attacks 1 => 2
+// - Cold Resistance 0% => 50%
+// - Lightning Resistance 0% => 100%
+// - Magic Resistance 125% => 10%
+// - Stealth 0% => 90%
+// - Mustard Jelly Vapor
+
+INCLUDE "%MOD_FOLDER%/creature_corrections/mustard_jelly.tpa"
+
+COPY_EXISTING "%tutu_var%jellmu.cre" "override"
+              "%tutu_var%jellmul.cre" "override"
+              "%tutu_var%jellymu.cre" "override"
+  LAUNCH_PATCH_MACRO fix_mustard_jelly
+
+
+// Ochre Jelly
+//
+// - Attack does 1d10 +2 acid damage
+// - THAC0 correction 13 => 15
+// - AC correction 4 => 8
+// - Cold Resistance 50% => 0%
+// - Lightning Resistance 0% => 100%
+// - Magic Resistance 10% => 0%
+
+INCLUDE "%MOD_FOLDER%/creature_corrections/ochre_jelly.tpa"
+
+COPY_EXISTING "%tutu_var%jelloc.cre" "override"
+  LAUNCH_PATCH_MACRO fix_ochre_jelly
+
+
+// Vampiric Wolf
+//
+// - THAC0 correction: 12 => 13
+// - Marked as undead
+// - Corrected race/class
+
+INCLUDE "%MOD_FOLDER%/creature_corrections/vampiric_wolf.tpa"
+
+COPY_EXISTING "%tutu_var%wolfva.cre" "override"
+  LAUNCH_PATCH_MACRO fix_vampiric_wolf
+
+
+// Winter Wolf
+//
+// - THAC0 correcttion 14 => 15
+// - Proper winter wolf breath
+
+INCLUDE "%MOD_FOLDER%/creature_corrections/winter_wolf.tpa"
+
+COPY_EXISTING "%tutu_var%wolfwi.cre" "override"
+  LAUNCH_PATCH_MACRO fix_winter_wolf
+
+
+// Wraith Spider
+//
+// - THAC0 correction: 14 => 17
+// - AC correction: 1 => 5
+// - Bite causes level drain and con damage
+// - Marked as undead
+
+INCLUDE "%MOD_FOLDER%/creature_corrections/wraith_spider.tpa"
+
+COPY_EXISTING "%tutu_var%spidwr.cre" "override"
+  LAUNCH_PATCH_MACRO fix_wraith_spider
+
+

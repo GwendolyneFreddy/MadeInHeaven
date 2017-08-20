@@ -1,0 +1,23 @@
+@0    = ~Hello.~
+@1    = ~Perhaps your archer could help me.~
+@2    = ~Llindellyn's Lucky Arrow
+
+Llindellyn, an elf I met in Cloakwood, asked for help from an archer.  Perhaps someone in my group wielding a bow or crossbow should talk to him?~
+@3    = ~I've lost my lucky arrow around here somewhere and can't seem to find it.~
+@4    = ~Llindellyn's Lucky Arrow
+
+Here I am, yet another lowly adventurer beating about the bushes, looking for some stranger's lucky arrow. I mean, Llindellyn is a nice enough guy but... shouldn't I be out slaying tarrasques or something?~
+@5    = ~Any luck finding that arrow of mine?~
+@6    = ~Great, thanks. Here, let me give you a little something in exchange... Happy hunting.~
+@7    = ~Llindellyn's Lucky Arrow
+
+I returned Llindellyn's lucky arrow to him and he thanked me by giving a few other arrows.  They don't look like much, but in these woods every arrow counts.~
+@8    = ~It's silly, I know, but it just doesn't feel right without my lucky arrow. Here, let me give you a little something in exchange. They're great for anything with tough skin.~
+@9    = ~Llindellyn's Lucky Arrow
+
+Llindellyn was very grateful for the return of his lucky arrow and gave me a set of finely crafted arrows as thanks, telling me they work well on tough foes.  I guess we'll find out how tough the skin of Iron Throne goons is soon enough...~
+@10   = ~My lucky arrow! Others may fly straighter or do more damage but without my lucky arrow on me, I might as well wield a club. Here, let me give you some arrows of detonation. No pun intended but they really are a blast!~
+@11   = ~Llindellyn's Lucky Arrow
+
+In return for finding his lucky arrow, Llindellyn gave me two highly volatile Arrows of Detonation.  I'm sure they will be a blast like he promised, but I should pick my targets very carefully...~
+@12   = ~How were those arrows I gave you?~

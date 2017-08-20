@@ -1,0 +1,68 @@
+// Greater Basilisk fixes
+
+ACTION_IF NOT FILE_EXISTS_IN_GAME "mh#basgr.bcs"
+BEGIN
+  ADD_SPELL "%MOD_FOLDER%/creature_corrections/spells/greater_basilisk_breath.spl" 3 1 MH_GREATER_BASILISK_BREATH
+    SAY NAME1 "Greater Basilisk Breath"
+
+    PATCH_IF ENGINE_IS "bg1 totsc"
+    BEGIN
+      LAUNCH_PATCH_FUNCTION ALTER_SPELL_HEADER
+        INT_VAR
+        projectile	= 159
+      END
+    END
+
+
+  LAUNCH_ACTION_FUNCTION RES_NUM_OF_SPELL_NAME
+    STR_VAR
+    spell_name		= "MH_GREATER_BASILISK_BREATH"
+    RET
+    spell_res
+  END
+
+
+  COPY_EXISTING "basilg1.itm" "override"
+                "basilg2.itm" "override"
+                "basilg3.itm" "override"
+                "basill1.itm" "override"
+                "basill2.itm" "override"
+    PATCH_IF ENGINE_IS "bg1 totsc"
+    BEGIN
+      LAUNCH_PATCH_FUNCTION ADD_ITEM_EQEFFECT
+        INT_VAR
+	opcode		= 101	// Protection: from Opcode
+	target		= 1	// Self
+	timing		= 2	// While equipped
+	parameter2	= 25	// Poison
+      END
+    END
+    ELSE
+    BEGIN
+      LAUNCH_PATCH_FUNCTION ADD_ITEM_EQEFFECT
+        INT_VAR
+	opcode		= 206	// Protection: from Spell
+	target		= 1	// Self
+	timing		= 2	// While equipped
+	STR_VAR
+	resource	= "%spell_res%"
+      END
+    END
+
+
+  LAUNCH_ACTION_FUNCTION compile_dialog_or_script
+    STR_VAR
+    path_to_file	= "%MOD_FOLDER%/creature_corrections/scripts/mh#basgr.baf"
+  END
+END
+
+
+DEFINE_PATCH_MACRO fix_greater_basilisk
+BEGIN
+  WRITE_LONG	0x0014	7000	// XP value
+  WRITE_BYTE	0x0052	11	// THAC0
+
+  WRITE_ASCII	SCRIPT_CLASS	"mh#basgr" #8
+END
+
+

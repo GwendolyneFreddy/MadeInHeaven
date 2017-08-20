@@ -1,0 +1,22 @@
+// Gray Ooze
+
+ACTION_IF NOT FILE_EXISTS_IN_GAME "mh#grooz.itm"
+BEGIN
+  COPY "%MOD_FOLDER%/creature_corrections/items/mh#grooz.itm" "override"
+    SAY NAME1 "Attack"
+    SAY NAME2 "Attack"
+
+
+  DEFINE_PATCH_MACRO fix_gray_ooze
+  BEGIN
+    REPLACE_CRE_ITEM "mh#grooz" #0 #0 #0 "unstealable&undroppable" "weapon1" EQUIP
+    REPLACE_CRE_ITEM "mh#grooz" #0 #0 #0 "unstealable&undroppable" "weapon2"
+    REPLACE_CRE_ITEM "mh#grooz" #0 #0 #0 "unstealable&undroppable" "weapon3"
+    REPLACE_CRE_ITEM "mh#grooz" #0 #0 #0 "unstealable&undroppable" "weapon4"
+
+    WRITE_BYTE	0x0052 17	// THAC0
+    WRITE_BYTE	0x0273 IDS_OF_SYMBOL("class" "grey_ooze")
+  END
+END
+
+

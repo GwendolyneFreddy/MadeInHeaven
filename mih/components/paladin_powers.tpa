@@ -1,0 +1,44 @@
+// Additional Paladin Powers
+//
+// This modification gives paladins a few additional powers.
+
+OUTER_FOR (i = 1; i <= 11; ++i)
+BEGIN
+  CREATE EFF "mh#smt%i%"
+    WRITE_SHORT	0x0010 12	// HP: Damage
+    WRITE_LONG	0x0020 4194304	// Magical damage
+    WRITE_SHORT	0x0024 1	// Permanent
+    WRITE_SHORT	0x002c 100	// 100% chance
+    WRITE_LONG	0x0038 i	// # dice thrown
+    WRITE_LONG	0x003c 6	// six-sided dice
+END
+
+COPY_LARGE "%MOD_FOLDER%/paladin_powers/mh#smite.bam" "override"
+
+COPY "%MOD_FOLDER%/paladin_powers/mh#smtev.spl" "override"
+  SAY NAME1 "Smite Evil"
+
+COPY "%MOD_FOLDER%/paladin_powers/mh#smtud.spl" "override"
+  SAY NAME1 "Smite Undead"
+
+
+// True Paladin & Cavalier
+
+COPY_EXISTING "clabpa01.2da" "override"
+              "clabpa02.2da" "override"
+  APPEND_FILE TEXT "%MOD_FOLDER%/paladin_powers/extra_lay_hands.txt"
+  APPEND_FILE TEXT "%MOD_FOLDER%/paladin_powers/smite_evil.txt"
+
+
+// Inquisitor
+
+COPY_EXISTING "clabpa03.2da" "override"
+  APPEND_FILE TEXT "%MOD_FOLDER%/paladin_powers/smite_evil.txt"
+
+
+// Undead Hunter
+
+COPY_EXISTING "clabpa04.2da" "override"
+  APPEND_FILE TEXT "%MOD_FOLDER%/paladin_powers/smite_undead.txt"
+
+

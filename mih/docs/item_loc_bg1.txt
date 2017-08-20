@@ -1,0 +1,64 @@
+mh#amul1	Amulet against Undead		Song of the Morning temple
+mh#amul2	Gem of Insight			Thalantyr (shop)
+mh#amul3	Necklace of Prayer Beads	The Lady's Hall
+mh#amul4	Periapt of Health		Temple of Yondala
+
+mh#armr1	Green Dragon Scale		Brokk (event)
+mh#armr2	Eversing +2			Brokk (shop)
+mh#armr3	Winter Wolf Hide +1		Tania (event)
+
+mh#belt1	Girdle of Dwarvenkind		Brokk (event)
+mh#belt2	Girdle of Cloud Giant Strength	Durlag's Tower D4 (on Grael)
+mh#belt3	Sunite Sash			Durlag's Tower L4 (on Kirinhale)
+
+mh#blun1	Slime Crusher +1		Brokk (shop)
+mh#blun2	Blessed Mace +2			Durlag's Tower D4 (replaces Krotan's Skullcrusher, which is moved to Candlekeep)
+
+mh#boot1	Feather Tabi			Black Lily (shop)
+mh#boot2	Boots of Striding and Springing	Carnival magic trinkets shop
+
+mh#brac1	Bracers of Winter's Chill	Durlag's Tower D4 (replaces worthless Bracers of Defense AC 8)
+mh#brac2	Gauntlets of the Dwarven King	Durlag's Tower D1 (in a bag)
+
+mh#btax1	Foesplitter +1			Cloakwood Mine L3 (armory)
+mh#btax2	Trollkiller +3			Durlag's Tower D4 (on treasure pile in inner vault)
+
+mh#clck1	Mutamin's Cloak			Mutamin (where else?)
+mh#clck2	Battlecloak of Vycaena		Durlag's Tower D4 (replaces Cloak of the Shield, this is moved to Firewine)
+mh#clck3	Cloak of Arachnida		Sorcerous Sundries (shop)
+
+mh#dagg1	Mage Masher +1			Brokk (shop)
+mh#dagg2	Catclaw +3			Durlag's Tower D4 (replaces Flame Tongue, this is moved to D1)
+
+mh#hamm1	Thronumin +3			Ulgoth's Beard (replaces the Knee-Capper, this is moved to Bassilus)
+
+mh#helm1	Helm of Valor			Brokk (shop)
+mh#helm2	Wizard's Hat			Durlag's Tower Chessboard (on King)
+
+mh#ioun1	Lush Emerald Ioun Stone		Nashkel (replaces extra ankheg armor)
+mh#ioun2	Pearl of Power			Isle of Balduran (new enounter in wilderness)
+
+mh#misc1	Green Dragon Scales		Durlag's Tower D4 (in bag)
+mh#misc2	Meteoric Iron			Balduran's Ship (cargo hold)
+mh#misc3	Telkiira			Isle of Balduran (new encounter in village)
+mh#misc4	Bag of Tricks			Carnival magic trinkets shop
+
+mh#potn1	Oil of Acid Resistance		various shops and dungeons
+mh#potn2	Oil of Disenchantment		various shops and dungeons
+
+mh#ring1	Ring of Warmth			Gibberling Mountains (replaces extra Ring of Fire Resistance)
+mh#ring2	Ring of the Neophyte		Friendly Arm Inn (replaces extra Ring of Wizardry)
+mh#ring3	Ring of Toughness		Coast Way (replaces extra Ring of Protection +1)
+mh#ring4	Ring of Protection +3		Candlekeep Catacoms (in previously empty grave)
+
+mh#robe1	Robe of the Elements		Tania (event)
+
+mh#shld1	Shield of the Phoenix +1	Jovial Juggler (Bjornin, replaces Medium Shield +1)
+mh#shld2	Ankheg Shield +1		Brokk (event)
+mh#shld3	Meteoric Shield +2		Brokk (event)
+
+mh#swrd1	Terminus Est +2			Cloakwood (new encounter in wyverns area)
+mh#swrd2	Heartsblood +1			Greywolf (replaces Varscona +2, this is moved to Raemon in the bandit camp)
+mh#swrd3	Selune's Blessing +1		Black Alaric's Cave
+
+

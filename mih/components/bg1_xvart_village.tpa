@@ -1,0 +1,121 @@
+// Enhanced Xvart Village
+
+
+// Make Nexlit a level 4 fighter
+
+COPY_EXISTING "%tutu_var%nexlit.cre" "override"
+  REPLACE_CRE_ITEM "%tutu_var%sw1h08" #0 #0 #0 "none" "weapon1" EQUIP
+
+  WRITE_LONG	0x0014 420	// XP value
+  WRITE_BYTE	0x0052 17	// THAC0
+  WRITE_BYTE	0x0054 13	// Save vs. Death
+  WRITE_BYTE	0x0055 15	// Save vs. Wands
+  WRITE_BYTE	0x0056 14	// Save vs. Polymorph
+  WRITE_BYTE	0x0057 16	// Save vs. Breath
+  WRITE_BYTE	0x0058 16	// Save vs. Spells
+  WRITE_BYTE	0x0234 4	// Level
+  WRITE_BYTE	0x0238 16	// Strength
+  WRITE_BYTE	0x023c 14	// Dexterity
+  WRITE_BYTE	0x023d 15	// Constitution
+  WRITE_BYTE	0x0273 IDS_OF_SYMBOL("class" "fighter")
+
+  PATCH_IF ENGINE_IS "bg1 totsc"
+  BEGIN
+    WRITE_SHORT	0x0046 THIS - 2	// Base AC, to simulate single weapon prof.
+    WRITE_SHORT	0x0048 THIS - 2	// Eff. AC, to simulate single weapon prof.
+    WRITE_BYTE	0x006f 3	// Small swords mastery
+  END
+  ELSE
+  BEGIN
+    SET_BG2_PROFICIENCY PROFICIENCYSHORTSWORD 3
+    SET_BG2_PROFICIENCY PROFICIENCYSINGLEWEAPON 2
+  END
+
+
+// Xvart shaman
+
+COPY_EXISTING "%tutu_var%xvart.cre" "override/mh#xvshm.cre"
+  SAY NAME1 "Xvart Shaman"
+  SAY NAME2 "Xvart Shaman"
+
+  WRITE_LONG	0x0014 65	// XP value
+  WRITE_SHORT	0x0024 17	// Current HP
+  WRITE_SHORT	0x0026 17	// Maximum HP
+  WRITE_BYTE	0x0052 18	// THAC0
+  WRITE_BYTE	0x0234 3	// Level
+  WRITE_BYTE	0x0273 IDS_OF_SYMBOL("class" "cleric")
+
+  ADD_MEMORIZED_SPELL "sppr101" #0 "priest"	// Bless
+  ADD_MEMORIZED_SPELL "sppr106" #0 "priest"	// Magic Stone
+  ADD_MEMORIZED_SPELL "sppr208" #1 "priest"	// Hold Person
+
+  WRITE_ASCII SCRIPT_CLASS "mh#xvshm" #8
+
+
+LAUNCH_ACTION_FUNCTION compile_dialog_or_script
+  STR_VAR
+  path_to_file		= "%MOD_FOLDER%/bg1/xvart_village/mh#xvshm.baf"
+END
+
+
+// Xvart adept
+
+COPY_EXISTING "%tutu_var%xvart.cre" "override/mh#xvadp.cre"
+  SAY NAME1 "Xvart Adept"
+  SAY NAME2 "Xvart Adept"
+
+  WRITE_LONG	0x0014 65	// XP value
+  WRITE_SHORT	0x0024 14	// Current HP
+  WRITE_SHORT	0x0026 14	// Maximum HP
+  WRITE_BYTE	0x0052 19	// THAC0
+  WRITE_BYTE	0x0234 3	// Level
+  WRITE_BYTE	0x0273 IDS_OF_SYMBOL("class" "mage")
+
+  ADD_MEMORIZED_SPELL "spwi116" #0 "wizard"	// Sleep
+  ADD_MEMORIZED_SPELL "spwi118" #0 "wizard"	// Chromatic Orb
+  ADD_MEMORIZED_SPELL "spwi212" #1 "wizard"	// Mirror Image
+
+  WRITE_ASCII SCRIPT_CLASS "mh#xvadp" #8
+
+
+LAUNCH_ACTION_FUNCTION compile_dialog_or_script
+  STR_VAR
+  path_to_file		= "%MOD_FOLDER%/bg1/xvart_village/mh#xvadp.baf"
+END
+
+
+// Area edits
+
+COPY_EXISTING "%XvartVillage%.are" "override"
+  LAUNCH_PATCH_FUNCTION add_area_actors_from_2da
+    INT_VAR
+    tutu_compat		= 1
+    STR_VAR
+    path_to_2da		= "%MOD_FOLDER%/bg1/xvart_village/bg4700.2da"
+  END
+
+  LAUNCH_PATCH_FUNCTION add_simple_trap
+    INT_VAR
+    ll_x		= 3370
+    ll_y		= 806
+    lr_x		= 3676
+    lr_y		= 797
+    ur_x		= 3687
+    ur_y		= 783
+    ul_x		= 3363
+    ul_y		= 792
+  END
+
+  LAUNCH_PATCH_FUNCTION add_simple_trap
+    INT_VAR
+    ll_x                = 3544
+    ll_y                = 2564
+    lr_x                = 3777
+    lr_y                = 2529
+    ur_x                = 3767
+    ur_y                = 2517
+    ul_x                = 3544
+    ul_y                = 2550
+  END
+
+

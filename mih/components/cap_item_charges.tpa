@@ -1,0 +1,155 @@
+// Cap Item Charges
+//
+// This component caps the maximum number of charges in wands and stuff.
+
+
+PRINT "Patching all items..."
+
+COPY_EXISTING_REGEXP ".+\.itm" "override"
+  GET_OFFSET_ARRAY ab_array ITM_V10_HEADERS
+
+  READ_SHORT 0x0038 max_stack
+
+  PATCH_IF max_stack < 2
+  BEGIN
+    PHP_EACH ab_array AS int => ab_offset
+    BEGIN
+      READ_SHORT (ab_offset + 0x0022) charges
+
+      PATCH_IF charges > charge_cap
+      BEGIN
+        WRITE_SHORT (ab_offset + 0x0022) charge_cap
+      END
+    END
+  END
+
+  BUT_ONLY_IF_IT_CHANGES
+
+
+PRINT "Patching items held by creatures..."
+
+COPY_EXISTING_REGEXP ".+\.cre" "override"
+  GET_OFFSET_ARRAY itm_array CRE_V10_ITEMS
+  PHP_EACH itm_array AS int => itm_offset
+  BEGIN
+    READ_ASCII (itm_offset + 0x0000) item
+    READ_SHORT (itm_offset + 0x000a) charges1
+    READ_SHORT (itm_offset + 0x000c) charges2
+    READ_SHORT (itm_offset + 0x000e) charges3
+
+    PATCH_IF FILE_EXISTS_IN_GAME "%item%.itm"
+    BEGIN
+      INNER_PATCH_FILE "%item%.itm"
+      BEGIN
+        READ_SHORT 0x0038 max_stack ELSE 0
+      END
+
+      PATCH_IF max_stack < 2
+      BEGIN
+        PATCH_IF charges1 > charge_cap
+	BEGIN
+          WRITE_SHORT (itm_offset + 0x000a) charge_cap
+	END
+
+        PATCH_IF charges2 > charge_cap
+	BEGIN
+          WRITE_SHORT (itm_offset + 0x000c) charge_cap
+	END
+
+        PATCH_IF charges3 > charge_cap
+	BEGIN
+          WRITE_SHORT (itm_offset + 0x000e) charge_cap
+	END
+      END
+    END
+  END
+
+  BUT_ONLY_IF_IT_CHANGES
+
+
+PRINT "Patching items in stores..."
+
+COPY_EXISTING_REGEXP ".+\.sto" "override"
+  GET_OFFSET_ARRAY itm_array STO_V10_ITEMS_SOLD
+  PHP_EACH itm_array AS int => itm_offset
+  BEGIN
+    READ_ASCII (itm_offset + 0x0000) item
+    READ_SHORT (itm_offset + 0x000a) charges1
+    READ_SHORT (itm_offset + 0x000c) charges2
+    READ_SHORT (itm_offset + 0x000e) charges3
+
+    PATCH_IF FILE_EXISTS_IN_GAME "%item%.itm"
+    BEGIN
+      INNER_PATCH_FILE "%item%.itm"
+      BEGIN
+        READ_SHORT 0x0038 max_stack ELSE 0
+      END
+
+      PATCH_IF max_stack < 2
+      BEGIN
+        PATCH_IF charges1 > charge_cap
+	BEGIN
+          WRITE_SHORT (itm_offset + 0x000a) charge_cap
+	END
+
+        PATCH_IF charges2 > charge_cap
+	BEGIN
+          WRITE_SHORT (itm_offset + 0x000c) charge_cap
+	END
+
+        PATCH_IF charges3 > charge_cap
+	BEGIN
+          WRITE_SHORT (itm_offset + 0x000e) charge_cap
+	END
+      END
+    END
+  END
+
+  BUT_ONLY_IF_IT_CHANGES
+
+
+PRINT "Patching items in area containers..."
+
+COPY_EXISTING_REGEXP ".+\.are" "override"
+  GET_OFFSET_ARRAY con_array ARE_V10_CONTAINERS
+  PHP_EACH con_array AS int => con_offset
+  BEGIN
+    GET_OFFSET_ARRAY2 itm_array con_offset ARE_V10_ITEMS
+    PHP_EACH itm_array AS int => itm_offset
+    BEGIN
+      READ_ASCII (itm_offset + 0x0000) item
+      READ_SHORT (itm_offset + 0x000a) charges1
+      READ_SHORT (itm_offset + 0x000c) charges2
+      READ_SHORT (itm_offset + 0x000e) charges3
+
+      PATCH_IF FILE_EXISTS_IN_GAME "%item%.itm"
+      BEGIN
+        INNER_PATCH_FILE "%item%.itm"
+        BEGIN
+          READ_SHORT 0x0038 max_stack ELSE 0
+        END
+      
+        PATCH_IF max_stack < 2
+        BEGIN
+          PATCH_IF charges1 > charge_cap
+	  BEGIN
+            WRITE_SHORT (itm_offset + 0x000a) charge_cap
+	  END
+
+          PATCH_IF charges2 > charge_cap
+	  BEGIN
+            WRITE_SHORT (itm_offset + 0x000c) charge_cap
+	  END
+
+          PATCH_IF charges3 > charge_cap
+	  BEGIN
+            WRITE_SHORT (itm_offset + 0x000e) charge_cap
+	  END
+	END
+      END
+    END
+  END
+
+  BUT_ONLY_IF_IT_CHANGES
+
+

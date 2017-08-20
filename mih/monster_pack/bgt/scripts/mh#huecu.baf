@@ -1,0 +1,102 @@
+IF
+  See(ThirdNearestEnemyOf(Myself))
+  !Range(ThirdNearestEnemyOf(Myself), 15)
+  HaveSpell(CLERIC_ENTANGLE)
+  !GlobalTimerNotExpired("spell", "LOCALS")
+THEN
+  RESPONSE #50
+    SetGlobalTimer("spell", "LOCALS", ONE_ROUND)
+    Spell(LastSeenBy(Myself), CLERIC_ENTANGLE)
+  RESPONSE #50
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_ANIMATE_DEAD)
+  !GlobalTimerNotExpired("spell", "LOCALS")
+THEN
+  RESPONSE #90
+    SetGlobalTimer("spell", "LOCALS", ONE_ROUND)
+    Spell(Myself, CLERIC_ANIMATE_DEAD)
+  RESPONSE #10
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_STRENGTH_OF_ONE)
+  !GlobalTimerNotExpired("spell", "LOCALS")
+THEN
+  RESPONSE #70
+    SetGlobalTimer("spell", "LOCALS", ONE_ROUND)
+    Spell(Myself, CLERIC_STRENGTH_OF_ONE)
+  RESPONSE #30
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  NotStateCheck(NearestEnemyOf(Myself), STATE_HELPLESS)
+  HaveSpell(CLERIC_HOLD_PERSON)
+  !GlobalTimerNotExpired("spell", "LOCALS")
+THEN
+  RESPONSE #70
+    SetGlobalTimer("spell", "LOCALS", ONE_ROUND)
+    Spell(LastSeenBy(Myself), CLERIC_HOLD_PERSON)
+  RESPONSE #30
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_DRAW_UPON_HOLY_MIGHT)
+  !GlobalTimerNotExpired("spell", "LOCALS")
+THEN
+  RESPONSE #70
+    SetGlobalTimer("spell", "LOCALS", ONE_ROUND)
+    Spell(Myself, CLERIC_DRAW_UPON_HOLY_MIGHT)
+  RESPONSE #30
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_CHANT)
+  !StateCheck(Myself, STATE_CHANT)
+  !GlobalTimerNotExpired("spell", "LOCALS")
+THEN
+  RESPONSE #70
+    SetGlobalTimer("spell", "LOCALS", ONE_ROUND)
+    Spell(Myself, CLERIC_CHANT)
+  RESPONSE #30
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_BLESS)
+  !StateCheck(Myself, STATE_BLESS)
+  !GlobalTimerNotExpired("spell", "LOCALS")
+THEN
+  RESPONSE #70
+    SetGlobalTimer("spell", "LOCALS", ONE_ROUND)
+    Spell(Myself, CLERIC_BLESS)
+  RESPONSE #30
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !Range(NearestEnemyOf(Myself), 15)
+  HaveSpell(CLERIC_MAGIC_STONE)
+  !GlobalTimerNotExpired("spell", "LOCALS")
+THEN
+  RESPONSE #70
+    SetGlobalTimer("spell", "LOCALS", ONE_ROUND)
+    Spell(LastSeenBy(Myself), CLERIC_MAGIC_STONE)
+  RESPONSE #30
+    Continue()
+END
+
+

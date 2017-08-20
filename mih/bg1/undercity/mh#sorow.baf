@@ -1,0 +1,12 @@
+IF
+  See(LastAttackerOf(Myself))
+  Range(LastAttackerOf(Myself), 15)
+  !GlobalTimerNotExpired("acid_arrow", "LOCALS")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("acid_arrow", "LOCALS", THREE_ROUNDS)
+    ForceSpell(LastSeenBy(Myself), WIZARD_MELF_ACID_ARROW)
+    Wait(2)
+END
+
+

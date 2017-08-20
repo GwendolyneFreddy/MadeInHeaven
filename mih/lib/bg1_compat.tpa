@@ -1,0 +1,69 @@
+// BG1 compatibility hacks
+
+ACTION_IF NOT FILE_EXISTS "override/bg1_compat_hacks.mih"
+BEGIN
+  COPY "%MOD_FOLDER%/dummy.mih" "override/bg1_compat_hacks.mih"
+
+
+  // Create missing attack items
+
+  COPY_EXISTING "p1-4.itm" "override/p2-8.itm"
+    LAUNCH_PATCH_FUNCTION ALTER_ITEM_HEADER
+      INT_VAR
+      dicenumber	= 2
+    END
+
+  COPY_EXISTING "b1-4.itm" "override/b3-12.itm"
+    LAUNCH_PATCH_FUNCTION ALTER_ITEM_HEADER
+      INT_VAR
+      dicenumber	= 3
+    END
+
+  COPY_EXISTING "b1-10.itm" "override/b3-30.itm"
+    LAUNCH_PATCH_FUNCTION ALTER_ITEM_HEADER
+      INT_VAR
+      dicenumber	= 3
+    END
+
+
+  // Restore missing Buckler +1 (shld17)
+
+  COPY_LARGE "%MOD_FOLDER%/lib/bg1_compat/ishld17.bam" "override"
+
+  COPY "%MOD_FOLDER%/lib/bg1_compat/shld17.itm" "override"
+    SAY NAME2 "Buckler +1"
+    SAY IDENTIFIED_DESC "A buckler is a small shield of wood or metal that fastens to the forearm.  Because of its size it is light and can be worn with very little restriction to movement.  This buckler has some form of generic enchantment, making it more resistant to blows.
+
+STATISTICS:
+
+Armor Class Bonus:  2
+Special:  No Missile/Piercing Attack Protection
+Weight:  2
+Requires: 4 Strength
+Unusable By:
+ Mage"
+
+
+  // Copy in extended state.bams (from ToB, uncompressed)
+
+  COPY "%MOD_FOLDER%/lib/bg1_compat/states.bam" "override"
+
+
+  // Add RESTORE_FULL_HEALTH pseudo-spell
+
+  ADD_SPELL "%MOD_FOLDER%/lib/bg1_compat/restore_full_health.spl" 3 1 RESTORE_FULL_HEALTH
+
+
+  // Create missing summoned creatures
+
+  ACTION_IF NOT FILE_EXISTS_IN_GAME "jellmusu.cre"
+  BEGIN
+    COPY_EXISTING "%tutu_var%jellmu.cre" "override/jellmusu.cre"
+      LAUNCH_PATCH_FUNCTION make_summon
+        INT_VAR
+	power_level	= 60
+      END
+  END
+END
+
+

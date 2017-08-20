@@ -1,0 +1,183 @@
+// Made in Heaven Spell Pack
+
+
+COPY_LARGE "%MOD_FOLDER%/spell_pack/bgt/bams" "override"
+
+
+// ===================
+// Expeditious Retreat
+// ===================
+
+ADD_SPELL "%MOD_FOLDER%/mih_spell_pack/bgt/spells/mh#wiz11.spl" 2 1 WIZARD_EXPEDITIOUS_RETREAT
+  SAY NAME1 "Expeditious Retreat"
+  SAY UNIDENTIFIED_DESC "Expeditious Retreat (Alteration)
+Level: 1
+Casting Time: 1
+Duration: 3 rounds + 1 round/level
+Range: 0
+Area of Effect: Caster
+Saving Throw: None
+
+Upon casting this spell, the caster's movement speed triples.  Other actions, like attacking or spell casting, are not altered in any way.  The caster is not required to use this extra speed to retreat or flee, the name of the spell is merely an allusion to the typical wizard's disposition towards melee combat."
+
+
+LAUNCH_ACTION_FUNCTION RES_NUM_OF_SPELL_NAME
+  STR_VAR
+  spell_name		= "WIZARD_EXPEDITIOUS_RETREAT"
+  RET
+  spell_res
+END
+
+
+COPY "%MOD_FOLDER%/mih_spell_pack/bgt/items/mh#wiz11.itm" "override"
+  SAY NAME2 "Expeditious Retreat"
+
+  LAUNCH_PATCH_FUNCTION ALTER_ITEM_EFFECT
+    match_resource	= "mh#wiz11"
+    resource		= "%spell_res%"
+  END
+
+
+// ============
+// Spark Shower
+// ============
+
+
+ADD_SPELL "%MOD_FOLDER%/mih_spell_pack/bgt/spells/mh#wiz21.spl" 2 2 WIZARD_SPARK_SHOWER
+  SAY NAME1 "Spark Shower"
+  SAY UNIDENTIFIED_DESC "Spark Shower (Evocation)
+Level: 2
+Casting Time: 2
+Duration: Instantaneous
+Range: Visual
+Area of Effect: 15' radius
+Saving Throw: Half
+
+This spell creates a sparkling blue ball of electricity that flies towards a point designated by the caster, then bursts and shocks everyone in a 15 foot radius for 4d4 points of electrical damage (2d4 if a saving throw versus spell is made)."
+
+
+LAUNCH_ACTION_FUNCTION RES_NUM_OF_SPELL_NAME
+  STR_VAR
+  spell_name		= "WIZARD_SPARK_SHOWER"
+  RET
+  spell_res
+END
+
+
+COPY "%MOD_FOLDER%/mih_spell_pack/bgt/items/mh#wiz21.itm" "override"
+  SAY NAME2 "Spark Shower"
+
+  LAUNCH_PATCH_FUNCTION ALTER_ITEM_EFFECT
+    match_resource	= "mh#wiz21"
+    resource		= "%spell_res%"
+  END
+
+
+// ======================
+// Improved Magic Missile
+// ======================
+
+ADD_SPELL "%MOD_FOLDER%/mih_spell_pack/bgt/spells/mh#wiz31.spl" 2 3 WIZARD_IMPROVED_MAGIC_MISSILE
+  SAY NAME1 "Improved Magic Missile"
+  SAY UNIDENTIFIED_DESC "Improved Magic Missile (Evocation)
+Level: 3
+Casting Time: 3
+Duration: Instantaneous
+Range: Visual
+Area of Effect: 1 creature
+Saving Throw: None
+
+Upon casting this spell, the caster unleashes one magical projectile for every odd caster level they have, up to a maximum of eleven missiles at level 21.  These missiles then unerringly strike a target of the caster's choice, dealing 1d4 +1 points of magical damage per missile.
+
+Note that for a caster lower than 11th level, this spell is virtually identical to the Magic Missile spell except that it is a 3rd level spell.  The Shield spell and other spells and items that specifically block Magic Missile spells also block this spell."
+
+
+LAUNCH_ACTION_FUNCTION RES_NUM_OF_SPELL_NAME
+  STR_VAR
+  spell_name		= "WIZARD_IMPROVED_MAGIC_MISSILE"
+  RET
+  spell_res
+END
+
+
+COPY "%MOD_FOLDER%/mih_spell_pack/bgt/items/mh#wiz31.itm" "override"
+  SAY NAME2 "Improved Magic Missile"
+
+  LAUNCH_PATCH_FUNCTION ALTER_ITEM_EFFECT
+    match_resource	= "mh#wiz31"
+    resource		= "%spell_res%"
+  END
+
+
+// ===========
+// Iron Maiden
+// ===========
+
+ADD_SPELL "%MOD_FOLDER%/mih_spell_pack/bgt/spells/mh#wiz41.spl" 2 4 WIZARD_IRON_MAIDEN
+  SAY NAME1 "Iron Maiden"
+  SAY UNIDENTIFIED_DESC "Iron Maiden (Evocation)
+Level: 4
+Casting Time: 10
+Range: 1
+Area of Effect: Creates 1 construct
+Duration: 1 round/level
+Saving Throw: None
+
+This secret Harper spell creates a construct known as a helmed horror to fight for the caster for one round per caster level.  The Iron Maiden is a battle horror, the strongest kind of helmed horrors.  It appears as an animated suit of armor, although it has a vaguely female shape this is pure aestetic, the armor is empty and animated by magical force alone.  It is immune to fire, lightning and magic missiles.  Because this is a construct created on the spot and not a creature summoned from elsewhere, Death Spell and Death Fog have no effect on it."
+
+  // Summoning by EFF file doesn't work in vanilla BG1
+  PATCH_IF ENGINE_IS "bg1 totsc"
+  BEGIN
+    LAUNCH_PATCH_FUNCTION ALTER_EFFECT
+      INT_VAR
+      match_opcode	= 177	// Use EFF file
+      opcode		= 67	// Summon: Creature Summoning
+      parameter2	= 0
+    END
+  END
+
+
+LAUNCH_ACTION_FUNCTION RES_NUM_OF_SPELL_NAME
+  STR_VAR
+  spell_name		= "WIZARD_IRON_MAIDEN"
+  RET
+  spell_res
+END
+
+
+COPY "%MOD_FOLDER%/mih_spell_pack/bgt/items/mh#wiz41.itm" "override"
+  SAY NAME2 "Iron Maiden"
+
+  LAUNCH_PATCH_FUNCTION ALTER_ITEM_EFFECT
+    match_resource	= "mh#wiz41"
+    resource		= "%spell_res%"
+  END
+
+
+// Not needed in BG1/TotSC as summoning by EFF doesn't work there.
+ACTION_IF NOT ENGINE_IS "bg1 totsc"
+BEGIN
+  CREATE EFF "mh#irnmd"
+    WRITE_LONG	0x0010 67	// Summon: Creature Summoning
+    WRITE_SHORT	0x0024 1	// Permanent
+    WRITE_SHORT	0x002c 100	// 100% chance
+    WRITE_ASCII	0x0030 "mh#irnmd" #8
+    WRITE_ASCII	0x0068 "spcrtwpn" #8
+END
+  
+
+COPY "%MOD_FOLDER%/mih_spell_pack/bgt/actors/mh#irnmd.cre" "override"
+  SAY NAME1 "Iron Maiden"
+  SAY NAME2 "Iron Maiden"
+
+
+COPY "%MOD_FOLDER%/mih_spell_pack/bgt/actors/mh#irnmd.itm" "override"
+  SAY NAME1 "Attack"
+  SAY NAME2 "Attack"
+
+  LAUNCH_PATCH_FUNCTION add_magic_missile_immunity
+    INT_VAR
+    match_opcode	= 63	// State: Infravision
+  END
+
+

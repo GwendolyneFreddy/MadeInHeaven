@@ -1,0 +1,67 @@
+// Strict Druid Item Restrictions
+//
+// Druids are restricted to certain specific weapons and non-metallic armor,
+// but in Baldur's Gate and Icewind Dale this is not properly implemented,
+// especially for fighter/druids.  This mod enforced more proper item use
+// restrictions for druids.
+
+
+PRINT "Patching all items..."
+
+COPY_EXISTING_REGEXP ".+\.itm" "override"
+  READ_SHORT 0x001c item_type
+  READ_LONG 0x001e use_mask
+
+  PATCH_MATCH item_type
+  WITH
+    // Check external exception list.
+    ANY FILE_CONTAINS_EVALUATED ("%MOD_FOLDER%/config/druid_item_exceptions.txt" "^%SOURCE_RES%")
+    BEGIN
+      //PATCH_PRINT "Exception found: %SOURCE_RES%"
+    END
+
+    // Helmets are a complicated thing because ioun stones are also included.
+    // If it can't be used by a bard, it's probably a helm.
+    // Otherwise, it's probably an ioun stone or other special.
+    0x0007
+    BEGIN
+      PATCH_IF (use_mask & BIT6)
+      BEGIN
+        // Item is forbidden to bards, forbid to druids and fighter/druids.
+        use_mask |= (BIT12 | BIT30)
+      END
+      ELSE
+      BEGIN
+        // Item is allowed to bards, forbid to fighter/druid if druid can't use.
+        PATCH_IF (use_mask & BIT30)
+        BEGIN
+          use_mask |= BIT12
+        END
+      END
+    END
+
+    // Amulets, belts, boots, bracers, potions, rings, cloaks and wands:
+    // These are only forbidden to fighter/druids if both fighters and
+    // druids can't use them.
+    0x0001 0x0003 0x0004 0x0006 0x0009 0x000a 0x0020 0x0023
+    BEGIN
+      PATCH_IF (use_mask & BIT11) && (use_mask & BIT30)
+      BEGIN
+        use_mask |= BIT12
+      END
+    END
+
+    // Most items will be handled by this.
+    DEFAULT
+      // If a druid can't use it, a fighter/druid shouldn't be able to either.
+      PATCH_IF (use_mask & BIT30)
+      BEGIN
+        use_mask |= BIT12
+      END
+  END
+
+  WRITE_LONG 0x001e use_mask
+
+  BUT_ONLY_IF_IT_CHANGES
+
+

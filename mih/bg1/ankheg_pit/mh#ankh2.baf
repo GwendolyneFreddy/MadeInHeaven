@@ -1,0 +1,12 @@
+IF
+  Entered([PC])
+THEN
+  RESPONSE #100
+  CreateCreature("%tutu_var%ankheg", [1670.275], 13)
+  CreateCreature("%tutu_var%ankheg", [1705.375], 11)
+  CreateCreature("%tutu_var%ankheg", [1740.720], 12)
+  CreateCreature("%tutu_var%ankheg", [1850.730], 13)
+  CreateCreature("%tutu_var%ankheg", [1910.1120], 12)
+END
+
+

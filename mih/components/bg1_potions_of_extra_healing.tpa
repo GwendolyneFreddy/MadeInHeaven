@@ -1,0 +1,105 @@
+// Potions of Extra Healing in BG1
+
+
+// Create Potion from Extra Healing from Potion of Healing
+// for games that don't have it.  (Vanilla BG1)
+
+ACTION_IF NOT FILE_EXISTS_IN_GAME "potn52.itm"
+BEGIN
+  COPY_LARGE "%MOD_FOLDER%/bg1/extra_healing/ipotn52.bam" "override"
+             "%MOD_FOLDER%/bg1/extra_healing/cpotn52.bam" "override"
+
+  COPY_EXISTING "%tutu_var%potn08.itm" "override/potn52.itm"
+    SAY NAME2 "Potion of Extra Healing"
+    SAY IDENTIFIED_DESC "When wholly consumed, this potion restores 27 hit points to the person.  The effect is instantaneous and the potion is destroyed in the process."
+
+    WRITE_ASCII 0x003a "ipotn52" #8
+    WRITE_ASCII 0x0058 "cpotn52" #8
+
+    LAUNCH_PATCH_FUNCTION ALTER_ITEM_HEADER
+      STR_VAR
+      icon		= "ipotn52"
+    END
+
+    LAUNCH_PATCH_FUNCTION ALTER_EFFECT
+      INT_VAR
+      match_opcode	= 17	// HP: Current HP Modifier
+      parameter1	= 27
+    END
+END
+
+
+// Add Potions of Extra Healing to a select few temples and stores.
+
+COPY_EXISTING "%tutu_var%tem0131.sto" "override"
+              "%tutu_var%tem0132.sto" "override"
+	      "%tutu_var%tem3402.sto" "override"
+              "%tutu_var%tem4003.sto" "override"
+  ADD_STORE_ITEM "potn52" AFTER "%tutu_var%potn08" #1 #0 #0 "identified" #3
+
+COPY_EXISTING "%tutu_var%erdane.sto" "override"
+              "%tutu_var%ulgoth.sto" "override"
+  ADD_STORE_ITEM "potn52" AFTER "%tutu_var%potn08" #1 #0 #0 "identified" #5
+
+
+// Place a few Potions of Extra Healing in unused containers of the Cloakwood Mine.
+
+COPY_EXISTING "%CloakwoodMines_L2%.are" "override"
+  LAUNCH_PATCH_FUNCTION ADD_AREA_ITEM
+    INT_VAR
+    container_to_add_to		= 5
+    charges1			= 1
+    STR_VAR
+    item_to_add			= "potn52"
+  END
+
+  LAUNCH_PATCH_FUNCTION ADD_AREA_ITEM
+    INT_VAR
+    container_to_add_to		= 3
+    charges1			= 1
+    STR_VAR
+    item_to_add			= "potn52"
+  END
+
+  LAUNCH_PATCH_FUNCTION ADD_AREA_ITEM
+    INT_VAR
+    container_to_add_to		= 8
+    charges1			= 1
+    STR_VAR
+    item_to_add			= "potn52"
+  END
+
+  LAUNCH_PATCH_FUNCTION ADD_AREA_ITEM
+    INT_VAR
+    container_to_add_to		= 7
+    charges1			= 1
+    STR_VAR
+    item_to_add			= "potn52"
+  END
+
+
+// Replace large stacks of normal healing potions in Durlag's Tower
+// with equivalent stacks of potions of extra healing.
+
+COPY_EXISTING "%DurlagsTower_D1%.are" "override"
+              "%DurlagsTower_D2%.are" "override"
+              "%DurlagsTower_D3%.are" "override"
+              "%DurlagsTower_D4%.are" "override"
+  GET_OFFSET_ARRAY con_array ARE_V10_CONTAINERS
+  PHP_EACH con_array AS int => con_offset
+  BEGIN
+    GET_OFFSET_ARRAY2 itm_array con_offset ARE_V10_ITEMS
+    PHP_EACH itm_array AS int => itm_offset
+    BEGIN
+      READ_ASCII (itm_offset + 0x0000) item
+      READ_SHORT (itm_offset + 0x000a) charges1
+
+      PATCH_IF ("%item%" STRING_EQUAL_CASE "%tutu_var%potn08") && (charges1 > 2)
+      BEGIN
+        WRITE_ASCII (itm_offset + 0x0000) "potn52" #8
+	WRITE_SHORT (itm_offset + 0x000a) ((charges1 + 1) / 3)
+      END
+    END
+  END
+
+

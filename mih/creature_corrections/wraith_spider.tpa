@@ -1,0 +1,40 @@
+// Wraith Spider corrections
+
+ACTION_IF NOT FILE_EXISTS_IN_GAME "mh#spdwr.itm"
+BEGIN
+  COPY "%MOD_FOLDER%/creature_corrections/items/mh#spdwr.itm" "override"
+    SAY NAME1 "Attack"
+    SAY NAME2 "Attack"
+
+    LAUNCH_PATCH_FUNCTION ADD_ITEM_EFFECT
+      INT_VAR
+      type		= 1	// Melee
+      opcode		= 139	// Text: Display String
+      target		= 2	// Pre-target
+      timing		= 1	// Permanent
+      parameter1	= RESOLVE_STR_REF("Diseased")
+      savingthrow	= 4	// Death/Poison
+    END
+
+    LAUNCH_PATCH_FUNCTION add_energy_drain
+      INT_VAR
+      levels_drained	= 1
+    END
+
+
+  DEFINE_PATCH_MACRO fix_wraith_spider
+  BEGIN
+    REPLACE_CRE_ITEM "mh#spdwr" #0 #0 #0 "unstealable&undroppable" "weapon1" EQUIP
+    REPLACE_CRE_ITEM "mh#spdwr" #0 #0 #0 "unstealable&undroppable" "weapon2"
+    REPLACE_CRE_ITEM "mh#spdwr" #0 #0 #0 "unstealable&undroppable" "weapon3"
+    REPLACE_CRE_ITEM "mh#spdwr" #0 #0 #0 "unstealable&undroppable" "weapon4"
+
+    WRITE_SHORT	0x0046 5	// Natural AC
+    WRITE_SHORT	0x0048 5	// Effective AC
+    WRITE_BYTE	0x0052 17	// THAC0
+    WRITE_BYTE	0x005a 100	// Cold Resistance
+    WRITE_BYTE	0x0271 IDS_OF_SYMBOL("general" "undead")
+  END
+END
+
+

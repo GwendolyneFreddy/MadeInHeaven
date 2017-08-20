@@ -1,0 +1,25 @@
+IF
+  Global("mh#PeacefulBGSendai", "GLOBAL", 1)
+  !Dead("sendai")
+THEN
+  RESPONSE #100
+    SetGlobal("mh#PeacefulBGSendai", "GLOBAL", 2)
+    CreateItem("%tutu_var%leat07", 0, 0, 0)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !GlobalTimerNotExpired("covey_animate_dead", "LOCALS")
+  !GlobalTimerNotExpired("covey_spell", "MYAREA")
+  !Dead("mh#greenhag1")
+  !Dead("mh#greenhag2")
+THEN
+  RESPONSE #40
+    SetGlobalTimer("covey_animate_dead", "LOCALS", ONE_DAY)
+    SetGlobalTimer("covey_spell", "MYAREA", ONE_ROUND)
+    ForceSpell(LastSeenBy(Myself), MH_COVEY_ANIMATE_DEAD)
+  RESPONSE #60
+    Continue()
+END
+
+    

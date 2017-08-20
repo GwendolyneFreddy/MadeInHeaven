@@ -1,0 +1,21 @@
+Locations of Potions of Extra Healing in BG1
+
+
+* For sale in the following temples (3 each):
+	- Song of the Morning (Beregost)
+	- Temple of Yondala (Gullykin)
+	- The Lady's Hall (Baldur's Gate)
+	- High Hall of Gond (Baldur's Gate)
+
+* For sale in the following stores (5 each):
+	- Erdane (Durlag's Tower)
+	- Ulgoth's Beard Store and Inn
+
+* A few have been placed in containers in Cloakwood, in preparation for the
+  Davaeorn battle.
+
+* The larger stacks (3 or more) of Potions of healing in the lower levels
+  of Durlag's Tower have been replaced with smaller but roughly equivalent
+  Potions of Extra Healing, approximately in a 3 to 1 ratio.
+
+

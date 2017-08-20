@@ -1,0 +1,28 @@
+// Versatile Light Crossbows
+
+PRINT "Patching all items, wait..."
+
+COPY_EXISTING_REGEXP ".+\.itm" "override"
+  READ_SHORT 0x01c item_type
+  READ_LONG  0x01e usability
+
+  PATCH_IF ((item_type == 0x001b) || (item_type == 0x001f)) && !(usability & BIT22)
+  BEGIN
+    usability &= `BIT18
+  END
+
+  WRITE_LONG  0x01e usability
+
+  BUT_ONLY_IF_IT_CHANGES
+
+
+ACTION_IF FILE_EXISTS_IN_GAME "weapprof.2da"
+BEGIN
+  COPY_EXISTING "weapprof.2da" "override"
+    COUNT_2DA_COLS cols
+    SET_2DA_ENTRY 23 4 cols 1
+
+    BUT_ONLY_IF_IT_CHANGES
+END
+
+

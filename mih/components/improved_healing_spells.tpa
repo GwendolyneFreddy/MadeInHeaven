@@ -1,0 +1,62 @@
+// Improved Healing Spells
+//
+// This modification makes healing spells scale by level, as follows:
+// Cure Light Wounds	=> 1d8 + 1/level (max. +5)
+// Cure Moderate Wounds	=> 2d8 + 1/level (max. +10)
+// Cure Medium Wounds	=> 3d8 + 1/level (max. +15)
+// Cure Serious Wounds	=> 4d8 + 1/level (max. +20)
+// Cure Critical Wounds	=> 5d8 + 1/level (max. +25)
+// Heal			=> 10/level
+
+
+ACTION_PHP_EACH cure_assorted_wounds AS spell_name => spell_res
+BEGIN
+  COPY_EXISTING "%spell_res%.spl" "override"
+    READ_LONG 0x0034 spell_level
+    SET min_level = (spell_level - 1) * 2 + 1
+
+    LAUNCH_PATCH_FUNCTION CD_EXTEND-O-MATIC
+      INT_VAR
+      min_lev_alt	= min_level
+      level_cap		= spell_level * 5
+    END
+
+    GET_OFFSET_ARRAY ab_array SPL_V10_HEADERS
+    PHP_EACH ab_array AS int => ab_offset
+    BEGIN
+      READ_SHORT ab_offset + 0x0010 caster_level
+      PATCH_IF caster_level < min_level
+      BEGIN
+        SET caster_level = min_level
+      END
+
+      GET_OFFSET_ARRAY2 fx_array ab_offset SPL_V10_HEAD_EFFECTS
+      PHP_EACH fx_array AS int => fx_offset
+      BEGIN
+        READ_SHORT fx_offset opcode
+	WRITE_BYTE fx_offset + 0x000d 2	// bypass resistance
+
+        PATCH_IF opcode == 17
+        BEGIN
+	  PATCH_IF "%spell_name%" STRING_EQUAL "CLERIC_HEAL"
+	  BEGIN
+            WRITE_LONG fx_offset + 0x0004 caster_level * 10
+            WRITE_LONG fx_offset + 0x0008 0
+	    WRITE_LONG fx_offset + 0x001c 0
+	    WRITE_LONG fx_offset + 0x0020 0
+	  END
+	  ELSE
+	  BEGIN
+            WRITE_LONG fx_offset + 0x0004 caster_level
+            WRITE_LONG fx_offset + 0x0008 0
+	    WRITE_LONG fx_offset + 0x001c spell_level
+	    WRITE_LONG fx_offset + 0x0020 8
+	  END
+        END
+      END
+    END
+
+    BUT_ONLY_IF_IT_CHANGES
+END
+
+

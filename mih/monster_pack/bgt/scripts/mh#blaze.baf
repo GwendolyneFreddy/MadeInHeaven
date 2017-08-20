@@ -1,0 +1,14 @@
+IF
+  !GlobalTimerNotExpired("blaze", "LOCALS")
+  See(NearestEnemyOf(Myself))
+  Range(NearestEnemyOf(Myself), 15)
+THEN
+  RESPONSE #25
+    SetGlobalTimer("blaze", "LOCALS", ONE_TURN)
+    ForceSpell(Myself, MH_BONE_BLAZE)
+    Wait(2)
+  RESPONSE #75
+    Continue()
+END
+
+

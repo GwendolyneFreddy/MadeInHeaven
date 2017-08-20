@@ -1,0 +1,11 @@
+// Make sure no leftover copies of Wenric remain running around
+// after Farm of Fear quest has started.
+
+IF
+  GlobalGT("mh#FarmOfFear", "GLOBAL", 1)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+

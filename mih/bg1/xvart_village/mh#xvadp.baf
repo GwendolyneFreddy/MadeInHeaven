@@ -1,0 +1,40 @@
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_MIRROR_IMAGE)
+  !GlobalTimerNotExpired("spell", "LOCALS")
+THEN
+  RESPONSE #70
+    SetGlobalTimer("spell", "LOCALS", ONE_ROUND)
+    Spell(Myself, WIZARD_MIRROR_IMAGE)
+    Wait(2)
+  RESPONSE #30
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_SLEEP)
+  !GlobalTimerNotExpired("spell", "LOCALS")
+THEN
+  RESPONSE #70
+    SetGlobalTimer("spell", "LOCALS", ONE_ROUND)
+    Spell(LastSeenBy(Myself), WIZARD_SLEEP)
+    Wait(2)
+  RESPONSE #30
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_CHROMATIC_ORB)
+  !GlobalTimerNotExpired("spell", "LOCALS")
+THEN
+  RESPONSE #70
+    SetGlobalTimer("spell", "LOCALS", ONE_ROUND)
+    Spell(LastSeenBy(Myself), WIZARD_CHROMATIC_ORB)
+    Wait(2)
+  RESPONSE #30
+    Continue()
+END
+
+

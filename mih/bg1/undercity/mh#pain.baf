@@ -1,0 +1,12 @@
+IF
+  See(NearestEnemyOf(Myself))
+  Range(NearestEnemyOf(Myself), 15)
+  !GlobalTimerNotExpired("fireball", "LOCALS")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("fireball", "LOCALS", ONE_TURN)
+    ForceSpell(Myself, WIZARD_FIREBALL)
+    Wait(2)
+END
+
+

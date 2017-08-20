@@ -1,0 +1,181 @@
+// Enhanced Thieves's Maze & Undercity
+
+LAUNCH_ACTION_FUNCTION install_component
+  STR_VAR
+  component_name	= "mih_monster_pack"
+END
+
+
+// New spawn groups for games supporting it
+
+ACTION_IF FILE_EXISTS_IN_GAME "spawngrp.2da"
+BEGIN
+  APPEND_COL "spawngrp.2da" "$ $ RDBGdopp 80 %tutu_var%dopple %tutu_var%dopple %tutu_var%doppgr %tutu_var%doppgr %tutu_var%dopple %tutu_var%dopple * *" UNLESS "RDBGdopp"
+  APPEND_COL "spawngrp.2da" "$ $ RDBGspid 80 %tutu_var%spidwr %tutu_var%spidph %tutu_var%spidsw %tutu_scripts%pidphas %tutu_var%spidwr %tutu_var%spidph %tutu_var%spidsw %tutu_scripts%pidphas" UNLESS "RDBGspid"
+  APPEND_COL "spawngrp.2da" "$ $ RDBGdead 80 %tutu_var%ghastd %tutu_var%ghastd %tutu_scriptg%houllor %tutu_scriptg%houllor %tutu_scriptbg%skelwa %tutu_scriptbg%skelwa * *"
+  APPEND_COL "spawngrp.2da" "$ $ RDBGjell 80 %tutu_var%jellgr %tutu_var%jellgr %tutu_var%jelloc %tutu_var%jelloc %tutu_var%jellmu %tutu_var%jellmu * *" UNLESS "RDBGjell"
+  APPEND_COL "spawngrp.2da" "$ $ RDBGstlk 80 %tutu_scriptbg%stalke %tutu_scriptbg%stalke %tutu_scriptbg%stalke * * * * *"
+  APPEND_COL "spawngrp.2da" "$ $ RDMHbane 80 mh#baneg mh#baneg mh#baneg mh#baned mh#baneg mh#baned mh#baned mh#baned"
+
+  // Make sure table is properly formatted
+  COPY_EXISTING "spawngrp.2da" "override"
+    PRETTY_PRINT_2DA
+
+    BUT_ONLY_IF_IT_CHANGES
+END
+
+
+// Thieves' Maze area edits
+
+COPY_EXISTING "%ThievesMaze%.are" "override"
+  LAUNCH_PATCH_FUNCTION add_area_actors_from_2da
+    INT_VAR
+    bgt_compat		= 1
+    tutu_compat		= 1
+    STR_VAR
+    path_to_2da		= "%MOD_FOLDER%/bg1/undercity/bg0146.2da"
+  END
+
+
+// Pain, Sorrow and Loss encounter
+
+LAUNCH_ACTION_FUNCTION compile_dialog_or_script
+  STR_VAR
+  path_to_file		= "%MOD_FOLDER%/bg1/undercity/the_seal.d"
+END
+
+
+LAUNCH_ACTION_FUNCTION compile_dialog_or_script
+  STR_VAR
+  path_to_file		= "%MOD_FOLDER%/bg1/undercity/mh#pain.baf"
+END
+
+
+LAUNCH_ACTION_FUNCTION compile_dialog_or_script
+  STR_VAR
+  path_to_file		= "%MOD_FOLDER%/bg1/undercity/mh#loss.baf"
+END
+
+
+LAUNCH_ACTION_FUNCTION compile_dialog_or_script
+  STR_VAR
+  path_to_file		= "%MOD_FOLDER%/bg1/undercity/mh#sorow.baf"
+END
+
+
+COPY "%MOD_FOLDER%/bg1/undercity/mh#pain.itm" "override"
+     "%MOD_FOLDER%/bg1/undercity/mh#loss.itm" "override"
+     "%MOD_FOLDER%/bg1/undercity/mh#sorow.itm" "override"
+  SAY NAME1 "Attack"
+  SAY NAME2 "Attack"
+
+
+COPY_LARGE "%MOD_FOLDER%/bg1/undercity/mh#tear1.bam" "override"
+           "%MOD_FOLDER%/bg1/undercity/mh#tear2.bam" "override"
+           "%MOD_FOLDER%/bg1/undercity/mh#tear3.bam" "override"
+
+
+COPY "%MOD_FOLDER%/bg1/undercity/mh#tear1.itm" "override"
+     "%MOD_FOLDER%/bg1/undercity/mh#tear2.itm" "override"
+     "%MOD_FOLDER%/bg1/undercity/mh#tear3.itm" "override"
+  SAY NAME2 "Haunting Teardrop"
+  SAY IDENTIFIED_DESC "You feel uneasy holding this strange jewel.  It is uncomfortably cold to the touch, and feeling of melancholy overwhelms you when you hold it.  At times you think you can see the faces of lost family and friends in its glittering surface."
+
+
+COPY "%MOD_FOLDER%/bg1/undercity/mh#gsage.cre" "override"
+  SAY NAME1 "Ghostly Sage"
+  SAY NAME2 "Ghostly Sage"
+
+
+COPY "%MOD_FOLDER%/bg1/undercity/mh#pain.cre" "override"
+  SAY NAME1 "Pain"
+  SAY NAME2 "Pain"
+
+
+COPY "%MOD_FOLDER%/bg1/undercity/mh#loss.cre" "override"
+  SAY NAME1 "Loss"
+  SAY NAME2 "Loss"
+
+
+COPY "%MOD_FOLDER%/bg1/undercity/mh#sorow.cre" "override"
+  SAY NAME1 "Sorrow"
+  SAY NAME2 "Sorrow"
+
+
+// Undercity area edits
+
+COPY_EXISTING "%Undercity%.are" "override"
+  // Add new actors
+  LAUNCH_PATCH_FUNCTION add_area_actors_from_2da
+    INT_VAR
+    bgt_compat		= 1
+    tutu_compat		= 1
+    STR_VAR
+    path_to_2da		= "%MOD_FOLDER%/bg1/undercity/bg0123.2da"
+  END
+
+  // Alter spawn points
+  GET_OFFSET_ARRAY spawn_array ARE_V10_SPAWN_POINTS
+  PHP_EACH spawn_array AS int => spawn_offset
+  BEGIN
+    WRITE_SHORT (spawn_offset + 0x0084) 6
+
+    PATCH_IF FILE_EXISTS_IN_GAME "spawngrp.2da"
+    BEGIN
+      WRITE_SHORT (spawn_offset + 0x0074) 6
+
+      WRITE_ASCII (spawn_offset + 0x0024) "RDBGdead" #8
+      WRITE_ASCII (spawn_offset + 0x002c) "RDBGdopp" #8
+      WRITE_ASCII (spawn_offset + 0x0034) "RDBGspid" #8
+      WRITE_ASCII (spawn_offset + 0x003c) "RDBGjell" #8
+      WRITE_ASCII (spawn_offset + 0x0044) "RDBGstlk" #8
+      WRITE_ASCII (spawn_offset + 0x004c) "RDMHbane" #8
+    END
+    ELSE
+    BEGIN
+      WRITE_SHORT (spawn_offset + 0x0074) 10
+
+      WRITE_ASCII (spawn_offset + 0x0024) "ghast" #8
+      WRITE_ASCII (spawn_offset + 0x002c) "stalke" #8
+      WRITE_ASCII (spawn_offset + 0x0034) "mh#baneg" #8
+      WRITE_ASCII (spawn_offset + 0x003c) "mh#baned" #8
+      WRITE_ASCII (spawn_offset + 0x0044) "jelloc" #8
+      WRITE_ASCII (spawn_offset + 0x004c) "jellmu" #8
+      WRITE_ASCII (spawn_offset + 0x0054) "spidph" #8
+      WRITE_ASCII (spawn_offset + 0x005c) "spidwr" #8
+      WRITE_ASCII (spawn_offset + 0x0064) "dopple" #8
+      WRITE_ASCII (spawn_offset + 0x006c) "doppgr" #8
+    END
+  END
+
+  // Lock temple door
+  LAUNCH_PATCH_FUNCTION ALTER_AREA_DOOR
+    INT_VAR
+    flag_locked		= 1
+    flag_noclose	= 1
+    lock_difficulty	= 100
+    STR_VAR
+    door_name		= "Door0125"
+  END
+
+
+LAUNCH_ACTION_FUNCTION cd_extend_bg_area_script
+  STR_VAR
+  area		= "%Undercity%"
+  script	= "%MOD_FOLDER%/bg1/undercity/bg0123"
+END
+
+
+// ======================================
+// Erase Journal Entries when BGT is over
+// ======================================
+
+ACTION_FOR_EACH dialog IN "mh#gsage" "mh#pain" "mh#sorow" "mh#loss"
+BEGIN
+  LAUNCH_ACTION_FUNCTION erase_journal_entries_on_bg2_transition
+    STR_VAR
+    dialog
+  END
+END
+
+

@@ -1,0 +1,281 @@
+// Enhanced Zombie Farm
+
+
+// Give farm zombies juju-zombie stats
+
+COPY_EXISTING "b3-12.itm" "override/mh#zomju.itm"
+  LAUNCH_PATCH_FUNCTION make_magical
+    INT_VAR
+    enchantment		= 1
+  END
+
+  LAUNCH_PATCH_FUNCTION ADD_ITEM_EQEFFECT
+    INT_VAR
+    opcode		= 63	// State: Infravision
+    target		= 1	// Self
+    timing		= 2	// While equipped
+  END
+
+  LAUNCH_PATCH_FUNCTION add_magic_missile_immunity
+    INT_VAR
+    match_opcode	= 63	// State: Infravision
+  END
+
+
+COPY_EXISTING "%tutu_var%zombiew.cre" "override"
+  SAY NAME1 "Ju-ju Zombie"
+  SAY NAME1 "Ju-ju Zombie"
+
+  REPLACE_CRE_ITEM "mh#zomju" #0 #0 #0 "unstealable&undroppable" "weapon1" EQUIP
+  ADD_CRE_ITEM "immune1" #0 #0 #0 "unstealable&undroppable" "rring"
+
+  PATCH_IF IDS_OF_SYMBOL("animate" "wight_gray") >= 0
+  BEGIN
+    WRITE_LONG	0x0028 IDS_OF_SYMBOL("animate" "wight_gray")
+  END
+
+  WRITE_LONG	0x0014 975	// XP
+  WRITE_SHORT	0x0024 36	// Current HP
+  WRITE_SHORT	0x0026 36	// Maximum HP
+  WRITE_SHORT	0x0046 6	// Natural AC
+  WRITE_SHORT	0x0048 6	// Effective AC
+  WRITE_BYTE	0x0052 15	// THAC0
+  WRITE_BYTE	0x0054 13	// Save vs. Death
+  WRITE_BYTE	0x0055 15	// Save vs. Wands
+  WRITE_BYTE	0x0056 14	// Save vs. Poly
+  WRITE_BYTE	0x0057 16	// Save vs. Breath
+  WRITE_BYTE	0x0058 16	// Save vs. Spells
+  WRITE_BYTE	0x0059 50	// Resist fire
+  WRITE_BYTE	0x005b 100	// Lightning immunity (boo, hiss!)
+  WRITE_BYTE	0x0061 50	// Resist blunt
+  WRITE_BYTE	0x0062 50	// Resist piercing
+  WRITE_BYTE	0x0063 50	// Resist missile
+  WRITE_BYTE	0x0064 100	// Detect illusion
+  WRITE_BYTE	0x0082 9	// Undead level
+  WRITE_BYTE	0x0234 3	// # of HD
+  WRITE_BYTE	0x0238 16	// Strength
+  WRITE_BYTE	0x023c 18	// Dexterity
+  WRITE_BYTE	0x023d 14	// Constitution
+  WRITE_BYTE	0x027b IDS_OF_SYMBOL("align" "neutral_evil")
+
+
+// Give Wenric a death variable
+
+COPY_EXISTING "%tutu_var%wenric.cre" "override"
+  WRITE_ASCII	DEATHVAR	"mh#NormalWenric" #32
+
+
+// Hag Covey encounter
+
+COPY "%MOD_FOLDER%/bg1/zombie_farm/mh#annis.itm" "override"
+     "%MOD_FOLDER%/bg1/zombie_farm/mh#grhag.itm" "override"
+  SAY NAME1 "Attack"
+  SAY NAME2 "Attack"
+
+
+COPY "%MOD_FOLDER%/bg1/zombie_farm/mh#annis.cre" "override"
+  SAY NAME1 "Annis"
+  SAY NAME2 "Annis"
+
+  PATCH_IF (IDS_OF_SYMBOL("animate" "annis") >= 0)
+  BEGIN
+    WRITE_LONG	0x0028 IDS_OF_SYMBOL("animate" "annis")
+  END
+
+
+COPY "%MOD_FOLDER%/bg1/zombie_farm/mh#ghag1.cre" "override"
+     "%MOD_FOLDER%/bg1/zombie_farm/mh#ghag2.cre" "override"
+  SAY NAME1 "Green Hag"
+  SAY NAME2 "Green Hag"
+
+  PATCH_IF (IDS_OF_SYMBOL("animate" "green_hag") >= 0)
+  BEGIN
+    WRITE_LONG	0x0028 IDS_OF_SYMBOL("animate" "green_hag")
+  END
+
+
+COPY "%MOD_FOLDER%/bg1/zombie_farm/mh#sklcr.cre" "override"
+  SAY NAME1 "Ogre Skullcrusher"
+  SAY NAME2 "Ogre Skullcrusher"
+
+  PATCH_IF ENGINE_IS "bg1 totsc"
+  BEGIN
+    WRITE_BYTE	0x0072	3	// Blunt weapons
+    WRITE_BYTE	0x0073	3	// Spiked weapons
+  END
+  ELSE
+  BEGIN
+    SET_BG2_PROFICIENCY	PROFICIENCYMACE 3
+    SET_BG2_PROFICIENCY	PROFICIENCYFLAILMORNINGSTAR 3
+  END
+
+
+COPY_EXISTING "sppr301.spl" "%MOD_FOLDER%/work/covey_animate_dead.spl"
+  LAUNCH_PATCH_MACRO spell_to_innate
+
+ADD_SPELL "%MOD_FOLDER%/work/covey_animate_dead.spl" 3 1 MH_COVEY_ANIMATE_DEAD
+
+
+COPY_EXISTING "sppr302.spl" "%MOD_FOLDER%/work/covey_call_lightning.spl"
+  LAUNCH_PATCH_MACRO spell_to_innate
+
+ADD_SPELL "%MOD_FOLDER%/work/covey_call_lightning.spl" 3 1 MH_COVEY_CALL_LIGHTNING
+
+
+COPY_EXISTING "spwi415.spl" "%MOD_FOLDER%/work/covey_polymorph_other.spl"
+  LAUNCH_PATCH_MACRO spell_to_innate
+
+ADD_SPELL "%MOD_FOLDER%/work/covey_polymorph_other.spl" 3 1 MH_COVEY_POLYMORPH_OTHER
+
+
+LAUNCH_ACTION_FUNCTION compile_dialog_or_script
+  STR_VAR
+  path_to_file		= "%MOD_FOLDER%/bg1/zombie_farm/hag_covey.d"
+END
+
+
+LAUNCH_ACTION_FUNCTION compile_dialog_or_script
+  STR_VAR
+  path_to_file		= "%MOD_FOLDER%/bg1/zombie_farm/mh#covey.baf"
+END
+
+
+LAUNCH_ACTION_FUNCTION compile_dialog_or_script
+  STR_VAR
+  path_to_file		= "%MOD_FOLDER%/bg1/zombie_farm/mh#annis.baf"
+END
+
+
+LAUNCH_ACTION_FUNCTION compile_dialog_or_script
+  STR_VAR
+  path_to_file		= "%MOD_FOLDER%/bg1/zombie_farm/mh#ghag1.baf"
+END
+
+
+LAUNCH_ACTION_FUNCTION compile_dialog_or_script
+  STR_VAR
+  path_to_file		= "%MOD_FOLDER%/bg1/zombie_farm/mh#ghag2.baf"
+END
+
+
+COPY_EXISTING "%tutu_var%wenric.cre" "override/mh#wenr2.cre"
+  WRITE_ASCII	SCRIPT_OVERRIDE	"mh#wenr2" #8
+  WRITE_ASCII	SCRIPT_CLASS	"none" #8
+  WRITE_ASCII	SCRIPT_RACE	"none" #8
+  WRITE_ASCII	SCRIPT_GENERAL	"initdlg" #8
+  WRITE_ASCII	SCRIPT_DEFAULT	"runenemy" #8
+  WRITE_ASCII	DIALOG		"mh#wenr2" #8
+  WRITE_ASCII	DEATHVAR	"mh#FledWenric" #32
+
+
+COPY_EXISTING "%tutu_var%wenric.cre" "override/mh#wenr3.cre"
+  ADD_CRE_ITEM "%tutu_var%misc44" #1 #0 #0 "unstealable&undroppable" "qitem1"
+
+  WRITE_ASCII	DIALOG		"mh#wenr3" #8
+  WRITE_ASCII	DEATHVAR	"mh#NewWenric" #32
+
+
+LAUNCH_ACTION_FUNCTION compile_dialog_or_script
+  STR_VAR
+  path_to_file		= "%MOD_FOLDER%/bg1/zombie_farm/mh#wenr2.baf"
+END
+
+
+// Area script additions
+
+LAUNCH_ACTION_FUNCTION cd_extend_bg_area_script
+  STR_VAR
+  area		= "%NWBaldursGate%"
+  script	= "%MOD_FOLDER%/bg1/zombie_farm/bg0100"
+END
+
+
+LAUNCH_ACTION_FUNCTION cd_extend_bg_area_script
+  STR_VAR
+  area		= "%NBaldursGate%"
+  script	= "%MOD_FOLDER%/bg1/zombie_farm/bg0200"
+END
+
+
+LAUNCH_ACTION_FUNCTION cd_extend_bg_area_script
+  STR_VAR
+  area		= "%NEBaldursGate%"
+  script	= "%MOD_FOLDER%/bg1/zombie_farm/bg0300"
+END
+
+
+LAUNCH_ACTION_FUNCTION cd_extend_bg_area_script
+  STR_VAR
+  area		= "%Farmlands%"
+  script	= "%MOD_FOLDER%/bg1/zombie_farm/bg0400"
+END
+
+
+LAUNCH_ACTION_FUNCTION cd_extend_bg_area_script
+  STR_VAR
+  area		= "%WBaldursGate%"
+  script	= "%MOD_FOLDER%/bg1/zombie_farm/bg0600"
+END
+
+
+LAUNCH_ACTION_FUNCTION cd_extend_bg_area_script
+  STR_VAR
+  area		= "%CentralBaldursGate%"
+  script	= "%MOD_FOLDER%/bg1/zombie_farm/bg0700"
+END
+
+
+LAUNCH_ACTION_FUNCTION cd_extend_bg_area_script
+  STR_VAR
+  area		= "%EBaldursGate%"
+  script	= "%MOD_FOLDER%/bg1/zombie_farm/bg0800"
+END
+
+
+LAUNCH_ACTION_FUNCTION cd_extend_bg_area_script
+  STR_VAR
+  area		= "%WyrmsCrossing%"
+  script	= "%MOD_FOLDER%/bg1/zombie_farm/bg0900"
+END
+
+
+LAUNCH_ACTION_FUNCTION cd_extend_bg_area_script
+  STR_VAR
+  area		= "%SWBaldursGate%"
+  script	= "%MOD_FOLDER%/bg1/zombie_farm/bg1100"
+END
+
+
+LAUNCH_ACTION_FUNCTION cd_extend_bg_area_script
+  STR_VAR
+  area		= "%BaldursGateDocks%"
+  script	= "%MOD_FOLDER%/bg1/zombie_farm/bg1200"
+END
+
+
+LAUNCH_ACTION_FUNCTION cd_extend_bg_area_script
+  STR_VAR
+  area		= "%SEBaldursGate%"
+  script	= "%MOD_FOLDER%/bg1/zombie_farm/bg1300"
+END
+
+
+LAUNCH_ACTION_FUNCTION cd_extend_bg_area_script
+  STR_VAR
+  area		= "%FriendlyArmInn%"
+  script	= "%MOD_FOLDER%/bg1/zombie_farm/bg2300"
+END
+
+
+// ======================================
+// Erase Journal Entries when BGT is over
+// ======================================
+
+ACTION_FOR_EACH dialog IN "mh#annis" "mh#ghag1" "mh#ghag2" "mh#wenr2" "mh#wenr3"
+BEGIN
+  LAUNCH_ACTION_FUNCTION erase_journal_entries_on_bg2_transition
+    STR_VAR
+    dialog
+  END
+END
+

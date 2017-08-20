@@ -1,0 +1,41 @@
+@0    = ~Aw, look at that.  A bunch of puny mortals, thinking they can defeat us.~
+@1    = ~Are these the so-called 'Heroes of the Sword Coast'?  What a joke!~
+@2    = ~Hard to believe that these are the ones who destroyed our precious pets.~
+@3    = ~So, it was worth it after all to let that feeble little farmer escape.  He led you right to us!~
+@4    = ~You shall pay for destroying our pets!~
+@5    = ~We feast well today!~
+@6    = ~Now die, 'heroes'!~
+@7    = ~Farm of Fear
+
+A small army of ogres, led by a trio of night hags had invaded the farmlands north of the river.  It seems the hags were also responsible for the zombie infestation earlier.  I slew them all in a bloody battle, hopefully these tormented farmers will now know some peace.  I should probably find Wenric and tell him of my success.  Maybe he has returned to his home by now?~
+@8    = ~Ah <PRO_SIRMAAM>, it's good I founds you.  Please, we need your help again!~
+@9    = ~Calm down my good man, what is the problem?~
+@10   = ~Wenric?  Please, don't tell me you have another zombie infestation!?~
+@11   = ~Leave me be, old man!~
+@12   = ~Please!  If you don't help, we will lose everything!~
+@13   = ~Alright, alright.  What is it this time?~
+@14   = ~I said leave me be!~
+@15   = ~Oh...  Guess the rumors about you were all true then.  You are a monster after all, only in it for the gold...~
+@16   = ~It started a few days after you polished off them stiffs.  Giants started to appear.  Only a few at first, and we drove them off.  But more and more started coming, and they were not alone...~
+@17   = ~We saw three old crones with them at times, directing their actions.  Witches or something.  They turned the weather foul and sometimes appeared in different shapes to trick us.  Three of my neighbors were done in by them.~
+@18   = ~The rest of us decided to flee, but now we have nothing.  Then I remembered how you helped us out before, and I decided to come find you.  Please, can't you take back our farms for us?~
+@19   = ~Of course I shall help you.  Let those witches beware!~
+@20   = ~Is this not a job for the Flaming Fist?~
+@21   = ~Is there another reward?~
+@22   = ~We tried, but they wouldn't even listen to us!  They threatened us with arrest if we didn't leave immediately!  Please <CHARNAME>, you're our only hope!~
+@23   = ~We would give you a reward if we could, but we lost everything!  Please, won't you help us!?~
+@24   = ~(sigh) Very well, I will help you.~
+@25   = ~Forget it, I'll not put my life on the line for free.~
+@26   = ~Oh, thank you, thank you!  I'll go tell the others.  We last saw those witches at my farm when we fled.  You remember were it is, don't you?  Just upstream the river from here, on the west bank.~
+@27   = ~Farm of Fear
+
+Wenric, whose farm we cleansed of zombies the other day, is desperate for our help.  Apparently this time ogres, led by a trio of witches, have invaded the farmlands north of the river, and he bade me to do something about it.  He has no reward to give this time, but I cannot in good conscience ignore his plea.~
+@28   = ~Thank you, warriors.  We all owe you, like, a great debt.  Darn, I ain't no good with the speeches.  We thanks yous, yeah?~
+@29   = ~It's not much for you risking your lives and all, but here, one of the witches' minions dropped this gem.  You go ahead and take it.~
+@30   = ~Thank you, I promise we'll put it to good use.~
+@31   = ~It's too much, don't you need it yourself?~
+@32   = ~You earned it and so much more.  You will be always welcome with us.  May Chauntea smile on you wherever you go.~
+@33   = ~Farm of Fear
+
+After my battle with the hags, I found Wenric back at his home.  He thanked us most profoundly and gave us a gem one of the witches' minions had dropped.  It looks like things will be peaceful around here, at least for now.  But that may change if Sarevok is not stopped, so I'd better get back to Baldur's Gate now.~
+@34   = ~Things are truly peaceful around here, all thanks to you!~

@@ -1,0 +1,12 @@
+IF
+  Global("mh#FarmOfFear", "GLOBAL", 1)
+  GlobalGT("chapter", "GLOBAL", %tutu_chapter_6%)
+  GlobalTimerExpired("mh#WenricAppear", "GLOBAL")
+  !Exists("mh#FledWenric")
+  !Dead("mh#FledWenric")
+THEN
+  RESPONSE #100
+    CreateCreature("mh#wenr2", [1170.2110], 1)
+END
+
+

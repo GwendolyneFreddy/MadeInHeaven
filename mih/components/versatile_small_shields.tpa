@@ -1,0 +1,62 @@
+// More Versatile Small Shields
+//
+// This component loosens the restrictions on small shields and bucklers,
+// making small shields usable by rogues and bards, and bucklers by mages.
+// It is based on a house rule of a GM friend of mine.
+
+PRINT "Patching all items..."
+
+COPY_EXISTING_REGEXP ".+\.itm" "override"
+  READ_SHORT 0x001c type
+  READ_LONG 0x001e use_mask
+  READ_ASCII 0x0022 animation_id (2)
+
+  PATCH_MATCH type
+  WITH
+    // Lyre of Progression in Icewind Dale
+    ANY GAME_INCLUDES "iwd1" AND ("%SOURCE_RES%" STRING_EQUAL_CASE "lyre")
+    BEGIN
+      // No action
+    END
+
+    // Lyre of Progression in Rogue Rebalancing mod for BG2
+    ANY ENGINE_IS "bg2 tob bgee bg2ee" AND ("%SOURCE_RES%" STRING_EQUAL_CASE "rr#lyre")
+    BEGIN
+      // No action
+    END
+
+
+    // Baldur's Gate buckler
+    0x000c WHEN ("%animation_id%" STRING_EQUAL_CASE "D1")
+    BEGIN
+      use_mask &= `(BIT6 | BIT18 | BIT19 | BIT22)
+    END
+
+    // Baldur's Gate small shield
+    0x000c WHEN ("%animation_id%" STRING_EQUAL_CASE "D2")
+    BEGIN
+      use_mask &= `(BIT6 | BIT19 | BIT22)
+    END
+
+
+    // Icewind Dale buckler
+    0x0029 WHEN ENGINE_IS "iwd1 how totlm"
+    BEGIN
+      use_mask &= `(BIT6 | BIT18 | BIT19 | BIT22)
+    END
+
+    // Icewind Dale small shield
+    0x0035 WHEN ENGINE_IS "iwd1 how totlm"
+    BEGIN
+      use_mask &= `(BIT6 | BIT19 | BIT22)
+    END
+
+    DEFAULT
+    // No action
+  END
+  
+  WRITE_LONG 0x001e use_mask
+
+  BUT_ONLY_IF_IT_CHANGES
+
+

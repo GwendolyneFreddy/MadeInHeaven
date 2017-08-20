@@ -1,0 +1,25 @@
+@0    = ~Ah, another child of the vanquished Lord of Murder.  So, it has begun.~
+@1    = ~What are you talking about, spirit?~
+@2    = ~And who are you, spirit?~
+@3    = ~Where did the other Bhaalspawn go, spirit?~
+@4    = ~Alaundo's prophecy of course.  In life I was a sage, and I too saw the signs of what would be.  The children of Bhaal spreading chaos through the land.  And now, that time has come.~
+@5    = ~I am nobody, just one of many lost souls wandering these forsaken ruins.~
+@6    = ~What were you talking about when you said 'it has begun'?~
+@7    = ~The other has fled into the old temple.  He fears what will happen next.  If it is him that you seek in this forsaken place, I can help you.~
+@8    = ~How can you help me, spirit?~
+@9    = ~If you seek to confront the other, you must find the Tears of Pain, Sorrow, and Loss.  These three incarnations, once servants of your divine father, lurk nearby.  As is their nature, they will not greet you warmly.~
+@10   = ~Find and confront them.  Take their tears.  Then you can break the seal on the temple and confront your brother.~
+@11   = ~I sense only one of you will survive this confrontation, but I care little which.  You are every bit as cold as he his.  Farewell, <CHARNAME>.~
+@12   = ~Breaking the Seal
+
+A spirit I encountered in the Undercity informed me that in order to enter the temple where Sarevok is hiding I must collect the tears of Pain, Sorrow and Loss.  They will be held by old servants of Bhaal who are hiding in the ruins.  Sigh, why can these things never be easy?~
+@13   = ~Be careful, <CHARNAME>.  I sense that only one of you will survive this confrontation, and my hope is that it will be you.  Do not underestimate your opponent!  Farewell.~
+@14   = ~Ah, the Child of Bhaal comes to me.  I am Pain.~
+@15   = ~Come closer, <CHARNAME>...~
+@16   = ~Come closer... and SUFFER!~
+@17   = ~Ah, Gorion's Ward arrives before me.  Welcome.  I am Loss.~
+@18   = ~But you already know me, don't you, <CHARNAME>?  After all, you have already lost so much.  Including your precious Gorion...~
+@19   = ~And now, I think it is time you lost YOUR LIFE!~
+@20   = ~And so the master's offspring comes to me.  I am Sorrow.~
+@21   = ~Maybe you think you already experienced enough of me?  Poor child, the worst of me is yet to come...~
+@22   = ~Let's start now, shall we?~

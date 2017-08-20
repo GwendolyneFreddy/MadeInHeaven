@@ -1,0 +1,601 @@
+BACKUP "mih/backup"
+AUTHOR "angel@pearlgates.net"
+
+VERSION "1"
+
+ASK_EVERY_COMPONENT
+NO_IF_EVAL_BUG
+AUTO_EVAL_STRINGS
+
+ALWAYS
+  INCLUDE "%MOD_FOLDER%/lib/do_always.tpa" 
+END	// ALWAYS block
+
+
+LANGUAGE "American English" "%MOD_FOLDER%/lang/en" "%MOD_FOLDER%/lang/en/setup-mih.tra"
+
+
+// ===================
+// MiH Item Pack (BG1)
+// ===================
+
+BEGIN "Made in Heaven Item Pack for BG1"
+GROUP "Baldur's Gate 1" GAME_INCLUDES "bg1"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "bg1_item_pack"
+END
+
+
+// ===============================
+// Potions of Extra Healing in BG1
+// ===============================
+
+BEGIN "Potions of Extra Healing in BG1"
+GROUP "Baldur's Gate 1" GAME_INCLUDES "bg1"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "bg1_potions_of_extra_healing"
+END
+
+
+// ===========================
+// Cathline's Peril mini-quest
+// ===========================
+
+BEGIN "Cathline's Peril mini-quest for BG1"
+GROUP "Baldur's Gate 1" GAME_INCLUDES "bg1"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "bg1_caths_peril"
+END
+
+
+// ====================
+// The Surgeon's Plight
+// ====================
+
+BEGIN "The Surgeon's Plight mini-quest for BG1"
+GROUP "Baldur's Gate 1" GAME_INCLUDES "bg1"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "bg1_surgeons_plight"
+END
+
+
+// ===================
+// Enhanced Ankheg Pit
+// ===================
+
+BEGIN "Enhanced Ankheg Pit"
+GROUP "Baldur's Gate 1" GAME_INCLUDES "bg1"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "bg1_ankheg_pit"
+END
+
+
+// =============================
+// Enhanced Candlekeep Catacombs
+// =============================
+
+BEGIN "Enhanced Candlekeep Catacombs"
+GROUP "Baldur's Gate 1" GAME_INCLUDES "bg1"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "bg1_candlekeep_catacombs"
+END
+
+
+// ==================
+// Enhanced Cloakwood
+// ==================
+
+BEGIN "Enhanced Cloakwood"
+GROUP "Baldur's Gate 1" GAME_INCLUDES "bg1"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "bg1_cloakwood"
+END
+
+
+// =========================
+// Enhanced Mutamin's Garden
+// =========================
+
+BEGIN "Enhanced Mutamin's Garden"
+GROUP "Baldur's Gate 1" GAME_INCLUDES "bg1"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "bg1_mutamins_garden"
+END
+
+
+// =========================
+// Enhanced Ramazith's Tower
+// =========================
+
+BEGIN "Enhanced Ramazith's Tower"
+GROUP "Baldur's Gate 1" GAME_INCLUDES "bg1"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "bg1_ramaziths_tower"
+END
+
+
+// =======================
+// Enhanced Ulcaster Ruins
+// =======================
+
+BEGIN "Enhanced Ulcaster Ruins"
+GROUP "Baldur's Gate 1" GAME_INCLUDES "bg1"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "bg1_ulcaster_ruins"
+END
+
+
+// ==================
+// Enhanced Undercity
+// ==================
+
+BEGIN "Enhanced Undercity"
+GROUP "Baldur's Gate 1" GAME_INCLUDES "bg1"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "bg1_undercity"
+END
+
+
+// ======================
+// Enhanced Xvart Village
+// ======================
+
+BEGIN "Enhanced Xvart Village"
+GROUP "Baldur's Gate 1" GAME_INCLUDES "bg1"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "bg1_xvart_village"
+END
+
+
+// ====================
+// Enhanced Zombie Farm
+// ====================
+
+BEGIN "Enhanced Zombie Farm"
+GROUP "Baldur's Gate 1" GAME_INCLUDES "bg1"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "bg1_zombie_farm"
+END
+
+
+// =========================
+// Enhanced Isle of Balduran
+// =========================
+
+BEGIN "Enhanced Isle of Balduran"
+GROUP "Baldur's Gate 1" GAME_INCLUDES "totsc"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "bg1_isle_of_balduran"
+END
+
+
+// =======================
+// Enhanced Durlag's Tower
+// =======================
+
+BEGIN "Enhanced Durlag's Tower"
+GROUP "Baldur's Gate 1" GAME_INCLUDES "totsc"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "bg1_durlags_tower"
+END
+
+
+// ==========================
+// Creature Corrections (BG1)
+// ==========================
+
+BEGIN "Creature Corrections (BG1)"
+GROUP "Baldur's Gate 1" GAME_INCLUDES "bg1"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "bg1_creature_corrections"
+END
+
+
+// =====================
+// Missing Dialogs (BG1)
+// =====================
+
+BEGIN "Missing Dialogs (BG1)"
+GROUP "Baldur's Gate 1" GAME_INCLUDES "bg1"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "bg1_missing_dialogs"
+END
+
+
+// =========================
+// Shop Fixes & Tweaks (BG1)
+// =========================
+
+BEGIN "Shop Fixes & Tweaks (BG1)"
+GROUP "Baldur's Gate 1" GAME_INCLUDES "bg1"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "bg1_shop_tweaks"
+END
+
+
+// ==========================
+// Miscellaneous Tweaks (BG1)
+// ==========================
+
+BEGIN "Miscellanous Tweaks (BG1)"
+GROUP "Baldur's Gate 1" GAME_INCLUDES "bg1"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "bg1_miscellaneous"
+END
+
+
+// ================================================
+// Allow Divine Spell Scrolls to Paladins & Rangers
+// ================================================
+
+BEGIN "Allow Divine Spell Scrolls to Paladins & Rangers"
+GROUP "Icewind Dale 1" GAME_INCLUDES "iwd1"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "iwd1_paladin_ranger_scrolls"
+END
+
+
+// ========================
+// Improved Healing Potions
+// ========================
+
+BEGIN "Extra Healing restores 27 HP, Spirit Essence restores 40 HP (same as BG2)"
+SUBCOMPONENT "Improved Healing Potions"
+GROUP "Icewind Dale 1" GAME_INCLUDES "iwd1"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  INT_VAR
+  extra_healing		= 27
+  spirit_essence	= 40
+  STR_VAR
+  component_name	= "iwd1_improved_healing_potions"
+END
+
+
+BEGIN "Set custom values for both potions"
+SUBCOMPONENT "Improved Healing Potions"
+GROUP "Icewind Dale 1" GAME_INCLUDES "iwd1"
+
+OUTER_WHILE NOT IS_AN_INT extra_healing
+BEGIN
+  PRINT "How many hit points should a Potion of Extra Healing restore?"
+  ACTION_READLN extra_healing
+END
+
+OUTER_WHILE NOT IS_AN_INT spirit_essence
+BEGIN
+  PRINT "How many hit points should a Spirit Essence restore?"
+  ACTION_READLN spirit_essence
+END
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  INT_VAR
+  extra_healing
+  spirit_essence
+  STR_VAR
+  component_name	= "iwd1_improved_healing_potions"
+END
+
+
+// ========================================
+// Wear Protection Items with Magical Armor
+// ========================================
+
+BEGIN "Wear Protection Items with Magical Armor"
+GROUP "Rule Tweaks"
+
+DEPRECATED "This mod is now part of Tweak Anthologies"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "no_armor_exclude"
+END
+
+
+// ===============================
+// Enforce Druid Item Restrictions
+// ===============================
+
+BEGIN "Enforce Druid Item Restrictions"
+GROUP "Rule Tweaks"
+
+DEPRECATED "This mod is now part of Tweak Anthologies"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "druid_item_restrictions"
+END
+
+
+// ==========================
+// Alternative Druid XP Table
+// ==========================
+
+BEGIN "Alternative Druid XP Table"
+GROUP "Rule Tweaks"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "druid_xp_table"
+END
+
+
+// ==========================
+// Level-locked Spell Scrolls
+// ==========================
+
+BEGIN "Level-locked Spell Scrolls"
+GROUP "Rule Tweaks"
+
+DEPRECATED "This mod is now part of Tweak Anthologies"
+
+REQUIRE_PREDICATE ENGINE_IS "bg2 tob bgee bg2ee"
+  "This component is not available for your game."
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "level_locked_spell_scrolls"
+END
+
+
+// ==============================
+// More Versatile Light Crossbows
+// ==============================
+
+BEGIN "More Versatile Light Crossbows"
+GROUP "Rule Tweaks"
+
+//DEPRECATED "This mod is now part of Tweak Anthologies"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "versatile_light_crossbows"
+END
+
+
+// =======================================
+// More Versatile Bucklers & Small Shields
+// =======================================
+
+BEGIN "More Versatile Bucklers & Small Shields"
+GROUP "Rule Tweaks"
+
+DEPRECATED "This mod is now part of Tweak Anthologies"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "versatile_small_shields"
+END
+
+
+// ========================
+// Alternative Stat Bonuses
+// ========================
+
+BEGIN "Alternative Stat Bonuses"
+GROUP "Rule Tweaks"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "alternative_stat_bonuses"
+END
+
+
+// ======================
+// Extended HP Dice Rolls
+// ======================
+
+BEGIN "Extended HP Dice Rolls"
+GROUP "Rule Tweaks"
+
+DEPRECATED "This mod is now part of Tweak Anthologies"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "extended_hp_dice_rolls"
+END
+
+
+// =========================================
+// Relative Stat Bonuses from Equipped Items
+// =========================================
+
+BEGIN "Relative Stat Bonuses from Equipped Items"
+GROUP "Item/Spell Tweaks"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "no_fixed_item_stats"
+END
+
+
+// ============================
+// Non-Bouncing Lightning Bolts
+// ============================
+
+BEGIN "Bolt from the Sky"
+SUBCOMPONENT "Non-Bouncing Lightning Bolts"
+GROUP "Item/Spell Tweaks"
+
+DEPRECATED "This mod is now part of Tweak Anthologies"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  INT_VAR
+  use_projectile	= 23
+  STR_VAR
+  component_name	= "non-bouncing_lightning_bolts"
+END
+
+
+BEGIN "Line of Lightning"
+SUBCOMPONENT "Non-Bouncing Lightning Bolts"
+GROUP "Item/Spell Tweaks"
+
+DEPRECATED "This mod is now part of Tweak Anthologies"
+
+REQUIRE_PREDICATE ENGINE_IS "bg2 tob bgee bg2ee" "This component is not available for your game."
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  INT_VAR
+  use_projectile	= 207
+  STR_VAR
+  component_name	= "non-bouncing_lightning_bolts"
+END
+
+
+// ================
+// Cap Item Charges
+// ================
+
+BEGIN "Set a maximum of 12 charges"
+SUBCOMPONENT "Cap Item Charges"
+GROUP "Item/Spell Tweaks"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  INT_VAR
+  charge_cap		= 12
+  STR_VAR
+  component_name	= "cap_item_charges"
+END
+
+BEGIN "Set a custom maximum of charges"
+SUBCOMPONENT "Cap Item Charges"
+GROUP "Item/Spell Tweaks"
+
+OUTER_WHILE NOT IS_AN_INT charge_cap
+BEGIN
+  PRINT "Please enter the maximum number of charges:"
+  ACTION_READLN charge_cap
+END
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  INT_VAR
+  charge_cap
+  STR_VAR
+  component_name	= "cap_item_charges"
+END
+
+
+// ===================
+// Arcane Spell Tweaks
+// ===================
+
+BEGIN "Arcane Spell Tweaks"
+GROUP "Item/Spell Tweaks"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "arcane_spell_tweaks"
+END
+
+
+// ===================
+// Divine Spell Tweaks
+// ===================
+
+BEGIN "Divine Spell Tweaks"
+GROUP "Item/Spell Tweaks"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "divine_spell_tweaks"
+END
+
+
+// =======================
+// Improved Healing Spells
+// =======================
+
+BEGIN "Improved Healing Spells"
+GROUP "Item/Spell Tweaks"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "improved_healing_spells"
+END
+
+
+// =========================
+// Additional Paladin Powers
+// =========================
+
+BEGIN "Additional Paladin Powers"
+GROUP "Item/Spell Tweaks"
+
+REQUIRE_PREDICATE ENGINE_IS "bg2 tob bgee bg2ee"
+  "This component is not available for your game."
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "paladin_powers"
+END
+
+
+// ========================
+// No Resist Fire/Cold Icon
+// ========================
+
+BEGIN "No Resist Fire/Cold Icon"
+GROUP "Item/Spell Tweaks"
+
+DEPRECATED "This mod is now part of Tweak Anthologies"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "no_resist_fire_cold_icon"
+END
+
+
+// =======================
+// Other Item Improvements
+// =======================
+
+BEGIN "Other Item Improvements"
+GROUP "Item/Spell Tweaks"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "other_item_improvements"
+END
+
+

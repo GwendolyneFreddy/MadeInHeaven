@@ -1,0 +1,87 @@
+// Cathline's Peril
+//
+// A mini-quest for BG1
+
+ACTION_IF ENGINE_IS "bg1 totsc"
+BEGIN
+  COPY_LARGE "%MOD_FOLDER%/bg1/caths_peril/mh#cathr-bg1.mos" "override/mh#cathr.mos"
+END
+ELSE
+BEGIN
+  COPY_LARGE "%MOD_FOLDER%/bg1/caths_peril/mh#cathr-bg2.mos" "override/mh#cathr.mos"
+END
+
+COPY_LARGE "%MOD_FOLDER%/bg1/caths_peril/mh#cathl.bmp" "override"
+           "%MOD_FOLDER%/bg1/caths_peril/mh#caths.bmp" "override"
+
+COPY "%MOD_FOLDER%/bg1/caths_peril/mh#cath.cre" "override"
+  SAY NAME1 "Cathline"
+  SAY NAME2 "Cathline"
+
+  PATCH_IF ENGINE_IS "bg1 totsc"
+  BEGIN
+    WRITE_BYTE	0x0072 1
+    WRITE_BYTE	0x0073 1
+    WRITE_BYTE	0x0075 1
+  END
+  ELSE
+  BEGIN
+    SET_BG2_PROFICIENCY PROFICIENCYFLAILMORNINGSTAR 1
+    SET_BG2_PROFICIENCY PROFICIENCYMACE 1
+    SET_BG2_PROFICIENCY PROFICIENCYSLING 1
+    SET_BG2_PROFICIENCY PROFICIENCYSWORDANDSHIELD 1
+  END
+
+LAUNCH_ACTION_FUNCTION compile_dialog_or_script
+  STR_VAR
+  path_to_file	= "%MOD_FOLDER%/bg1/caths_peril/mh#cath.d"
+END
+
+LAUNCH_ACTION_FUNCTION compile_dialog_or_script
+  STR_VAR
+  path_to_file	= "%MOD_FOLDER%/bg1/caths_peril/mh#cath.baf"
+END
+
+COPY_EXISTING "%tutu_var%carrio.cre" "override/mh#cathc.cre"
+  WRITE_LONG	0x0014 650
+  WRITE_SHORT	0x0024 35
+  WRITE_SHORT	0x0026 35
+  WRITE_BYTE	0x0052 15
+  WRITE_BYTE	0x0053 4
+  WRITE_BYTE	0x0234 5
+  WRITE_ASCII	DEATHVAR "mh#CathCrawler" #32
+
+COPY_EXISTING "%HighHedge_House%.are" "override"
+  LAUNCH_PATCH_FUNCTION add_area_actor
+    INT_VAR
+    x_position	= 320
+    y_position	= 220
+    orientation	= 1
+    STR_VAR
+    cre_resref	= "mh#cathc"
+  END
+
+COPY "%MOD_FOLDER%/bg1/caths_peril/mh#cathr.2da" "override"
+  REPLACE CASE_SENSITIVE EXACT_MATCH "XXXXXX" ~A final blow lands, and the horrid creature slumps to the ground, twitches briefly and then lies still.  After a few moments the carcass moves again, trashing over the floor.  You ready your weapons once more, expecting the creature to rise again.  Suddenly a bloody gash on the creature's body opens further with a sickening rending sound, and something reaches through.
+
+Though covered in blood and gunk, you soon recognize it as a female hand, reaching out for help.  Carefully cutting the carcass further open with knives and daggers, you recover a female elf with dark bronze skin and fiery red hair from the monster's stomach.  As you help her to her feet you notice that her clothes are in tatters and partially melted, but apart from some redness of her skin she seems to be mostly unharmed.
+
+The elven woman blushes, realizing she is practically naked in front of you, and stammers, "Hi...  I'm Cathline..."~
+
+LAUNCH_ACTION_FUNCTION cd_extend_bg_area_script
+  STR_VAR
+  area		= "%HighHedge_House%"
+  script	= "%MOD_FOLDER%/bg1/caths_peril/bg3201"
+END
+
+
+// ==============================================
+// Erase Journal Entries on BG2 transition in BGT
+// ==============================================
+
+LAUNCH_ACTION_FUNCTION erase_journal_entries_on_bg2_transition
+  STR_VAR
+  dialog	= "mh#cath"
+END
+
+

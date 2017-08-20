@@ -1,0 +1,56 @@
+// Missing Dialogs (BG1)
+//
+//
+// In BG1, many people you meet (especially commoners in Baldur's Gate)
+// cannot be spoken to because either their dialog file is missing, or
+// they don't have a dialog file assigned at all.
+//
+// There are also instances where people run out of things to say,
+// usually after completing their quests or when certain events have
+// taken place.
+//
+// Both situations would get the creature to simply say its initial
+// greeting line in vanilla BG1, but in BGT it results in the engine
+// telling you bluntly "X- has nothing to say to you.".
+//
+// This mod attempts to address both situations, assigning some flavor
+// dialog to these people.
+
+
+// Candlekeep
+
+COPY_EXISTING "%tutu_var%chante.cre" "override"
+  WRITE_ASCIIE DIALOG "chanter" #8
+
+LAUNCH_ACTION_FUNCTION compile_dialog_or_script
+  STR_VAR
+  path_to_file	= "%MOD_FOLDER%/bg1/missing_dialogs/candlekeep.d"
+END
+
+
+// Baldur's Gate
+
+COPY_EXISTING "%tutu_scriptp%rsbax_a.cre" "override"
+              "%tutu_scriptp%rsbax_b.cre" "override"
+              "%tutu_scriptp%rsbax_c.cre" "override"
+  WRITE_ASCIIE DIALOG "%SOURCE_RES%" #8
+
+LAUNCH_ACTION_FUNCTION compile_dialog_or_script
+  STR_VAR
+  path_to_file	= "%MOD_FOLDER%/bg1/missing_dialogs/baldurs_gate.d"
+END
+
+
+// ======================================
+// Erase Journal Entries when BGT is over
+// ======================================
+
+ACTION_FOR_EACH dialog IN "%tutu_scriptm%towbasc" "%FTOWBASC%" "%tutu_scriptm%towbasn" "%FTOWBASN%"
+BEGIN
+  LAUNCH_ACTION_FUNCTION erase_journal_entries_on_bg2_transition
+    STR_VAR
+    dialog
+  END
+END
+
+

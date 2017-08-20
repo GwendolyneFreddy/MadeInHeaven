@@ -1,0 +1,108 @@
+// Arcane Spell Tweaks
+//
+// A collection of small modifications to arcane spells.
+
+
+// Shield (spwi114)
+//
+// Alter AC to a +2 bonus instead of base AC 4, block all Magic Missile effects,
+// and prevent spell stacking.
+
+COPY_EXISTING "spwi114.spl" "override"
+  LAUNCH_PATCH_FUNCTION ALTER_EFFECT
+    INT_VAR
+    match_opcode	= 0
+    match_parameter1	= 4
+    match_parameter2	= 16
+    parameter1		= 2
+    parameter2		= 0
+  END
+
+  LAUNCH_PATCH_FUNCTION add_magic_missile_immunity
+    INT_VAR
+    match_opcode	= 0	// Stat: AC against Specific
+  END
+
+  LAUNCH_PATCH_FUNCTION prevent_spell_effect_stacking
+    INT_VAR
+    match_opcode	= 0
+  END
+
+
+COPY_EXISTING "amul15.itm" "override"
+	      "shldrng.itm" "override"
+  LAUNCH_PATCH_FUNCTION ALTER_EFFECT
+    INT_VAR
+    match_opcode	= 0	// Stat: AC against Specific
+    match_parameter1	= 4
+    match_parameter2	= 16
+    silent		= 1
+    parameter1		= 2
+    parameter2		= 0
+  END
+
+  LAUNCH_PATCH_FUNCTION add_magic_missile_immunity
+    INT_VAR
+    match_opcode	= 0	// Stat: AC against Specific
+  END
+
+  PATCH_IF NOT ENGINE_IS "bg1 totsc"
+  BEGIN
+    LAUNCH_PATCH_FUNCTION CLONE_EFFECT
+      INT_VAR
+      match_opcode	= 0	// Stat: AC against Specific
+      multi_match	= 1	// Only once, please
+      silent		= 1	// Don't care about warnings
+      opcode		= 206
+      parameter1	= RESOLVE_STR_REF ("Multiple castings of this spell have no effect.")
+      parameter2	= 0	// Default (IWD1)
+      STR_VAR
+      insert		= "last"
+      resource		= "spwi114"
+    END
+  END
+
+  IF_EXISTS	// shldrng.itm is IWD only
+
+
+// Protection from Normal Missiles (spwi311)
+//
+// Add some resistance to missile damage.
+
+COPY_EXISTING "spwi311.spl" "override"
+              "spra303.spl" "override"
+  LAUNCH_PATCH_FUNCTION CLONE_EFFECT
+    INT_VAR
+    match_opcode	= 83	// Protection: From Projectile Weapon
+    multi_match		= 1
+    opcode		= 89	// Missiles Resistance Modifier
+    parameter1		= 25
+    parameter2		= 0
+    STR_VAR
+    insert		= "last"
+  END
+
+  IF_EXISTS 	// spra303 is BG2 only
+
+
+// Disintegrate (various, like spwi607 in Icewind Dale and spwi616 in Shadows of Amn)
+//
+// This patch makes Disintegrate deal some (5d6) damage even if the target saves successfully.
+
+ACTION_PHP_EACH dust_to_dust AS spell_name => spell_res
+BEGIN
+  COPY_EXISTING "%spell_res%.spl" "override"
+    LAUNCH_PATCH_FUNCTION ADD_SPELL_EFFECT
+      INT_VAR
+      opcode		= 12	// HP: Damage
+      target		= 2	// Pre-target
+      timing		= 1	// Permanent
+      parameter2	= 4194304
+      dicenumber	= 5
+      dicesize		= 6
+      power		= 6
+      resist_dispel	= 1	// Do not ignore MR
+    END
+END
+
+

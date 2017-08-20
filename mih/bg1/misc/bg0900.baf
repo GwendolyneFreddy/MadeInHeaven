@@ -1,0 +1,10 @@
+IF
+  Global("HelpQuinn", "GLOBAL", 1)
+  Global("mh#SpawnedQuinnsAnkheg", "MYAREA", 0)
+THEN
+  RESPONSE #100
+    CreateCreature("%tutu_var%ankhegq", [4073.97], 0)
+    SetGlobal("mh#SpawnedQuinnsAnkheg", "MYAREA", 1)
+END
+
+

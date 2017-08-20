@@ -1,0 +1,57 @@
+@0    = ~Oh, hello there!  Can I help you with something?~
+@1    = ~Who are you?~
+@2    = ~What do you do here?~
+@3    = ~My name is Tania, and I'm on my way back to Evereska.  I heard this region was unsafe, so I am traveling with this carnival for protection.  Seems we'll be stuck for a while here though.~
+@4    = ~I'm a seamstress and also skilled in the Art.  I help the merchants setting up shop and sell their wares, do some repairs on their clothes and tents, and the other odd job.  A tear sown up here, a little cantrip there...~
+@5    = ~It's not a bad way to live I guess.  I wish I could go back to my studies though.~
+@6    = ~You're a mage, then?  Could you craft something magical for me?~
+@7    = ~Well, I'll leave you to it then.  Farewell.~
+@8    = ~Oh, hello again.  Did you need something?~
+@9    = ~Tania, can you craft something magical for me?~
+@10   = ~I brought you those winter wolf pelts!~
+@11   = ~Have you finished that new armor for me?~
+@12   = ~I found all those mage robes you wanted!~
+@13   = ~Have you had any success in your study of those mage robes?~
+@14   = ~Nothing, sorry.~
+@15   = ~Until we meet again.~
+@16   = ~Oh, normally I'd be glad to help you with whatever you need.  But I have been on the road for too long and my stock of components and reagents is getting really low.  There's only so much I can do with just thread and needle.~
+@17   = ~There might be something I can do for you though.  While traveling through these mountains, we were attacked by winter wolves several times.  Dangerous opponents indeed, but their pelts are really useful.~
+@18   = ~Bring me six of those and I can sew them together into some armor for you.  I might even be able to weave a little spell or two into it.  It's not ideal, but with good iron unavailable, one must improvise.~
+@19   = ~Off you go then, and good hunting!~
+@20   = ~A Wintery Armor
+
+Tania, an elven seamstress and mage traveling with the carnival that is currently at Nashkel, has promised to make some new armor for me if I can bring her six winter wolf pelts.~
+@21   = ~Oh my, you must be quite the hunter to collect these.  It would be my pleasure to craft a new armor for you.  No, no cost, one of these pelts should cover everything.~
+@22   = ~Come back in three days and I will have it ready for you.~
+@23   = ~A Wintery Armor
+
+The elven seamstress Tania is crafting me a new armor out of winter wolf belts.  I doubt it will be as strong as metal, but with this strange curse affecting the iron, it's better than nothing.~
+@24   = ~Indeed I did, and here it is!  I know it's not much to look at, but for hide it's actually pretty tough.  It should keep you nice and warm in these could mountains too.  And anything is better than armor so brittle it will crumble when a hobgoblin glares at you, no?~
+@25   = ~A Wintery Armor
+
+The seamstress and mage Tania made me a new armor out of winter wolf pelts.  It looks a little barbaric, but at least it won't crumble into dust like iron seems to do lately.  And it looks nicely warm too, which is also a boon in these cold mountains.~
+@26   = ~Not that you owe me anything, but was wondering if you could help me with something.  Listen up, you know those mage robes, like the one I am wearing?  I have an idea for making a more powerful one, but I need to do more study.~
+@27   = ~There are six types of minor mage robes, the Knave's-, Traveler's- and Adventurer's Robes, and the Robes of Fire-, Cold- and Electricity Resistance.  If you can get me one each of all six, I can complete my studies!~
+@28   = ~I will make sure it is worth your time and effort.  Well, of you go now!~
+@29   = ~A Study of Mage Robes
+
+Tania, the elven mage traveling with the carnival, has asked me to bring her one each of every known lesser mage robe.  She believes that if she can study them, she might be able to create a new type of robe.
+
+The six known types of lesser mage robes are
+- Knave's Robe
+- Traveler's Robe
+- Adventurer's Robe
+- Robe of Fire Resistance
+- Robe of Cold Resistance
+- Robe of Electricity Resistance
+
+Once I have one each of all six, I should go see Tania again.~
+@30   = ~Oh my, you are amazing!  This must have taken quite a bit of effort!  Alright, I will begin my studies right away.  I should have some results in seven days or so, come see me then!~
+@31   = ~A Study of Mage Robes
+
+The elven wizard Tania at the carnival is studying those mage robes I brought her.  She believes she can have some results in about seven days, I should check back on her then.~
+@32   = ~My studies were very succesful, thanks to you!  Here, you can have my prototype!  Now that I know how to do it, I can just create another one for myself!~
+@33   = ~Good luck in your adventures!~
+@34   = ~A Study of Mage Robes
+
+After studying the mage robes I brought her, Tania came up with a design for a brand new one.  She gracefully gave me her first prototype to try, I wonder what it does?~
