@@ -1,7 +1,7 @@
 BACKUP "mih/backup"
 AUTHOR "angel@pearlgates.net"
 
-VERSION "1"
+VERSION "2"
 
 ASK_EVERY_COMPONENT
 NO_IF_EVAL_BUG
@@ -317,36 +317,6 @@ LAUNCH_ACTION_FUNCTION "install_component"
 END
 
 
-// ========================================
-// Wear Protection Items with Magical Armor
-// ========================================
-
-BEGIN "Wear Protection Items with Magical Armor"
-GROUP "Rule Tweaks"
-
-DEPRECATED "This mod is now part of Tweak Anthologies"
-
-LAUNCH_ACTION_FUNCTION "install_component"
-  STR_VAR
-  component_name	= "no_armor_exclude"
-END
-
-
-// ===============================
-// Enforce Druid Item Restrictions
-// ===============================
-
-BEGIN "Enforce Druid Item Restrictions"
-GROUP "Rule Tweaks"
-
-DEPRECATED "This mod is now part of Tweak Anthologies"
-
-LAUNCH_ACTION_FUNCTION "install_component"
-  STR_VAR
-  component_name	= "druid_item_restrictions"
-END
-
-
 // ==========================
 // Alternative Druid XP Table
 // ==========================
@@ -357,24 +327,6 @@ GROUP "Rule Tweaks"
 LAUNCH_ACTION_FUNCTION "install_component"
   STR_VAR
   component_name	= "druid_xp_table"
-END
-
-
-// ==========================
-// Level-locked Spell Scrolls
-// ==========================
-
-BEGIN "Level-locked Spell Scrolls"
-GROUP "Rule Tweaks"
-
-DEPRECATED "This mod is now part of Tweak Anthologies"
-
-REQUIRE_PREDICATE ENGINE_IS "bg2 tob bgee bg2ee"
-  "This component is not available for your game."
-
-LAUNCH_ACTION_FUNCTION "install_component"
-  STR_VAR
-  component_name	= "level_locked_spell_scrolls"
 END
 
 
@@ -393,21 +345,6 @@ LAUNCH_ACTION_FUNCTION "install_component"
 END
 
 
-// =======================================
-// More Versatile Bucklers & Small Shields
-// =======================================
-
-BEGIN "More Versatile Bucklers & Small Shields"
-GROUP "Rule Tweaks"
-
-DEPRECATED "This mod is now part of Tweak Anthologies"
-
-LAUNCH_ACTION_FUNCTION "install_component"
-  STR_VAR
-  component_name	= "versatile_small_shields"
-END
-
-
 // ========================
 // Alternative Stat Bonuses
 // ========================
@@ -421,21 +358,6 @@ LAUNCH_ACTION_FUNCTION "install_component"
 END
 
 
-// ======================
-// Extended HP Dice Rolls
-// ======================
-
-BEGIN "Extended HP Dice Rolls"
-GROUP "Rule Tweaks"
-
-DEPRECATED "This mod is now part of Tweak Anthologies"
-
-LAUNCH_ACTION_FUNCTION "install_component"
-  STR_VAR
-  component_name	= "extended_hp_dice_rolls"
-END
-
-
 // =========================================
 // Relative Stat Bonuses from Equipped Items
 // =========================================
@@ -446,40 +368,6 @@ GROUP "Item/Spell Tweaks"
 LAUNCH_ACTION_FUNCTION "install_component"
   STR_VAR
   component_name	= "no_fixed_item_stats"
-END
-
-
-// ============================
-// Non-Bouncing Lightning Bolts
-// ============================
-
-BEGIN "Bolt from the Sky"
-SUBCOMPONENT "Non-Bouncing Lightning Bolts"
-GROUP "Item/Spell Tweaks"
-
-DEPRECATED "This mod is now part of Tweak Anthologies"
-
-LAUNCH_ACTION_FUNCTION "install_component"
-  INT_VAR
-  use_projectile	= 23
-  STR_VAR
-  component_name	= "non-bouncing_lightning_bolts"
-END
-
-
-BEGIN "Line of Lightning"
-SUBCOMPONENT "Non-Bouncing Lightning Bolts"
-GROUP "Item/Spell Tweaks"
-
-DEPRECATED "This mod is now part of Tweak Anthologies"
-
-REQUIRE_PREDICATE ENGINE_IS "bg2 tob bgee bg2ee" "This component is not available for your game."
-
-LAUNCH_ACTION_FUNCTION "install_component"
-  INT_VAR
-  use_projectile	= 207
-  STR_VAR
-  component_name	= "non-bouncing_lightning_bolts"
 END
 
 
@@ -568,21 +456,6 @@ REQUIRE_PREDICATE ENGINE_IS "bg2 tob bgee bg2ee"
 LAUNCH_ACTION_FUNCTION "install_component"
   STR_VAR
   component_name	= "paladin_powers"
-END
-
-
-// ========================
-// No Resist Fire/Cold Icon
-// ========================
-
-BEGIN "No Resist Fire/Cold Icon"
-GROUP "Item/Spell Tweaks"
-
-DEPRECATED "This mod is now part of Tweak Anthologies"
-
-LAUNCH_ACTION_FUNCTION "install_component"
-  STR_VAR
-  component_name	= "no_resist_fire_cold_icon"
 END
 
 

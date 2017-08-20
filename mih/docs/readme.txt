@@ -17,6 +17,7 @@ Baldur's Gate 1:
 - Enhanced Mutamin's Garden
 - Enhanced Ramazith's Tower
 - Enhanced Ulcaster Ruins
+- Enhanced Undercity
 - Enhanced Xvart Village
 - Enhanced Zombie Farm
 - Enhanced Isle of Balduran
@@ -33,25 +34,18 @@ Icewind Dale 1:
 
 Rule Tweaks:
 
-- Wear Protection Items with Magical Armor
-- Enforce Druid Item Restrictions
 - Alternative Druid XP Table
-- Level-locked Spell Scrolls
-- More Versatile Bucklers & Small Shields
 - More Versatile Light Crossbows
 - Alternative Stat Bonuses
-- Extended HP Dice Rolls
 
 Item- & Spell Tweaks:
 
 - Relative Stat Bonuses from Equipped Items
-- Non-Bouncing Lightning Bolts
 - Cap Item Charges
 - Arcane Spell Tweaks
 - Divine Spell Tweaks
 - Improved Healing Spells
 - Additional Paladin Powers
-- No Resist Fire/Ice Icon
 - Other Item Improvements
 
 
@@ -403,38 +397,6 @@ Alternatively this mod allows you to set your own custom value for both
 potions.
 
 
-========================================
-Wear Protective Items with Magical Armor
-========================================
-
-This component removes all armor from itemexcl.2da.  This allows you to equip
-Rings of Protection and the like with magical armor, but you still can't
-combine a Ring of Protection with a Cloak of Protection.  This makes both
-protection items and magical armor a lot more useful, especially in Baldur's
-Gate 1.
-
-A little trivia: Achieving this was why I started modding in the first
-place. :-)
-
-
-===============================
-Enforce Druid Item Restrictions
-===============================
-
-Baldur's Gate is a little loose with the druid's vows, especially for
-fighter-druids.  This component tightens up the rules, druids and
-fighter-druids will no longer be able to wear armor, helms and shields forged
-from metal.  You'll want that ankheg plate and dragon scale now!
-
-This makes things harder for druids and especially fighter-druids, but I feel
-it does the spirit of the class more justice.  To compensate, my Item Packs
-contain some new items that druids can use.
-
-If you feel that some items should not be changed by this component, you can
-put their resrefs (filename minus the .itm extention) in the file
-config/druid_item_exceptions.txt before installing this component.
-
-
 ==========================
 Alternative Druid XP Table
 ==========================
@@ -444,37 +406,6 @@ gaining epic abilities left and right?  This component will reduce the
 ridiculously high 3 million XP speed bump at level 15 to a much more sane
 value, and progresses from there.  From level 15 onward, druids will gain
 levels at a speed somewhere between a cleric and a fighter.
-
-
-==========================
-Level-locked Spell Scrolls
-==========================
-
-This component restricts spell scrolls by level, so low-level clerics and
-mages are no longer able to cast spells far beyond their normal ability from
-scrolls.  A cleric or wizard will only be able to cast a spell that is up to
-one level above their normal ability from a scroll, so a 5th level wizard (3rd
-level spells) could use an Ice Storm (4th) scroll, but not a Cloudkill (5th)
-scroll.  Scribing new spells into a spellbook is not restricted due to an
-engine limitation.
-
-This component does not work with the original Baldur's Gate and Icewind dale,
-the BG2 engine or better is required.
-
-
-====================================
-Versatile Bucklers and Small Shields
-====================================
-
-Implementing a house rule of a GM friend of mine, this component allows mages
-to use bucklers and thieves to use small shields.  I feel this makes bucklers
-and small shields a little more useful than they normally are.
-
-Note: In the BG games there are no separate item types for bucklers and small-,
-medium- and large shields.  This modification checks their animation to tell
-the difference.  Unfortunately this means that some mod-added bucklers that use
-a different animation, like those from Rogue Rebalancing, whill not be affected.
-This is not an issue in IWD where shields do have separate item types.
 
 
 =========================
@@ -501,17 +432,6 @@ score of 12 or higher in a stat, and the effects of extremely high stats (19
 or more) are tempered somewhat.
 
 
-======================
-Extended HP Dice Rolls
-======================
-
-Under 2E rules, characters stopped rolling dice for HP after level 9.  3E
-extended this to level 20.  This component implements the 3E rule.
-
-This component should play nice with the various options for HP dice of
-CamDawg's Tweak Anthologies.
-
-
 =========================================
 Relative Stat Bonuses from Equipped Items
 =========================================
@@ -532,27 +452,6 @@ bonus to a stat score instead.  The conversion is as follows:
 	25	=> +6
 
 Items with a limited duration (like potions) and spells are not affected.
-
-
-============================
-Non-Bouncing Lightning Bolts
-============================
-
-Tired of wizards killing themselves with wildly bouncing bolts of lightning?
-This component alters all items that use the bouncing projectile to use a
-different one.  There are two options:
-
-Bolt from the Sky:
-This makes a precision strike on a single creature, like the druid's Call
-Lightning spell except that it can be indoors and the wizard does not get
-multiple bolts.
-
-Line of Lightning:
-This uses a projectile similar to the old one except that it stops when
-reaching a wall instead of bouncing off.
-
-Due to engine limitations, the original Baldur's Gate and Icewind Dale can
-only use the Bolt from the Sky option.
 
 
 ================
@@ -647,19 +546,6 @@ This component gives paladins a few more innate powers.
 The Smite Evil/Undead ability was based on Icewind Dale: Heart of Winter.
 
 Currently this component only works on games with the BG2/ToB engine.
-
-
-=======================
-No Resist Fire/Ice Icon
-=======================
-
-This component patches items and spells to no longer display the Resist
-Fire/Ice icon.  Instead, if the item or spell grants 20% or more fire
-resistance, it will display the Protection from Fire icon, and likewise for
-Protection from Cold.
-
-I wrote this because the Resist Fire/Ice icon is ugly and nearly impossible to
-tell apart from Protection from Fire in modern resolutions.
 
 
 =======================
