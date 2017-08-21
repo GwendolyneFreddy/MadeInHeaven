@@ -1,0 +1,64 @@
+mh#amul1	Amulet against Undead		Temple District (Lathander)
+mh#amul2	Gem of Insight			Temple District (Lathander)
+mh#amul3	Necklace of Prayer Beads	Temple District (Lathander)
+mh#amul4	Periapt of Health		Temple District (Lathander)
+
+mh#armr1	Green Dragon Scale		*Brokk
+mh#armr2	Eversing +2			*Brokk
+mh#armr3	Winter Wolf Hide +1		Waukeen's Promenade (Arnolius)
+
+mh#belt1	Girdle of Dwarvenkind		*Brokk
+mh#belt2	Girdle of Cloud Giant Strength	(N/A)
+mh#belt3	Sunite Sash			Watcher's Keep (Garlena)
+
+mh#blun1	Slime Crusher +1		Waukeen's Promenade (Maheer)
+mh#blun2	Blessed Mace +2			Temple District (Lathander)
+
+mh#boot1	Feather Tabi			Watcher's Keep (Garlena)
+mh#boot2	Boots of Striding and Springing	Watcher's Keep (Garlena)
+
+mh#brac1	Bracers of Winter's Chill	Underdark (Therndle Daglefodd)
+mh#brac2	Gauntlets of the Dwarven King	Watcher's Keep (Garlena)
+
+mh#btax1	Foesplitter +1			Temple District (Tarnor the Hatchetman)
+mh#btax2	Trollkiller +3			*Brokk
+
+mh#clck1	Mutamin's Cloak			Trademeet (nobleman merchant)
+mh#clck2	Battlecloak of Vycaena		Firkraag (replaces Cloak of the Shield)
+mh#clck3	Cloak of Arachnida		Underdark
+
+mh#dagg1	Mage Masher +1			Chateau Irenicus (Escaped Clone)
+mh#dagg2	Catclaw +3			Trademeet (nobleman merchant)
+
+mh#hamm1	Thronumin +3			*Brokk
+
+mh#helm1	Helm of Valor			Waukeen's Promenade (Arnolius)
+mh#helm2	Wizard's Hat			Watcher's Keep (Garlena)
+
+mh#ioun1	Lush Emerald Ioun Stone		Druid Grove
+mh#ioun2	Pearl of Power			Arcana Archives
+
+mh#misc1	Green Dragon Scales		(N/A)
+mh#misc2	Meteoric Iron			(N/A)
+mh#misc3	Telkiira			(N/A)
+mh#misc4	Bag of Tricks			Chateau Irenicus
+
+mh#potn1	Oil of Acid Resistance		
+mh#potn2	Oil of Disenchantment		
+
+mh#ring1	Ring of Warmth			Chateau Irenicus
+mh#ring2	Ring of the Neophyte		Chateau Irenicus
+mh#ring3	Ring of Toughness		Chateau Irenicus
+mh#ring4	Ring of Protection +3		Vongoethe (replaces Ring of Anti-Venom)
+
+mh#robe1	Robe of the Elements		(N/A)
+
+mh#shld1	Shield of the Phoenix +1	Waukeen's Promenade (Arnolius)
+mh#shld2	Ankheg Shield +1		*Brokk
+mh#shld3	Meteoric Shield +2		*Brokk
+
+mh#swrd1	Terminus Est +2			Trademeet (nobleman merchant)
+mh#swrd2	Heartsblood +1			Waukeen's Promenade (Maheer)
+mh#swrd3	Selune's Blessing +1		Druid Grove
+
+

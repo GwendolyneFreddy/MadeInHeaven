@@ -262,6 +262,19 @@ LAUNCH_ACTION_FUNCTION "install_component"
 END
 
 
+// ===================
+// MiH Item Pack (BG2)
+// ===================
+
+BEGIN "Made in Heaven Item Pack for BG2"
+GROUP "Baldur's Gate 2" GAME_INCLUDES "bg2"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "bg2_item_pack"
+END
+
+
 // ================================================
 // Allow Divine Spell Scrolls to Paladins & Rangers
 // ================================================
