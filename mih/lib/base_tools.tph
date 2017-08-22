@@ -90,7 +90,7 @@ END
 
 DEFINE_ACTION_FUNCTION erase_journal_entries_on_bg2_transition
   STR_VAR
-  dialog	= "dummy.dlg"
+  dialog	= "dummy"
 BEGIN
   ACTION_IF GAME_IS "bgt" AND FILE_EXISTS_IN_GAME "aram00.bcs"
   BEGIN
