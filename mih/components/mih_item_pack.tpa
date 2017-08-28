@@ -68,6 +68,25 @@ BEGIN
 END
 
 
+// Instant death effect, no save
+
+CREATE EFF "mh#death"
+  WRITE_LONG	0x0010 13	// Death: Instant Death
+  WRITE_LONG	0x001c 1
+  WRITE_LONG	0x0020 8
+  WRITE_SHORT	0x0024 1	// Permanent
+  WRITE_SHORT	0x002c 100	// 100% chance
+
+
+// Disrupt undead message
+
+CREATE EFF "mh#udmsg"
+  WRITE_LONG	0x0010 139	// Text: Display String
+  WRITE_LONG	0x001c RESOLVE_STR_REF("Undead destroyed")
+  WRITE_SHORT	0x0024 1	// Permanent
+  WRITE_SHORT	0x002c 100	// 100% chance
+
+
 // Copy .bam files over
 
 COPY_LARGE "%MOD_FOLDER%/item_pack/bgt/bams" "override"
@@ -114,6 +133,13 @@ Special: Can enhance intelligence permanently, but by doing so the gem is foreve
 Weight: 1"
 
 
+LAUNCH_ACTION_FUNCTION tooltips INT_VAR
+  $tip(1)		= RESOLVE_STR_REF("+1 Intelligence")
+STR_VAR
+  item			= "mh#amul2"
+END
+
+
 // mh#amul3 - Necklace of Prayer Beads
 
 COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#amul3.itm" "override"
@@ -139,6 +165,15 @@ Only usable by:
       flag_recharge	= 0
     END
   END
+
+
+LAUNCH_ACTION_FUNCTION tooltips INT_VAR
+  $tip(1)		= 12089		// "Bless"
+  $tip(2)		= 12114		// "Cure Serious Wounds"
+  $tip(3)		= 12115		// "Neutralize Poison"
+STR_VAR
+  item			= "mh#amul3"
+END
 
 
 // mh#amul4 - Periapt of Health
@@ -403,7 +438,7 @@ COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#boot1.itm" "override"
 
 These enchanted split-toe boots hail from faraway Kara-Tur and are a rare sight on the Sword Coast.  The exact process of enchanting them is only known to some clans of ninja and they are quite secretive about it.  How this pair made it all the way to the Sword Coast is unclear.  Most likely, their former owner met with disaster while on a mission and was forced to leave them behind.  Whether he or she is still alive and still looking for them remains to be seen.
 
-While worn these boots greatly reduces the force the wearer's weight excerts on the surface they are walking over.  This makes it a lot easier to walk silently, and also reduces the likelyhood of setting off certain traps.
+While worn these boots greatly reduces the force the wearer's weight excerts on the surface they are walking over.  This makes it a lot easier to walk silently, and also reduces the likelihood of setting off certain traps.
 
 STATISTICS:
 
@@ -428,6 +463,37 @@ STATISTICS:
 Armor Class: +1 bonus
 Movement: +2 bonus
 Weight: 4"
+
+
+// mh#boot3 - Boots of Gravewalking
+
+COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#boot3.itm" "override"
+  SAY NAME2 "Boots of Gravewalking"
+  SAY IDENTIFIED_DESC "Boots of Gravewalking
+
+There are many stories about vile necromancers and wicked witches, and there will be no doubt many more.  Despite the dangers, many are lured in by the promises of dark powers and lies of infernal voices, seeking that which mortals were never meant to have.  One such individual was Abdal el Hagreb, a mysterious wizard from the Shining South.  Always seeking more power no matter what the prize, Abdal consulted with efreet and fiends who guided him in the construction of magical items of power.  As his infamy spread, many sought to eliminate the evil wizard, but none ever succeeded.
+
+However, one day the wizard's tower and surrounding countryside were enveloped in a mysterious mist and just vanished, like they had never been there.  Nobody ever saw or heard from Abdal ever again.  Although legend has it that he has been transported to a dark place of nightmares, nobody really knows for sure just what happened exactly, and few people actually care.
+
+These boots were one of the many vile items Abdal created.  Crafted from the cured skins of human bodies the mad wizard exhumed from their graves and enchanted by unspeakable rites, they brim with necromantic power.  How they came to leave his possession is not exactly known, although one story claims that they were stolen by an apprentice just before the mists claimed the tower.
+
+STATISTICS:
+
+Abilities: Casts Vampiric Touch 1/day and Animate Dead 1/day as a 10th level wizard
+Weight: 4
+
+Not usable by:
+ Good characters"
+
+  PATCH_IF ENGINE_IS "bg1 totsc"
+  BEGIN
+    // BG1 engine does not support charges per day
+    LAUNCH_PATCH_FUNCTION ALTER_ITEM_HEADER
+      INT_VAR
+      charges		= 12
+      flag_recharge	= 0
+    END
+  END
 
 
 // mh#brac1 - Bracers of Winter's Chill
@@ -460,6 +526,14 @@ Only usable by:
       flag_recharge	= 0
     END
   END
+
+
+LAUNCH_ACTION_FUNCTION tooltips INT_VAR
+  $tip(1)		= 12062		// "Ice Storm"
+  $tip(2)		= 12066		// "Cone of Cold"
+STR_VAR
+  item			= "mh#brac1"
+END
 
 
 // mh#brac2 - Gauntlets of the Dwarven King
@@ -547,6 +621,46 @@ Not usable by:
  Thief"
 
 
+// mh#btax3 - Redethemar +4
+
+COPY "%MOD_FOLDER%/item_pack/bgt/spells/mh#btax3.spl" "override"
+
+COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#btax3.itm" "override"
+  SAY NAME2 "Redethemar +4"
+  SAY IDENTIFIED_DESC "Battle Axe +4: 'Redethemar'
+
+This powerfully enchanted axe, which was wielded by several elven heroes in the past, is one of the treasures of the elven nation of Evermeet.  It having been moved to Suldanessenar is a good indication of how serious a problem the return of the Exile was to the elves.
+
+While not intelligent, Redethemar does seem to have some empathic ability.  Evil people find the axe twisting in their grasp and refusing to strike anything at all.  In the hands of a worthy wielder it is a mighty weapon indeed, its powerful enchantment making it strike true and deal massive damage.  In addition to that, once per day Redethemar can be struck against the ground to create a local earthquake that will damage the wielder's enemies but won't affect the wielder and their allies.
+
+STATISTICS:
+
+Ability: Creates an earthquake once per day, dealing 5d10 damage to all enemies (save for half)
+THAC0: +4 bonus
+Damage: 1d8 +4
+Damage Type: slashing
+Weight: 4
+Speed Factor: 3
+Proficiency Type: Axe
+Type: 1-handed
+Requires: 10 Strength
+
+Not usable by:
+ Cleric
+ Druid
+ Mage
+ Thief
+ Evil characters"
+
+
+LAUNCH_ACTION_FUNCTION tooltips INT_VAR
+  $tip(1)		= "-1"
+  $tip(2)		= 45054		// "Earthquake"
+STR_VAR
+  item			= "mh#btax1"
+END
+
+
 // mh#clck1 - Mutamin's Cloak
 
 COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#clck1.itm" "override"
@@ -623,6 +737,31 @@ Weight: 3"
   END
 
 
+LAUNCH_ACTION_FUNCTION tooltips INT_VAR
+  $tip(1)		= 12057		// "Web"
+STR_VAR
+  item			= "mh#clck3"
+END
+
+
+// mh#clck4 - Cloak of Stars
+
+COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#clck4.itm" "override"
+  SAY NAME2 "Cloak of Stars"
+  SAY IDENTIFIED_DESC "Cloak of Protection +3: 'Cloak of Stars'
+
+At first glance this appears to be a finely woven but otherwise unremarkable blue cloak, but powerful magic lies within.  Upon closer look, faint stars can be seen floating in the deep blue, as if the cloak were actually a piece of the night sky.
+
+A creation of the mysterious elven high mages of Evermeet, this may be one of the most powerful defensive items in all of Faerun.  How it made it all the way to the mainland from the elven nation is not known, but one should assume that the elves are still looking for it and would do almost anything to see their treasure returned.
+
+STATISTICS:
+
+Armor Class: +3 bonus
+Saving Throws: +3 bonus
+Special: Wearer is permanently invisible
+Weight: 3"
+
+
 // mh#dagg1 - Mage Masher +1
 
 CREATE EFF "mh#dagg1"
@@ -639,7 +778,7 @@ COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#dagg1.itm" "override"
 
 After a foiled attempt to break into a local wizard's tower, the thief Vernon the Bold was so utterly humiliated that he developed a maniacal hatred of all mages.  He kidnapped another mage named Borin the Red and forced the hapless fellow to make this dagger, after which he slew the unfortunate man with his own creation.  Vernon then went on a killing spree, slaughtering any and all mages he came across.  Inevitably, he eventually bit off more than he could chew by attacking a trio of red wizards.  After their Fireballs and Lightning Bolts had stuck, this dagger was pretty much all that was left of the mad thief.
 
-This dagger is always considered +2 for purposes of what it can hit, but it functions as only a +1 weapon against most enemies.  Against duel- and multi-classed mages (including ogre mages), it is still only +1 to hit, but it deals +2 damage.  Only against single-class mages does it function as a full +2 dagger.
+This dagger is always considered +2 for purposes of what it can hit, but it functions as only a +1 weapon against most enemies.  Against dual- and multi-classed mages (including ogre mages), it is still only +1 to hit, but it deals +2 damage.  Only against single-class mages does it function as a full +2 dagger.
 
 STATISTICS:
 
@@ -667,7 +806,6 @@ This well-made, finely balanced dagger was the property of a mysterious rogue kn
 One affair with a twin pair of noblewomen in Waterdeep ended with the two having to beat a hasty retreat, and it was apparently on this occasion that the Mouser lost Catclaw.  He has yet to come back to reclaim it, and it is not known if he is even looking for it.
 
 While the dagger functions well enough, a peculiarity in the enchantment suggests it might not have been created in Faerun, but somewhere else where magic functions slightly differently.  Whether Fafhrd and the Gray Mouser truly were travelers from another plane of existence nobody knows for sure, but such things are not unheard of in the Forgotten Realms.
-
 
 STATISTICS:
 
@@ -698,10 +836,10 @@ Several dwarven runes have been inscribed into the head, glowing with power.  Th
 
 STATISTICS:
 
+Armor Class: +1 bonus
 THAC0: +3 bonus
 Damage: 1D4 +4
 Damage type: crushing
-Armor Class: +1 bonus
 Weight: 4
 Speed Factor: 1
 Proficiency Type: War Hammer
@@ -727,7 +865,7 @@ Wearing this helm allows one to mentally will arrows and other projectiles away,
 STATISTICS:
 
 Armor Class: +3 vs. Missiles
-Special: protects against critical hits, reduces missile damage by 50%
+Special: Protects against critical hits, reduces missile damage by 50%
 Requires: 13 Wisdom
 Weight: 2
 
@@ -752,6 +890,88 @@ Spells: +1 third level spell
 
 Only useable by:
  Mage (single- and multi-class)"
+
+
+// mh#helm3 - Helm of the Dwarven Lords
+
+COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#helm3.itm" "override"
+  SAY NAME2 "Helm of the Dwarven Lords"
+  SAY IDENTIFIED_DESC "Helm of the Dwarven Lords
+
+This enchanted helmet, forged from an unknown red alloy, once belonged to the royal family of the dwarven kingdom of Delzoun.  It would traditionally be worn by the reigning king when he lead his troups into battle.  It was lost in the Year of the Black Unicorn (-100) when the underground realm of Delzoun fell to creatures of the Underdark.  Despite several attempts by the dwarves, the helm was never recovered until a group of adventurers from the Dales found it in drow hands during a battle in the Twisted Tower more than nine hundred years later.  Since then, it has seen many different owners.
+
+STATISTICS:
+
+Special: Protects against critical hits,
+wearer is immune to spells up to 3rd level
+Regeneration: 2 hp/round
+Weight: 2
+
+Not usable by:
+ Bard
+ Mage
+ Thief"
+
+  // Use 1PP animation if available.
+  PATCH_IF FILE_EXISTS_IN_GAME "wpnj0inv.bam"
+  BEGIN
+    WRITE_ASCII 0x0022 "J0" #2
+  END
+
+  // Apply CamDawg's spell immunity batches on appropriate engines
+  PATCH_IF NOT ENGINE_IS "bg1 totsc"
+  BEGIN
+    LAUNCH_PATCH_FUNCTION cd_apply_batch
+      STR_VAR
+      array_name	= cd_immunity_spell_level_1_arrays
+    END
+
+    LAUNCH_PATCH_FUNCTION cd_apply_batch
+      STR_VAR
+      array_name	= cd_immunity_spell_level_2_arrays
+    END
+
+    LAUNCH_PATCH_FUNCTION cd_apply_batch
+      STR_VAR
+      array_name	= cd_immunity_spell_level_3_arrays
+    END
+  END
+
+
+// mh#helm4 - Shroudcrown
+
+COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#helm4.itm" "override"
+  SAY NAME1 "Bronze Circlet"
+  SAY NAME2 "Shroudcrown"
+  SAY UNIDENTIFIED_DESC "Bronze Circlet
+
+This is a simple circlet crafted from bronze and studded with fire agates.  It's too plain to be called a crown.  There is possibly some kind of enchantment on it, but nothing about its appearance hints on what it might be."
+  SAY IDENTIFIED_DESC "Shroudcrown
+
+This fire agate-studded bronze circlet holds considerable power over undead.  Hundreds of years ago, the insane Netherese necromancer Jobelo the Grand crafted it in order to protect him from his own unholy creations, after he was almost killed during one of his vile experiments with animating more powerful undead.  In the end it was still a horde of his own creations which he had lost control over that tore him to shreds.  His undead horde rampaged through a section of the High Forest for a couple of years until a combined effort of humans and elves wiped them out.
+
+Although the crown itself is not cursed in any way, its owners do have an unfortunate tendency to meet similar messy ends as its creator at the claws of the very undead creatures against which it protects.  One should always keep in mind that no kind of protection is absolute, and undead horrors are nothing to be trifled with.
+
+STATISTICS:
+
+Ability: Casts Hold Undead 1/day as a 10th level wizard
+Armor Class: +2 bonus vs. Undead
+THAC0: +2 vs. Undead
+Damage: +2 vs. Undead
+Weight: 1"
+
+  // Use 1PP animation if available.
+  PATCH_IF FILE_EXISTS_IN_GAME "wpnjbinv.bam"
+  BEGIN
+    WRITE_ASCII 0x0022 "JB" #2
+  END
+
+
+LAUNCH_ACTION_FUNCTION tooltips INT_VAR
+  $tip(1)		= 32379		// "Hold Undead"
+STR_VAR
+  item			= "mh#helm4"
+END
 
 
 // mh#ioun1 - Lush Emerald Ioun Stone
@@ -794,6 +1014,41 @@ Only usable by:
  Mage (single- and multi-class)"
 
 
+// mh#lbow1 - Bow of Eletha
+
+COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#lbow1.itm" "override"
+  SAY NAME2 "Bow of Eletha +2"
+  SAY IDENTIFIED_DESC "Long Bow +2: 'Bow of Eletha'
+
+This enchanted long bow belonged to a celebrated green elf warrior named Eletha.  After her death, it was kept in the treasury of Queen Amlaruil on Evermeet for many years until the queen gifted it to a human ally of the elves named Borvar Sha'Quessir.  Unfortunately Borvar and his party met their end when they tried to raid a red dragon's lair, and the bow laid in the dragon's hoard for a time until another adventuring party managed to slay the beast.  Although the elves would prefer to see it returned to Evermeet this is not a great priority and they will not press the issue as long as the item is not used against them.
+
+STATISTICS:
+
+Ability: Casts Magic Missile 3/day as a 12th level wizard
+Special: Arrows shot from this bow have double normal range
+THAC0: +3 bonus
+Damage: +2 bonus
+Weight: 2
+Speed Factor: 5
+Proficiency Type: Long Bow
+Type: 2-handed
+Requires: 6 Strength
+
+Not usable by:
+ Cleric
+ Druid
+ Mage
+ Thief"
+
+
+LAUNCH_ACTION_FUNCTION tooltips INT_VAR
+  $tip(1)		= "-1"
+  $tip(2)		= 12052		// "Magic Missile"
+STR_VAR
+  item			= "mh#helm4"
+END
+
+
 // mh#misc1 - Green Dragon Scales
 
 COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#misc1.itm" "override"
@@ -818,7 +1073,7 @@ COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#misc3.itm" "override"
   SAY NAME2 "Telkiira"
   SAY IDENTIFIED_DESC "Telkiira
 
-This necklace is actually an elven artifact known as a telkiira, or lore-gem.  It records the memories and experiences of its ower, and allows her to draw upon the memories and experiences of previous owners.  Only alves or those with elven blood like a half-elf can use it, everyone else just gets a splitting headache from wearing it.
+This necklace is actually an elven artifact known as a telkiira, or lore-gem.  It records the memories and experiences of its ower, and allows her to draw upon the memories and experiences of previous owners.  Only elves or those with elven blood like a half-elf can use it, everyone else just gets a splitting headache from wearing it.
 
 In addition, all but the most basic of its functions seem to be locked to only certain people.  There doesn't seem to be any way for you to pass the lock; it is keyed to a certain bloodline.  However, these gems are very precious to the elves and returning it to the rightful owner will likely result in a generous reward.
 
@@ -847,7 +1102,7 @@ COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#potn2.itm" "override"
   SAY NAME2 "Oil of Dispelling"
   SAY IDENTIFIED_DESC "Oil of Disenchantment
 
-This sparkling golden fluid is an ethereal, rapidly evaporating thin oil.  When poured over a creature, it removes all dispelable magical effect on that creature unless it makes a saving throw versus wands at a -4 penalty."
+This sparkling golden fluid is an ethereal, rapidly evaporating thin oil.  When poured over a creature, it removes all dispelable magical effects from that creature unless it makes a saving throw versus wands at a -4 penalty."
 
   PATCH_IF ENGINE_IS "bg1 totsc"
   BEGIN
@@ -878,7 +1133,7 @@ BEGIN
   BEGIN
     ACTION_IF NOT FILE_EXISTS_IN_GAME "%animal%su.cre"
     BEGIN
-      ACTION_IF FILE_EXISTS_IN_GAME "%animal%.cre"
+      ACTION_IF FILE_EXISTS_IN_GAME "%tutu_var%%animal%.cre"
       BEGIN
         COPY "%MOD_FOLDER%/item_pack/bgt/actors/%animal%.cre" "override/%animal%su.cre"
 	  LAUNCH_PATCH_FUNCTION make_summon END
@@ -998,6 +1253,63 @@ Armor Class: +3 bonus
 Saving Throws: +3 bonus"
 
 
+// mh#ring5 - Ring of Mind Shielding
+
+COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#ring5.itm" "override"
+  SAY NAME2 "Ring of Mind Shielding"
+  SAY IDENTIFIED_DESC "Ring of Mind Shielding
+
+The first of these rings was created by drow sorcerers when the drow found too many warriors falling to the psionic powers of the illithid in the many battles the two raced waged for living space in the Underdark.  The secret to making these has since spread to the surface, and rings like these are in high demand from rulers and nobles who fear their actions may be manipulated by outside forces.
+
+The ring completely wards the wearer's mind against all external influences.  He cannot be charmed, dominated, confused, feebleminded or stunned, and his alignment cannot be detected."
+
+  PATCH_IF NOT ENGINE_IS "bg1 totsc"
+  BEGIN
+    LAUNCH_PATCH_FUNCTION cd_apply_batch
+      STR_VAR
+      array_name	= cd_immunity_charm_arrays
+    END
+
+    LAUNCH_PATCH_FUNCTION cd_apply_batch
+      STR_VAR
+      array_name	= cd_immunity_confusion_arrays
+    END
+
+    LAUNCH_PATCH_FUNCTION cd_apply_batch
+      STR_VAR
+      array_name	= cd_immunity_feeblemind_arrays
+    END
+
+    LAUNCH_PATCH_FUNCTION cd_apply_batch
+      STR_VAR
+      array_name	= cd_immunity_stun_arrays
+    END
+  END
+
+
+// mh#ring6 - Ring of Shooting Stars
+
+COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#ring6.itm" "override"
+  SAY NAME2 "Ring of Shooting Stars"
+  SAY IDENTIFIED_DESC "Ring of Shooting Stars: 'Ring of the High Mage'
+
+This powerful and dangerous ring was crafted by elven high mages in the days of Myth Drannor.  Although initially meant to be used in the defense of the city, it ended up doing great damage to it after the sun elf houses resorted to assassinations and open violence to prevent any non-elf from participating in the Claiming Ceremony that would appoint Cormanthyr's new ruler.  It was this item that shattered the Rule Tower and, some say, began the decline of the great kingdom of Cormanthyr.  During the fall of Myth Drannor, the ring was secured by a group of mages calling themselves the Eternal Srinnala, but what happened to it afterwards is unclear.  What is clear though is that this ring, like many powerful artifacts of ancient elven magic, has the potential to do both great good and untold damage.
+
+STATISTICS:
+
+Abilities: Casts Melf's Minute Meteors 3/day, Chain Lightning 2/day and Meteor Swarm 1/day as a 20th level mage.
+Requires: 12 Intelligence"
+
+
+LAUNCH_ACTION_FUNCTION tooltips INT_VAR
+  $tip(1)		= 38588		// "Melf's Minute Meteors"
+  $tip(2)		= 25939		// "Chain Lightning"
+  $tip(3)		= 26345		// "Meteor Swarm"
+STR_VAR
+  item			= "mh#ring6"
+END
+
+
 // mh#robe1 - Robe of the Elements
 
 COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#robe1.itm" "override"
@@ -1072,7 +1384,7 @@ COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#shld3.itm" "override"
   SAY NAME2 "Meteoric Iron Shield +2"
   SAY IDENTIFIED_DESC "Meteoric Iron Shield +2
 
-This sturdy shield has been crafted from meteoric iron, beaten into shape by the capable hands of the dwarven smith Brokk.  The latent cosmic power in the meoric iron has resulted in a shield of exceptional sturdiness.
+This sturdy shield has been crafted from meteoric iron, beaten into shape by the capable hands of the dwarven smith Brokk.  The latent cosmic power in the meteoric iron has resulted in a shield of exceptional sturdiness.
 
 Armor Class: +3 bonus
 Weight: 5
@@ -1083,6 +1395,50 @@ Not usable by:
  Druid
  Mage
  Thief"
+
+
+// mh#sper1 - Spear of Halama
+
+COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#sper1.itm" "override"
+  SAY NAME2 "Spear of Halama +2"
+  SAY IDENTIFIED_DESC "Spear +2: 'Spear of Halama'
+
+This enchanted spear is said to have been gift to the elven heroine Halama from an ancient gold dragon she had befriended.  No other details of its history are known.
+
+The wielder of this spear is immune to all kinds of true dragon breath like the searing flames of a red dragon or the freezing cold of a white.  It does not outright block other types of breath like the flames of a hell hound or the frost of a winter wolf, but it does still grant some resistance to those.
+
+STATISTICS:
+
+Saving Throws: +5 vs. breath
+Special: Immune to all forms of true dragon breath
+THAC0: +2 bonus
+Damage: 1d6 +2
+Damage Type: piercing
+Weight: 3
+Speed Factor: 4
+Proficiency Type: Spear 
+Type: 2-handed
+Requires: 5 Strength
+
+Not usable by:
+ Cleric
+ Mage
+ Thief"
+  
+  PATCH_IF NOT ENGINE_IS "bg1 totsc"
+  BEGIN
+    PHP_EACH dragon_breath AS spell_name => spell_res
+    BEGIN
+      LAUNCH_PATCH_FUNCTION ADD_ITEM_EQEFFECT
+        INT_VAR
+	opcode		= 206	// Protection: from Spell
+	target		= 1	// Self
+	timing		= 2	// While equipped
+	STR_VAR
+	resource	= "%spell_res%"
+      END
+    END
+  END
 
 
 // mh#swrd1 - Terminus Est +2
@@ -1096,7 +1452,7 @@ When lady Walraven was sentenced to death for high treason, she had but one last
 STATISTICS:
 
 THAC0: +2 bonus
-Damage: 2d4 +2, 50% chance of additional 1d3 + 1 poison damage
+Damage: 2d4 +2, 50% chance of additional 1d3 +1 poison damage
 Damage type: slashing (and poison)
 Weight: 7
 Speed Factor: 6
@@ -1144,7 +1500,7 @@ COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#swrd3.itm" "override"
   SAY NAME2 "Selune's Blessing +1"
   SAY IDENTIFIED_DESC "Scimitar +1, +3 vs. Lycanthropes & Undead: 'Selune's Blessing'
 
-This scimitar is said to have been created by Selune herself in a manifestation of moonfire.  Valia, a priestess of the Moon Maiden, once got lost in the High Forest had a kind druid not found her and guided her back to civilization.  Later on, when Valia heard that the druids were under attack by dangerous creatures of the night, she prayed to her goddess for salvation of those who had helped her.  One night under a full moon her prayers were answered when the alter glowed with milky-white light which solidified and condenced to form this scimitar.  Valia traveled to the druid grove and presented the weapon to them, and then volunteered to stay and help them fight off the threat, and eventually they were successful.  Since then, this scimitar has been a beacon of hope for those who face the evil things that go bump in the night.
+This scimitar is said to have been created by Selune herself in a manifestation of moonfire.  Valia, a priestess of the Moon Maiden, once got lost in the High Forest and would have perished, had a kind druid not found her and guided her back to civilization.  Later on, when Valia heard that the druids were under attack by dangerous creatures of the night, she prayed to her goddess for aid to those who had helped her.  One night under a full moon her prayers were answered when the alter glowed with milky-white light which condensed and solidified to form this scimitar.  Valia traveled to the druid grove and presented the weapon to them, and then volunteered to stay and help them fight off the threat.  Eventually they were successful, and since then this scimitar has been a beacon of hope for those who face the evil things that go bump in the night.
 
 STATISTICS:
 
@@ -1166,5 +1522,40 @@ Not usable by:
   BEGIN
     WRITE_ASCII 0x0022 "S1" #2
   END
+
+
+// mh#swrd4 - Lashing Sword of Samos the Skullreaver
+
+COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#swrd4.itm" "override"
+  SAY NAME2 "Lashing Sword +1"
+  SAY IDENTIFIED_DESC "Short Sword of Disruption +1: 'Lashing Sword of Samos the Skullreaver'
+
+This peculiar short sword belonged to a dwarven undead hunter named Samos the Skullreaver.  It normally functions as a sword sword +1, but it can also extend a whip-like lash of force that trails blue sparks from its pommel.  This energy whip extends to 10 feet and passes harmlessly through most creatures, but any undead touched by it must save versus death at -4 or be instantly destroyed.  The wielder can choose between sword- and energy lash functions at will, but only one of the two can be in use at any time.
+
+STATISTICS:
+
+THAC0: +1 bonus
+Damage: 1d6 +1 (melee) or 0 (lash)
+Damage Type (melee): piercing
+Damage Type (lash): none
+Special: Undead struck by the lash must save vs. death at -4 or be destroyed
+Speed Factor: 2
+Weight: 3
+Proficiency Type: Short Sword
+Type: 1-handed
+Requires: 5 Strength
+
+Not usable by:
+ Cleric
+ Druid
+ Mage"
+
+
+LAUNCH_ACTION_FUNCTION tooltips INT_VAR
+  $tip(1)		= 15529		// "Melee"
+  $tip(2)		= RESOLVE_STR_REF("Energy Lash")
+STR_VAR
+  item			= "mh#swrd4"
+END
 
 

@@ -16,16 +16,19 @@ mh#blun2	Blessed Mace +2			mace +2, user is blessed, +2 dmg to undead & fiends
 
 mh#boot1	Feather Tabi			+25% stealth, +10% find/remove traps			Complete Ninja's Handbook (2E)
 mh#boot2	Boots of Striding and Springing	movement rate +2, AC +1					Dungeon Master Guide (2E)
+mh#boot3	Boots of Gravewalking		Vampiric Touch 1/day, Animate Dead 1/day
 
 mh#brac1	Bracers of Winter's Chill	AC 4, +30% fire/ice, Ice Storm & Cone of Cold 1/day
 mh#brac2	Gauntlets of the Dwarven King	AC +1, maximum HP +5
 
-mh#btax1	Foesplitter +1			counts as +3, 10% chance of double damage		Races of Faerun (3E)
+mh#btax1	Foesplitter +1			battle axe +1, 10% chance of double damage		Races of Faerun (3E)
 mh#btax2	Trollkiller +3			70% chance of 1d3 acid, 10% chance of 1d10 acid
+mh#btax3	Redethemar +4			battle axe +4, party-friendly 5d10 earthquake 1/day	Elves of Evermeet (2E)
 
 mh#clck1	Mutamin's Cloak			petrification immunity
 mh#clck2	Battlecloak of Vycaena		+4 AC, +1 saves						Fallen Empires of Faerun (3E)
 mh#clck3	Cloak of Arachnida		+2 vs death, web immunity, casts Web 2/day		Dungeon Master Guide (2E)
+mh#clck4	Cloak of Stars			cloak of protection +3, wearer is invisible		Elves of Evermeet (2E)
 
 mh#dagg1	Mage Masher +1			+2 vs. mages						Final Fantasy IV
 mh#dagg2	Catclaw +3			+1 dexterity, +10% stealth				Fafhrd & The Gray Mouser
@@ -34,9 +37,13 @@ mh#hamm1	Thronumin +3			+3 war hammer, +1 AC
 
 mh#helm1	Helm of Valor			+3 AC vs missiles, 50% missile resistance		Complete Book of Elves (2E)
 mh#helm2	Wizard's Hat			+1 AC, 3rd level spell slot
+mh#helm3	Helm of the Dwarven Lords	regen 2 hp/round, permanent Minor Globe
+mh#helm4	Shroudcrown			+2 to-hit,damage & AC vs undead, Hold Undead 1/day	Player's Guide to Faerun (3E)
 
 mh#ioun1	Lush Emerald Ioun Stone		+1 AC, regen 2 HP/turn, druids only
 mh#ioun2	Pearl of Power			+1 4rd and 5th level wizard spell slots			Dungeon Master's Guide (2E)
+
+mh#lbow1	Bow of Eletha +2		short bow +2, casts Magic Missile 3/day			Elves of Evermeet (2E)
 
 mh#misc1	Green Dragon Scales		preserved dragon scales used as a component
 mh#misc2	Meteoric Iron			lump of meteoric iron used as a component
@@ -50,6 +57,8 @@ mh#ring1	Ring of Warmth			+20% cold resistance					Dungeon Master Guide (2E)
 mh#ring2	Ring of the Neophyte		extra 1st level wizard spell slot
 mh#ring3	Ring of Toughness		+3 max HP
 mh#ring4	Ring of Protection +3		+3 AC, +3 saves						Dungeon Master Guide (2E)
+mh#ring5	Ring of Mind Shielding		immunity to charm, domination and alignment detection	Dungeon Master Guide (2E)
+mh#ring6	Ring of Shooting Stars		Minute Meteors x3, Chain Light. x2, Meteor Swarm x1	Dungeon Master Guide (2E)
 
 mh#robe1	Robe of the Elements		+1 AC, +1 saves, +20% fire/cold/elec.
 
@@ -57,8 +66,11 @@ mh#shld1	Shield of the Phoenix +1	+2 AC, +30% fire resistance
 mh#shld2	Ankheg Shield +1		+2 AC, +30% acid resistance
 mh#shld3	Meteoric Iron Shield +2		+3 AC
 
+mh#sper1	Spear of Halama +2		spear +2, dragon breath immunity, +5 vs breath		Elves of Evermeet (2E)
+
 mh#swrd1	Terminus Est +2			bastard sword +2, poison damage				Castlevania: Symphony of the Night
 mh#swrd2	Heartsblood +1			long sword +1, +2 vs undead				Book of Lairs (2E)
 mh#swrd3	Selune's Blessing +1		scimitar +1, +3 vs lycanthropes & undead
+mh#swrd4	Lashing Sword +1		short sword +1, undead disrupting lash			Player's Guide to Faerun (3E)
 
 

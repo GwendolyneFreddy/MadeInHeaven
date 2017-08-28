@@ -140,6 +140,8 @@ COPY_EXISTING "udsvir05.dlg" "override"
 
 // Drow Merchant
 COPY_EXISTING "uddrow23.sto" "override"
+  // Ring of Mind Shielding
+  ADD_STORE_ITEM "mh#ring5" AFTER "staf16" #0 #0 #0 "identified" #1
   // Cloak of Arachnida
   ADD_STORE_ITEM "mh#clck3" AFTER "clck17" #2 #0 #0 "identified" #1
 
@@ -168,6 +170,8 @@ COPY_EXISTING "garlena.sto" "override"
 COPY_EXISTING "25spell.sto" "override"
   // Ring of Anti-Venom (moved from Vongoethe)
   ADD_STORE_ITEM "ring46" AFTER "ring02" #0 #0 #0 "identified" #1
+  // Ring of Shooting Stars
+  ADD_STORE_ITEM "mh#ring6" AFTER "ring46" #3 #2 #1 "identified" #1
   // Pearl of Power
   ADD_STORE_ITEM "mh#ioun2" AFTER "helm23" #0 #0 #0 "identified" #1
 

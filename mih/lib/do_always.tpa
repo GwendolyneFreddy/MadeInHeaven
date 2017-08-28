@@ -10,6 +10,7 @@ BEGIN
 
   INCLUDE "%MOD_FOLDER%/lib/cd_tools.tph" 
   INCLUDE "%MOD_FOLDER%/lib/bg2fp_effect_batches.tph"
+  INCLUDE "%MOD_FOLDER%/lib/tooltip_macro.tph" 
 
   ACTION_IF GAME_IS "bg1 totsc"
   BEGIN
@@ -121,6 +122,40 @@ BEGIN
       PRINT "Found %spell_name% as %spell_res%"
 
       ACTION_DEFINE_ASSOCIATIVE_ARRAY dust_to_dust
+      BEGIN
+        "%spell_name%" => "%spell_res%"
+      END
+    END
+  END
+
+
+  // List of dragon breaths
+
+  ACTION_FOR_EACH spell_name IN
+   "BLACK_DRAGON_BREATH"
+   "BLUE_DRAGON_BREATH"
+   "BROWN_DRAGON_BREATH"
+   "GREEN_DRAGON_BREATH"
+   "RED_DRAGON_BREATH"
+   "SHADOW_DRAGON_BREATH"
+   "SILVER_DRAGON_BREATH_COLD"
+   "SILVER_DRAGON_BREATH_PARALIZATION"
+   "YELLOW_DRAGON_BREATH"
+   "WIZARD_DRAGONS_BREATH"
+  BEGIN
+    ACTION_IF IDS_OF_SYMBOL ("spell" "%spell_name%") >= 0
+    BEGIN
+      LAUNCH_ACTION_FUNCTION RES_NUM_OF_SPELL_NAME
+        STR_VAR
+        spell_name
+        RET
+        spell_num
+        spell_res
+      END
+  
+      PRINT "Found %spell_name% as %spell_res%"
+
+      ACTION_DEFINE_ASSOCIATIVE_ARRAY dragon_breath
       BEGIN
         "%spell_name%" => "%spell_res%"
       END

@@ -122,7 +122,6 @@ COPY_EXISTING "%Nashkel%.are" "override"
 
 
 // ==============================
-// ==============================
 // Varscona & Heartsblood shuffle
 // ==============================
 
@@ -349,14 +348,24 @@ COPY_EXISTING "%CloakwoodMines_L3%.are" "override"
     item_to_add		= "mh#btax1"
   END
 
+  LAUNCH_PATCH_FUNCTION ADD_AREA_ITEM
+    INT_VAR
+    container_to_add_to	= 39
+    STR_VAR
+    item_to_add		= "mh#swrd4"
+  END
+
 
 // ===============================
 // New items in Sorcerous Sundries
 // ===============================
 
 COPY_EXISTING "%tutu_var%sto0703.sto" "override"
-  ADD_STORE_ITEM "mh#potn1" AFTER "%tutu_var%potn45" #1 #0 #0 "identified" #3
+  ADD_STORE_ITEM "mh#potn1" AFTER "%tutu_var%potn39" #1 #0 #0 "identified" #3
+  ADD_STORE_ITEM "mh#potn2" AFTER "%tutu_var%potn46" #1 #0 #0 "identified" #1
+  ADD_STORE_ITEM "mh#boot3" LAST #1 #1 #0 "identified" #1
   ADD_STORE_ITEM "mh#clck3" LAST #2 #0 #0 "identified" #1
+  ADD_STORE_ITEM "mh#ring5" LAST #0 #0 #0 "identified" #1
 
 
 // ========================
@@ -439,15 +448,25 @@ COPY_EXISTING "%IsleofBalduranN%.are" "override"
   END
 
 
-// New item in shipwreck
+// New items in shipwreck
 
 COPY_EXISTING "%IsleofBalduranNShip_D1%.are" "override"
-  // Add Meteoric Iron to cargo hold
+  // Add Meteoric Iron
   LAUNCH_PATCH_FUNCTION ADD_AREA_ITEM
     INT_VAR
     container_to_add_to	= 1
     STR_VAR
     item_to_add		= "mh#misc2"
+  END
+
+
+COPY_EXISTING "%IsleofBalduranNShip_D2%.are" "override"
+  // Add Spear of Halama
+  LAUNCH_PATCH_FUNCTION ADD_AREA_ITEM
+    INT_VAR
+    container_to_add_to	= 3
+    STR_VAR
+    item_to_add		= "mh#sper1"
   END
 
 
