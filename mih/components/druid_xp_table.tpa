@@ -83,3 +83,23 @@ COPY_EXISTING "xplevel.2da" "override"
   END
 
 
+COPY_EXISTING "lunumab.2da" "override"
+  READ_2DA_ENTRY 6 1 5 single_druid
+  READ_2DA_ENTRY 24 1 5 multi_druid
+
+  PATCH_IF (single_druid < 23)
+  BEGIN
+    SET_2DA_ENTRY 6 1 5 23
+  END
+
+  PATCH_IF (multi_druid < 16)
+  BEGIN
+    SET_2DA_ENTRY 24 1 5 16
+  END
+
+  PRETTY_PRINT_2DA
+
+  IF_EXISTS	// ToB-only file
+  BUT_ONLY_IF_IT_CHANGES
+
+

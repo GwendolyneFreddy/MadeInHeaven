@@ -542,7 +542,7 @@ COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#brac2.itm" "override"
   SAY NAME2 "Gauntlets of the Dwarven King"
   SAY IDENTIFIED_DESC "Gauntlets of the Dwarven King
 
-
+These gauntlets belonged to Garumn Battlehammer, grandfather to Bruenor Battlehammer, who was killed in the battle against the dragon Shimmergloom and his hordes of duergar.  However, when Bruenor returned to Mithral Hall centuries later and found the dusty bodies of his father and grandfather, the gauntlets were nowhere to be found, presumably taken by the duergar.
 
 STATISTICS:
 
@@ -1073,7 +1073,7 @@ COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#misc3.itm" "override"
   SAY NAME2 "Telkiira"
   SAY IDENTIFIED_DESC "Telkiira
 
-This necklace is actually an elven artifact known as a telkiira, or lore-gem.  It records the memories and experiences of its ower, and allows her to draw upon the memories and experiences of previous owners.  Only elves or those with elven blood like a half-elf can use it, everyone else just gets a splitting headache from wearing it.
+This necklace is actually an elven artifact known as a telkiira, or lore-gem.  It records the memories and experiences of its owner, and allows her to draw upon the memories and experiences of previous owners.  Only elves or those with elven blood like a half-elf can use it, everyone else just gets a splitting headache from wearing it.
 
 In addition, all but the most basic of its functions seem to be locked to only certain people.  There doesn't seem to be any way for you to pass the lock; it is keyed to a certain bloodline.  However, these gems are very precious to the elves and returning it to the rightful owner will likely result in a generous reward.
 
