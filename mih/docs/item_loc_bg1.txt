@@ -8,7 +8,7 @@ mh#armr2	Eversing +2			Brokk (shop)
 mh#armr3	Winter Wolf Hide +1		Tania (event)
 
 mh#belt1	Girdle of Dwarvenkind		Brokk (event)
-mh#belt2	Girdle of Cloud Giant Strength	Durlag's Tower D4 (on Grael)
+mh#belt2	Girdle of Arisnas		Durlag's Tower D4 (on Grael)
 mh#belt3	Sunite Sash			Durlag's Tower L4 (on Kirinhale)
 
 mh#blun1	Slime Crusher +1		Brokk (shop)

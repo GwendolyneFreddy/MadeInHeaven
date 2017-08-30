@@ -311,20 +311,26 @@ Not usable by:
  Gnome"
 
 
-// mh#belt2 - Girdle of Cloud Giant Strength
+// mh#belt2 - Girdle of Arisnas
 
 COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#belt2.itm" "override"
-  SAY NAME2 "Girdle of Cloud Giant Strength"
-  SAY IDENTIFIED_DESC "Girdle of Cloud Giant Strength
+  SAY NAME2 "Girdle of Arisnas"
+  SAY IDENTIFIED_DESC "Girdle of Arisnas
 
-This enchanted girdle belonged to the dwarven hero Durlag, and is the likely cause for many of the heroic feats attributed to him, although how it came into his possession is not known.  The design and apparent age suggests a Netherese origin, but other than that it defies identification.
+This enchanted girdle belonged to the dwarven hero Durlag, and is the likely cause for many of the heroic feats attributed to him, although how it came into his possession is not exactly known.  Netherese records mention a stone giant named Arisnas who terrorized the Netherese mountains for a while, but the connection between him and this girdle remain unclear.  It's possible that a Netherese arcanist used some portion of the giant in the construction of this item, but there is no part that can readily be identified as such.
 
 After the fateful tenday when Durlag was forced to slay the dopplegangers that had replaced his family and taken over his home, this magical belt was forgotten on one of the many heaps of treasure deep within the deadly tower, until it was recovered by <CHARNAME>.
 
 STATISTICS:
 
-Strength: set to 23
-Weight: 2"
+Strength: set to 20
+Weight: 2
+
+Only usable by:
+ Fighter
+ Monk
+ Paladin
+ Ranger"
 
 
 // mh#belt3 - Sunite Sash

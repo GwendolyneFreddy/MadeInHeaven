@@ -8,7 +8,7 @@ mh#armr2	Eversing +2			base AC 1, +2 vs spells, +5% magic resistance		Castlevani
 mh#armr3	Winter Wolf Hide +1		base AC 5, +30% cold resistance
 
 mh#belt1	Girdle of Dwarvenkind		-1 cha, +1 con, +3 saves, infravision			Dungeon Master Guide (2E)
-mh#belt2	Girdle of Cloud Giant Strength	strength 23						Dungeon Master Guide (2E)
+mh#belt2	Girdle of Arisnas		strength 20, warriors only				Dungeon Master Guide (2E)
 mh#belt3	Sunite Sash			AC +2, charisma +2					Magic of Faerun (3E)
 
 mh#blun1	Slime Crusher +1		morning star +1, +4 vs. Slimes

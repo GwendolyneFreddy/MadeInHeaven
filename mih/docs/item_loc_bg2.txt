@@ -8,7 +8,7 @@ mh#armr2	Eversing +2			*Brokk (shop)
 mh#armr3	Winter Wolf Hide +1		Waukeen's Promenade (Arnolius)
 
 mh#belt1	Girdle of Dwarvenkind		*Brokk (event)
-mh#belt2	Girdle of Cloud Giant Strength	(N/A)
+mh#belt2	Girdle of Arisnas		(N/A)
 mh#belt3	Sunite Sash			Watcher's Keep (Garlena)
 
 mh#blun1	Slime Crusher +1		Waukeen's Promenade (Maheer)
