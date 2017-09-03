@@ -1,0 +1,60 @@
+// Enhanced Copper Coronet
+
+LAUNCH_ACTION_FUNCTION install_component
+  STR_VAR
+  component_name	= "mih_monster_pack"
+END
+
+
+// Tavern area
+
+// These arena creatures should be black bears by all signs,
+// but they have the troll animation.
+
+COPY_EXISTING "glbear.cre" "override"
+              "glbear2.cre" "override"
+  WRITE_LONG	0x0028 IDS_OF_SYMBOL("animate" "bear_black")
+
+  WRITE_BYTE	0x0271 IDS_OF_SYMBOL("general" "animal")
+  WRITE_BYTE	0x0272 IDS_OF_SYMBOL("race" "bear")
+  WRITE_BYTE	0x0273 IDS_OF_SYMBOL("class" "bear_black")
+
+  BUT_ONLY_IF_IT_CHANGES
+
+
+// Sewers area
+
+COPY_EXISTING "ar0404.are" "override"
+  // Add new actors
+  LAUNCH_PATCH_FUNCTION add_area_actors_from_2da
+    INT_VAR
+    bgt_compat		= 1
+    tutu_compat		= 1
+    STR_VAR
+    path_to_2da		= "%MOD_FOLDER%/bg2/copper_coronet/ar0404.2da"
+  END
+
+  // Remove out of place hobgoblin shaman
+  LAUNCH_PATCH_FUNCTION fj_are_structure
+    INT_VAR
+    fj_delete_mode	= 5
+    STR_VAR
+    fj_structure_type	= "actor"
+  END
+
+  // Alter spawn points
+  GET_OFFSET_ARRAY spawn_array ARE_V10_SPAWN_POINTS
+  PHP_EACH spawn_array AS int => spawn_offset
+  BEGIN
+    WRITE_SHORT (spawn_offset + 0x0084) 6
+    WRITE_SHORT (spawn_offset + 0x0074) 6
+
+    WRITE_ASCII (spawn_offset + 0x0024) "RDKobold" #8
+    WRITE_ASCII (spawn_offset + 0x002c) "RDGibb" #8
+    WRITE_ASCII (spawn_offset + 0x0034) "RDSpider" #8
+    WRITE_ASCII (spawn_offset + 0x003c) "RDSpid2" #8
+    WRITE_ASCII (spawn_offset + 0x0044) "RDSlim1" #8
+    WRITE_ASCII (spawn_offset + 0x004c) "RDSlim2" #8
+  END
+
+
