@@ -275,6 +275,32 @@ LAUNCH_ACTION_FUNCTION "install_component"
 END
 
 
+// =======================
+// Enhanced Copper Coronet
+// =======================
+
+BEGIN "Enhanced Copper Coronet"
+GROUP "Baldur's Gate 2" GAME_INCLUDES "bg2"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "bg2_copper_coronet"
+END
+
+
+// ==========================
+// Creature Corrections (BG2)
+// ==========================
+
+BEGIN "Creature Corrections (BG2)"
+GROUP "Baldur's Gate 2" GAME_INCLUDES "bg2"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "bg2_creature_corrections"
+END
+
+
 // ================================================
 // Allow Divine Spell Scrolls to Paladins & Rangers
 // ================================================

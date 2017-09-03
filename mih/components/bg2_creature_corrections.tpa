@@ -1,20 +1,4 @@
-// BG1 Creature Corrections
-
-
-// Bulk alignment changes
-
-INCLUDE "%MOD_FOLDER%/config/bg1_alignment_changes.tph"
-
-PRINT "Executing bulk alignment corrections..."
-
-ACTION_PHP_EACH mih_bg1_alignment_changes AS resref => alignment
-BEGIN
-  COPY_EXISTING "%resref%.cre" "override"
-    WRITE_BYTE 0x027b alignment
-
-    IF_EXISTS
-    BUT_ONLY_IF_IT_CHANGES
-END
+// BG2 creature corrections
 
 
 // Ankheg
@@ -27,9 +11,7 @@ END
 
 INCLUDE "%MOD_FOLDER%/creature_corrections/ankheg.tpa"
 
-COPY_EXISTING "%tutu_var%ankheg.cre" "override"
-              "%tutu_var%ankhegg.cre" "override"
-              "%tutu_var%ankhegq.cre" "override"
+COPY_EXISTING "ankheg01.cre" "override"
   LAUNCH_PATCH_MACRO fix_ankheg
 
   BUT_ONLY_IF_IT_CHANGES
@@ -44,8 +26,7 @@ COPY_EXISTING "%tutu_var%ankheg.cre" "override"
 
 INCLUDE "%MOD_FOLDER%/creature_corrections/dread_wolf.tpa"
 
-COPY_EXISTING "%tutu_var%wolfdr.cre" "override"
-              "%tutu_var%wolfd1.cre" "override"
+COPY_EXISTING "wolfdr01.cre" "override"
   LAUNCH_PATCH_MACRO fix_dread_wolf
 
   BUT_ONLY_IF_IT_CHANGES
@@ -58,7 +39,8 @@ COPY_EXISTING "%tutu_var%wolfdr.cre" "override"
 
 INCLUDE "%MOD_FOLDER%/creature_corrections/gray_ooze.tpa"
 
-COPY_EXISTING "%tutu_var%jellgr.cre" "override"
+COPY_EXISTING "jelgra01.cre" "override"
+              "jellgr.cre" "override"
   LAUNCH_PATCH_MACRO fix_gray_ooze
 
   BUT_ONLY_IF_IT_CHANGES
@@ -72,9 +54,7 @@ COPY_EXISTING "%tutu_var%jellgr.cre" "override"
 
 INCLUDE "%MOD_FOLDER%/creature_corrections/greater_basilisk.tpa"
 
-COPY_EXISTING "%tutu_var%basilg.cre" "override"
-              "%tutu_scriptb%asilmut.cre" "override"
-              "%tutu_scriptb%asilnad.cre" "override"
+COPY_EXISTING "basgrt01.cre" "override"
   LAUNCH_PATCH_MACRO fix_greater_basilisk
 
   BUT_ONLY_IF_IT_CHANGES
@@ -93,9 +73,9 @@ COPY_EXISTING "%tutu_var%basilg.cre" "override"
 
 INCLUDE "%MOD_FOLDER%/creature_corrections/mustard_jelly.tpa"
 
-COPY_EXISTING "%tutu_var%jellmu.cre" "override"
-              "%tutu_var%jellmul.cre" "override"
-              "%tutu_var%jellymu.cre" "override"
+COPY_EXISTING "jelmus01.cre" "override"
+              "jellmu.cre" "override"
+              "jellmusu.cre" "override"
   LAUNCH_PATCH_MACRO fix_mustard_jelly
 
   BUT_ONLY_IF_IT_CHANGES
@@ -112,7 +92,8 @@ COPY_EXISTING "%tutu_var%jellmu.cre" "override"
 
 INCLUDE "%MOD_FOLDER%/creature_corrections/ochre_jelly.tpa"
 
-COPY_EXISTING "%tutu_var%jelloc.cre" "override"
+COPY_EXISTING "jeloch01.cre" "override"
+              "jelloc.cre" "override"
   LAUNCH_PATCH_MACRO fix_ochre_jelly
 
   BUT_ONLY_IF_IT_CHANGES
@@ -126,7 +107,7 @@ COPY_EXISTING "%tutu_var%jelloc.cre" "override"
 
 INCLUDE "%MOD_FOLDER%/creature_corrections/vampiric_wolf.tpa"
 
-COPY_EXISTING "%tutu_var%wolfva.cre" "override"
+COPY_EXISTING "wolfva01.cre" "override"
   LAUNCH_PATCH_MACRO fix_vampiric_wolf
 
   BUT_ONLY_IF_IT_CHANGES
@@ -139,7 +120,10 @@ COPY_EXISTING "%tutu_var%wolfva.cre" "override"
 
 INCLUDE "%MOD_FOLDER%/creature_corrections/winter_wolf.tpa"
 
-COPY_EXISTING "%tutu_var%wolfwi.cre" "override"
+COPY_EXISTING "wolfwi01.cre" "override"
+              "wolfwisu.cre" "override"
+              "wolfwwsu.cre" "override"
+	      "obsice03.cre" "override"
   LAUNCH_PATCH_MACRO fix_winter_wolf
 
   BUT_ONLY_IF_IT_CHANGES
@@ -154,7 +138,7 @@ COPY_EXISTING "%tutu_var%wolfwi.cre" "override"
 
 INCLUDE "%MOD_FOLDER%/creature_corrections/wraith_spider.tpa"
 
-COPY_EXISTING "%tutu_var%spidwr.cre" "override"
+COPY_EXISTING "spidwr01.cre" "override"
   LAUNCH_PATCH_MACRO fix_wraith_spider
 
   BUT_ONLY_IF_IT_CHANGES
