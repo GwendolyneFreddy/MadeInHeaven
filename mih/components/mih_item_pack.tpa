@@ -1,90 +1,7 @@
 // Made in Heaven item pack for the Baldur's Gate trilogy
 
 
-// Generate generic extra damage .eff files
-
-OUTER_FOR (i = 1; i <= 4; ++i)
-BEGIN
-  // Extra damage of various types.
-
-  CREATE EFF "mh#crsh%i%"
-    WRITE_LONG	0x0010 12	// HP: Damage
-    WRITE_LONG	0x001c i
-    WRITE_LONG	0x0020 0
-    WRITE_SHORT	0x0024 1	// Permanent
-    WRITE_SHORT	0x002c 100	// 100% chance
-
-  CREATE EFF "mh#slsh%i%"
-    WRITE_LONG	0x0010 12	// HP: Damage
-    WRITE_LONG	0x001c i
-    WRITE_LONG	0x0020 16777216
-    WRITE_SHORT	0x0024 1	// Permanent
-    WRITE_SHORT	0x002c 100	// 100% chance
-
-  CREATE EFF "mh#prce%i%"
-    WRITE_LONG	0x0010 12	// HP: Damage
-    WRITE_LONG	0x001c i
-    WRITE_LONG	0x0020 16777216
-    WRITE_SHORT	0x0024 1	// Permanent
-    WRITE_SHORT	0x002c 100	// 100% chance
-
-
-  // Increase to-hit/damage against specific creatures.
-  //
-  // Some of these already exist in BG1/BG2, but have various errors,
-  // so creating them all fresh here.
-
-  CREATE EFF "undhit%i%"
-    WRITE_LONG	0x0010 178	// THAC0 vs. Creature Type
-    WRITE_LONG	0x001c IDS_OF_SYMBOL("general" "undead")
-    WRITE_LONG	0x0020 3
-    WRITE_SHORT	0x0024 1	// Permanent
-    WRITE_SHORT	0x002c 100	// 100% chance
-    WRITE_LONG	0x0060 i
-
-  CREATE EFF "unddam%i%"
-    WRITE_LONG	0x0010 179	// Damage vs. Creature Type
-    WRITE_LONG	0x001c IDS_OF_SYMBOL("general" "undead")
-    WRITE_LONG	0x0020 3
-    WRITE_SHORT	0x0024 1	// Permanent
-    WRITE_SHORT	0x002c 100	// 100% chance
-    WRITE_LONG	0x0060 i
-
-  CREATE EFF "lycnhit%i%"
-    WRITE_LONG	0x0010 178	// Damage vs. Creature Type
-    WRITE_LONG	0x001c IDS_OF_SYMBOL("race" "lycanthrope")
-    WRITE_LONG	0x0020 3
-    WRITE_SHORT	0x0024 1	// Permanent
-    WRITE_SHORT	0x002c 100	// 100% chance
-    WRITE_LONG	0x0060 i
-
-  CREATE EFF "lycndam%i%"
-    WRITE_LONG	0x0010 179	// Damage vs. Creature Type
-    WRITE_LONG	0x001c IDS_OF_SYMBOL("race" "lycanthrope")
-    WRITE_LONG	0x0020 3
-    WRITE_SHORT	0x0024 1	// Permanent
-    WRITE_SHORT	0x002c 100	// 100% chance
-    WRITE_LONG	0x0060 i
-END
-
-
-// Instant death effect, no save
-
-CREATE EFF "mh#death"
-  WRITE_LONG	0x0010 13	// Death: Instant Death
-  WRITE_LONG	0x001c 1
-  WRITE_LONG	0x0020 8
-  WRITE_SHORT	0x0024 1	// Permanent
-  WRITE_SHORT	0x002c 100	// 100% chance
-
-
-// Disrupt undead message
-
-CREATE EFF "mh#udmsg"
-  WRITE_LONG	0x0010 139	// Text: Display String
-  WRITE_LONG	0x001c RESOLVE_STR_REF("Undead destroyed")
-  WRITE_SHORT	0x0024 1	// Permanent
-  WRITE_SHORT	0x002c 100	// 100% chance
+INCLUDE "%MOD_FOLDER%/lib/generic_effects.tpa"
 
 
 // Copy .bam files over
@@ -1487,11 +1404,11 @@ STATISTICS:
 
 THAC0: +1 bonus, +2 vs. Undead
 Damage: 1d8 +1, +2 vs. Undead
-Damage type: slashing
+Damage Type: slashing
 Weight: 4
 Speed Factor: 4
 Proficiency Type: Long Sword
-Type:  1-handed
+Type: 1-handed
 Requires: 6 Strength
 
 Not usable by:
@@ -1510,7 +1427,7 @@ This scimitar is said to have been created by Selune herself in a manifestation 
 
 STATISTICS:
 
-THAC0: +1, +3 vs Lycanthropes & Undead
+THAC0: +1, +3 vs. Lycanthropes & Undead
 Damage: 1d8 +1, +3 vs. Lycanthropes & Undead
 Damage type: slashing
 Weight: 3
@@ -1563,5 +1480,38 @@ LAUNCH_ACTION_FUNCTION tooltips INT_VAR
 STR_VAR
   item			= "mh#swrd4"
 END
+
+
+// mh#swrd5 - Evithyan's Blade +3
+
+CREATE EFF "mh#swrd5"
+  WRITE_LONG	0x0010 178	// THAC0 vs. Creature Type
+  WRITE_LONG	0x001c IDS_OF_SYMBOL("race" "elf")
+  WRITE_LONG	0x0020 4
+  WRITE_SHORT	0x0024 1	// Permanent
+  WRITE_SHORT	0x002c 100	// 100% chance
+  WRITE_LONG	0x0060 2
+
+COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#swrd5.itm" "override"
+  SAY NAME2 "Evithyan's Blade +3"
+  SAY IDENTIFIED_DESC "Long Sword +3, +5 vs. Drow: 'Evithyan's Blade'
+
+This sword is named after its creator, the elven hero Evithyan who once lived in Myth Drannor.  Evithyan used his creation in many battles against the drow in the Underdark.  How the sword came to leave his possession is not exactly known, but it is likely that one of his expeditions into the lightless realm met with some kind of disaster.
+
+STATISTICS:
+
+THAC0: +3 bonus, +5 vs. Drow
+Damage: 1d8 +3, +5 vs. Drow
+Damage Type: slashing
+Weight: 4
+Speed Factor: 2
+Proficiency Type: Long Sword
+Type: 1-handed
+Requires: 6 Strength
+
+Not usable by:
+ Cleric
+ Druid
+ Mage"
 
 

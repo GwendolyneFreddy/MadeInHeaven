@@ -371,6 +371,38 @@ LAUNCH_ACTION_FUNCTION "install_component"
 END
 
 
+// =========================
+// Alaghar of Clangeddin kit
+// =========================
+
+BEGIN "Alaghar of Clangeddin Kit"
+GROUP "Rule Tweaks"
+
+REQUIRE_PREDICATE ENGINE_IS "bg2 tob bgee bg2ee iwdee"
+  "This component is not available for your game."
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "alaghar_kit"
+END
+
+
+// =====================================
+// Make Yeslick an Alaghar of Clangeddin
+// =====================================
+
+BEGIN "Make Yeslick an Alaghar of Clangeddin"
+GROUP "Rule Tweaks"
+
+REQUIRE_PREDICATE GAME_INCLUDES "bg1"
+  "This component is not available for your game."
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "yeslick_kit"
+END
+
+
 // =========================================
 // Relative Stat Bonuses from Equipped Items
 // =========================================

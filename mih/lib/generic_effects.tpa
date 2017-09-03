@@ -1,0 +1,84 @@
+// Generate generic extra damage .eff files
+
+OUTER_FOR (i = 1; i <= 4; ++i)
+BEGIN
+  // Extra damage of various types.
+
+  CREATE EFF "mh#crsh%i%"
+    WRITE_LONG	0x0010 12	// HP: Damage
+    WRITE_LONG	0x001c i
+    WRITE_LONG	0x0020 0
+    WRITE_SHORT	0x0024 1	// Permanent
+    WRITE_SHORT	0x002c 100	// 100% chance
+
+  CREATE EFF "mh#slsh%i%"
+    WRITE_LONG	0x0010 12	// HP: Damage
+    WRITE_LONG	0x001c i
+    WRITE_LONG	0x0020 16777216
+    WRITE_SHORT	0x0024 1	// Permanent
+    WRITE_SHORT	0x002c 100	// 100% chance
+
+  CREATE EFF "mh#prce%i%"
+    WRITE_LONG	0x0010 12	// HP: Damage
+    WRITE_LONG	0x001c i
+    WRITE_LONG	0x0020 16777216
+    WRITE_SHORT	0x0024 1	// Permanent
+    WRITE_SHORT	0x002c 100	// 100% chance
+
+
+  // Increase to-hit/damage against specific creatures.
+  //
+  // Some of these already exist in BG1/BG2, but have various errors,
+  // so creating them all fresh here.
+
+  CREATE EFF "undhit%i%"
+    WRITE_LONG	0x0010 178	// THAC0 vs. Creature Type
+    WRITE_LONG	0x001c IDS_OF_SYMBOL("general" "undead")
+    WRITE_LONG	0x0020 3
+    WRITE_SHORT	0x0024 1	// Permanent
+    WRITE_SHORT	0x002c 100	// 100% chance
+    WRITE_LONG	0x0060 i
+
+  CREATE EFF "unddam%i%"
+    WRITE_LONG	0x0010 179	// Damage vs. Creature Type
+    WRITE_LONG	0x001c IDS_OF_SYMBOL("general" "undead")
+    WRITE_LONG	0x0020 3
+    WRITE_SHORT	0x0024 1	// Permanent
+    WRITE_SHORT	0x002c 100	// 100% chance
+    WRITE_LONG	0x0060 i
+
+  CREATE EFF "lycnhit%i%"
+    WRITE_LONG	0x0010 178	// Damage vs. Creature Type
+    WRITE_LONG	0x001c IDS_OF_SYMBOL("race" "lycanthrope")
+    WRITE_LONG	0x0020 3
+    WRITE_SHORT	0x0024 1	// Permanent
+    WRITE_SHORT	0x002c 100	// 100% chance
+    WRITE_LONG	0x0060 i
+
+  CREATE EFF "lycndam%i%"
+    WRITE_LONG	0x0010 179	// Damage vs. Creature Type
+    WRITE_LONG	0x001c IDS_OF_SYMBOL("race" "lycanthrope")
+    WRITE_LONG	0x0020 3
+    WRITE_SHORT	0x0024 1	// Permanent
+    WRITE_SHORT	0x002c 100	// 100% chance
+    WRITE_LONG	0x0060 i
+END
+
+
+// Instant death effect, no save
+
+CREATE EFF "mh#death"
+  WRITE_LONG	0x0010 13	// Death: Instant Death
+  WRITE_LONG	0x001c 1
+  WRITE_LONG	0x0020 8
+  WRITE_SHORT	0x0024 1	// Permanent
+  WRITE_SHORT	0x002c 100	// 100% chance
+
+
+// Disrupt undead message
+
+CREATE EFF "mh#udmsg"
+  WRITE_LONG	0x0010 139	// Text: Display String
+  WRITE_LONG	0x001c RESOLVE_STR_REF("Undead destroyed")
+  WRITE_SHORT	0x0024 1	// Permanent
+  WRITE_SHORT	0x002c 100	// 100% chance

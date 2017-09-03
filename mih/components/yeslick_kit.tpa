@@ -1,0 +1,22 @@
+// Alaghar of Clangeddin kit for Yeslick
+
+
+ACTION_IF FILE_EXISTS "%MOD_FOLDER%/installed/alaghar_kit.mrk"
+BEGIN
+  // Alaghar kit present, use it
+  COPY_KIT "mh#clangeddin" "mh#yeslick"
+  ( dualclas "mh#yeslick	1	0	0	0	0	0"
+    clab "%MOD_FOLDER%/alaghar_kit/mh#yesli.2da"
+    luabbr "FC0" )
+
+
+  COPY_EXISTING_REGEXP "yesli.*\.cre" "override"
+    WRITE_SHORT 0x0244 (IDS_OF_SYMBOL("kit" "mh#yeslick") >> 16)
+    WRITE_SHORT 0x0246 (IDS_OF_SYMBOL("kit" "mh#yeslick") & 0xFFFF)
+END
+ELSE
+BEGIN
+  // TODO: No kit, just grant spells
+END
+
+

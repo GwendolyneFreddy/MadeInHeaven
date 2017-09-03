@@ -432,6 +432,28 @@ score of 12 or higher in a stat, and the effects of extremely high stats (19
 or more) are tempered somewhat.
 
 
+=========================
+Alaghar of Clangeddin Kit
+=========================
+
+This component introduced a new cleric kit, the Alaghar of Clangeddin.  The
+alaghor are specialty priests of Clangeddin Silverbeard, the Father of Battle
+and primary dwarven war god.  The kit is only available to dwarven clerics.
+
+Advantages:
+- May place up to 2 proficiency points in weapons and maximum in fighting styles.
+- Alaghor strike undead creatures with +2 to hit and damage.
+- Alaghor can memorize and cast the spells Silverbeard, Rockburst and Axe Storm of Clangeddin.
+- May cast Strength (self only) once per day every 5 levels (starts at 1st level with one use).
+- At 7th level, alaghor make three attacks every two rounds.
+- At 13th level, alaghor make two attacks per round.
+
+Disadvantages:
+- Race restricted to dwarf.
+- Alignment restricted to lawful good or lawful neutral.
+- Alaghor cannot turn undead."
+
+
 =========================================
 Relative Stat Bonuses from Equipped Items
 =========================================
@@ -574,5 +596,15 @@ Known Bugs and Issues
 - Enhanced Candlekeep: When helping you, Deder can detect traps but not disarm
   them.  This seems to be an engine limitation.  Since all traps in that area
   are easily avoidable, I don't think it's a big issue.
+
+- Item Pack: Evithyan's Blade is actually +5 against all elves, not just drow.
+  Internally drow are just elves with a different animation, there is no way I
+  know to make the bonus more specific.
+
+- Alaghar of Clangeddin: The three specialty spells do not have unique icons
+  yet.  Silverbeard uses the icon of Armor, Rockburst uses the icon and
+  projectile of Skull Trap, and Axe Storm of Clangeddin uses the icon of
+  Haste.  Help with making unique icons and projectiles would be greatly
+  appreciated!
 
 

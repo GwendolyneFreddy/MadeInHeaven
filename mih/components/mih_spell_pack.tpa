@@ -1,6 +1,9 @@
 // Made in Heaven Spell Pack
 
 
+INCLUDE "%MOD_FOLDER%/lib/generic_effects.tpa"
+
+
 COPY_LARGE "%MOD_FOLDER%/spell_pack/bgt/bams" "override"
 
 

@@ -72,5 +72,6 @@ mh#swrd1	Terminus Est +2			Trademeet (nobleman merchant)
 mh#swrd2	Heartsblood +1			Waukeen's Promenade (Maheer)
 mh#swrd3	Selune's Blessing +1		Druid Grove
 mh#swrd4	Lashing Sword +1		*Brokk (shop)
+mh#swrd5	Evithyan's Blade +3		*Underdark
 
 
