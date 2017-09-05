@@ -27,6 +27,14 @@ Baldur's Gate 1:
 - Shop Fixes & Tweaks
 - Miscelaneous Tweaks
 
+Baldur's Gate 2:
+
+- MiH Item Pack for BG2
+- Enhanced Copper Coronet
+- Enhanced Lower Reaches
+- Creature Corrections
+- Unique Borok's Fist
+
 Icewind Dale 1:
 
 - Allow Divine Scrolls to Paladins & Rangers
@@ -37,6 +45,8 @@ Rule Tweaks:
 - Alternative Druid XP Table
 - More Versatile Light Crossbows
 - Alternative Stat Bonuses
+- Alaghar of Clangeddin Kit
+- Make Yeslick an Alaghar of Clangeddin 
 
 Item- & Spell Tweaks:
 
@@ -284,9 +294,9 @@ Opposite Alignment, as well as an additional full plate mail +1.  (His
 appearance on L1 already carried these but was designed to be unkillable.)
 
 
-====================
-Creature Corrections
-====================
+==========================
+Creature Corrections (BG1)
+==========================
 
 Many of BG1's creatures are sloppily defined.  Well over 300 of them have no
 proper alignment set (as in none at all, not even neutral) and several more
@@ -376,6 +386,78 @@ The list of changes:
   stalking you if you keep the dagger...)
 
 
+=====================
+MiH Item Pack for BG2
+=====================
+
+This component installs the Made in Heaven item pack for Baldur's Gate 2.
+Most of the items from the BG1 Item Pack will reappear in BG2: A few are in
+Irenicus' dungeon, and you might find some for sale in Waukeen's Promenade or
+Trademeet.  The majority of them will have been tracked down for you by Brokk
+who will be glad to return them to you - if you reimburse him, of course.  He
+has also found a couple of new items you might be interested in.
+
+Other new items will be found all over Amn and Tethyr, you might see some in
+a dungeon here and there, or for sale in certain places.  Some will be used
+against you in encounters both old and new, so beware!
+
+
+=======================
+Enhanced Copper Coronet
+=======================
+
+This actually mostly affects the sewers between the Copper Coronet and the
+Slave Stockade, which had several encounters I felt were out of place.  You'll
+now be seeing vermin like gibberlings and kobolds, spiders, and slimes.
+
+There were a few creatures in the arena that are black bears by name and
+stats, but had a troll animation.  This has been changed to black bear.
+
+
+======================
+Enhanced Lower Reaches
+======================
+
+The Lower Reaches are the old sewers below the Temple District, especially the
+Netherese ruins where the Rift Device is stored.  I felt the gibberling and 
+yuan-ti encounters there were out of place, so you will now see different enemies,
+mostly spiders, slimes and undead.  The hand trap will now summon wraith
+spiders, and the high level trap will summon undead, not beholders.  After
+all the Unseeing Eye wants the Rift Device to be found, so why should he
+hinder you?  A new encounter with some mohrgs has also been added.
+
+The other area changed by this component is the Undead City down the Pit of
+the Faithless, which will now have a several more undead to fight.
+
+
+==========================
+Creature Corrections (BG2)
+==========================
+
+Unlike BG1, there are already many creature fixes for BG2 available (I
+recommend the G3 Fixpack and Oversight), and I do not wish to do what they
+already do.  However, a few creatures have been overlooked in my opinion.
+
+This fixpack mostly fixes the same things as the BG1 version: ankhegs, greater
+basiliks, slimes, wraith spiders and winter wolves now get their proper attacks
+and stats.  Since these encounters are fairly rare in BG2, you might not note
+much of a difference.
+
+
+===================
+Unique Borok's Fist
+===================
+
+The war hammers Aishideena +2 and Borok's Fist +2 are identical in all but
+name; both are +2 warhammers that deal +1 electical damage.
+
+This component modifies Borok's Fist to be a unique weapon.  Its enchantment
+will be lowered to +1, but in return it gets an approximation of the 3E
+'Shocking Burst' property: On 70% of all hits it will deal +1d4 electrical
+damage, and on 10% of all hits it will deal an additional +1d10 damage. (These
+are cumulative, if it deals the +1d10 it also deals the +1d4.)
+
+
 ==================================================
 Allow Divine Spell Scrolls to Paladins and Rangers
 ==================================================
@@ -436,22 +518,37 @@ or more) are tempered somewhat.
 Alaghar of Clangeddin Kit
 =========================
 
-This component introduced a new cleric kit, the Alaghar of Clangeddin.  The
+This component introduces a new cleric kit, the Alaghar of Clangeddin.  The
 alaghor are specialty priests of Clangeddin Silverbeard, the Father of Battle
 and primary dwarven war god.  The kit is only available to dwarven clerics.
 
 Advantages:
 - May place up to 2 proficiency points in weapons and maximum in fighting styles.
 - Alaghor strike undead creatures with +2 to hit and damage.
-- Alaghor can memorize and cast the spells Silverbeard, Rockburst and Axe Storm of Clangeddin.
-- May cast Strength (self only) once per day every 5 levels (starts at 1st level with one use).
-- At 7th level, alaghor make three attacks every two rounds.
-- At 13th level, alaghor make two attacks per round.
+- Alaghor can memorize and cast the unique spells Silverbeard, Rockburst and
+  Axe Storm of Clangeddin at appropriate levels (1st, 3rd and 7th, respectively).
+- May cast Strength (self only) once per day every 5 levels (starts at 1st level
+  with one use).
+- At 7th level, alaghor make at least three attacks every two rounds with any
+  weapon they can wield.  (This is not cumulative with weapon specialization.)
+- At 13th level, alaghor make at least two attacks per round with any weapon
+  they can wield.
 
 Disadvantages:
 - Race restricted to dwarf.
 - Alignment restricted to lawful good or lawful neutral.
 - Alaghor cannot turn undead."
+
+
+=====================================
+Make Yeslick an Alaghar of Clangeddin
+=====================================
+
+Requires the Alaghar of Clangeddin Kit.
+
+If your game includes BG1 (Tutu, BGT, BGEE or EET), this component will give
+Yeslick a slightly modified version of the Alaghar of Clangeddin kit that is
+not available to players.  He will still be a fighter/cleric as always.
 
 
 =========================================

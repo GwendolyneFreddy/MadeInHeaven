@@ -1,0 +1,83 @@
+// Enhanced Lower Reaches
+
+LAUNCH_ACTION_FUNCTION install_component
+  STR_VAR
+  component_name	= "mih_monster_pack"
+END
+
+
+// ==================
+// Rift Device Cavern
+// ==================
+
+COPY_EXISTING "ar0204.are" "override"
+  // Add new actors
+  LAUNCH_PATCH_FUNCTION add_area_actors_from_2da
+    STR_VAR
+    path_to_2da		= "%MOD_FOLDER%/bg2/lower_reaches/ar0204.2da"
+  END
+
+  // Alter spawn points
+  GET_OFFSET_ARRAY spawn_array ARE_V10_SPAWN_POINTS
+  PHP_EACH spawn_array AS int => spawn_offset
+  BEGIN
+    WRITE_SHORT (spawn_offset + 0x0074) 10
+    WRITE_SHORT (spawn_offset + 0x0084) 6
+
+    WRITE_ASCII (spawn_offset + 0x0024) "RDUndead" #8
+    WRITE_ASCII (spawn_offset + 0x002c) "RDUndea2" #8
+    WRITE_ASCII (spawn_offset + 0x0034) "RDShad" #8
+    WRITE_ASCII (spawn_offset + 0x003c) "RDSpider" #8
+    WRITE_ASCII (spawn_offset + 0x0044) "RDSpid2" #8
+    WRITE_ASCII (spawn_offset + 0x004c) "RDSpid3" #8
+    WRITE_ASCII (spawn_offset + 0x0054) "RDSlim1" #8
+    WRITE_ASCII (spawn_offset + 0x005c) "RDSlim2" #8
+    WRITE_ASCII (spawn_offset + 0x0064) "RDMist1" #8
+    WRITE_ASCII (spawn_offset + 0x006c) "RDMist2" #8
+  END
+
+  // High level trap spawns undead instead of beholders
+  // (Makes more sense, the Unseeing Eye wants the Rift Device found!)
+  LAUNCH_PATCH_FUNCTION ALTER_AREA_REGION
+    STR_VAR
+    region_name		= "Chapter 6 trap"
+    region_script	= "spwndead"
+  END
+
+  // Replace Aishideena +2 with Borok's Fist +2
+  // (Makes more sense, party had Aishideena in BG1!)
+  LAUNCH_PATCH_FUNCTION REPLACE_AREA_ITEM
+    STR_VAR
+    old_item		= "hamm03"
+    new_item		= "hamm05"
+  END
+
+
+// Hand Trap spawns wraith spiders instead of huge ones
+
+COPY_EXISTING "handtrp.bcs" "override"
+  DECOMPILE_AND_PATCH
+  BEGIN
+    REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH "spidhu01" "spidwr01"
+  END
+
+
+// Replace Borok's Fist with Aishideena in Adventurer's Market
+
+COPY_EXISTING "ribald.sto" "override"
+  ADD_STORE_ITEM "hamm03" AFTER "hamm08" #0 #0 #0 "identified" #1
+  REMOVE_STORE_ITEM "hamm05"
+
+
+// ===========
+// Undead City
+// ===========
+
+COPY_EXISTING "ar0206.are" "override"
+  // Add new actors
+  LAUNCH_PATCH_FUNCTION add_area_actors_from_2da
+    STR_VAR
+    path_to_2da		= "%MOD_FOLDER%/bg2/lower_reaches/ar0206.2da"
+  END
+
+

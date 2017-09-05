@@ -1,0 +1,58 @@
+// Unique Borok's Fist
+
+COPY_EXISTING "hamm05.itm" "override"
+  SAY NAME2 "Borok's Fist +1"
+  SAY IDENTIFIED_DESC "War Hammer +1, Shocking Burst: 'Borok's Fist'
+Borok Thundercracker was a dwarven hero that led several campaigns against giants and other 'tall vermin' that had plagued his people in a number of their communities.  This hammer was his blessed weapon, which his elven allies called his 'little iron fist', though not to his face.
+
+STATISTICS:
+
+THAC0: +1 bonus
+Damage:  1D4 +2, 70% chance of 1d4 electrical, 10% chance of additional 1d10 electrical
+Damage type:  crushing (and electrical)
+Weight: 5
+Speed Factor: 3
+Proficiency Type: War Hammer
+Type:  1-handed
+Requires: 9 Strength
+Not Usable By:
+ Druid
+ Mage 
+ Thief"
+
+  LAUNCH_PATCH_FUNCTION make_magical
+    INT_VAR
+    enchantment		= 1
+  END
+
+  LAUNCH_PATCH_FUNCTION ALTER_ITEM_HEADER
+    INT_VAR
+    header_type		= 1	// Melee
+    thac0_bonus		= 1
+    damage_bonus	= 2
+    speed_factor	= 3
+  END
+
+  LAUNCH_PATCH_FUNCTION ALTER_EFFECT
+    INT_VAR
+    header_type		= 1	// Melee
+    match_opcode	= 12	// HP: Damage
+    parameter1		= 0
+    dicenumber		= 1
+    dicesize		= 4
+    probability1	= 70
+  END
+
+  LAUNCH_PATCH_FUNCTION CLONE_EFFECT
+    INT_VAR
+    header_type		= 1	// Melee
+    match_opcode	= 12	// HP: Damage
+    parameter1		= 0
+    dicenumber		= 1
+    dicesize		= 10
+    probability1	= 10
+    STR_VAR
+    insert		= "below"
+  END
+
+

@@ -1022,7 +1022,7 @@ This is a black, viscous and non-flamable oil.  When applied to exposed equipmen
 // mh#potn2 - Oil of Disenchantment
 
 COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#potn2.itm" "override"
-  SAY NAME2 "Oil of Dispelling"
+  SAY NAME2 "Oil of Disenchantment"
   SAY IDENTIFIED_DESC "Oil of Disenchantment
 
 This sparkling golden fluid is an ethereal, rapidly evaporating thin oil.  When poured over a creature, it removes all dispelable magical effects from that creature unless it makes a saving throw versus wands at a -4 penalty."

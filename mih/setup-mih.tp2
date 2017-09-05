@@ -288,6 +288,19 @@ LAUNCH_ACTION_FUNCTION "install_component"
 END
 
 
+// ======================
+// Enhanced Lower Reaches
+// ======================
+
+BEGIN "Enhanced Lower Reaches"
+GROUP "Baldur's Gate 2" GAME_INCLUDES "bg2"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "bg2_lower_reaches"
+END
+
+
 // ==========================
 // Creature Corrections (BG2)
 // ==========================
@@ -298,6 +311,19 @@ GROUP "Baldur's Gate 2" GAME_INCLUDES "bg2"
 LAUNCH_ACTION_FUNCTION "install_component"
   STR_VAR
   component_name	= "bg2_creature_corrections"
+END
+
+
+// ===================
+// Unique Borok's Fist
+// ===================
+
+BEGIN "Unique Borok's Fist"
+GROUP "Baldur's Gate 2" GAME_INCLUDES "bg2"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "bg2_unique_boroks_fist"
 END
 
 

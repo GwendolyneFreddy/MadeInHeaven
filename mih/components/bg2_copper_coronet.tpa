@@ -27,9 +27,6 @@ COPY_EXISTING "glbear.cre" "override"
 COPY_EXISTING "ar0404.are" "override"
   // Add new actors
   LAUNCH_PATCH_FUNCTION add_area_actors_from_2da
-    INT_VAR
-    bgt_compat		= 1
-    tutu_compat		= 1
     STR_VAR
     path_to_2da		= "%MOD_FOLDER%/bg2/copper_coronet/ar0404.2da"
   END
