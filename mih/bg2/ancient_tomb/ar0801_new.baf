@@ -1,0 +1,34 @@
+IF
+  Global("AranJob","GLOBAL",3)
+  Global("FindLassal","AR0801",0)
+  GlobalLT("Chapter","GLOBAL",4)
+THEN
+  RESPONSE #100
+    SetGlobal("FindLassal","AR0801",1)
+    CreateCreature("LASSAL02", [1538.1232], 14)	// ~Lassal~
+    CreateCreature("BODVAM01", [549.781], 14)	// ~Durst~
+    CreateCreature("wolfva01", [460.880], 11)	// ~Vampiric Wolf~
+    CreateCreature("BODVAM02", [931.979], 10)	// ~Gellal~
+    CreateCreature("BODFGT01", [1678.1229], 2)	// ~Grimwarder~
+    CreateCreature("BODFGT01", [1443.1287], 10)	// ~Grimwarder~
+    CreateCreature("BODFGT02", [1623.1080], 2)	// ~Grimward Archer~
+    CreateCreature("BODFGT02", [1311.1143], 10)	// ~Grimward Archer~
+    CreateCreature("ARNFGT06", [1737.1485], 0)	// ~Haz~
+    CreateCreature("ARNGOL01", [1671.1467], 6)	// ~Golem~
+    CreateCreature("VAMFLM01", [986.583], 6)	// ~Fledgling Vampire~
+    CreateCreature("GHOGR01", [1103.539], 6)	// ~Ghoul Lord~
+    CreateCreature("mh#mohrg", [1250.500], 1)	// ~Mohrg~
+    CreateCreature("GHOGR01", [176.855], 6)	// ~Ghoul Lord~
+    CreateCreature("VAMFLM01", [280.946], 6)	// ~Fledgling Vampire~
+    CreateCreature("mh#mohrg", [575.830], 1)	// ~Mohrg~
+    CreateCreature("GOLCLA01", [505.1389], 6)	// ~Clay Golem~
+    CreateCreature("wolfva01", [415.1510], 10)	// ~Vampiric Wolf~
+    CreateCreature("wolfva01", [690.1445], 6)	// ~Vampiric Wolf~
+    CreateCreature("VAMFLF01", [1991.670], 6)	// ~Fledgling Vampire~
+    CreateCreature("wolfva01", [1985.650], 5)	// ~Vampiric Wolf~
+    CreateCreature("wolfva01", [2175.685], 6)	// ~Vampiric Wolf~
+    CreateCreature("BODTAN", [2121.683], 6)	// ~Tanova~
+    CreateCreature("mh#blaze", [710.1810], 11)	// ~Blazing Bones~
+END
+
+

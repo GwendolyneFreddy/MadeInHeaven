@@ -1,0 +1,15 @@
+IF
+  Global("SpawnMummy","GLOBAL",0)
+  InParty("Korgan")  // Korgan
+THEN
+  RESPONSE #100
+    SetGlobal("KorganSeenDead","GLOBAL",1)
+    SetGlobal("KorganTomb","GLOBAL",1)
+    SetGlobal("PimlicoDead","GLOBAL",1)
+    CreateCreature("Mummy",[1062.2121],3)  // ~Mummy~
+    CreateCreature("Skelwa",[1136.2259],6)  // ~Skeleton Warrior~
+    CreateCreature("Skelwa",[1210.2204],7)  // ~Skeleton Warrior~
+    SetGlobal("SpawnMummy","GLOBAL",1)
+END
+
+

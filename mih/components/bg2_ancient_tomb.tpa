@@ -1,0 +1,106 @@
+// Enhanced Ancient Tomb
+
+LAUNCH_ACTION_FUNCTION install_component
+  STR_VAR
+  component_name	= "mih_monster_pack"
+END
+
+
+// Northern Tomb, chapter 2 & 3
+
+COPY_EXISTING "ar0801.are" "override"
+  // Alter spawn points
+  GET_OFFSET_ARRAY spawn_array ARE_V10_SPAWN_POINTS
+  PHP_EACH spawn_array AS int => spawn_offset
+  BEGIN
+    WRITE_SHORT (spawn_offset + 0x0074) 3
+    WRITE_SHORT (spawn_offset + 0x0084) 8
+
+    WRITE_ASCII (spawn_offset + 0x0024) "RDSpider" #8
+    WRITE_ASCII (spawn_offset + 0x002c) "RDSpid2" #8
+    WRITE_ASCII (spawn_offset + 0x0034) "RDSpid3" #8
+  END
+
+
+COPY_EXISTING "ar0801.bcs" "override"
+  // More ememies during Aran's mission
+  REPLACE_BCS_BLOCK
+   "%MOD_FOLDER%/bg2/ancient_tomb/ar0801_old.baf"
+   "%MOD_FOLDER%/bg2/ancient_tomb/ar0801_new.baf"
+
+
+// Southern Tomb
+
+COPY_EXISTING "ar0802.are" "override"
+  // Add new actors
+  LAUNCH_PATCH_FUNCTION add_area_actors_from_2da
+    STR_VAR
+    path_to_2da		= "%MOD_FOLDER%/bg2/ancient_tomb/ar0802.2da"
+  END
+
+  // Alter spawn points
+  GET_OFFSET_ARRAY spawn_array ARE_V10_SPAWN_POINTS
+  PHP_EACH spawn_array AS int => spawn_offset
+  BEGIN
+    WRITE_SHORT (spawn_offset + 0x0074) 3
+    WRITE_SHORT (spawn_offset + 0x0084) 6
+
+    WRITE_ASCII (spawn_offset + 0x0024) "RDUndead" #8
+    WRITE_ASCII (spawn_offset + 0x002c) "RDUndea2" #8
+    WRITE_ASCII (spawn_offset + 0x0034) "RDShad" #8
+  END
+
+
+COPY_EXISTING "ar0802.bcs" "override"
+  // More enemies during Korgan's quest
+  REPLACE_BCS_BLOCK
+   "%MOD_FOLDER%/bg2/ancient_tomb/ar0802_old.baf"
+   "%MOD_FOLDER%/bg2/ancient_tomb/ar0802_new.baf"
+
+
+// Northern Tomb, chapter 6
+
+COPY_EXISTING "ar0808.are" "override"
+  // Add new actors
+  LAUNCH_PATCH_FUNCTION add_area_actors_from_2da
+    STR_VAR
+    path_to_2da		= "%MOD_FOLDER%/bg2/ancient_tomb/ar0808.2da"
+  END
+
+  // Fix unlogical launch point of second high-level trap
+  LAUNCH_PATCH_FUNCTION ALTER_AREA_REGION
+    INT_VAR
+    launch_x		= 1445
+    launch_y		= 2110
+    STR_VAR
+    region_name		= "High Level 2"
+  END
+
+  // Add new high level trap
+  LAUNCH_PATCH_FUNCTION ADD_AREA_REGION_TRIGGER
+    INT_VAR
+    ab_RT_BbLX		= 1401
+    ab_RT_BbLY		= 691
+    ab_RT_BbHX		= 1570
+    ab_RT_BbHY		= 865
+    ab_RT_VxPr		= 4
+    ab_RT_Vx_X_0	= 1495
+    ab_RT_Vx_Y_0	= 865
+    ab_RT_Vx_X_1	= 1570
+    ab_RT_Vx_Y_1	= 843
+    ab_RT_Vx_X_2	= 1477
+    ab_RT_Vx_Y_2	= 691
+    ab_RT_Vx_X_3	= 1401
+    ab_RT_Vx_Y_3	= 714
+    ab_RT_TDtD		= 100
+    ab_RT_TRmD		= 100
+    ab_RT_TSet		= 1
+    ab_RT_LPoX		= 1960
+    ab_RT_LPoY		= 650
+
+    STR_VAR
+    ab_RT_Name		= "High Level 3"
+    ab_RT_Rbcs		= "spwnvamp"
+  END
+
+
