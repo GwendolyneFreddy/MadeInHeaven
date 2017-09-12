@@ -1,0 +1,130 @@
+IF
+  Global("mh#spawn", "AR2013", 0)
+  XPLT(Player1, 400000)
+THEN
+  RESPONSE #25
+    SetGlobal("mh#spawn", "AR2013", 1)
+    CreateCreature("ghast01", [520.330], 2)
+    CreateCreature("ghast01", [590.425], 2)
+    CreateCreature("ghoul01", [600.505], 3)
+    CreateCreature("ghoul01", [515.445], 1)
+  RESPONSE #25
+    SetGlobal("mh#spawn", "AR2013", 1)
+    CreateCreature("shadow01", [520.330], 2)
+    CreateCreature("shadow01", [590.425], 2)
+    CreateCreature("shadow01", [600.505], 3)
+    CreateCreature("shadow01", [515.445], 1)
+  RESPONSE #25
+    SetGlobal("mh#spawn", "AR2013", 1)
+    CreateCreature("skelwa01", [520.330], 2)
+    CreateCreature("skelwa01", [590.425], 2)
+    CreateCreature("zombie01", [600.505], 3)
+    CreateCreature("zombie01", [515.445], 1)
+  RESPONSE #25
+    SetGlobal("mh#spawn", "AR2013", 1)
+    CreateCreature("vamflm01", [520.330], 2)
+    CreateCreature("vamflf01", [590.425], 2)
+    CreateCreature("skelet01", [600.505], 3)
+    CreateCreature("skelet01", [515.445], 1)
+END
+
+IF
+  Global("mh#spawn", "AR2013", 0)
+  XPGT(Player1, 399999)
+  XPLT(Player1, 1000000)
+THEN
+  RESPONSE #25
+    SetGlobal("mh#spawn", "AR2013", 1)
+    CreateCreature("gholor01", [520.330], 2)
+    CreateCreature("gholor01", [590.425], 2)
+    CreateCreature("ghast01", [600.505], 3)
+    CreateCreature("ghast01", [515.445], 1)
+  RESPONSE #25
+    SetGlobal("mh#spawn", "AR2013", 1)
+    CreateCreature("wraith01", [520.330], 2)
+    CreateCreature("wraith01", [590.425], 2)
+    CreateCreature("shadow01", [600.505], 3)
+    CreateCreature("shadow01", [515.445], 1)
+  RESPONSE #25
+    SetGlobal("mh#spawn", "AR2013", 1)
+    CreateCreature("skelwa01", [520.330], 2)
+    CreateCreature("skelwa01", [590.425], 2)
+    CreateCreature("zombju01", [600.505], 3)
+    CreateCreature("zombju01", [515.445], 1)
+  RESPONSE #25
+    SetGlobal("mh#spawn", "AR2013", 1)
+    CreateCreature("vampim01", [520.330], 2)
+    CreateCreature("vampif01", [590.425], 2)
+    CreateCreature("vamflm01", [600.505], 3)
+    CreateCreature("vamflf01", [515.445], 1)
+END
+
+IF
+  Global("mh#spawn", "AR2013", 0)
+  XPGT(Player1, 999999)
+  XPLT(Player1, 2000000)
+THEN
+  RESPONSE #25
+    SetGlobal("mh#spawn", "AR2013", 1)
+    CreateCreature("mh#mohrg", [520.330], 2)
+    CreateCreature("mh#mohrg", [590.425], 2)
+    CreateCreature("gholor01", [600.505], 3)
+    CreateCreature("gholor01", [515.445], 1)
+  RESPONSE #25
+    SetGlobal("mh#spawn", "AR2013", 1)
+    CreateCreature("slaysh01", [520.330], 2)
+    CreateCreature("wraith01", [590.425], 2)
+    CreateCreature("wraith01", [600.505], 3)
+    CreateCreature("wraith01", [515.445], 1)
+  RESPONSE #25
+    SetGlobal("mh#spawn", "AR2013", 1)
+    CreateCreature("mumgre01", [520.330], 2)
+    CreateCreature("mummy01", [590.425], 2)
+    CreateCreature("mummy01", [600.505], 3)
+    CreateCreature("mummy01", [515.445], 1)
+  RESPONSE #25
+    SetGlobal("mh#spawn", "AR2013", 1)
+    CreateCreature("vamver01", [520.330], 2)
+    CreateCreature("vamold01", [590.425], 2)
+    CreateCreature("vampim01", [600.505], 3)
+    CreateCreature("vampif01", [515.445], 1)
+END
+
+IF
+  Global("mh#spawn", "AR2013", 0)
+  XPGT(Player1, 1999999)
+THEN
+  RESPONSE #25
+    SetGlobal("mh#spawn", "AR2013", 1)
+    CreateCreature("mh#mohrg", [520.330], 2)
+    CreateCreature("mh#mohrg", [590.425], 2)
+    CreateCreature("mh#mohrg", [600.505], 3)
+    CreateCreature("mh#mohrg", [515.445], 1)
+  RESPONSE #25
+    SetGlobal("mh#spawn", "AR2013", 1)
+    CreateCreature("slaysh01", [520.330], 2)
+    CreateCreature("slaysh01", [590.425], 2)
+    CreateCreature("shadfi02", [600.505], 3)
+    CreateCreature("shadfi02", [515.445], 1)
+  RESPONSE #25
+    SetGlobal("mh#spawn", "AR2013", 1)
+    CreateCreature("mumgre01", [520.330], 2)
+    CreateCreature("mumgre01", [590.425], 2)
+    CreateCreature("mummy01", [600.505], 3)
+    CreateCreature("mummy01", [515.445], 1)
+  RESPONSE #25
+    SetGlobal("mh#spawn", "AR2013", 1)
+    CreateCreature("vamanc01", [520.330], 2)
+    CreateCreature("vamemi01", [590.425], 2)
+    CreateCreature("vamver01", [600.505], 3)
+    CreateCreature("vamold01", [515.445], 1)
+END
+
+
+
+
+
+
+
+
+

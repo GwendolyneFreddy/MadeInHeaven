@@ -1,0 +1,145 @@
+IF
+  XPLT(Player1, 400000)
+  Entered([ANYONE])
+THEN
+  RESPONSE #25
+    CreateCreature("skelwa01", [-1.-1], 0)
+    CreateCreature("wolfdr01", [-1.-1], 0)
+    CreateCreature("wolfdr01", [-1.-1], 0)
+    CreateCreature("skelet01", [-1.-1], 0)
+    CreateCreature("skelet01", [-1.-1], 0)
+  RESPONSE #25
+    CreateCreature("gholor01", [-1.-1], 0)
+    CreateCreature("ghast01", [-1.-1], 0)
+    CreateCreature("ghast01", [-1.-1], 0)
+    CreateCreature("ghoul01", [-1.-1], 0)
+    CreateCreature("ghoul01", [-1.-1], 0)
+  RESPONSE #25
+    CreateCreature("zombju01", [-1.-1], 0)
+    CreateCreature("zombju01", [-1.-1], 0)
+    CreateCreature("zombie01", [-1.-1], 0)
+    CreateCreature("zombie01", [-1.-1], 0)
+    CreateCreature("zombie01", [-1.-1], 0)
+  RESPONSE #25
+    CreateCreature("shadow01", [-1.-1], 0)
+    CreateCreature("shadow01", [-1.-1], 0)
+    CreateCreature("shadow01", [-1.-1], 0)
+END
+
+IF
+  XPGT(Player1, 399999)
+  XPLT(Player1, 1000000)
+  Entered([ANYONE])
+THEN
+  RESPONSE #25
+    CreateCreature("skelwa01", [-1.-1], 0)
+    CreateCreature("skelwa01", [-1.-1], 0)
+    CreateCreature("mh#blaze", [-1.-1], 0)
+    CreateCreature("mh#blaze", [-1.-1], 0)
+    CreateCreature("mh#blaze", [-1.-1], 0)
+    CreateCreature("mh#blaze", [-1.-1], 0)
+  RESPONSE #25
+    CreateCreature("mh#mohrg", [-1.-1], 0)
+    CreateCreature("gholor01", [-1.-1], 0)
+    CreateCreature("gholor01", [-1.-1], 0)
+    CreateCreature("ghastf01", [-1.-1], 0)
+    CreateCreature("ghastf01", [-1.-1], 0)
+    CreateCreature("ghastf01", [-1.-1], 0)
+  RESPONSE #25
+    CreateCreature("mh#huecu", [-1.-1], 0)
+    CreateCreature("mummy01", [-1.-1], 0)
+    CreateCreature("mummy01", [-1.-1], 0)
+    CreateCreature("zombju01", [-1.-1], 0)
+    CreateCreature("zombju01", [-1.-1], 0)
+    CreateCreature("zombju01", [-1.-1], 0)
+  RESPONSE #25
+    CreateCreature("wraith01", [-1.-1], 0)
+    CreateCreature("wraith01", [-1.-1], 0)
+    CreateCreature("wraith01", [-1.-1], 0)
+    CreateCreature("shadow01", [-1.-1], 0)
+    CreateCreature("shadow01", [-1.-1], 0)
+    CreateCreature("shadow01", [-1.-1], 0)
+END
+
+IF
+  XPGT(Player1, 999999)
+  XPLT(Player1, 2000000)
+  Entered([ANYONE])
+THEN
+  RESPONSE #25
+    CreateCreature("mumgre01", [-1.-1], 0)
+    CreateCreature("mummy01", [-1.-1], 0)
+    CreateCreature("mummy01", [-1.-1], 0)
+    CreateCreature("mummy01", [-1.-1], 0)
+    CreateCreature("shadow01", [-1.-1], 0)
+    CreateCreature("shadow01", [-1.-1], 0)
+    CreateCreature("shadow01", [-1.-1], 0)
+  RESPONSE #25
+    CreateCreature("slaysh01", [-1.-1], 0)
+    CreateCreature("slaysh01", [-1.-1], 0)
+    CreateCreature("wraith01", [-1.-1], 0)
+    CreateCreature("wraith01", [-1.-1], 0)
+    CreateCreature("zombju01", [-1.-1], 0)
+    CreateCreature("zombju01", [-1.-1], 0)
+    CreateCreature("zombju01", [-1.-1], 0)
+  RESPONSE #25
+    CreateCreature("mh#mohrg", [-1.-1], 0)
+    CreateCreature("mh#mohrg", [-1.-1], 0)
+    CreateCreature("mh#mohrg", [-1.-1], 0)
+    CreateCreature("gholor01", [-1.-1], 0)
+    CreateCreature("gholor01", [-1.-1], 0)
+    CreateCreature("gholor01", [-1.-1], 0)
+    CreateCreature("gholor01", [-1.-1], 0)
+  RESPONSE #25
+    CreateCreature("mh#eyeff", [-1.-1], 0)
+    CreateCreature("skelwa01", [-1.-1], 0)
+    CreateCreature("skelwa02", [-1.-1], 0)
+    CreateCreature("skelwa03", [-1.-1], 0)
+    CreateCreature("mh#blaze", [-1.-1], 0)
+    CreateCreature("mh#blaze", [-1.-1], 0)
+    CreateCreature("mh#blaze", [-1.-1], 0)
+END
+
+IF
+  XPGT(Player1, 1999999)
+  Entered([ANYONE])
+THEN
+  RESPONSE #25
+    CreateCreature("mumgre01", [-1.-1], 0)
+    CreateCreature("mumgre01", [-1.-1], 0)
+    CreateCreature("mummy01", [-1.-1], 0)
+    CreateCreature("mummy01", [-1.-1], 0)
+    CreateCreature("wraith01", [-1.-1], 0)
+    CreateCreature("wraith01", [-1.-1], 0)
+    CreateCreature("wraith01", [-1.-1], 0)
+    CreateCreature("wraith01", [-1.-1], 0)
+  RESPONSE #25
+    CreateCreature("mh#eyeff", [-1.-1], 0)
+    CreateCreature("mh#blaze", [-1.-1], 0)
+    CreateCreature("mh#blaze", [-1.-1], 0)
+    CreateCreature("skelwa01", [-1.-1], 0)
+    CreateCreature("skelwa01", [-1.-1], 0)
+    CreateCreature("skelwa01", [-1.-1], 0)
+    CreateCreature("skelwa01", [-1.-1], 0)
+    CreateCreature("skelwa01", [-1.-1], 0)
+  RESPONSE #25
+    CreateCreature("slaysh01", [-1.-1], 0)
+    CreateCreature("slaysh01", [-1.-1], 0)
+    CreateCreature("slaysh01", [-1.-1], 0)
+    CreateCreature("slaysh01", [-1.-1], 0)
+    CreateCreature("mh#mohrg", [-1.-1], 0)
+    CreateCreature("mh#mohrg", [-1.-1], 0)
+    CreateCreature("mh#mohrg", [-1.-1], 0)
+    CreateCreature("mh#mohrg", [-1.-1], 0)
+  RESPONSE #25
+    CreateCreature("behund01", [-1.-1], 0)
+    CreateCreature("zombju01", [-1.-1], 0)
+    CreateCreature("zombju01", [-1.-1], 0)
+    CreateCreature("zombju01", [-1.-1], 0)
+    CreateCreature("zombju01", [-1.-1], 0)
+    CreateCreature("zombju01", [-1.-1], 0)
+    CreateCreature("zombju01", [-1.-1], 0)
+    CreateCreature("zombju01", [-1.-1], 0)
+END
+
+

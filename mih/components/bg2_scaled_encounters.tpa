@@ -1,0 +1,84 @@
+// Enhanced Scaled Encounters
+
+LAUNCH_ACTION_FUNCTION install_component
+  STR_VAR
+  component_name	= "mih_monster_pack"
+END
+
+
+// Beholder spawning script
+
+LAUNCH_ACTION_FUNCTION compile_dialog_or_script
+  STR_VAR
+  path_to_file		= "%MOD_FOLDER%/bg2/scaled_encounters/spwnbeh.baf"
+END
+
+
+// Golem spawning script
+
+LAUNCH_ACTION_FUNCTION compile_dialog_or_script
+  STR_VAR
+  path_to_file		= "%MOD_FOLDER%/bg2/scaled_encounters/spwngol.baf"
+END
+
+
+// Mind flayer spawning script
+
+LAUNCH_ACTION_FUNCTION compile_dialog_or_script
+  STR_VAR
+  path_to_file		= "%MOD_FOLDER%/bg2/scaled_encounters/spwnmind.baf"
+END
+
+
+// Monster spawning script
+
+LAUNCH_ACTION_FUNCTION compile_dialog_or_script
+  STR_VAR
+  path_to_file		= "%MOD_FOLDER%/bg2/scaled_encounters/spwnmon.baf"
+END
+
+
+// Troll spawning script
+
+LAUNCH_ACTION_FUNCTION compile_dialog_or_script
+  STR_VAR
+  path_to_file		= "%MOD_FOLDER%/bg2/scaled_encounters/spwntrol.baf"
+END
+
+
+// Undead spawning script
+
+LAUNCH_ACTION_FUNCTION compile_dialog_or_script
+  STR_VAR
+  path_to_file		= "%MOD_FOLDER%/bg2/scaled_encounters/spwndead.baf"
+END
+
+
+// Vampire spawning script
+
+LAUNCH_ACTION_FUNCTION compile_dialog_or_script
+  STR_VAR
+  path_to_file		= "%MOD_FOLDER%/bg2/scaled_encounters/spwnvamp.baf"
+END
+
+
+// Wolfwere spawning script
+
+LAUNCH_ACTION_FUNCTION compile_dialog_or_script
+  STR_VAR
+  path_to_file		= "%MOD_FOLDER%/bg2/scaled_encounters/spwnwolf.baf"
+END
+
+
+// New scaled encounter in Trademeet Tomb
+
+ACTION_IF FILE_EXISTS_IN_GAME "ar2013.bcs"
+BEGIN
+  EXTEND_BOTTOM "ar2013.bcs" "%MOD_FOLDER%/bg2/scaled_encounters/ar2013.baf" USING "%MOD_FOLDER%/dummy.tra"
+END
+ELSE
+BEGIN
+  COMPILE "%MOD_FOLDER%/bg2/scaled_encounters/ar2013.baf" USING "%MOD_FOLDER%/dummy.tra"
+END
+
+

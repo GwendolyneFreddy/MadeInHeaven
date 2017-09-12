@@ -1,0 +1,95 @@
+IF
+  XPLT(Player1, 400000)
+  Entered([ANYONE])
+THEN
+  RESPONSE #25
+    CreateCreature("basles01", [-1.-1], 0)
+    CreateCreature("basles01", [-1.-1], 0)
+    CreateCreature("basles01", [-1.-1], 0)
+    CreateCreature("basgrt01", [-1.-1], 0)
+  RESPONSE #25
+    CreateCreature("icsalfir", [-1.-1], 0)
+    CreateCreature("icsalcol", [-1.-1], 0)
+  RESPONSE #25
+    CreateCreature("umbhul02", [-1.-1], 0)
+  RESPONSE #25
+    CreateCreature("icmin01", [-1.-1], 0)
+    CreateCreature("icmin01", [-1.-1], 0)
+    CreateCreature("umbhul01", [-1.-1], 0)
+END
+
+IF
+  XPGT(Player1,399999)
+  XPLT(Player1,1000000)
+  Entered([ANYONE])
+THEN
+  RESPONSE #25
+    CreateCreature("basgrt01", [-1.-1], 0)
+    CreateCreature("basgrt01", [-1.-1], 0)
+    CreateCreature("umbhul01", [-1.-1], 0)
+  RESPONSE #25
+    CreateCreature("elfir01", [-1.-1], 0)
+    CreateCreature("elfirl01", [-1.-1], 0)
+    CreateCreature("elfirl01", [-1.-1], 0)
+    CreateCreature("elfirl01", [-1.-1], 0)
+  RESPONSE #25
+    CreateCreature("elear01", [-1.-1], 0)
+    CreateCreature("elearl01", [-1.-1], 0)
+    CreateCreature("elearl01", [-1.-1], 0)
+    CreateCreature("elearl01", [-1.-1], 0)
+  RESPONSE #25
+    CreateCreature("elair01", [-1.-1], 0)
+    CreateCreature("elairl01", [-1.-1], 0)
+    CreateCreature("elairl01", [-1.-1], 0)
+    CreateCreature("elairl01", [-1.-1], 0)
+END
+
+IF
+  XPGT(Player1,999999)
+  XPLT(Player1,2000000)
+  Entered([ANYONE])
+THEN
+  RESPONSE #25
+    CreateCreature("basgrt01", [-1.-1], 0)
+    CreateCreature("umbhul01", [-1.-1], 0)
+    CreateCreature("umbhul01", [-1.-1], 0)
+    CreateCreature("icmin01", [-1.-1], 0)
+    CreateCreature("icmin01", [-1.-1], 0)
+  RESPONSE #25
+    CreateCreature("elfirg01", [-1.-1], 0)
+    CreateCreature("elfir01", [-1.-1], 0)
+    CreateCreature("elfir01", [-1.-1], 0)
+  RESPONSE #25
+    CreateCreature("elearg01", [-1.-1], 0)
+    CreateCreature("elear01", [-1.-1], 0)
+    CreateCreature("elear01", [-1.-1], 0)
+  RESPONSE #25
+    CreateCreature("elairg01", [-1.-1], 0)
+    CreateCreature("elair01", [-1.-1], 0)
+    CreateCreature("elair01", [-1.-1], 0)
+END
+
+IF
+  XPGT(Player1,1999999)
+  Entered([ANYONE])
+THEN
+  RESPONSE #25
+    CreateCreature("umbhul02", [-1.-1], 0)
+    CreateCreature("umbhul01", [-1.-1], 0)
+    CreateCreature("umbhul01", [-1.-1], 0)
+    CreateCreature("umbhul01", [-1.-1], 0)
+  RESPONSE #25
+    CreateCreature("elfirg01", [-1.-1], 0)
+    CreateCreature("elfirg01", [-1.-1], 0)
+    CreateCreature("elfirg01", [-1.-1], 0)
+  RESPONSE #25
+    CreateCreature("elearg01", [-1.-1], 0)
+    CreateCreature("elearg01", [-1.-1], 0)
+    CreateCreature("elearg01", [-1.-1], 0)
+  RESPONSE #25
+    CreateCreature("elairg01", [-1.-1], 0)
+    CreateCreature("elairg01", [-1.-1], 0)
+    CreateCreature("elairg01", [-1.-1], 0)
+END
+
+

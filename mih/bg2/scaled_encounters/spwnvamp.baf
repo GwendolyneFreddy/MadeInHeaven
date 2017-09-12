@@ -1,0 +1,92 @@
+IF
+  XPLT(Player1, 400000)
+  Entered([ANYONE])
+THEN
+  RESPONSE #33
+    CreateCreature("vampim01", [-1.-1], 0)
+    CreateCreature("vampif01", [-1.-1], 0)
+  RESPONSE #33
+    CreateCreature("vamflm01", [-1.-1], 0)
+    CreateCreature("vamflf01", [-1.-1], 0)
+    CreateCreature("vamflm01", [-1.-1], 0)
+    CreateCreature("vamflf01", [-1.-1], 0)
+  RESPONSE #33
+    CreateCreature("vamold01", [-1.-1], 0)
+    CreateCreature("wolfva01", [-1.-1], 0)
+    CreateCreature("wolfva01", [-1.-1], 0)
+END
+
+IF
+  XPGT(Player1, 399999)
+  XPLT(Player1, 1000000)
+  Entered([ANYONE])
+THEN
+  RESPONSE #33
+    CreateCreature("vamver01", [-1.-1], 0)
+    CreateCreature("vamold01", [-1.-1], 0)
+    CreateCreature("vampim01", [-1.-1], 0)
+    CreateCreature("vampif01", [-1.-1], 0)
+  RESPONSE #33
+    CreateCreature("vamanc01", [-1.-1] ,0)
+    CreateCreature("vammat01", [-1.-1] ,0)
+    CreateCreature("vammat01", [-1.-1] ,0)
+  RESPONSE #33
+    CreateCreature("vamemi01", [-1.-1] ,0)
+    CreateCreature("wolfva01", [-1.-1], 0)
+    CreateCreature("wolfva01", [-1.-1], 0)
+    CreateCreature("wolfva01", [-1.-1], 0)
+    CreateCreature("wolfva01", [-1.-1], 0)
+END
+
+IF
+  XPGT(Player1, 999999)
+  XPLT(Player1, 2000000)
+  Entered([ANYONE])
+THEN
+  RESPONSE #33
+    CreateCreature("vamanc01", [-1.-1] ,0)
+    CreateCreature("vamver01", [-1.-1], 0)
+    CreateCreature("vamold01", [-1.-1], 0)
+    CreateCreature("vampim01", [-1.-1], 0)
+    CreateCreature("vampif01", [-1.-1], 0)
+  RESPONSE #33
+    CreateCreature("vamemi01", [-1.-1] ,0)
+    CreateCreature("vamanc01", [-1.-1] ,0)
+    CreateCreature("vammat01", [-1.-1] ,0)
+    CreateCreature("vammat01", [-1.-1] ,0)
+  RESPONSE #33
+    CreateCreature("vampat01", [-1.-1] ,0)
+    CreateCreature("wolfva01", [-1.-1], 0)
+    CreateCreature("wolfva01", [-1.-1], 0)
+    CreateCreature("wolfva01", [-1.-1], 0)
+    CreateCreature("wolfva01", [-1.-1], 0)
+    CreateCreature("wolfva01", [-1.-1], 0)
+END
+
+IF
+  XPGT(Player1, 1999999)
+  Entered([ANYONE])
+THEN
+  RESPONSE #33
+    CreateCreature("vamemi01", [-1.-1] ,0)
+    CreateCreature("vamanc01", [-1.-1] ,0)
+    CreateCreature("vamver01", [-1.-1], 0)
+    CreateCreature("vamold01", [-1.-1], 0)
+    CreateCreature("vampim01", [-1.-1], 0)
+    CreateCreature("vampif01", [-1.-1], 0)
+  RESPONSE #33
+    CreateCreature("vampat01", [-1.-1] ,0)
+    CreateCreature("vamemi01", [-1.-1] ,0)
+    CreateCreature("vamanc01", [-1.-1] ,0)
+    CreateCreature("vammat01", [-1.-1] ,0)
+    CreateCreature("vammat01", [-1.-1] ,0)
+  RESPONSE #33
+    CreateCreature("vampat01", [-1.-1] ,0)
+    CreateCreature("vamanc01", [-1.-1] ,0)
+    CreateCreature("vamanc01", [-1.-1] ,0)
+    CreateCreature("wolfva01", [-1.-1], 0)
+    CreateCreature("wolfva01", [-1.-1], 0)
+    CreateCreature("wolfva01", [-1.-1], 0)
+    CreateCreature("wolfva01", [-1.-1], 0)
+END
+

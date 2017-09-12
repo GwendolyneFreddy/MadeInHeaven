@@ -38,6 +38,8 @@ BEGIN
 
   INCLUDE "%MOD_FOLDER%/lib/gtimes.tpa"
 
+  CLEAR_IDS_MAP
+
 
   // List of Cure Assorted Wounds spells
 

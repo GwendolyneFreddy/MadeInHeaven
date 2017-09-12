@@ -1,0 +1,84 @@
+IF
+  XPLT(Player1, 400000)
+  Entered([ANYONE])
+THEN
+  RESPONSE #25
+    CreateCreature("golfle01", [-1.-1], 0)
+    CreateCreature("golfle01", [-1.-1], 0)
+  RESPONSE #25
+    CreateCreature("golcla01", [-1.-1], 0)
+    CreateCreature("golcla01", [-1.-1], 0)
+  RESPONSE #25
+    CreateCreature("golsan01", [-1.-1], 0)
+    CreateCreature("golsan01", [-1.-1], 0)
+  RESPONSE #25
+    CreateCreature("golsto01", [-1.-1], 0)
+END
+
+IF
+  XPGT(Player1,399999)
+  XPLT(Player1,1000000)
+  Entered([ANYONE])
+THEN
+  RESPONSE #25
+    CreateCreature("golsto01", [-1.-1], 0)
+    CreateCreature("golsto01", [-1.-1], 0)
+  RESPONSE #25
+    CreateCreature("golsto01", [-1.-1], 0)
+    CreateCreature("golfle01", [-1.-1], 0)
+    CreateCreature("golfle01", [-1.-1], 0)
+  RESPONSE #25
+    CreateCreature("golsto01", [-1.-1], 0)
+    CreateCreature("golsan01", [-1.-1], 0)
+    CreateCreature("golcla01", [-1.-1], 0)
+  RESPONSE #25
+    CreateCreature("goliro01", [-1.-1], 0)
+END
+
+IF
+  XPGT(Player1,999999)
+  XPLT(Player1,2000000)
+  Entered([ANYONE])
+THEN
+  RESPONSE #25
+    CreateCreature("golsto01", [-1.-1], 0)
+    CreateCreature("golsto01", [-1.-1], 0)
+    CreateCreature("golcla01", [-1.-1], 0)
+    CreateCreature("golsan01", [-1.-1], 0)
+    CreateCreature("golsan01", [-1.-1], 0)
+  RESPONSE #25
+    CreateCreature("goliro01", [-1.-1], 0)
+    CreateCreature("golsto01", [-1.-1], 0)
+    CreateCreature("golcla01", [-1.-1], 0)
+  RESPONSE #25
+    CreateCreature("golbon01", [-1.-1], 0)
+    CreateCreature("golfle01", [-1.-1], 0)
+    CreateCreature("golfle01", [-1.-1], 0)
+    CreateCreature("golfle01", [-1.-1], 0)
+  RESPONSE #25
+    CreateCreature("golada01", [-1.-1], 0)
+END
+
+IF
+  XPGT(Player1,1999999)
+  Entered([ANYONE])
+THEN
+  RESPONSE #33
+    CreateCreature("golada01", [-1.-1], 0)
+    CreateCreature("golsto01", [-1.-1], 0)
+    CreateCreature("golsto01", [-1.-1], 0)
+  RESPONSE #33
+    CreateCreature("goliro01", [-1.-1], 0)
+    CreateCreature("goliro01", [-1.-1], 0)
+    CreateCreature("golcla01", [-1.-1], 0)
+    CreateCreature("golcla01", [-1.-1], 0)
+    CreateCreature("golcla01", [-1.-1], 0)
+  RESPONSE #33
+    CreateCreature("golbon01", [-1.-1], 0)
+    CreateCreature("golbon01", [-1.-1], 0)
+    CreateCreature("golfle01", [-1.-1], 0)
+    CreateCreature("golfle01", [-1.-1], 0)
+    CreateCreature("golfle01", [-1.-1], 0)
+END
+
+

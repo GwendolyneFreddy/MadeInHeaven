@@ -148,3 +148,18 @@ COPY "%MOD_FOLDER%/monster_pack/bgt/actors/mh#baned.cre" "override"
   SAY NAME2 "Banedead"
 
 
+// =====================
+// Eye of Fear and Flame
+// =====================
+
+COPY "%MOD_FOLDER%/monster_pack/bgt/actors/mh#eyeff.cre" "override"
+  SAY NAME1 "Eye of Fear and Flame"
+  SAY NAME2 "Eye of Fear and Flame"
+
+
+LAUNCH_ACTION_FUNCTION compile_dialog_or_script
+  STR_VAR
+  path_to_file		= "%MOD_FOLDER%/monster_pack/bgt/scripts/mh#eyeff.baf"
+END
+
+

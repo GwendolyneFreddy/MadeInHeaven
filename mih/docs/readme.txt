@@ -30,9 +30,11 @@ Baldur's Gate 1:
 Baldur's Gate 2:
 
 - MiH Item Pack for BG2
+- Enhanced Ancient Tomb
 - Enhanced Copper Coronet
 - Enhanced Lower Reaches
 - Creature Corrections
+- Enhanced Level-Scaled Encounters
 - Unique Borok's Fist
 
 Icewind Dale 1:
@@ -402,6 +404,24 @@ a dungeon here and there, or for sale in certain places.  Some will be used
 against you in encounters both old and new, so beware!
 
 
+=====================
+Enhanced Ancient Tomb
+=====================
+
+These are the Netherese catacombs underneath the Graveyard District, including
+Bodhi's lair.  All spawn points have been altered, those around the large
+cocoon spawn all kinds of spiders, those in the southern tombs spawn various
+undead creatures.
+
+During the raids on Bodhi's lair (both during chapter 3 and chapter 6) you
+will meet more opposition, and one level-scaled encounter with an illogical
+activation point (you were unlikely to trigger it unless you explore very
+throroughly or still had business in the southern tomb) has now been split
+into two separate encounters.  Should you go into the southern tomb during
+chapter six you will encounter a horde of wraith spiders as well.  And who
+knows, something else might be lurking in there...
+
+
 =======================
 Enhanced Copper Coronet
 =======================
@@ -442,6 +462,46 @@ This fixpack mostly fixes the same things as the BG1 version: ankhegs, greater
 basiliks, slimes, wraith spiders and winter wolves now get their proper attacks
 and stats.  Since these encounters are fairly rare in BG2, you might not note
 much of a difference.
+
+
+================================
+Enhanced Level-Scaled Encounters
+================================
+
+BG2 features several encounters scaled to the party's current level, usually
+summoned by an undetectable trap in a dungeon.  These encounters have four
+'tiers' determined by CHARNAME's current XP.  However, each tier has only one
+encounter, so an experienced player will know what they get.
+
+This modification replaces these trap scripts by brand new ones which
+introduce more possible encounters per 'tier', so things are a little less
+predictable for experienced players.  For novice players this also has the
+advantage that if an encounter is too hard, reloading might give a different
+one.
+
+These are the generic changes, the full details are in a separate readme file:
+
+- The golem spawning script will now spawn more varied golems, including
+  bone-, flesh-, and sand golems which the old script never spawned.  (It was
+  restricted to adamantine-, clay-, iron- and stone golems.)
+- The mind flayer spawning script will spawn less ulitharids, but more common
+  mind flayers and they are more likely to have umber hulks with them.
+- The generic monster spawning script (used mostly in Spellhold) will no
+  longer spawn yuan-ti, but will mostly spawn elementals and elemental-kin,
+  which I feel are more appropriate.  It does still occasionally spawn
+  minotaurs and umber hulks though, and may also occasionally spawn a few
+  basilisks so be prepared!
+- The troll spawning script will spawn less spirit trolls, I find these things
+  highly annoying to deal with, and too many of them interrupt the flow of
+  the game.  Instead you'll see more common-, giant- and spectral trolls.
+- The undead spawning script will no longer spawn liches at the highest tier;
+  I feel liches should be unique and not random encounters.  Instead, the
+  highest tier may now spawn slayer shadows or a death tyrant.
+- The undead spawning script will also no longer spawn bone golems as they are
+  golems, not undead.  Instead, the script may now spawn some new types of
+  undead including mohrgs and eyes of fear and flame.
+- The vampire spawning script will now occasionally have the vampires be
+  accompanied by vampiric wolves.
 
 
 ===================
