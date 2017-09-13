@@ -3,11 +3,11 @@ mh#amul2	Gem of Insight			Temple District (Lathander)
 mh#amul3	Necklace of Prayer Beads	Temple District (Lathander)
 mh#amul4	Periapt of Health		Temple District (Lathander)
 
-mh#armr1	Green Dragon Scale		*Brokk (shop)
-mh#armr2	Eversing +2			*Brokk (shop)
+mh#armr1	Green Dragon Scale		Brokk (shop)
+mh#armr2	Eversing +2			Brokk (shop)
 mh#armr3	Winter Wolf Hide +1		Waukeen's Promenade (Arnolius)
 
-mh#belt1	Girdle of Dwarvenkind		*Brokk (event)
+mh#belt1	Girdle of Dwarvenkind		Brokk (event)
 mh#belt2	Girdle of Arisnas		(N/A)
 mh#belt3	Sunite Sash			Watcher's Keep (Garlena)
 
@@ -23,7 +23,7 @@ mh#brac2	Gauntlets of the Dwarven King	Watcher's Keep (Garlena)
 mh#brac3	Bracers of Defense AC 2		Arcana Archives
 
 mh#btax1	Foesplitter +1			Temple District (Tarnor the Hatchetman)
-mh#btax2	Trollkiller +3			*Brokk (shop)
+mh#btax2	Trollkiller +3			Brokk (shop)
 mh#btax3	Redethemar +4			*Suldanessenar
 
 mh#clck1	Mutamin's Cloak			Trademeet (nobleman merchant)
@@ -34,18 +34,18 @@ mh#clck4	Cloak of Stars
 mh#dagg1	Mage Masher +1			Chateau Irenicus (Escaped Clone)
 mh#dagg2	Catclaw +3			Trademeet (nobleman merchant)
 
-mh#hamm1	Thronumin +3			*Brokk (shop)
-mh#hamm2	Fist of Valdraer +1		*Brokk (shop)
+mh#hamm1	Thronumin +3			Brokk (shop)
+mh#hamm2	Fist of Valdraer +1		Brokk (shop)
 
 mh#helm1	Helm of Valor			Waukeen's Promenade (Arnolius)
 mh#helm2	Wizard's Hat			Watcher's Keep (Garlena)
-mh#helm3	Helm of the Dwarven Lords	*Brokk (shop)
+mh#helm3	Helm of the Dwarven Lords	Brokk (shop)
 mh#helm4	Shroudcrown			
 
 mh#ioun1	Lush Emerald Ioun Stone		Druid Grove
 mh#ioun2	Pearl of Power			Arcana Archives
 
-mh#lbow1	Bow of Eletha			*Brokk (shop)
+mh#lbow1	Bow of Eletha			Brokk (shop)
 
 mh#misc1	Green Dragon Scales		(N/A)
 mh#misc2	Meteoric Iron			(N/A)
@@ -66,15 +66,15 @@ mh#ring7	Bone Ring
 mh#robe1	Robe of the Elements		(N/A)
 
 mh#shld1	Shield of the Phoenix +1	Waukeen's Promenade (Arnolius)
-mh#shld2	Ankheg Shield +1		*Brokk (shop)
-mh#shld3	Meteoric Shield +2		*Brokk (shop)
+mh#shld2	Ankheg Shield +1		Brokk (shop)
+mh#shld3	Meteoric Shield +2		Brokk (shop)
 
-mh#sper1	Spear of Halama +2		*Brokk (shop)
+mh#sper1	Spear of Halama +2		Brokk (shop)
 
 mh#swrd1	Terminus Est +2			Trademeet (nobleman merchant)
 mh#swrd2	Heartsblood +1			Waukeen's Promenade (Maheer)
 mh#swrd3	Selune's Blessing +1		Druid Grove
-mh#swrd4	Lashing Sword +1		*Brokk (shop)
+mh#swrd4	Lashing Sword +1		Brokk (shop)
 mh#swrd5	Evithyan's Blade +3		*Underdark
 mh#swrd6	Sword of the Planes		Planar Sphere
 

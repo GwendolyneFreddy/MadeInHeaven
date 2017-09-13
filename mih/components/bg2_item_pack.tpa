@@ -6,6 +6,28 @@ LAUNCH_ACTION_FUNCTION "install_component"
 END
 
 
+// =============
+// Brokk's Forge
+// =============
+
+COPY "%MOD_FOLDER%/item_pack/bgt/actors/mh#brok2.cre" "override"
+  SAY NAME1 "Brokk"
+  SAY NAME1 "Brokk"
+
+
+LAUNCH_ACTION_FUNCTION compile_dialog_or_script
+  STR_VAR
+  path_to_file		= "%MOD_FOLDER%/item_pack/bgt/dialog/mh#brok2.d"
+END
+
+
+COPY "%MOD_FOLDER%/item_pack/bgt/stores/mh#brok2.sto" "override"
+  SAY NAME2 "Brokk's Forge"
+
+
+EXTEND_BOTTOM "ar2000.bcs" "%MOD_FOLDER%/item_pack/bgt/scripts/brokk_trademeet.baf" USING "%MOD_FOLDER%/dummy.tra"
+
+
 // ================
 // Chateau Irenicus
 // ================

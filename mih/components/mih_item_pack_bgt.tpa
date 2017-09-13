@@ -712,7 +712,7 @@ Not usable by:
 // mh#hamm1 - Thronumin +3
 
 COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#hamm1.itm" "override"
-  SAY NAME1 "Thronumin +3"
+  SAY NAME2 "Thronumin +3"
   SAY IDENTIFIED_DESC "War Hammer +3, Defender: 'Thronumin'
 
 Thronumin, 'The Hammer of the Meteor', was forged almost a thousand years ago.  A meteor from Realmspace struck Aber-Toril, falling into a remote area of the Cloudpeak mountains and burying itself deep underground.  Dwarves from a now forgotten clan eventually tunneled to it and found that the meteor's core was almost pure iron.  From it a number of powerful weapons and armor were forged, but most have have been lost over the years.

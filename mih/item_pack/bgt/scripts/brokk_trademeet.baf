@@ -1,0 +1,12 @@
+IF
+  Dead("cefald01")
+  Global("geniesgone", "GLOBAL", 1)
+  !Dead("mh#brokk")
+  Global("mh#SpawnedBrokk", "AR2000", 0)
+THEN
+  RESPONSE #100
+    SetGlobal("mh#SpawnedBrokk", "AR2000", 1)
+    CreateCreature("mh#brok2", [2260.2790], 15)
+END
+
+
