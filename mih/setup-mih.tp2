@@ -12,7 +12,7 @@ ALWAYS
 END	// ALWAYS block
 
 
-LANGUAGE "American English" "%MOD_FOLDER%/lang/en" "%MOD_FOLDER%/lang/en/setup-mih.tra"
+LANGUAGE "American English" "mih/tra/english" "mih/tra/english/setup-mih.tra"
 
 
 // ===================
@@ -21,6 +21,9 @@ LANGUAGE "American English" "%MOD_FOLDER%/lang/en" "%MOD_FOLDER%/lang/en/setup-m
 
 BEGIN "Made in Heaven Item Pack for BG1"
 GROUP "Baldur's Gate 1" GAME_INCLUDES "bg1"
+
+REQUIRE_PREDICATE NOT ENGINE_IS "bg1 totsc"
+  "This component is not available for your game."
 
 LAUNCH_ACTION_FUNCTION "install_component"
   STR_VAR
@@ -324,6 +327,19 @@ GROUP "Baldur's Gate 2" GAME_INCLUDES "bg2"
 LAUNCH_ACTION_FUNCTION "install_component"
   STR_VAR
   component_name	= "bg2_creature_corrections"
+END
+
+
+// ================================
+// Enhanced Level-Scaled Encounters
+// ================================
+
+BEGIN "Enhanced Level-Scaled Encounters"
+GROUP "Baldur's Gate 2" GAME_INCLUDES "bg2"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "bg2_scaled_encounters"
 END
 
 

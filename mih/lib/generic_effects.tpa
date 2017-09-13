@@ -62,6 +62,36 @@ BEGIN
     WRITE_SHORT	0x0024 1	// Permanent
     WRITE_SHORT	0x002c 100	// 100% chance
     WRITE_LONG	0x0060 i
+
+  CREATE EFF "elemhit%i%"
+    WRITE_LONG	0x0010 178	// Damage vs. Creature Type
+    WRITE_LONG	0x001c IDS_OF_SYMBOL("race" "elemental")
+    WRITE_LONG	0x0020 3
+    WRITE_SHORT	0x0024 1	// Permanent
+    WRITE_SHORT	0x002c 100	// 100% chance
+    WRITE_LONG	0x0060 i
+
+  CREATE EFF "elemdam%i%"
+    WRITE_LONG	0x0010 179	// Damage vs. Creature Type
+    WRITE_LONG	0x001c IDS_OF_SYMBOL("race" "elemental")
+    WRITE_LONG	0x0020 3
+    WRITE_SHORT	0x0024 1	// Permanent
+    WRITE_SHORT	0x002c 100	// 100% chance
+
+  CREATE EFF "demhit%i%"
+    WRITE_LONG	0x0010 178	// Damage vs. Creature Type
+    WRITE_LONG	0x001c IDS_OF_SYMBOL("race" "demonic")
+    WRITE_LONG	0x0020 3
+    WRITE_SHORT	0x0024 1	// Permanent
+    WRITE_SHORT	0x002c 100	// 100% chance
+    WRITE_LONG	0x0060 i
+
+  CREATE EFF "demdam%i%"
+    WRITE_LONG	0x0010 179	// Damage vs. Creature Type
+    WRITE_LONG	0x001c IDS_OF_SYMBOL("race" "demonic")
+    WRITE_LONG	0x0020 3
+    WRITE_SHORT	0x0024 1	// Permanent
+    WRITE_SHORT	0x002c 100	// 100% chance
 END
 
 
@@ -82,3 +112,5 @@ CREATE EFF "mh#udmsg"
   WRITE_LONG	0x001c RESOLVE_STR_REF("Undead destroyed")
   WRITE_SHORT	0x0024 1	// Permanent
   WRITE_SHORT	0x002c 100	// 100% chance
+
+

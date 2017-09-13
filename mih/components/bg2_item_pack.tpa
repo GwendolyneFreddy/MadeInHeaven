@@ -43,6 +43,7 @@ COPY_EXISTING "clone1.cre" "override"
 // ===================
 
 // Arnolius' Armor Store
+
 COPY_EXISTING "shop02.sto" "override"
   // Winter Wolf Hide +1
   ADD_STORE_ITEM "mh#armr3" AFTER "leat10" #0 #0 #0 "identified" #1
@@ -51,12 +52,22 @@ COPY_EXISTING "shop02.sto" "override"
   // Helm of Valor
   ADD_STORE_ITEM "mh#helm1" AFTER "helm01" #0 #0 #0 "identified" #1
 
+
 // Maheer's Weapon Store
+
 COPY_EXISTING "shop03.sto" "override"
   // Slime Crusher +1
   ADD_STORE_ITEM "mh#blun1" AFTER "blun06" #0 #0 #0 "identified" #1
+
   // Heartsblood +1
   ADD_STORE_ITEM "mh#swrd2" AFTER "sw1h04" #0 #0 #0 "identified" #1
+
+
+// Ribald's Adventurer's Market
+
+COPY_EXISTING "ribald.sto" "override"
+  ADD_STORE_ITEM "mh#potn1" AFTER "potn12 potn10 potn09" #1 #0 #0 "identified" #2
+  ADD_STORE_ITEM "mh#potn2" AFTER "potn35 potn45 potn20" #1 #0 #0 "identified" #2
 
 
 // ===============
@@ -64,23 +75,43 @@ COPY_EXISTING "shop03.sto" "override"
 // ===============
 
 // Temple of Lathander
+
 COPY_EXISTING "temlath.sto" "override"
   // Amulet against Undead
   ADD_STORE_ITEM "mh#amul1" LAST #0 #0 #0 "identified" #1
+
   // Gem of Insight
   ADD_STORE_ITEM "mh#amul2" LAST #1 #0 #0 "identified" #1
+
   // Necklace of Prayer Beads
   ADD_STORE_ITEM "mh#amul3" LAST #3 #1 #1 "identified" #1
+
   // Periapt of Health
   ADD_STORE_ITEM "mh#amul4" LAST #0 #0 #0 "identified" #1
+
   // Blessed Mace +2
   ADD_STORE_ITEM "mh#blun2" AFTER "staf05" #0 #0 #0 "identified" #1
 
 
 // Tarnor the Hatchetman
+
 COPY_EXISTING "tarnor.cre" "override"
   // Foesplitter +1
   REPLACE_CRE_ITEM "mh#btax1" #0 #0 #0 "unstealable" "weapon2" EQUIP
+
+
+// =============
+// Planar Sphere
+// =============
+
+COPY_EXISTING "ar0411.are" "override"
+  // Sword of the Planes on table near knights
+  LAUNCH_PATCH_FUNCTION ADD_AREA_ITEM
+    INT_VAR
+    container_to_add_to	= 8
+    STR_VAR
+    item_to_add			= "mh#swrd6"
+  END
 
 
 // =========
@@ -88,11 +119,14 @@ COPY_EXISTING "tarnor.cre" "override"
 // =========
 
 // Nobleman merchant
+
 COPY_EXISTING "trmer02.sto" "override"
   // Catclaw +3
   ADD_STORE_ITEM "mh#dagg2" AFTER "dagg15" #0 #0 #0 "identified" #1
+
   // Terminus Est +2
   ADD_STORE_ITEM "mh#swrd1" AFTER "sw1h02" #0 #0 #0 "identified" #1
+
   // Mutamin's Cloak
   ADD_STORE_ITEM "mh#clck1" AFTER "clck03" #0 #0 #0 "identified" #1
 
@@ -102,12 +136,14 @@ COPY_EXISTING "trmer02.sto" "override"
 // =============
 
 // Dalok
+
 COPY_EXISTING "cedruid2.cre" "override"
   // Lush Green Ioun Stone
   REPLACE_CRE_ITEM "mh#ioun1" #0 #0 #0 "unstealable" "helmet"
 
 
 // Adherent
+
 COPY_EXISTING "cefgt01.cre" "override"
   // Selune's Blessing
   REPLACE_CRE_ITEM "mh#swrd3" #0 #0 #0 "unstealable" "weapon1" EQUIP
@@ -118,6 +154,7 @@ COPY_EXISTING "cefgt01.cre" "override"
 // ===============
 
 // Firkraag
+
 COPY_EXISTING "firkra02.cre" "override"
   REPLACE_CRE_ITEM "mh#clck2" #0 #0 #0 "none" "inv2"
 
@@ -130,6 +167,7 @@ COPY_EXISTING "firkra02.cre" "override"
 //
 // (He uses GiveItemCreate() and lucky for me, with the right number
 //  of charges too.  So I only need to patch his dialog.)
+
 COPY_EXISTING "udsvir05.dlg" "override"
   DECOMPILE_AND_PATCH
   BEGIN
@@ -139,9 +177,11 @@ COPY_EXISTING "udsvir05.dlg" "override"
 
 
 // Drow Merchant
+
 COPY_EXISTING "uddrow23.sto" "override"
   // Ring of Mind Shielding
   ADD_STORE_ITEM "mh#ring5" AFTER "staf16" #0 #0 #0 "identified" #1
+
   // Cloak of Arachnida
   ADD_STORE_ITEM "mh#clck3" AFTER "clck17" #2 #0 #0 "identified" #1
 
@@ -151,13 +191,17 @@ COPY_EXISTING "uddrow23.sto" "override"
 // ==============
 
 // Sister Garlena
+
 COPY_EXISTING "garlena.sto" "override"
   // Sunite Sash
   ADD_STORE_ITEM "mh#belt3" LAST #0 #0 #0 "identified" #1
+
   // Feather Tabi
   ADD_STORE_ITEM "mh#boot1" LAST #0 #0 #0 "identified" #1
+
   // Boots of Striding & Springing
   ADD_STORE_ITEM "mh#boot2" LAST #0 #0 #0 "identified" #1
+
   // Gauntlets of the Dwarven King
   ADD_STORE_ITEM "mh#brac2" LAST #0 #0 #0 "identified" #1
 
@@ -167,16 +211,23 @@ COPY_EXISTING "garlena.sto" "override"
 // =========
 
 // Arcana Archives
+
 COPY_EXISTING "25spell.sto" "override"
+  // Bracers of Defense AC 2
+  ADD_STORE_ITEM "mh#brac3" AFTER "clck11" #0 #0 #0 "identified" #1
+
   // Ring of Anti-Venom (moved from Vongoethe)
   ADD_STORE_ITEM "ring46" AFTER "ring02" #0 #0 #0 "identified" #1
+
   // Ring of Shooting Stars
   ADD_STORE_ITEM "mh#ring6" AFTER "ring46" #3 #2 #1 "identified" #1
+
   // Pearl of Power
   ADD_STORE_ITEM "mh#ioun2" AFTER "helm23" #0 #0 #0 "identified" #1
 
 
 // Vongoethe the lich
+
 COPY_EXISTING "amlich01.cre" "override"
   // Ring of Protection +3
   REPLACE_CRE_ITEM "mh#ring4" #0 #0 #0 "none" "lring"
@@ -188,7 +239,6 @@ COPY_EXISTING "amlich01.cre" "override"
 
 COPY_EXISTING "murcrag.sto" "override"
               "uddrow24.sto" "override"
-              "ribald.sto" "override"
               "roger.sto" "override"
               "temhelm.sto" "override"
   ADD_STORE_ITEM "mh#potn1" AFTER "potn12 potn10 potn09" #1 #0 #0 "identified" #3

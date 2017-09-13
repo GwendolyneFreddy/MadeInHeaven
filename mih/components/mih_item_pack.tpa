@@ -1,6 +1,5 @@
 // Made in Heaven item pack for the Baldur's Gate trilogy
 
-
 INCLUDE "%MOD_FOLDER%/lib/generic_effects.tpa"
 
 
@@ -479,6 +478,26 @@ Only usable by:
  Ranger"
 
 
+// mh#brac3 - Bracers of Defense AC 2
+
+COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#brac3.itm" "override"
+  SAY NAME2 "Bracers of Defense AC 2"
+  SAY IDENTIFIED_DESC "Bracers of Defense AC 2
+
+This artifact dates back to the ancient Crown Wars, a series of civil wars between the elven subraces thousands of years in the past.  Little is known of their history, as the elves are very reluctant to discuss this blackest page in their history even amongst themselves, let alone with outsiders.  However, a symbol on them can be linked to the Vishaan, a house of gold elves that succumbed to madness born from extreme xenophobia, and were later determined to the the cause of the entire tragedy.
+
+The enchantment on these bracers is truly massive, but due to its nature it can only be worn by those proficient in the arcane arts.
+
+STATISTICS:
+
+Armor Class: base 2
+Weight: 2
+
+Only usable by:
+ Bard
+ Mage"
+
+
 // mh#btax1 - Foesplitter +1
 
 CREATE EFF "mh#btax1"
@@ -768,6 +787,42 @@ Speed Factor: 1
 Proficiency Type: War Hammer
 Type: 1-handed
 Requires: 9 Strength
+
+Not usable by:
+ Druid
+ Mage
+ Thief"
+
+
+// mh#hamm2 - Fist of Valdraer +1
+
+CREATE EFF "mh#hamm2"
+  WRITE_LONG	0x0010 178	// THAC0 vs. Creature Type
+  WRITE_LONG	0x001c IDS_OF_SYMBOL("race" "spider")
+  WRITE_LONG	0x0020 4
+  WRITE_SHORT	0x0024 1	// Permanent
+  WRITE_SHORT	0x002c 100	// 100% chance
+  WRITE_LONG	0x0060 4
+
+
+COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#hamm2.itm" "override"
+  SAY NAME2 "Fist of Valdraer +1"
+  SAY IDENTIFIED_DESC "War Hammer +1, +5 vs. Spiders: 'Fist of Valdraer'
+
+Valdraer Frostbasher was once a valiant dwarven warrior who went on several adventures with varying groups.  One expedition into the Underdark turned out disastrous though, and she and her group were captured and enslaved by the drow.  All of her companions perished under the cruelty of the dark elves, but Valdraer survived and eventually managed to escape to the surface thanks to some covert help from worshippers of Eilistrae.
+
+The ordeal had left severe scars on her psyche though, and she developed a maniacal hatred of spiders.  She somehow procured this hammer, apparently from a ruin of the Imaskar empire, and went on a berserk rampage throughout Faerun to slay as many giant spiders as she could.  She was last seen going into the Spider Wood about a dozen years ago and never returned.  A ranger found her dead body in a spider den almost a year later, apparently she succumbed to the venom of a phase spider.
+
+STATISTICS:
+
+THAC0: +1 bonus, +5 vs. Spiders
+Damage: 1D4 +2, +6 vs. Spiders
+Damage type: crushing
+Weight: 8
+Speed Factor: 3
+Proficiency Type: War Hammer
+Type: 1-handed
+Requires: 10 Strength
 
 Not usable by:
  Druid
@@ -1233,6 +1288,17 @@ STR_VAR
 END
 
 
+// mh#ring7 - Bone Ring
+
+COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#ring7.itm" "override"
+  SAY NAME2 "Ring of the Necromancer"
+  SAY IDENTIFIED_DESC "Bone Ring
+
+Despite the ominous name and the fact that it is carved from human bone, these rings are actually a great boon to those who would fight vile necromancers and their ghastly creations.  The secret to creating them is quite ancient, and only a few rare tomes describe the complete process of enchanting one.  Despite this fact, a few dozen of these rings are known to exist, most of them crafted by the clergy of Kelemvor who see the creation of undead as a vile desecration of the sacred rest of the dead.
+
+This ring can cast the clerical spell 'Negative Plane Protection' on its wearer, which will protect her against the energy draining attacks of vampires and other powerful undead.  This ring operates on charges, and will crumble to worthless dust when the final change is expended."
+
+
 // mh#robe1 - Robe of the Elements
 
 COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#robe1.itm" "override"
@@ -1505,6 +1571,63 @@ Damage: 1d8 +3, +5 vs. Drow
 Damage Type: slashing
 Weight: 4
 Speed Factor: 2
+Proficiency Type: Long Sword
+Type: 1-handed
+Requires: 6 Strength
+
+Not usable by:
+ Cleric
+ Druid
+ Mage"
+
+
+// mh#swrd6 - Sword of the Planes +1/+4
+
+EXTEND_BOTTOM "baldur.bcs" "%MOD_FOLDER%/item_pack/bgt/scripts/planar_sword.baf" USING "%LANGUAGE%/item_pack/bgt/scripts/planar_sword.tra"
+
+
+COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#swrd6.itm" "override"
+  SAY NAME2 "Sword of the Planes +1"
+  SAY IDENTIFIED_DESC "Sword of the Planes +1
+
+The Sword of the Planes was found by <CHARNAME> within the Planar Sphere that had appeared within the slums of Athkatla.  Planar energies have infused the blade during the Sphere's travels through the Planes, making it particularly effective against certain types of creatures.  There is no known prior history, perhaps this was but a normal or minor magical weapon before it was brought aboard the Planar Sphere and exposed to its energies.
+
+This long sword is considered a +4 weapon for purposes of what it can hit, but against most creatures it only performs as a +1 weapon.  Against undead it is +2 due to their ties with the negative energy plane.  Against elementals and other creatures from the inner planes it is +3.  Only against fiends and other creatures from the outer planes does it reach its full potential of +4.
+
+If this sword is brought to another plane of existence, its power may change.  It will become a +2 weapon on border planes like the Ethereal or Astral, +3 on inner planes like the elemental planes, and its most powerful +4 will be reached on the outer planes like the abyss.  It will go back to being a +1 weapon when it is returned to the prime material plane though.
+
+STATISTICS:
+
+THAC0: +1 bonus, +2 vs. Undead, +3 vs. Elementals, +4 vs. Fiends
+Damage: 1d8 +1, +2 vs. Undead, +3 vs. Elementals, +4 vs. Fiends
+Damage Type: slashing
+Weight: 4
+Speed Factor: 4
+Proficiency Type: Long Sword
+Type: 1-handed
+Requires: 6 Strength
+
+Not usable by:
+ Cleric
+ Druid
+ Mage"
+
+
+COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#swd6a.itm" "override"
+  SAY NAME2 "Sword of the Planes +4"
+  SAY IDENTIFIED_DESC "Sword of the Planes +4
+
+The Sword of the Planes was found by <CHARNAME> within the Planar Sphere that had appeared within the slums of Athkatla.  Planar energies have infused the blade during the Sphere's travels through the Planes, making it particularly effective against certain types of creatures.  There is no known prior history, perhaps this was but a normal or minor magical weapon before it was brought aboard the Planar Sphere and exposed to its energies.
+
+The sword is currently flaring with planar energy.  On this outer plane the sword is at its peak power and will strike any creature as a +4 weapon.  This power will fade when you leave this plane, though.
+
+STATISTICS:
+
+THAC0: +4 bonus
+Damage: 1d8 +4
+Damage Type: slashing
+Weight: 4
+Speed Factor: 4
 Proficiency Type: Long Sword
 Type: 1-handed
 Requires: 6 Strength

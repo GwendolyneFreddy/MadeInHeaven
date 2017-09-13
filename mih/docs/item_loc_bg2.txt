@@ -20,10 +20,11 @@ mh#boot3	Boots of Gravewalking
 
 mh#brac1	Bracers of Winter's Chill	Underdark (Therndle Daglefodd)
 mh#brac2	Gauntlets of the Dwarven King	Watcher's Keep (Garlena)
+mh#brac3	Bracers of Defense AC 2		Arcana Archives
 
 mh#btax1	Foesplitter +1			Temple District (Tarnor the Hatchetman)
 mh#btax2	Trollkiller +3			*Brokk (shop)
-mh#btax3	Redethemar +4
+mh#btax3	Redethemar +4			*Suldanessenar
 
 mh#clck1	Mutamin's Cloak			Trademeet (nobleman merchant)
 mh#clck2	Battlecloak of Vycaena		Firkraag (replaces Cloak of the Shield)
@@ -34,6 +35,7 @@ mh#dagg1	Mage Masher +1			Chateau Irenicus (Escaped Clone)
 mh#dagg2	Catclaw +3			Trademeet (nobleman merchant)
 
 mh#hamm1	Thronumin +3			*Brokk (shop)
+mh#hamm2	Fist of Valdraer +1		*Brokk (shop)
 
 mh#helm1	Helm of Valor			Waukeen's Promenade (Arnolius)
 mh#helm2	Wizard's Hat			Watcher's Keep (Garlena)
@@ -59,6 +61,7 @@ mh#ring3	Ring of Toughness		Chateau Irenicus
 mh#ring4	Ring of Protection +3		Vongoethe (replaces Ring of Anti-Venom)
 mh#ring5	Ring of Mind Shielding		Underdark (Drow merchant)
 mh#ring6	Ring of Shooting Stars		Arcana Archives
+mh#ring7	Bone Ring
 
 mh#robe1	Robe of the Elements		(N/A)
 
@@ -73,5 +76,6 @@ mh#swrd2	Heartsblood +1			Waukeen's Promenade (Maheer)
 mh#swrd3	Selune's Blessing +1		Druid Grove
 mh#swrd4	Lashing Sword +1		*Brokk (shop)
 mh#swrd5	Evithyan's Blade +3		*Underdark
+mh#swrd6	Sword of the Planes		Planar Sphere
 
 

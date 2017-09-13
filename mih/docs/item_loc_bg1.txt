@@ -32,6 +32,7 @@ mh#dagg1	Mage Masher +1			Brokk (shop)
 mh#dagg2	Catclaw +3			Durlag's Tower D4 (replaces Flame Tongue, this is moved to D1)
 
 mh#hamm1	Thronumin +3			Ulgoth's Beard (replaces the Knee-Capper, this is moved to Bassilus)
+mh#hamm2	Fist of Valdraer +1		Brokk (shop)
 
 mh#helm1	Helm of Valor			Brokk (shop)
 mh#helm2	Wizard's Hat			Durlag's Tower Chessboard (on King)
