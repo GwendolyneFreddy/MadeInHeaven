@@ -33,8 +33,9 @@ Baldur's Gate 2:
 - Enhanced Ancient Tomb
 - Enhanced Copper Coronet
 - Enhanced Lower Reaches
+- Enhanced Shadow Temple
 - Creature Corrections
-- Enhanced Level-Scaled Encounters
+- More Varied Level-Scaled Encounters
 - Unique Borok's Fist
 
 Icewind Dale 1:
@@ -450,6 +451,18 @@ The other area changed by this component is the Undead City down the Pit of
 the Faithless, which will now have a several more undead to fight.
 
 
+======================
+Enhanced Shadow Temple
+======================
+
+The Shadow Temple is the ruined temple of Amaunator near Imnesvale, where the
+Shade Lord now rules.  I felt there actually weren't that many shadows here,
+for a place supposedly overrun with shadows.  When poking around I found it's
+mostly because the spawn points here did not use spawngrp.2da, unlike most
+other spawn points in BG2.  I changed that, and now you will see many more
+shadows here.  I also added a few extra fixed encounters inside the temple.
+
+
 ==========================
 Creature Corrections (BG2)
 ==========================
@@ -464,9 +477,9 @@ and stats.  Since these encounters are fairly rare in BG2, you might not note
 much of a difference.
 
 
-================================
-Enhanced Level-Scaled Encounters
-================================
+===================================
+More Varied Level-Scaled Encounters
+===================================
 
 BG2 features several encounters scaled to the party's current level, usually
 summoned by an undetectable trap in a dungeon.  These encounters have four

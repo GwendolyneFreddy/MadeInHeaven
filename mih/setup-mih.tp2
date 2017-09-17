@@ -317,6 +317,19 @@ LAUNCH_ACTION_FUNCTION "install_component"
 END
 
 
+// ======================
+// Enhanced Shadow Temple
+// ======================
+
+BEGIN "Enhanced Shadow Temple"
+GROUP "Baldur's Gate 2" GAME_INCLUDES "bg2"
+
+LAUNCH_ACTION_FUNCTION "install_component"
+  STR_VAR
+  component_name	= "bg2_shadow_temple"
+END
+
+
 // ==========================
 // Creature Corrections (BG2)
 // ==========================

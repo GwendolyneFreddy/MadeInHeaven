@@ -23,7 +23,7 @@ COPY_EXISTING "ar0801.are" "override"
 
 
 COPY_EXISTING "ar0801.bcs" "override"
-  // More ememies during Aran's mission
+  // More enemies during Aran's mission
   REPLACE_BCS_BLOCK
    "%MOD_FOLDER%/bg2/ancient_tomb/ar0801_old.baf"
    "%MOD_FOLDER%/bg2/ancient_tomb/ar0801_new.baf"
@@ -99,7 +99,7 @@ COPY_EXISTING "ar0808.are" "override"
     ab_RT_LPoY		= 650
 
     STR_VAR
-    ab_RT_Name		= "High Level 3"
+    ab_RT_Name		= "MiH#HighLevel3"
     ab_RT_Rbcs		= "spwnvamp"
   END
 
