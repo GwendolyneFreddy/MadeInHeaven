@@ -171,6 +171,20 @@ COPY_EXISTING "cefgt01.cre" "override"
   REPLACE_CRE_ITEM "mh#swrd3" #0 #0 #0 "unstealable" "weapon1" EQUIP
 
 
+// ==========
+// Umar Hills
+// ==========
+
+// Imnesvale Merchant
+
+COPY_EXISTING "uhmer01.sto" "override"
+  // Bone Ring
+  ADD_STORE_ITEM "mh#ring7" AFTER "amul10" #12 #0 #0 "identified" #1
+
+  // Oil of Acid Resistance
+  ADD_STORE_ITEM "mh#potn1" AFTER "potn02" #1 #0 #0 "identified" #4
+
+
 // ===============
 // Windspear Hills
 // ===============
@@ -198,7 +212,7 @@ COPY_EXISTING "udsvir05.dlg" "override"
   END
 
 
-// Drow Merchant
+// Drow Merchants
 
 COPY_EXISTING "uddrow23.sto" "override"
   // Ring of Mind Shielding
@@ -206,6 +220,22 @@ COPY_EXISTING "uddrow23.sto" "override"
 
   // Cloak of Arachnida
   ADD_STORE_ITEM "mh#clck3" AFTER "clck17" #2 #0 #0 "identified" #1
+
+
+COPY_EXISTING "uddrow24.sto" "override"
+  // Boots of Gravewalking
+  ADD_STORE_ITEM "mh#boot3" AFTER "rods04" #1 #0 #0 "identified" #1
+
+  // Oil of Acid Resistance
+  ADD_STORE_ITEM "mh#potn1" AFTER "potn02" #1 #0 #0 "identified" #3
+
+  // Oil of Disenchantment
+  ADD_STORE_ITEM "mh#potn2" AFTER "potn35" #1 #0 #0 "identified" #1
+
+
+COPY_EXISTING "uddrow25.sto" "override"
+  // Shroudcrown
+  ADD_STORE_ITEM "mh#helm4" FIRST #1 #0 #0 "identified" #1
 
 
 // ==============
@@ -255,12 +285,11 @@ COPY_EXISTING "amlich01.cre" "override"
   REPLACE_CRE_ITEM "mh#ring4" #0 #0 #0 "none" "lring"
 
 
-// ===========
-// New Potions
-// ===========
+// ============================
+// New Potions in various shops
+// ============================
 
 COPY_EXISTING "murcrag.sto" "override"
-              "uddrow24.sto" "override"
               "roger.sto" "override"
               "temhelm.sto" "override"
   ADD_STORE_ITEM "mh#potn1" AFTER "potn12 potn10 potn09" #1 #0 #0 "identified" #3

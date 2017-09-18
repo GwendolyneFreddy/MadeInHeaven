@@ -16,7 +16,7 @@ mh#blun2	Blessed Mace +2			Temple District (Lathander)
 
 mh#boot1	Feather Tabi			Watcher's Keep (Garlena)
 mh#boot2	Boots of Striding and Springing	Watcher's Keep (Garlena)
-mh#boot3	Boots of Gravewalking
+mh#boot3	Boots of Gravewalking		Underdark (Drow merchant)
 
 mh#brac1	Bracers of Winter's Chill	Underdark (Therndle Daglefodd)
 mh#brac2	Gauntlets of the Dwarven King	Watcher's Keep (Garlena)
@@ -40,7 +40,7 @@ mh#hamm2	Fist of Valdraer +1		Brokk (shop)
 mh#helm1	Helm of Valor			Waukeen's Promenade (Arnolius)
 mh#helm2	Wizard's Hat			Watcher's Keep (Garlena)
 mh#helm3	Helm of the Dwarven Lords	Brokk (shop)
-mh#helm4	Shroudcrown			
+mh#helm4	Shroudcrown			Underdark (Drow merchant)
 
 mh#ioun1	Lush Emerald Ioun Stone		Druid Grove
 mh#ioun2	Pearl of Power			Arcana Archives
@@ -61,7 +61,7 @@ mh#ring3	Ring of Toughness		Chateau Irenicus
 mh#ring4	Ring of Protection +3		Vongoethe (replaces Ring of Anti-Venom)
 mh#ring5	Ring of Mind Shielding		Underdark (Drow merchant)
 mh#ring6	Ring of Shooting Stars		Arcana Archives
-mh#ring7	Bone Ring
+mh#ring7	Bone Ring			Umar Hills
 
 mh#robe1	Robe of the Elements		(N/A)
 
