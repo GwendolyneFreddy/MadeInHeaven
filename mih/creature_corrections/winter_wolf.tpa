@@ -34,34 +34,34 @@ BEGIN
     STR_VAR
     path_to_file		= "%MOD_FOLDER%/creature_corrections/scripts/mh#wlfwi.baf"
   END
+END
 
 
-  DEFINE_PATCH_MACRO fix_winter_wolf
-  BEGIN
-    REPLACE_CRE_ITEM "mh#wlfwi" #0 #0 #0 "unstealable&undroppable" "weapon1" EQUIP
-    REPLACE_CRE_ITEM "mh#wlfwi" #0 #0 #0 "unstealable&undroppable" "weapon2"
-    REPLACE_CRE_ITEM "mh#wlfwi" #0 #0 #0 "unstealable&undroppable" "weapon3"
-    REPLACE_CRE_ITEM "mh#wlfwi" #0 #0 #0 "unstealable&undroppable" "weapon4"
+DEFINE_PATCH_MACRO fix_winter_wolf
+BEGIN
+  REPLACE_CRE_ITEM "mh#wlfwi" #0 #0 #0 "unstealable&undroppable" "weapon1" EQUIP
+  REPLACE_CRE_ITEM "mh#wlfwi" #0 #0 #0 "unstealable&undroppable" "weapon2"
+  REPLACE_CRE_ITEM "mh#wlfwi" #0 #0 #0 "unstealable&undroppable" "weapon3"
+  REPLACE_CRE_ITEM "mh#wlfwi" #0 #0 #0 "unstealable&undroppable" "weapon4"
 
-    WRITE_BYTE	0x0052 15	// THAC0
+  WRITE_BYTE	0x0052 15	// THAC0
 
-    LAUNCH_PATCH_FUNCTION replace_cre_script
-      INT_VAR
-      check_default	= 0
-      STR_VAR
-      old_script		= "wntrwolf"
-      new_script		= "mh#wlfwi"
-      RET
-      found
-    END
-
-    PATCH_IF !found
-    BEGIN
-      WRITE_ASCII SCRIPT_RACE "mh#wlfwi" #8
-    END
-
-    WRITE_ASCII SCRIPT_DEFAULT "wtasight" #8
+  LAUNCH_PATCH_FUNCTION replace_cre_script
+    INT_VAR
+    check_default	= 0
+    STR_VAR
+    old_script		= "wntrwolf"
+    new_script		= "mh#wlfwi"
+    RET
+    found
   END
+
+  PATCH_IF !found
+  BEGIN
+    WRITE_ASCII SCRIPT_RACE "mh#wlfwi" #8
+  END
+
+  WRITE_ASCII SCRIPT_DEFAULT "wtasight" #8
 END
 
 

@@ -35,39 +35,39 @@ BEGIN
     STR_VAR
     path_to_file	= "%MOD_FOLDER%/creature_corrections/scripts/mh#ankhg.baf"
   END
+END
 
 
-  DEFINE_PATCH_MACRO fix_ankheg
-  BEGIN
-    REPLACE_CRE_ITEM "mh#ankhg" #0 #0 #0 "unstealable&undroppable" "weapon1" EQUIP
-    REPLACE_CRE_ITEM "mh#ankhg" #0 #0 #0 "unstealable&undroppable" "weapon2"
-    REPLACE_CRE_ITEM "mh#ankhg" #0 #0 #0 "unstealable&undroppable" "weapon3"
-    REPLACE_CRE_ITEM "mh#ankhg" #0 #0 #0 "unstealable&undroppable" "weapon4"
+DEFINE_PATCH_MACRO fix_ankheg
+BEGIN
+  REPLACE_CRE_ITEM "mh#ankhg" #0 #0 #0 "unstealable&undroppable" "weapon1" EQUIP
+  REPLACE_CRE_ITEM "mh#ankhg" #0 #0 #0 "unstealable&undroppable" "weapon2"
+  REPLACE_CRE_ITEM "mh#ankhg" #0 #0 #0 "unstealable&undroppable" "weapon3"
+  REPLACE_CRE_ITEM "mh#ankhg" #0 #0 #0 "unstealable&undroppable" "weapon4"
 
-    WRITE_BYTE	0x0052 13	// THAC0
-    WRITE_BYTE	0x0053 1	// # of attacks
-    WRITE_BYTE	0x0234 8	// Level (HD)
-    WRITE_BYTE	0x0238 18	// Strength
-    WRITE_BYTE	0x0239 50	// Strength extra
+  WRITE_BYTE	0x0052 13	// THAC0
+  WRITE_BYTE	0x0053 1	// # of attacks
+  WRITE_BYTE	0x0234 8	// Level (HD)
+  WRITE_BYTE	0x0238 18	// Strength
+  WRITE_BYTE	0x0239 50	// Strength extra
 
 
-    LAUNCH_PATCH_FUNCTION replace_cre_script
-      INT_VAR
-      check_default	= 0
-      STR_VAR
-      old_script		= "ankheg"
-      new_script		= "mh#ankhg"
-      RET
-      found
-    END
-
-    PATCH_IF !found
-    BEGIN
-      WRITE_ASCII	SCRIPT_RACE	"mh#ankhg" #8
-    END
-
-    WRITE_ASCII	SCRIPT_DEFAULT	"wtasight" #8
+  LAUNCH_PATCH_FUNCTION replace_cre_script
+    INT_VAR
+    check_default	= 0
+    STR_VAR
+    old_script		= "ankheg"
+    new_script		= "mh#ankhg"
+    RET
+    found
   END
+
+  PATCH_IF !found
+  BEGIN
+    WRITE_ASCII	SCRIPT_RACE	"mh#ankhg" #8
+  END
+
+  WRITE_ASCII	SCRIPT_DEFAULT	"wtasight" #8
 END
 
 

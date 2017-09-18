@@ -20,21 +20,21 @@ BEGIN
       INT_VAR
       levels_drained	= 1
     END
+END
 
 
-  DEFINE_PATCH_MACRO fix_wraith_spider
-  BEGIN
-    REPLACE_CRE_ITEM "mh#spdwr" #0 #0 #0 "unstealable&undroppable" "weapon1" EQUIP
-    REPLACE_CRE_ITEM "mh#spdwr" #0 #0 #0 "unstealable&undroppable" "weapon2"
-    REPLACE_CRE_ITEM "mh#spdwr" #0 #0 #0 "unstealable&undroppable" "weapon3"
-    REPLACE_CRE_ITEM "mh#spdwr" #0 #0 #0 "unstealable&undroppable" "weapon4"
+DEFINE_PATCH_MACRO fix_wraith_spider
+BEGIN
+  REPLACE_CRE_ITEM "mh#spdwr" #0 #0 #0 "unstealable&undroppable" "weapon1" EQUIP
+  REPLACE_CRE_ITEM "mh#spdwr" #0 #0 #0 "unstealable&undroppable" "weapon2"
+  REPLACE_CRE_ITEM "mh#spdwr" #0 #0 #0 "unstealable&undroppable" "weapon3"
+  REPLACE_CRE_ITEM "mh#spdwr" #0 #0 #0 "unstealable&undroppable" "weapon4"
 
-    WRITE_SHORT	0x0046 5	// Natural AC
-    WRITE_SHORT	0x0048 5	// Effective AC
-    WRITE_BYTE	0x0052 17	// THAC0
-    WRITE_BYTE	0x005a 100	// Cold Resistance
-    WRITE_BYTE	0x0271 IDS_OF_SYMBOL("general" "undead")
-  END
+  WRITE_SHORT	0x0046 5	// Natural AC
+  WRITE_SHORT	0x0048 5	// Effective AC
+  WRITE_BYTE	0x0052 17	// THAC0
+  WRITE_BYTE	0x005a 100	// Cold Resistance
+  WRITE_BYTE	0x0271 IDS_OF_SYMBOL("general" "undead")
 END
 
 

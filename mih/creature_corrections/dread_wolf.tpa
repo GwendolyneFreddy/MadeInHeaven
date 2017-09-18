@@ -15,19 +15,19 @@ BEGIN
       parameter1	= RESOLVE_STR_REF("Diseased")
       savingthrow	= 4	// Death/Poison
     END
+END
 
 
-  DEFINE_PATCH_MACRO fix_dread_wolf
-  BEGIN
-    REPLACE_CRE_ITEM "mh#wlfdr" #0 #0 #0 "unstealable&undroppable" "weapon1" EQUIP
-    REPLACE_CRE_ITEM "mh#wlfdr" #0 #0 #0 "unstealable&undroppable" "weapon2"
-    REPLACE_CRE_ITEM "mh#wlfdr" #0 #0 #0 "unstealable&undroppable" "weapon3"
-    REPLACE_CRE_ITEM "mh#wlfdr" #0 #0 #0 "unstealable&undroppable" "weapon4"
-    ADD_CRE_ITEM "ring95" #0 #0 #0 "unstealable&undroppable" "ring"
+DEFINE_PATCH_MACRO fix_dread_wolf
+BEGIN
+  REPLACE_CRE_ITEM "mh#wlfdr" #0 #0 #0 "unstealable&undroppable" "weapon1" EQUIP
+  REPLACE_CRE_ITEM "mh#wlfdr" #0 #0 #0 "unstealable&undroppable" "weapon2"
+  REPLACE_CRE_ITEM "mh#wlfdr" #0 #0 #0 "unstealable&undroppable" "weapon3"
+  REPLACE_CRE_ITEM "mh#wlfdr" #0 #0 #0 "unstealable&undroppable" "weapon4"
+  ADD_CRE_ITEM "ring95" #0 #0 #0 "unstealable&undroppable" "ring"
 
-    WRITE_BYTE	0x0052 15	// THAC0
-    WRITE_BYTE	0x0271 IDS_OF_SYMBOL("general" "undead")
-  END
+  WRITE_BYTE	0x0052 15	// THAC0
+  WRITE_BYTE	0x0271 IDS_OF_SYMBOL("general" "undead")
 END
 
 
