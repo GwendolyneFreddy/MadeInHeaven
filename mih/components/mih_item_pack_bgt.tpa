@@ -1193,7 +1193,7 @@ END
 // mh#ring7 - Bone Ring
 
 COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#ring7.itm" "override"
-  SAY NAME2 "Ring of the Necromancer"
+  SAY NAME2 "Bone Ring"
   SAY IDENTIFIED_DESC "Bone Ring
 
 Despite the ominous name and the fact that it is carved from human bone, these rings are actually a great boon to those who would fight vile necromancers and their ghastly creations.  The secret to creating them is quite ancient, and only a few rare tomes describe the complete process of enchanting one.  Despite this fact, a few dozen of these rings are known to exist, most of them crafted by the clergy of Kelemvor who see the creation of undead as a vile desecration of the sacred rest of the dead.
@@ -1477,7 +1477,7 @@ Not usable by:
 
 // mh#swrd6 - Sword of the Planes +1/+4
 
-EXTEND_BOTTOM "baldur.bcs" "%MOD_FOLDER%/item_pack/bgt/scripts/planar_sword.baf" USING "%LANGUAGE%/item_pack/bgt/scripts/planar_sword.tra"
+EXTEND_BOTTOM "baldur.bcs" "%MOD_FOLDER%/item_pack/bgt/scripts/planar_sword.baf" USING "%MOD_FOLDER%/tra/%LANGUAGE%/item_pack/bgt/scripts/planar_sword.tra"
 
 
 COPY "%MOD_FOLDER%/item_pack/bgt/items/mh#swrd6.itm" "override"

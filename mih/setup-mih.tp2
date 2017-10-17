@@ -12,7 +12,7 @@ ALWAYS
 END	// ALWAYS block
 
 
-LANGUAGE "American English" "mih/tra/english" "mih/tra/english/setup-mih.tra"
+LANGUAGE "American English" "english" "%MOD_FOLDER%/tra/english/setup-mih.tra"
 
 
 // ===================
